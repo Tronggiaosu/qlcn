@@ -1,0 +1,2725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28A3D8C9-334B-4D1D-A17F-2B84D52DC84E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLCongNo</RootNamespace>
+    <AssemblyName>QLCongNo</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>H:\Documents\WASSPRO\WASSPRO_TDC\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://QLCongNo.vn/tdc/</InstallUrl>
+    <ProductName>WASSPRO-TDC</ProductName>
+    <PublisherName>VNPT</PublisherName>
+    <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>371</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2C5A1F7FA6B833AC0A4143DAB71ABB4C09B6E110</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WASSPRO_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftReportViewerWebForms.11.0.0.0\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Autoprinter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BANGGIA_DM_DB.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD_KHACHHANG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAPNUOC_TDCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPNUOC_TDCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CHINHANH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHISONUOC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHITIET_HD.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHITIET_HDDIEUCHINH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHITIET_HD_EDIT.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHUNGTU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChungTuLog.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHUNGTU_CHISONUOC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHUNGTU_HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONGTY.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Extension\StringEncryptExtension.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DANGNGAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DANGNGANCK.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DANGNGANKH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataDangNganNH.cs" />
+    <Compile Include="Data\DataDangNganNV.cs" />
+    <Compile Include="Data\DataDanhMuc.cs" />
+    <Compile Include="DieuChinhTT.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_BANGGIA.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_CHUCVU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DOITUONGSUDUNG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DOT.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DUONG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_GHICHU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_GIABIEU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_GiaBVMT.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_HIEUDONGHO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_HINHTHUCTHANHTOAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_KHUVUC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_KICHCODH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_KYGHI.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LOAICHUNGTU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LOAIHOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LOAINHANVIEN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LOAIYEUCAU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_LYDO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_NAM.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_NGANHANG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_NGANHNGHE.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_NGUYENNHAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dm_phieu_thu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dm_phieu_thu20190110.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_PHONGBAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_PHUCAP.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_PHUONG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_QUAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_QUYEN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TINH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TRANGTHAIHOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TRANGTHAI_KH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_TRANGTHAI_YC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOANHTHU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOCSO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSBienNhan.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSBIENNHANH_APP.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSCHUNGTU_APP_INVOICE.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSGACHNO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSHD_PhieuThu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSHOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSHoaDonKhoDoi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSHoaDonThu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DSPHIEUTHU_APP.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DUONG_PHUONG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fngetDatakycuoc_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fngetDataLoTrinh_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNOCK.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNOKH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNOLOI.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNONV.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GachNo\frPhanQuyenNhanVienThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GachNo\frPhanQuyenNhanVienThu.Designer.cs">
+      <DependentUpon>frPhanQuyenNhanVienThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNO_LOG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GACHNO_TEST.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBangKeHoaDon215_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBangKeHoaDon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoChuanThuDot_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoChuanThuKhongDong_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoChuanThuKy_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaocaoHoadontontheongay_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaocaoHoadonton_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoPhieuDieuChinhHoaDon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoTheoDoiHoaDonTheoTo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoTongHopDangNganTheoNgay_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoTongHopTheoLoai_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoTongHop_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getChiTietDSHoaDonChiaTNV_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getChitietHoadonTNV_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getChiTietQLBiennhan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getChititbaocaoHoadonton_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCongNoDocHub_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDangNganBilling_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDangNganTheoNgayEX_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDangNganTheoNgay_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachDieuChinhDangNganEX_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachDieuChinhDangNgan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachHoaDonCu_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachKhachHangKhoDoi_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachKhachHang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachQuyetDinhDieuChinhEX_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDanhSachQuyetDinhDieuChinh_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDataAppMobile_KeToan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDataAppMobile_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDataChuyenNoKhoDoi_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDatagiayBaoTienNuoc_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDataThuHo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSBIENNHAN_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSChitietKhachhangnonhieuky_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSChuyenNoKhoDoi_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSDangNgan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSDongBoDuLieuThuHo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSDongBoHDDT_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSGIAODICH_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSGuiSMS_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHoaDonChuaChiaTNV_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHoaDonDieuChinhThongTin_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHoaDonKhongDong_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHoadontontheongay_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHoadonton_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHoaDon_KH_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSHuyThanhToan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSImportExcel_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSInGiayBaoTienNuoc_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSKhachHangChuaThanhToan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSKhachHangNoNhieuKy_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSKhoangLoTrinhChiaTNV_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSPhieuMobileApp_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSTongThanhToan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getFiledataBilling_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getKhangHang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getListDongBoHDDT_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoaiHoaDon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getPhanQuyenLoTrinh_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getPhieuTheoDoiHoaDOn_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getPhieuThuKH_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getQLBiennhan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getSDTKhangHang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getThongKeDangNganChuyenKhoanTheoNgay_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetThongKeHoaDon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getTongHopDieuChinhDangNgan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getTongHopDieuChinhTheoQuan_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getTrangThaiHoaDon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GIAODICH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoPhieu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon23.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADONDIEUCHINH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDonTon.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="ExcelExportHelper.cs" />
+    <Compile Include="HOADON_CHUATHU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON_DATHU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON_HUY.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON_KHODOI.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON_LOG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON_TEST.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KHACHHANG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KHACHHANG_TDC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KyGuiSM.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="listInvByCus_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_THUTIENNUOC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_USER.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOTRINH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOTRINH_GHI.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOTRINH_THU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAU_HD.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NGUOIDUNG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NGUOIDUNG_QUYEN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN_HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN_LNV.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuDangNganChuyenKhoangChiTiet_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuDangNganChuyenKhoangTongHop_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="phieuthu_kh.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalDoanhThuTheoNam_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalDoanhThuTheoQuy_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalDoanhThuTheoThang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalDSChiNhanh_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalHoaDonTheoNam_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalHoaDonTheoQuy_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalHoaDonTheoThang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalKhachHangTheoNhom_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalTieuThuTheoNam_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalTieuThuTheoQuy_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalTieuThuTheoThang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PublishedInvoice.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PublishedInvoices2024.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PublishedInvoices_bk20220803.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QUYEN_MENU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="spThongtinhoadon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_getDataHoadon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_getDataKhachhang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_getThamSoKiemTra_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_PaymentLogon_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_SendMessage_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="STT_DONGIA.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TAIKHOAN_SERVICE.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_TRANSACTIONS_LOG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TDC_CHITIETHD.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TDC_HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Thongkedoanhthu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THUHO_Log.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THUTON_HD.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THU_HO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIEUTHU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TonDochub.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TONEXXCEL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TongDuLieuDieuChinh.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="updateLoiChuaThu_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWCHUADANGNGAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWDANGNGANTHEONGAY.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWDANHSACHKHACHHANG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWDANHSACHLOTRINHTHU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWDANHSACHTHU_APP.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWTHONGTINHOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Core\FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovButton.Designer.cs">
+      <DependentUpon>NovButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovDataGridViewButtonColumn.cs" />
+    <Compile Include="View\Core\NovDataGridViewButtonColumn.Designer.cs">
+      <DependentUpon>NovDataGridViewButtonColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovDataGridViewCheckBoxColumn.cs" />
+    <Compile Include="View\Core\NovDataGridViewCheckBoxColumn.Designer.cs">
+      <DependentUpon>NovDataGridViewCheckBoxColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovToolStripLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovToolStripLabel.Designer.cs">
+      <DependentUpon>NovToolStripLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovToolStripStatusLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovToolStripStatusLabel.Designer.cs">
+      <DependentUpon>NovToolStripStatusLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovStatusStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovStatusStrip.Designer.cs">
+      <DependentUpon>NovStatusStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\ToolStripRenderer.cs" />
+    <Compile Include="View\Core\ToolStripColorTable.cs" />
+    <Compile Include="View\Core\NovCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovCheckBox.Designer.cs">
+      <DependentUpon>NovCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovDataGridView.Designer.cs">
+      <DependentUpon>NovDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovDateTimePicker.Designer.cs">
+      <DependentUpon>NovDateTimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovGroupBox.Designer.cs">
+      <DependentUpon>NovGroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovDataGridViewTextBoxColumn.cs" />
+    <Compile Include="View\Core\NovDataGridViewTextBoxColumn.Designer.cs">
+      <DependentUpon>NovDataGridViewTextBoxColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovToolStrip.Designer.cs">
+      <DependentUpon>NovToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovToolStripButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovToolStripButton.Designer.cs">
+      <DependentUpon>NovToolStripButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovUserControl.Designer.cs">
+      <DependentUpon>NovUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovPanel.Designer.cs">
+      <DependentUpon>NovPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovLabel.Designer.cs">
+      <DependentUpon>NovLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\MenuColorTable.cs" />
+    <Compile Include="View\Core\MenuRenderer.cs" />
+    <Compile Include="View\Core\NovComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovComboBox.Designer.cs">
+      <DependentUpon>NovComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\NovTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Core\NovTextBox.Designer.cs">
+      <DependentUpon>NovTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmDialog.Designer.cs">
+      <DependentUpon>FrmDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Core\PanelWoScrollbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcBaoCaoTongHopTheoLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcBaoCaoTongHopTheoLoai.Designer.cs">
+      <DependentUpon>UcBaoCaoTongHopTheoLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcDangNganChuyenKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcDangNganChuyenKhoan.Designer.cs">
+      <DependentUpon>UcDangNganChuyenKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcTongHopBilling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcTongHopBilling.Designer.cs">
+      <DependentUpon>UcTongHopBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcTongHopChuyenKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcTongHopChuyenKhoan.Designer.cs">
+      <DependentUpon>UcTongHopChuyenKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcTongHopDangNgan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DangNgan\UcTongHopDangNgan.Designer.cs">
+      <DependentUpon>UcTongHopDangNgan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDMGhiChuForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDMGhiChuForm.Designer.cs">
+      <DependentUpon>UcDMGhiChuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_DOT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_DOT.Designer.cs">
+      <DependentUpon>UcDM_DOT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_HINHTHUCTHANHTOAN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_HINHTHUCTHANHTOAN.Designer.cs">
+      <DependentUpon>UcDM_HINHTHUCTHANHTOAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_KyGhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_KyGhi.Designer.cs">
+      <DependentUpon>UcDM_KyGhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_LOAIYEUCAU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_LOAIYEUCAU.Designer.cs">
+      <DependentUpon>UcDM_LOAIYEUCAU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_TO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcDM_TO.Designer.cs">
+      <DependentUpon>UcDM_TO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcNHANVIEN_HOADON.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcNHANVIEN_HOADON.Designer.cs">
+      <DependentUpon>UcNHANVIEN_HOADON.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcGroupForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\DanhMuc\UcGroupForm.Designer.cs">
+      <DependentUpon>UcGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\XacNhanNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\XacNhanNo.Designer.cs">
+      <DependentUpon>XacNhanNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatThongTinKH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatThongTinKH.Designer.cs">
+      <DependentUpon>UcCapNhatThongTinKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu.Designer.cs">
+      <DependentUpon>UcBaoCaoChuanThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu0Dong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu0Dong.Designer.cs">
+      <DependentUpon>UcBaoCaoChuanThu0Dong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu_Dot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu_Dot.Designer.cs">
+      <DependentUpon>UcBaoCaoChuanThu_Dot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaocaoHoadontontheoky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaocaoHoadontontheoky.Designer.cs">
+      <DependentUpon>UcBaocaoHoadontontheoky.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTheoDoiHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTheoDoiHoaDon.Designer.cs">
+      <DependentUpon>UcBaoCaoTheoDoiHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNganHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNganHang.Designer.cs">
+      <DependentUpon>UcBaoCaoTongHopDangNganTheoNganHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNgay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNgay.Designer.cs">
+      <DependentUpon>UcBaoCaoTongHopDangNganTheoNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNhanVienGiaiTrach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNhanVienGiaiTrach.Designer.cs">
+      <DependentUpon>UcBaoCaoTongHopDangNganTheoNhanVienGiaiTrach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcKhachHangNoNhieuKy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcKhachHangNoNhieuKy.Designer.cs">
+      <DependentUpon>UcKhachHangNoNhieuKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHop.Designer.cs">
+      <DependentUpon>UcBaoCaoTongHop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcChitiethoadonton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcChitiethoadonton.Designer.cs">
+      <DependentUpon>UcChitiethoadonton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcCongNoTheoThang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcCongNoTheoThang.Designer.cs">
+      <DependentUpon>UcCongNoTheoThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcPhieuThuKH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcPhieuThuKH.Designer.cs">
+      <DependentUpon>UcPhieuThuKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcQuyetDinhDieuChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcQuyetDinhDieuChinh.Designer.cs">
+      <DependentUpon>UcQuyetDinhDieuChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcThongKeHDDaThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\BaoCao\UcThongKeHDDaThu.Designer.cs">
+      <DependentUpon>UcThongKeHDDaThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcBaoCaoTongHop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcBaoCaoTongHop.Designer.cs">
+      <DependentUpon>UcBaoCaoTongHop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcDangNganChuyenKhoang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcDangNganChuyenKhoang.Designer.cs">
+      <DependentUpon>UcDangNganChuyenKhoang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcDSDIEUCHINHHOADON.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcDSDIEUCHINHHOADON.Designer.cs">
+      <DependentUpon>UcDSDIEUCHINHHOADON.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcBangKeHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcBangKeHoaDon.Designer.cs">
+      <DependentUpon>UcBangKeHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcGiayBaoTienNuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcGiayBaoTienNuoc.Designer.cs">
+      <DependentUpon>UcGiayBaoTienNuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.Designer.cs">
+      <DependentUpon>UcPhieuNgungNuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\UcLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\UcLogin.Designer.cs">
+      <DependentUpon>UcLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDangNgan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDangNgan.Designer.cs">
+      <DependentUpon>UcDangNgan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDangNganBilling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDangNganBilling.Designer.cs">
+      <DependentUpon>UcDangNganBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoHDDT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoHDDT.Designer.cs">
+      <DependentUpon>UcDongBoHDDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoThanhToanEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoThanhToanEx.Designer.cs">
+      <DependentUpon>UcDongBoThanhToanEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoThanhToanThuHo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoThanhToanThuHo.Designer.cs">
+      <DependentUpon>UcDongBoThanhToanThuHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoThuHoApp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoThuHoApp.Designer.cs">
+      <DependentUpon>UcDongBoThuHoApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDSHoaDon_TNV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDSHoaDon_TNV.Designer.cs">
+      <DependentUpon>UcDSHoaDon_TNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoHDKhongDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoHDKhongDong.Designer.cs">
+      <DependentUpon>UcGachNoHDKhongDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoKeToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoKeToan.Designer.cs">
+      <DependentUpon>UcGachNoKeToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoKH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoKH.Designer.cs">
+      <DependentUpon>UcGachNoKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoKhoDoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoKhoDoi.Designer.cs">
+      <DependentUpon>UcGachNoKhoDoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoNV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNoNV.Designer.cs">
+      <DependentUpon>UcGachNoNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNo_CK_KH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNo_CK_KH.Designer.cs">
+      <DependentUpon>UcGachNo_CK_KH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNo_Excel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNo_Excel.Designer.cs">
+      <DependentUpon>UcGachNo_Excel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNo_ThuHo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcGachNo_ThuHo.Designer.cs">
+      <DependentUpon>UcGachNo_ThuHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcHoaDon.Designer.cs">
+      <DependentUpon>UcHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcNhanVien_HD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcNhanVien_HD.Designer.cs">
+      <DependentUpon>UcNhanVien_HD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcPhanQuyenNhanVienThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcPhanQuyenNhanVienThu.Designer.cs">
+      <DependentUpon>UcPhanQuyenNhanVienThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcQLBienNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcQLBienNhan.Designer.cs">
+      <DependentUpon>UcQLBienNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcQLPhieuThu_App.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcQLPhieuThu_App.Designer.cs">
+      <DependentUpon>UcQLPhieuThu_App.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcTraCuuHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcTraCuuHoaDon.Designer.cs">
+      <DependentUpon>UcTraCuuHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoKhachHangForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoKhachHangForm.Designer.cs">
+      <DependentUpon>UcDongBoKhachHangForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatDiaChiKH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatDiaChiKH.Designer.cs">
+      <DependentUpon>UcCapNhatDiaChiKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatQĐieuChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatQĐieuChinh.Designer.cs">
+      <DependentUpon>UcCapNhatQĐieuChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcChitietHD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcChitietHD.Designer.cs">
+      <DependentUpon>UcChitietHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDieuChinhHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDieuChinhHoaDon.Designer.cs">
+      <DependentUpon>UcDieuChinhHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.Designer.cs">
+      <DependentUpon>UcDongBoDuLieuHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoHDThuHo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoHDThuHo.Designer.cs">
+      <DependentUpon>UcDongBoHDThuHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSChuyenNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSChuyenNo.Designer.cs">
+      <DependentUpon>UcDSChuyenNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSHoaDonDieuChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSHoaDonDieuChinh.Designer.cs">
+      <DependentUpon>UcDSHoaDonDieuChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSHuyThanhToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSHuyThanhToan.Designer.cs">
+      <DependentUpon>UcDSHuyThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSNoNhieuKySMS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDSNoNhieuKySMS.Designer.cs">
+      <DependentUpon>UcDSNoNhieuKySMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcHoaDonHuy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcHoaDonHuy.Designer.cs">
+      <DependentUpon>UcHoaDonHuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcKhachHang.Designer.cs">
+      <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcPhatHanhHD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcPhatHanhHD.Designer.cs">
+      <DependentUpon>UcPhatHanhHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcProgress.Designer.cs">
+      <DependentUpon>UcProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHoaDonDieuChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHoaDonDieuChinh.Designer.cs">
+      <DependentUpon>UcQLHoaDonDieuChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHoaDonKhoDoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHoaDonKhoDoi.Designer.cs">
+      <DependentUpon>UcQLHoaDonKhoDoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHoaDonThayThe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHoaDonThayThe.Designer.cs">
+      <DependentUpon>UcQLHoaDonThayThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHuyHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQLHuyHoaDon.Designer.cs">
+      <DependentUpon>UcQLHuyHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQuanlyQD_DieuChinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcQuanlyQD_DieuChinh.Designer.cs">
+      <DependentUpon>UcQuanlyQD_DieuChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcTaoHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcTaoHoaDon.Designer.cs">
+      <DependentUpon>UcTaoHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcThayTheHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcThayTheHoaDon.Designer.cs">
+      <DependentUpon>UcThayTheHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcThongKeDieuChinhThongTin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcThongKeDieuChinhThongTin.Designer.cs">
+      <DependentUpon>UcThongKeDieuChinhThongTin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcViewInv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcViewInv.Designer.cs">
+      <DependentUpon>UcViewInv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcXuLyHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcXuLyHoaDon.Designer.cs">
+      <DependentUpon>UcXuLyHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcChangePassForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcChangePassForm.Designer.cs">
+      <DependentUpon>UcChangePassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcLienKet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcLienKet.Designer.cs">
+      <DependentUpon>UcLienKet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcNhanVienForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcNhanVienForm.Designer.cs">
+      <DependentUpon>UcNhanVienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcPhanQuyenForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcPhanQuyenForm.Designer.cs">
+      <DependentUpon>UcPhanQuyenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcTKLogUserForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcTKLogUserForm.Designer.cs">
+      <DependentUpon>UcTKLogUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcUserForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HeThong\UcUserForm.Designer.cs">
+      <DependentUpon>UcUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcHuyHDForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcHuyHDForm.Designer.cs">
+      <DependentUpon>UcHuyHDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcKyGhi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcKyGhi.Designer.cs">
+      <DependentUpon>UcKyGhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcGiayBaoTienNuoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcGiayBaoTienNuoc.Designer.cs">
+      <DependentUpon>UcGiayBaoTienNuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatThongTinKH_Old.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcCapNhatThongTinKH_Old.Designer.cs">
+      <DependentUpon>UcCapNhatThongTinKH_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\ImportData\UcImportHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\ImportData\UcImportHoaDon.Designer.cs">
+      <DependentUpon>UcImportHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcDoiDHForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcDoiDHForm.Designer.cs">
+      <DependentUpon>UcDoiDHForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcDoiThongTinKHForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcDoiThongTinKHForm.Designer.cs">
+      <DependentUpon>UcDoiThongTinKHForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcKhachHangChiTietForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcKhachHangChiTietForm.Designer.cs">
+      <DependentUpon>UcKhachHangChiTietForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcKhachHangForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcKhachHangForm.Designer.cs">
+      <DependentUpon>UcKhachHangForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcKiemTraForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcKiemTraForm.Designer.cs">
+      <DependentUpon>UcKiemTraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcNgungMoForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcNgungMoForm.Designer.cs">
+      <DependentUpon>UcNgungMoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcReportForm.Designer.cs">
+      <DependentUpon>UcReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcSuaChuaForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcSuaChuaForm.Designer.cs">
+      <DependentUpon>UcSuaChuaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcThanhLyForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcThanhLyForm.Designer.cs">
+      <DependentUpon>UcThanhLyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcTKYCForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcTKYCForm.Designer.cs">
+      <DependentUpon>UcTKYCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcYeuCauForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\KhachHang\UcYeuCauForm.Designer.cs">
+      <DependentUpon>UcYeuCauForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\LoTrinhThu\UcCapNhatLT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\LoTrinhThu\UcCapNhatLT.Designer.cs">
+      <DependentUpon>UcCapNhatLT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\LoTrinhThu\UcDSHoaDonChuaChiaChoTNV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\LoTrinhThu\UcDSHoaDonChuaChiaChoTNV.Designer.cs">
+      <DependentUpon>UcDSHoaDonChuaChiaChoTNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\UcSidebar_Hard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\UcSidebar_Hard.Designer.cs">
+      <DependentUpon>UcSidebar_Hard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\UcSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\UcSidebar.Designer.cs">
+      <DependentUpon>UcSidebar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW_DSKHACHHANG_HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW_LOGTHUTIENNUOC.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW_NHANVIENTHU_HOADON.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\bs78\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Business\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\pb78\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\portal78\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Portal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Publish\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ServiceTDC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ws78demo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="YEUCAU.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YEUCAU_DIEUCHINH.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Content Include="app.ico" />
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="GachNo\frPhanQuyenNhanVienThu.resx">
+      <DependentUpon>frPhanQuyenNhanVienThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Core\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Core\NovDropdownMenu.resx">
+      <DependentUpon>NovDropdownMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmDialog.resx">
+      <DependentUpon>FrmDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DangNgan\UcBaoCaoTongHopTheoLoai.resx">
+      <DependentUpon>UcBaoCaoTongHopTheoLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DangNgan\UcDangNganChuyenKhoan.resx">
+      <DependentUpon>UcDangNganChuyenKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DangNgan\UcTongHopBilling.resx">
+      <DependentUpon>UcTongHopBilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DangNgan\UcTongHopChuyenKhoan.resx">
+      <DependentUpon>UcTongHopChuyenKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DangNgan\UcTongHopDangNgan.resx">
+      <DependentUpon>UcTongHopDangNgan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcDMGhiChuForm.resx">
+      <DependentUpon>UcDMGhiChuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcDM_DOT.resx">
+      <DependentUpon>UcDM_DOT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcDM_HINHTHUCTHANHTOAN.resx">
+      <DependentUpon>UcDM_HINHTHUCTHANHTOAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcDM_KyGhi.resx">
+      <DependentUpon>UcDM_KyGhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcDM_LOAIYEUCAU.resx">
+      <DependentUpon>UcDM_LOAIYEUCAU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcDM_TO.resx">
+      <DependentUpon>UcDM_TO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcNHANVIEN_HOADON.resx">
+      <DependentUpon>UcNHANVIEN_HOADON.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\DanhMuc\UcGroupForm.resx">
+      <DependentUpon>UcGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\XacNhanNo.resx">
+      <DependentUpon>XacNhanNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcCapNhatThongTinKH.resx">
+      <DependentUpon>UcCapNhatThongTinKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu.resx">
+      <DependentUpon>UcBaoCaoChuanThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu0Dong.resx">
+      <DependentUpon>UcBaoCaoChuanThu0Dong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu_Dot.resx">
+      <DependentUpon>UcBaoCaoChuanThu_Dot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaocaoHoadontontheoky.resx">
+      <DependentUpon>UcBaocaoHoadontontheoky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTheoDoiHoaDon.resx">
+      <DependentUpon>UcBaoCaoTheoDoiHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNganHang.resx">
+      <DependentUpon>UcBaoCaoTongHopDangNganTheoNganHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNgay.resx">
+      <DependentUpon>UcBaoCaoTongHopDangNganTheoNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHopDangNganTheoNhanVienGiaiTrach.resx">
+      <DependentUpon>UcBaoCaoTongHopDangNganTheoNhanVienGiaiTrach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcKhachHangNoNhieuKy.resx">
+      <DependentUpon>UcKhachHangNoNhieuKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoTongHop.resx">
+      <DependentUpon>UcBaoCaoTongHop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcChitiethoadonton.resx">
+      <DependentUpon>UcChitiethoadonton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcCongNoTheoThang.resx">
+      <DependentUpon>UcCongNoTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcPhieuThuKH.resx">
+      <DependentUpon>UcPhieuThuKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcQuyetDinhDieuChinh.resx">
+      <DependentUpon>UcQuyetDinhDieuChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcThongKeHDDaThu.resx">
+      <DependentUpon>UcThongKeHDDaThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcBaoCaoTongHop.resx">
+      <DependentUpon>UcBaoCaoTongHop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcDangNganChuyenKhoang.resx">
+      <DependentUpon>UcDangNganChuyenKhoang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcDSDIEUCHINHHOADON.resx">
+      <DependentUpon>UcDSDIEUCHINHHOADON.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcBangKeHoaDon.resx">
+      <DependentUpon>UcBangKeHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcGiayBaoTienNuoc.resx">
+      <DependentUpon>UcGiayBaoTienNuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.resx">
+      <DependentUpon>UcPhieuNgungNuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNhanVienGiaiTrach.rdlc" />
+    <EmbeddedResource Include="View\UC\UcLogin.resx">
+      <DependentUpon>UcLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDangNgan.resx">
+      <DependentUpon>UcDangNgan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDangNganBilling.resx">
+      <DependentUpon>UcDangNganBilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDongBoHDDT.resx">
+      <DependentUpon>UcDongBoHDDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDongBoThanhToanEx.resx">
+      <DependentUpon>UcDongBoThanhToanEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDongBoThanhToanThuHo.resx">
+      <DependentUpon>UcDongBoThanhToanThuHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDongBoThuHoApp.resx">
+      <DependentUpon>UcDongBoThuHoApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDSHoaDon_TNV.resx">
+      <DependentUpon>UcDSHoaDon_TNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNoHDKhongDong.resx">
+      <DependentUpon>UcGachNoHDKhongDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNoKeToan.resx">
+      <DependentUpon>UcGachNoKeToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNoKH.resx">
+      <DependentUpon>UcGachNoKH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNoKhoDoi.resx">
+      <DependentUpon>UcGachNoKhoDoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNoNV.resx">
+      <DependentUpon>UcGachNoNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNo_CK_KH.resx">
+      <DependentUpon>UcGachNo_CK_KH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNo_Excel.resx">
+      <DependentUpon>UcGachNo_Excel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcGachNo_ThuHo.resx">
+      <DependentUpon>UcGachNo_ThuHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcHoaDon.resx">
+      <DependentUpon>UcHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcNhanVien_HD.resx">
+      <DependentUpon>UcNhanVien_HD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcPhanQuyenNhanVienThu.resx">
+      <DependentUpon>UcPhanQuyenNhanVienThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcQLBienNhan.resx">
+      <DependentUpon>UcQLBienNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcQLPhieuThu_App.resx">
+      <DependentUpon>UcQLPhieuThu_App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcTraCuuHoaDon.resx">
+      <DependentUpon>UcTraCuuHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDongBoKhachHangForm.resx">
+      <DependentUpon>UcDongBoKhachHangForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcCapNhatDiaChiKH.resx">
+      <DependentUpon>UcCapNhatDiaChiKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcCapNhatQĐieuChinh.resx">
+      <DependentUpon>UcCapNhatQĐieuChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcChitietHD.resx">
+      <DependentUpon>UcChitietHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDieuChinhHoaDon.resx">
+      <DependentUpon>UcDieuChinhHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.resx">
+      <DependentUpon>UcDongBoDuLieuHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDongBoHDThuHo.resx">
+      <DependentUpon>UcDongBoHDThuHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDSChuyenNo.resx">
+      <DependentUpon>UcDSChuyenNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDSHoaDonDieuChinh.resx">
+      <DependentUpon>UcDSHoaDonDieuChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDSHuyThanhToan.resx">
+      <DependentUpon>UcDSHuyThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDSNoNhieuKySMS.resx">
+      <DependentUpon>UcDSNoNhieuKySMS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcHoaDonHuy.resx">
+      <DependentUpon>UcHoaDonHuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcKhachHang.resx">
+      <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcPhatHanhHD.resx">
+      <DependentUpon>UcPhatHanhHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcProgress.resx">
+      <DependentUpon>UcProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcQLHoaDonDieuChinh.resx">
+      <DependentUpon>UcQLHoaDonDieuChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcQLHoaDonKhoDoi.resx">
+      <DependentUpon>UcQLHoaDonKhoDoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcQLHoaDonThayThe.resx">
+      <DependentUpon>UcQLHoaDonThayThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcQLHuyHoaDon.resx">
+      <DependentUpon>UcQLHuyHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcQuanlyQD_DieuChinh.resx">
+      <DependentUpon>UcQuanlyQD_DieuChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcTaoHoaDon.resx">
+      <DependentUpon>UcTaoHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcThayTheHoaDon.resx">
+      <DependentUpon>UcThayTheHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcThongKeDieuChinhThongTin.resx">
+      <DependentUpon>UcThongKeDieuChinhThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcViewInv.resx">
+      <DependentUpon>UcViewInv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcXuLyHoaDon.resx">
+      <DependentUpon>UcXuLyHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HeThong\UcChangePassForm.resx">
+      <DependentUpon>UcChangePassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HeThong\UcLienKet.resx">
+      <DependentUpon>UcLienKet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HeThong\UcNhanVienForm.resx">
+      <DependentUpon>UcNhanVienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HeThong\UcPhanQuyenForm.resx">
+      <DependentUpon>UcPhanQuyenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HeThong\UcTKLogUserForm.resx">
+      <DependentUpon>UcTKLogUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HeThong\UcUserForm.resx">
+      <DependentUpon>UcUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcHuyHDForm.resx">
+      <DependentUpon>UcHuyHDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcKyGhi.resx">
+      <DependentUpon>UcKyGhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcGiayBaoTienNuoc.resx">
+      <DependentUpon>UcGiayBaoTienNuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcCapNhatThongTinKH_Old.resx">
+      <DependentUpon>UcCapNhatThongTinKH_Old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ImportData\UcImportHoaDon.resx">
+      <DependentUpon>UcImportHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcDoiDHForm.resx">
+      <DependentUpon>UcDoiDHForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcDoiThongTinKHForm.resx">
+      <DependentUpon>UcDoiThongTinKHForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcKhachHangChiTietForm.resx">
+      <DependentUpon>UcKhachHangChiTietForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcKhachHangForm.resx">
+      <DependentUpon>UcKhachHangForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcKiemTraForm.resx">
+      <DependentUpon>UcKiemTraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcNgungMoForm.resx">
+      <DependentUpon>UcNgungMoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcReportForm.resx">
+      <DependentUpon>UcReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcSuaChuaForm.resx">
+      <DependentUpon>UcSuaChuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcThanhLyForm.resx">
+      <DependentUpon>UcThanhLyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcTKYCForm.resx">
+      <DependentUpon>UcTKYCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\KhachHang\UcYeuCauForm.resx">
+      <DependentUpon>UcYeuCauForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\LoTrinhThu\UcCapNhatLT.resx">
+      <DependentUpon>UcCapNhatLT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\LoTrinhThu\UcDSHoaDonChuaChiaChoTNV.resx">
+      <DependentUpon>UcDSHoaDonChuaChiaChoTNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\UcSidebar_Hard.resx">
+      <DependentUpon>UcSidebar_Hard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\UcSidebar.resx">
+      <DependentUpon>UcSidebar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\QLCongNo.Data.DataDangNgan.datasource" />
+    <None Include="Properties\DataSources\QLCongNo.Data.DataDangNganNV.datasource" />
+    <None Include="Resources\new\document.png" />
+    <None Include="Resources\new\Return.png" />
+    <None Include="Resources\new\lay-danh-sach.png" />
+    <None Include="Resources\new\thoat.png" />
+    <None Include="Resources\new\tim-kiem.png" />
+    <None Include="Resources\new\update.png" />
+    <None Include="Resources\new\print.png" />
+    <None Include="Resources\new\dang-ngan.png" />
+    <None Include="Resources\new\excel.png" />
+    <None Include="Resources\new\excel2019.png" />
+    <None Include="Resources\new\export-file.png" />
+    <None Include="Resources\new\sync.png" />
+    <None Include="Resources\new\sync1.png" />
+    <None Include="Resources\new\Synchronize.png" />
+    <None Include="Resources\new\cap-nhat-hoa-don.png" />
+    <None Include="Resources\new\paid.png" />
+    <None Include="Resources\new\refresh-new.png" />
+    <None Include="Resources\new\cancel.png" />
+    <None Include="Resources\new\get-du-lieu.png" />
+    <None Include="Resources\new\get-du-lieu1.png" />
+    <None Include="Resources\new\delete-new.png" />
+    <None Include="Resources\new\role-new.png" />
+    <None Include="Resources\new\change-password.png" />
+    <None Include="Resources\new\change-password-24.png" />
+    <None Include="Resources\new\login.png" />
+    <None Include="Resources\new\edit-1.png" />
+    <None Include="Resources\new\add-1.png" />
+    <None Include="Resources\new\save-1.png" />
+    <None Include="Resources\new\cancel-billing.png" />
+    <None Include="Resources\new\phat-hanh-hoa-don.png" />
+    <None Include="Resources\new\phat-hanh-hoa-don-1.png" />
+    <None Include="Resources\new\hoa-don-thay-the.png" />
+    <None Include="Resources\new\hoa-don-thay-the-1.png" />
+    <None Include="Resources\new\tai-hoa-don.png" />
+    <None Include="Resources\new\add-16x16.png" />
+    <None Include="Resources\new\edit-16x16.png" />
+    <None Include="Resources\new\thoat-16x16.png" />
+    <None Include="Resources\new\add-document.png" />
+    <None Include="Resources\new\invite.png" />
+    <None Include="Resources\new\Water.png" />
+    <None Include="Resources\new\ngung-nuoc.png" />
+    <None Include="Resources\new\mo-nuoc.png" />
+    <None Include="Resources\logoThuDuc2.png" />
+    <Content Include="Resources\Images\app.ico" />
+    <Content Include="Resources\Images\cntd.png" />
+    <Content Include="Resources\Images\logomoi.png" />
+    <Content Include="Resources\Images\pass.png" />
+    <Content Include="Resources\Images\user.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial110.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial110.dll" />
+    <None Include="CAPNUOC_TDCDataSet.xsc">
+      <DependentUpon>CAPNUOC_TDCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CAPNUOC_TDCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CAPNUOC_TDCDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CAPNUOC_TDCDataSet.xss">
+      <DependentUpon>CAPNUOC_TDCDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <Content Include="View\UC\KhachHang\PhieuBamChi.rdlc" />
+    <Content Include="View\UC\KhachHang\PhieuCT.rdlc" />
+    <Content Include="View\UC\KhachHang\PhieuNgungCC.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuCT_DoiDH.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuCT_LauDH.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuCT_NANGDH.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuCT_SuaDH.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuCT_ThayDH.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuKiemTra.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuMoNuoc.rdlc" />
+    <Content Include="View\UC\KhachHang\rpPhieuNgungNuocDoNo.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\Bang0ChiaTheoDot.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\BangTongHopDangNgan.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\BangTongHopHoaDonChuanThuKy.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\ChiaTheoDot.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\ChuanThuKy.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\NhapLieuDangNganCuaThuNhanVien.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\PhieuDangNganChuyenKhoangChiTiet.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\PhieuDangNganChuyenKhoangTongHop.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\PhieuNgungNuoc.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPBaoCaoChiaTheoDot.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPBaoCaoChuanThuHD0Dong.rdlc" />
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPBaoCaoTongHop.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPBaoCaoTongHopTheoLoai.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\rpChitiethoadonton.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPDangNgan.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPDanhSachHoaDonDieuChinh.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPGiayBaoTienNuoc.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\rpHoaDonThuTienNuoc.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPNoNhieuKy.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPPhieuDangNganChuyenKhoan.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPPhieuDieuChinhHoaDon.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPPhieuThuKH.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPTheoDoiHoaDon.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNgay.rdlc" />
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopHoaDon.rdlc" />
+    <None Include="View\UC\ReportViewer\ReportView\TraLaiHoaDonHanhThu.rdlc" />
+    <None Include="Web References\portal78\Portalservice.disco" />
+    <None Include="Web References\pb78\Publishservice.disco" />
+    <None Include="Web References\bs78\BusinessService.disco" />
+    <None Include="Web References\bs78\BusinessService.wsdl" />
+    <None Include="Web References\bs78\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\pb78\Publishservice.wsdl" />
+    <None Include="Web References\pb78\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\portal78\Portalservice.wsdl" />
+    <None Include="Web References\portal78\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ws78demo\PublishService.disco" />
+    <None Include="Web References\Publish\PublishService.disco" />
+    <None Include="Web References\Portal\PortalService.disco" />
+    <None Include="Web References\Portal\PortalService.wsdl" />
+    <None Include="Web References\Portal\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Publish\PublishService.wsdl" />
+    <None Include="Web References\Publish\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServiceTDC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServiceTDC\thuho.disco" />
+    <None Include="Web References\Business\BusinessService.disco" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="WASSPRO_TemporaryKey.pfx" />
+    <None Include="Web References\Business\BusinessService.wsdl" />
+    <None Include="Web References\Business\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServiceTDC\thuho.wsdl" />
+    <None Include="Web References\ws78demo\PublishService.wsdl" />
+    <None Include="Web References\ws78demo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\009_HighPriority_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\010_LowPriority_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109_AllAnnotations_Complete_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109_AllAnnotations_Default_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109_AllAnnotations_Error_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109_AllAnnotations_Help_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109_AllAnnotations_Info_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109_AllAnnotations_Warning_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Tick_Blue_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Tick_Green_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Tick_Grey_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Tick_Orange_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1385_Disable_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1385_Disable_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Likely_unavail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pending_request_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActiveX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key_EventLog_Audit_Success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\007_PrintView_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\037_Colorize_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\041_Sort_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\042b_AddCategory_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\077_AddFile_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_ArrowReturnLeft_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RefreshArrow_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125_FullView_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126_Edit_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\157_GetPermission_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\305_Close_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\327_Options_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2392_ZoomIn_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\command_link_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_12x12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Overlay_Share_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Overlay_Share_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Overlay_Share_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\007_PrintView_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\037_Colorize_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\041_Sort_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\042b_AddCategory_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\075b_UpFolder_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\077_AddFile_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RefreshArrow_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RefreshArrow_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126_Edit_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\157_GetPermission_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\305_Close_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\305_Close_32x42_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\327_Options_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2392_ZoomIn_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\applications.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apps.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\files_edit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\objects.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Printer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\private.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveData.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sms.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_add.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_edit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://tdapi.capnuocthuduc.vn/thuho.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServiceTDC\</RelPath>
+      <UpdateFromURL>https://tdapi.capnuocthuduc.vn/thuho.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_ServiceTDC_ThuHo</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuduc-tt78admin.vnpt-invoice.com.vn/BusinessService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\bs78\</RelPath>
+      <UpdateFromURL>https://capnuocthuduc-tt78admin.vnpt-invoice.com.vn/BusinessService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_bs78_BusinessService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuduc-tt78admin.vnpt-invoice.com.vn/Portalservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\portal78\</RelPath>
+      <UpdateFromURL>https://capnuocthuduc-tt78admin.vnpt-invoice.com.vn/Portalservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_portal78_PortalService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuduc-tt78admin.vnpt-invoice.com.vn/Publishservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\pb78\</RelPath>
+      <UpdateFromURL>https://capnuocthuduc-tt78admin.vnpt-invoice.com.vn/Publishservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_pb78_PublishService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuduc-tt78admindemo.vnpt-invoice.com.vn/PublishService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ws78demo\</RelPath>
+      <UpdateFromURL>https://capnuocthuduc-tt78admindemo.vnpt-invoice.com.vn/PublishService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_ws78demo_PublishService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuducservice.vnpt-invoice.com.vn/BusinessService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Business\</RelPath>
+      <UpdateFromURL>https://capnuocthuducservice.vnpt-invoice.com.vn/BusinessService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TNT_Business_BusinessService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuducservice.vnpt-invoice.com.vn/PortalService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Portal\</RelPath>
+      <UpdateFromURL>https://capnuocthuducservice.vnpt-invoice.com.vn/PortalService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_Portal_PortalService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://capnuocthuducservice.vnpt-invoice.com.vn/PublishService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Publish\</RelPath>
+      <UpdateFromURL>https://capnuocthuducservice.vnpt-invoice.com.vn/PublishService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WASSPRO_TDC_Publish_PublishService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="PhieuBamChi.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="PhieuCT.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="PhieuNgungCC.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="QLCongNo.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RP\rpBangKeHD.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RP\rpDoanhthu.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RP\rpPhieuthu_NV.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RP\rpSanluongChuanThu.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RP\rpThongKeSuDungNuoc.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="RP\rpThongKeThongTin.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f24007e41893418986752936e4f4e0d1" Name="Diagram1">
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.BANGGIA_DM_DB" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.BD_KHACHHANG" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHINHANH" Width="1.5" PointX="3" PointY="35.375" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHISONUOC" Width="1.5" PointX="14.25" PointY="63.5" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHITIET_HD" Width="1.5" PointX="12" PointY="26" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHITIET_HD_EDIT" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHITIET_HDDIEUCHINH" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHUNGTU" Width="1.5" PointX="10.5" PointY="19.5" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHUNGTU_CHISONUOC" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CHUNGTU_HOADON" Width="1.5" PointX="16.5" PointY="46.25" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.ChungTuLog" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.CONGTY" Width="1.5" PointX="0.75" PointY="35.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DANGNGAN" Width="1.5" PointX="15" PointY="28.375" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DANGNGANCK" Width="1.5" PointX="15" PointY="39.625" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DANGNGANKH" Width="1.5" PointX="18" PointY="31.625" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_BANGGIA" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_CHUCVU" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_DOITUONGSUDUNG" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_DOT" Width="1.5" PointX="12" PointY="57.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_DUONG" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_GHICHU" Width="1.5" PointX="12" PointY="62.125" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_GiaBVMT" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_HIEUDONGHO" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_HINHTHUCTHANHTOAN" Width="1.5" PointX="9.75" PointY="52" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_KHUVUC" Width="1.5" PointX="16.75" PointY="92" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_KICHCODH" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_KYGHI" Width="1.5" PointX="12" PointY="64.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_LOAICHUNGTU" Width="1.5" PointX="8.25" PointY="21.25" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_LOAIHOADON" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_LOAINHANVIEN" Width="1.5" PointX="12.75" PointY="17.5" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_LOAIYEUCAU" Width="1.5" PointX="9.75" PointY="62.25" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_LYDO" Width="1.5" PointX="19" PointY="68.25" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_NAM" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_NGANHANG" Width="1.5" PointX="9.75" PointY="49" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_NGANHNGHE" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_NGUYENNHAN" Width="1.5" PointX="11.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.dm_phieu_thu" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_PHONGBAN" Width="1.5" PointX="5.25" PointY="35.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_PHUCAP" Width="1.5" PointX="4.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_PHUONG" Width="1.5" PointX="14.5" PointY="91.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_QUAN" Width="1.5" PointX="12.25" PointY="91.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_QUYEN" Width="1.5" PointX="12" PointY="88.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_TINH" Width="1.5" PointX="10" PointY="92.125" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_TO" Width="1.5" PointX="7.5" PointY="36" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_TRANGTHAI_KH" Width="1.5" PointX="9.75" PointY="46.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_TRANGTHAI_YC" Width="1.5" PointX="19" PointY="65.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DM_TRANGTHAIHOADON" Width="1.5" PointX="6.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DOCSO" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DUONG_PHUONG" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GACHNO" Width="1.5" PointX="16.5" PointY="52" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GACHNO_LOG" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GACHNOCK" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GACHNOKH" Width="1.5" PointX="15.75" PointY="23.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GACHNONV" Width="1.5" PointX="12.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GIAODICH" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GiaoPhieu" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON" Width="1.5" PointX="14.25" PointY="44.625" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON_HUY" Width="1.5" PointX="16.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON_KHODOI" Width="1.5" PointX="16.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON_LOG" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON_TEST" Width="1.5" PointX="2.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADONDIEUCHINH" Width="1.5" PointX="4.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.KHACHHANG" Width="1.5" PointX="12" PointY="43.625" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.KHACHHANG_TDC" Width="1.5" PointX="19" PointY="45.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.LOG_THUTIENNUOC" Width="1.5" PointX="12" PointY="31.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.LOG_USER" Width="1.5" PointX="17.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.LOTRINH" Width="1.5" PointX="12" PointY="35.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.LOTRINH_GHI" Width="1.5" PointX="14.25" PointY="36.25" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.LOTRINH_THU" Width="1.5" PointX="17.25" PointY="35.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.MAU_HD" Width="1.5" PointX="12" PointY="39.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.NGUOIDUNG" Width="1.5" PointX="12" PointY="70.125" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.NGUOIDUNG_QUYEN" Width="1.5" PointX="14.25" PointY="71.625" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.NHANVIEN" Width="1.5" PointX="9.75" PointY="32.625" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.NHANVIEN_HOADON" Width="1.5" PointX="18" PointY="39.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.NHANVIEN_LNV" Width="1.5" PointX="15" PointY="33.25" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.PublishedInvoice" Width="1.5" PointX="18.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.QUYEN_MENU" Width="1.5" PointX="14.25" PointY="88.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.STT_DONGIA" Width="1.5" PointX="6.75" PointY="18.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.sysdiagram" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.TAIKHOAN_SERVICE" Width="1.5" PointX="19.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.TDC_CHITIETHD" Width="1.5" PointX="9.75" PointY="10.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.TDC_HOADON" Width="1.5" PointX="12" PointY="73.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.THU_HO" Width="1.5" PointX="18.75" PointY="19.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.THUHO_Log" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.THUTON_HD" Width="1.5" PointX="20.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.TIEUTHU" Width="1.5" PointX="21.25" PointY="32.875" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.YEUCAU" Width="1.5" PointX="21.25" PointY="50.125" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.YEUCAU_DIEUCHINH" Width="1.5" PointX="20.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.dm_phieu_thu20190110" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.GACHNOLOI" Width="1.5" PointX="20.75" PointY="21.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON_CHUATHU" Width="1.5" PointX="22.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.HOADON_DATHU" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.phieu_thu_bk14032018" Width="1.5" PointX="24.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.phieuthu_kh" Width="1.5" PointX="23.75" PointY="24.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.PublishedInvoices_bk14082019" Width="1.5" PointX="25.75" PointY="24.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.test" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.Customer" Width="1.5" PointX="27.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DOANHTHU" Width="1.5" PointX="6.75" PointY="24.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSBienNhan" Width="1.5" PointX="17.75" PointY="24.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSBIENNHANH_APP" Width="1.5" PointX="8.75" PointY="26.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSCHUNGTU_APP_INVOICE" Width="1.5" PointX="27.75" PointY="25.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSGACHNO" Width="1.5" PointX="14.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSHD_PhieuThu" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSHOADON" Width="1.5" PointX="29.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSHoaDonKhoDoi" Width="1.5" PointX="29.75" PointY="19.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSHoaDonThu" Width="1.5" PointX="4.75" PointY="29.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.DSPHIEUTHU_APP" Width="1.5" PointX="29.75" PointY="26.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.Thongkedoanhthu" Width="1.5" PointX="30.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.TONEXXCEL" Width="1.5" PointX="19.75" PointY="28.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEW_DSKHACHHANG_HOADON" Width="1.5" PointX="31.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEW_LOGTHUTIENNUOC" Width="1.5" PointX="0.75" PointY="30.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEW_NHANVIENTHU_HOADON" Width="1.5" PointX="31.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEWCHUADANGNGAN" Width="1.5" PointX="31.75" PointY="18.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEWDANGNGANTHEONGAY" Width="1.5" PointX="31.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEWDANHSACHKHACHHANG" Width="1.5" PointX="31.75" PointY="29.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEWDANHSACHLOTRINHTHU" Width="1.5" PointX="27.75" PointY="32.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEWDANHSACHTHU_APP" Width="1.5" PointX="32.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CAPNUOC_TDCModel.VIEWTHONGTINHOADON" Width="1.5" PointX="33.75" PointY="4.75" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__CHINHANH__maCTY__2A164134" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__CHINHANH__maCTY__634EBE90" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__CHINHANH__maCTY__6FE99F9F" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__LOTRINH__maCN__72910220" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__PHONGBAN__maCN__04E4BC85" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__PHONGBAN__maCN__3F115E1A" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__PHONGBAN__maCN__7849DB76" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHISONUOC_DANHMUCKYGHI" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHISONUOC_DMGHICHU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHITIET_HD_CHITIET_HD" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHITIET_HD_HOADON" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHITIET_HD_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHITIET_HD_NHANVIEN1" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHUNGTU_LOAICHUNGTU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_GACHNOCK_CHUNGTU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_GACHNOKH_CHUNGTU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_GACHNONV_CHUNGTU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_CHUNGTU_HOADON_HOADON" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGAN_GACHNONV" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGAN_HOADON" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGAN_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGAN_NHANVIEN_BLL" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGANCK_GACHNOCK" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGANCK_NHANVIEN_DANGNGAN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGANCK_NHANVIEN_LAP" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGANKH_GACHNOKH" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGANKH_NHANVIEN_DANGNGAN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DANGNGANKH_NHANVIEN_LAP" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__BANGGIA_DM__maDT__56D3D912" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_DM_DOT" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_HOADON_DM_DOT" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DMGHICHU_LOAIYEUCAU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_DM_HINHTHUCTHANHTOAN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_TDC__HTTT" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__KHUVUC__maPhuong__3864608B" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_TDC_KHUVUC" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DM_KYGHI_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_DM_KYGHI" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_DM_KYGHI1" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_LNV_LOAINHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_YEUCAU_LOAIYEUCAU" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_YEUCAU_DM_LYDO" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_DM_NGANHANG" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_DM_TO_DM_PHONGBAN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_DM_PHONGBAN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__PHUONG__maQuan__05D8E0BE" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_TDC_PHUONG" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK__QUAN__maTinh__06CD04F7" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_TDC_QUAN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_nguoidung_quyen_QUYEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_QUYEN_MENU_QUYEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_DM_TO" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_KHACHHANG_DM_TRANGTHAI_KH" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_YEUCAU_DMTRANGTHAI_YC" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_GACHNO_HOADON" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_KHACHHANG" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_NHANVIEN1" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_NHANVIEN2" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_HOADON_TDC_HOADON" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOG_THUTIENNUOC_KHACHHANG" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_YEUCAU_KHACHHANG" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_TIEUTHU_KHACHHANG_TDC" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOG_THUTIENNUOC_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOTRINH_GHI_LOTRINH" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOTRINH_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOTRINH_THU_LOTRINH" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOTRINH_GHI_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_LOTRINH_THU_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_MAU_HD_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NGUOIDUNG_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_nguoidung_quyen_NGUOIDUNG" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_HOADON_NHANVIEN" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_HOADON_NHANVIEN1" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_HOADON_NHANVIEN2" />
+        <AssociationConnector Association="CAPNUOC_TDCModel.FK_NHANVIEN_LNV_NHANVIEN" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

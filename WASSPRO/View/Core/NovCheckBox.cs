@@ -1,0 +1,20 @@
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace QLCongNo.View.Core
+{
+    public partial class NovCheckBox : CheckBox
+    {
+        protected Color designBackColor;
+
+        public NovCheckBox()
+        {
+            InitializeComponent();
+            this.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.BackColor = Color.Transparent;
+            this.ForeColor = Color.MediumBlue;
+            this.DoubleBuffered = true;
+            designBackColor = this.BackColor;
+        }
+    }
+}

@@ -1,0 +1,623 @@
+﻿namespace QLCongNo.FORM
+{
+    partial class UcChiTietBienNhan
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel1 = new View.Core.NovPanel();
+            this.dgvChitiet = new View.Core.NovDataGridView();
+            this.STT = new View.Core.NovDataGridViewTextBoxColumn();
+            this.ID_NV = new View.Core.NovDataGridViewTextBoxColumn();
+            this.ID_kyghi = new View.Core.NovDataGridViewTextBoxColumn();
+            this.ID_CT = new View.Core.NovDataGridViewTextBoxColumn();
+            this.NV_lap = new View.Core.NovDataGridViewTextBoxColumn();
+            this.NV_nop = new View.Core.NovDataGridViewTextBoxColumn();
+            this.soCT = new View.Core.NovDataGridViewTextBoxColumn();
+            this.quyenso = new View.Core.NovDataGridViewTextBoxColumn();
+            this.tongtien = new View.Core.NovDataGridViewTextBoxColumn();
+            this.soluong = new View.Core.NovDataGridViewTextBoxColumn();
+            this.soluongchuathu = new View.Core.NovDataGridViewTextBoxColumn();
+            this.trangthai = new View.Core.NovDataGridViewTextBoxColumn();
+            this.ngaylap = new View.Core.NovDataGridViewTextBoxColumn();
+            this.ID_NV_lap = new View.Core.NovDataGridViewTextBoxColumn();
+            this.toolStrip1 = new View.Core.NovToolStrip();
+            this.btnTim = new View.Core.NovToolStripButton();
+            this.btnSua = new View.Core.NovToolStripButton();
+            this.btnIn = new View.Core.NovToolStripButton();
+            this.btnDB = new View.Core.NovToolStripButton();
+            this.btnXoa = new View.Core.NovToolStripButton();
+            this.btnRF = new View.Core.NovToolStripButton();
+            this.btnEX = new View.Core.NovToolStripButton();
+            this.btnThoat = new View.Core.NovToolStripButton();
+            this.statusStrip1 = new View.Core.NovStatusStrip();
+            this.toolStripStatusLabel1 = new View.Core.NovToolStripStatusLabel();
+            this.lbltonghd = new View.Core.NovToolStripStatusLabel();
+            this.lbltongtien = new View.Core.NovToolStripStatusLabel();
+            this.cbokyghi = new View.Core.NovComboBox();
+            this.cboNV = new View.Core.NovComboBox();
+            this.dtpNgaylap = new View.Core.NovDateTimePicker();
+            this.label5 = new View.Core.NovLabel();
+            this.txtSoCT = new View.Core.NovTextBox();
+            this.cboNVlap = new View.Core.NovComboBox();
+            this.dtpdenngay = new View.Core.NovDateTimePicker();
+            this.chkKyHD = new View.Core.NovCheckBox();
+            this.chkNgay = new View.Core.NovCheckBox();
+            this.label1 = new View.Core.NovLabel();
+            this.chkNVnop = new View.Core.NovCheckBox();
+            this.chkNVlap = new View.Core.NovCheckBox();
+            this.groupBox1 = new View.Core.NovGroupBox();
+            this.cboLoai = new View.Core.NovComboBox();
+            this.chkLoai = new View.Core.NovCheckBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChitiet)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgvChitiet);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 137);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1086, 584);
+            this.panel1.TabIndex = 16;
+            // 
+            // dgvChitiet
+            // 
+            this.dgvChitiet.AllowUserToAddRows = false;
+            this.dgvChitiet.AllowUserToOrderColumns = true;
+            this.dgvChitiet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+
+            this.dgvChitiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChitiet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.ID_NV,
+            this.ID_kyghi,
+            this.ID_CT,
+            this.NV_lap,
+            this.NV_nop,
+            this.soCT,
+            this.quyenso,
+            this.tongtien,
+            this.soluong,
+            this.soluongchuathu,
+            this.trangthai,
+            this.ngaylap,
+            this.ID_NV_lap});
+            this.dgvChitiet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvChitiet.GridColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvChitiet.Location = new System.Drawing.Point(0, 0);
+            this.dgvChitiet.Name = "dgvChitiet";
+            this.dgvChitiet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvChitiet.Size = new System.Drawing.Size(1086, 584);
+            this.dgvChitiet.TabIndex = 10;
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle1;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 60;
+            // 
+            // ID_NV
+            // 
+            this.ID_NV.DataPropertyName = "NV_ID_nop";
+            this.ID_NV.HeaderText = "ID_NV";
+            this.ID_NV.Name = "ID_NV";
+            this.ID_NV.Visible = false;
+            this.ID_NV.Width = 72;
+            // 
+            // ID_kyghi
+            // 
+            this.ID_kyghi.DataPropertyName = "ID_kyghi";
+            this.ID_kyghi.HeaderText = "ID_kyghi";
+            this.ID_kyghi.Name = "ID_kyghi";
+            this.ID_kyghi.ReadOnly = true;
+            this.ID_kyghi.Visible = false;
+            this.ID_kyghi.Width = 85;
+            // 
+            // ID_CT
+            // 
+            this.ID_CT.DataPropertyName = "ID_CT";
+            this.ID_CT.HeaderText = "ID_CT";
+            this.ID_CT.Name = "ID_CT";
+            this.ID_CT.ReadOnly = true;
+            this.ID_CT.Visible = false;
+            this.ID_CT.Width = 71;
+            // 
+            // NV_lap
+            // 
+            this.NV_lap.DataPropertyName = "nvlap";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.NV_lap.DefaultCellStyle = dataGridViewCellStyle2;
+            this.NV_lap.HeaderText = "Nhân viên lập";
+            this.NV_lap.Name = "NV_lap";
+            this.NV_lap.ReadOnly = true;
+            this.NV_lap.Width = 88;
+            // 
+            // NV_nop
+            // 
+            this.NV_nop.DataPropertyName = "nvnop";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.NV_nop.DefaultCellStyle = dataGridViewCellStyle3;
+            this.NV_nop.HeaderText = "Người nộp";
+            this.NV_nop.Name = "NV_nop";
+            this.NV_nop.ReadOnly = true;
+            this.NV_nop.Width = 87;
+            // 
+            // soCT
+            // 
+            this.soCT.DataPropertyName = "soCT";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.soCT.DefaultCellStyle = dataGridViewCellStyle4;
+            this.soCT.HeaderText = "Số phiếu thu";
+            this.soCT.Name = "soCT";
+            this.soCT.ReadOnly = true;
+            this.soCT.Width = 97;
+            // 
+            // quyenso
+            // 
+            this.quyenso.DataPropertyName = "quyenso";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.quyenso.DefaultCellStyle = dataGridViewCellStyle5;
+            this.quyenso.HeaderText = "Quyển số";
+            this.quyenso.Name = "quyenso";
+            this.quyenso.ReadOnly = true;
+            this.quyenso.Width = 83;
+            // 
+            // tongtien
+            // 
+            this.tongtien.DataPropertyName = "tongtien";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.tongtien.DefaultCellStyle = dataGridViewCellStyle6;
+            this.tongtien.HeaderText = "Tổng tiền";
+            this.tongtien.Name = "tongtien";
+            this.tongtien.ReadOnly = true;
+            this.tongtien.Width = 82;
+            // 
+            // soluong
+            // 
+            this.soluong.DataPropertyName = "soluong";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.soluong.DefaultCellStyle = dataGridViewCellStyle7;
+            this.soluong.HeaderText = "Số lượng hóa đơn";
+            this.soluong.Name = "soluong";
+            this.soluong.ReadOnly = true;
+            this.soluong.Width = 105;
+            // 
+            // soluongchuathu
+            // 
+            this.soluongchuathu.DataPropertyName = "soluongchuagach";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.soluongchuathu.DefaultCellStyle = dataGridViewCellStyle8;
+            this.soluongchuathu.HeaderText = "Số chưa đồng bộ";
+            this.soluongchuathu.Name = "soluongchuathu";
+            this.soluongchuathu.ReadOnly = true;
+            this.soluongchuathu.Width = 109;
+            // 
+            // trangthai
+            // 
+            this.trangthai.DataPropertyName = "trangthai";
+            this.trangthai.HeaderText = "Trạng thái";
+            this.trangthai.Name = "trangthai";
+            this.trangthai.ReadOnly = true;
+            this.trangthai.Width = 86;
+            // 
+            // ngaylap
+            // 
+            this.ngaylap.DataPropertyName = "ngaylap";
+            dataGridViewCellStyle9.Format = "d";
+            dataGridViewCellStyle9.NullValue = null;
+            this.ngaylap.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ngaylap.HeaderText = "Ngày thu";
+            this.ngaylap.Name = "ngaylap";
+            this.ngaylap.ReadOnly = true;
+            this.ngaylap.Width = 79;
+            // 
+            // ID_NV_lap
+            // 
+            this.ID_NV_lap.DataPropertyName = "NV_ID_lap";
+            this.ID_NV_lap.HeaderText = "ID_NV_lap";
+            this.ID_NV_lap.Name = "ID_NV_lap";
+            this.ID_NV_lap.Visible = false;
+            this.ID_NV_lap.Width = 98;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.toolStrip1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnTim,
+            this.btnSua,
+            this.btnIn,
+            this.btnDB,
+            this.btnXoa,
+            this.btnRF,
+            this.btnEX,
+            this.btnThoat});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1086, 25);
+            this.toolStrip1.TabIndex = 13;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnTim
+            // 
+            this.btnTim.Image = global::QLCongNo.Properties.Resources._2392_ZoomIn_16x16;
+            this.btnTim.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(52, 22);
+            this.btnTim.Text = "Tìm";
+            // 
+            // btnSua
+            // 
+            this.btnSua.Image = global::QLCongNo.Properties.Resources._2392_ZoomIn_48x48;
+            this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(73, 22);
+            this.btnSua.Text = "Chi tiết";
+            // 
+            // btnIn
+            // 
+            this.btnIn.Image = global::QLCongNo.Properties.Resources.Printer;
+            this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(108, 22);
+            this.btnIn.Text = "In biên nhận";
+            // 
+            // btnDB
+            // 
+            this.btnDB.Image = global::QLCongNo.Properties.Resources._112_Tick_Orange_32x32_72;
+            this.btnDB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDB.Name = "btnDB";
+            this.btnDB.Size = new System.Drawing.Size(81, 22);
+            this.btnDB.Text = "Đồng bộ";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Image = global::QLCongNo.Properties.Resources._109_AllAnnotations_Error_16x16_72;
+            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(53, 22);
+            this.btnXoa.Text = "Xóa";
+            // 
+            // btnRF
+            // 
+            this.btnRF.Image = global::QLCongNo.Properties.Resources._112_RefreshArrow_Blue_24x24_72;
+            this.btnRF.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRF.Name = "btnRF";
+            this.btnRF.Size = new System.Drawing.Size(76, 22);
+            this.btnRF.Text = "Refresh";
+            // 
+            // btnEX
+            // 
+            this.btnEX.Image = global::QLCongNo.Properties.Resources.Excel;
+            this.btnEX.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEX.Name = "btnEX";
+            this.btnEX.Size = new System.Drawing.Size(96, 22);
+            this.btnEX.Text = "Xuất Excel";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::QLCongNo.Properties.Resources.delete1;
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(64, 22);
+            this.btnThoat.Text = "Thoát";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lbltonghd,
+            this.lbltongtien});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 721);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1086, 22);
+            this.statusStrip1.TabIndex = 14;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(132, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // lbltonghd
+            // 
+            this.lbltonghd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltonghd.ForeColor = System.Drawing.Color.Blue;
+            this.lbltonghd.Name = "lbltonghd";
+            this.lbltonghd.Size = new System.Drawing.Size(132, 17);
+            this.lbltonghd.Text = "toolStripStatusLabel2";
+            // 
+            // lbltongtien
+            // 
+            this.lbltongtien.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltongtien.ForeColor = System.Drawing.Color.Blue;
+            this.lbltongtien.Name = "lbltongtien";
+            this.lbltongtien.Size = new System.Drawing.Size(132, 17);
+            this.lbltongtien.Text = "toolStripStatusLabel3";
+            // 
+            // cbokyghi
+            // 
+            this.cbokyghi.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbokyghi.FormattingEnabled = true;
+            this.cbokyghi.Location = new System.Drawing.Point(152, 23);
+            this.cbokyghi.Name = "cbokyghi";
+            this.cbokyghi.Size = new System.Drawing.Size(212, 24);
+            this.cbokyghi.TabIndex = 6;
+            // 
+            // cboNV
+            // 
+            this.cboNV.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNV.FormattingEnabled = true;
+            this.cboNV.Location = new System.Drawing.Point(839, 49);
+            this.cboNV.Name = "cboNV";
+            this.cboNV.Size = new System.Drawing.Size(222, 24);
+            this.cboNV.TabIndex = 8;
+            // 
+            // dtpNgaylap
+            // 
+            this.dtpNgaylap.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaylap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaylap.Location = new System.Drawing.Point(469, 24);
+            this.dtpNgaylap.Name = "dtpNgaylap";
+            this.dtpNgaylap.Size = new System.Drawing.Size(231, 22);
+            this.dtpNgaylap.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(117, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 16);
+            this.label5.TabIndex = 95;
+            this.label5.Text = "Tìm";
+            // 
+            // txtSoCT
+            // 
+            this.txtSoCT.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoCT.Location = new System.Drawing.Point(152, 80);
+            this.txtSoCT.Name = "txtSoCT";
+            this.txtSoCT.Size = new System.Drawing.Size(313, 22);
+            this.txtSoCT.TabIndex = 1;
+            // 
+            // cboNVlap
+            // 
+            this.cboNVlap.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNVlap.FormattingEnabled = true;
+            this.cboNVlap.Location = new System.Drawing.Point(839, 21);
+            this.cboNVlap.Name = "cboNVlap";
+            this.cboNVlap.Size = new System.Drawing.Size(222, 24);
+            this.cboNVlap.TabIndex = 98;
+            // 
+            // dtpdenngay
+            // 
+            this.dtpdenngay.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpdenngay.Location = new System.Drawing.Point(469, 50);
+            this.dtpdenngay.Name = "dtpdenngay";
+            this.dtpdenngay.Size = new System.Drawing.Size(231, 22);
+            this.dtpdenngay.TabIndex = 102;
+            // 
+            // chkKyHD
+            // 
+            this.chkKyHD.AutoSize = true;
+            this.chkKyHD.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chkKyHD.Location = new System.Drawing.Point(52, 23);
+            this.chkKyHD.Name = "chkKyHD";
+            this.chkKyHD.Size = new System.Drawing.Size(94, 20);
+            this.chkKyHD.TabIndex = 103;
+            this.chkKyHD.Text = "Kỳ hóa đơn";
+            this.chkKyHD.UseVisualStyleBackColor = true;
+            // 
+            // chkNgay
+            // 
+            this.chkNgay.AutoSize = true;
+            this.chkNgay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chkNgay.Location = new System.Drawing.Point(389, 28);
+            this.chkNgay.Name = "chkNgay";
+            this.chkNgay.Size = new System.Drawing.Size(76, 20);
+            this.chkNgay.TabIndex = 104;
+            this.chkNgay.Text = "Từ ngày";
+            this.chkNgay.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(400, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Đến ngày";
+            // 
+            // chkNVnop
+            // 
+            this.chkNVnop.AutoSize = true;
+            this.chkNVnop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chkNVnop.Location = new System.Drawing.Point(721, 50);
+            this.chkNVnop.Name = "chkNVnop";
+            this.chkNVnop.Size = new System.Drawing.Size(113, 20);
+            this.chkNVnop.TabIndex = 106;
+            this.chkNVnop.Text = "Nhân viên nộp";
+            this.chkNVnop.UseVisualStyleBackColor = true;
+            // 
+            // chkNVlap
+            // 
+            this.chkNVlap.AutoSize = true;
+            this.chkNVlap.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chkNVlap.Location = new System.Drawing.Point(725, 23);
+            this.chkNVlap.Name = "chkNVlap";
+            this.chkNVlap.Size = new System.Drawing.Size(109, 20);
+            this.chkNVlap.TabIndex = 107;
+            this.chkNVlap.Text = "Nhân việc lập";
+            this.chkNVlap.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.cboLoai);
+            this.groupBox1.Controls.Add(this.chkLoai);
+            this.groupBox1.Controls.Add(this.chkNVlap);
+            this.groupBox1.Controls.Add(this.chkNVnop);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.chkNgay);
+            this.groupBox1.Controls.Add(this.chkKyHD);
+            this.groupBox1.Controls.Add(this.dtpdenngay);
+            this.groupBox1.Controls.Add(this.cboNVlap);
+            this.groupBox1.Controls.Add(this.txtSoCT);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dtpNgaylap);
+            this.groupBox1.Controls.Add(this.cboNV);
+            this.groupBox1.Controls.Add(this.cbokyghi);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.Location = new System.Drawing.Point(0, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1086, 112);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            // 
+            // cboLoai
+            // 
+            this.cboLoai.FormattingEnabled = true;
+            this.cboLoai.Location = new System.Drawing.Point(152, 50);
+            this.cboLoai.Name = "cboLoai";
+            this.cboLoai.Size = new System.Drawing.Size(212, 24);
+            this.cboLoai.TabIndex = 109;
+            // 
+            // chkLoai
+            // 
+            this.chkLoai.AutoSize = true;
+            this.chkLoai.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chkLoai.Location = new System.Drawing.Point(93, 49);
+            this.chkLoai.Name = "chkLoai";
+            this.chkLoai.Size = new System.Drawing.Size(53, 20);
+            this.chkLoai.TabIndex = 108;
+            this.chkLoai.Text = "Loại";
+            this.chkLoai.UseVisualStyleBackColor = true;
+            // 
+            // frChiTietBienNhan
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1086, 743);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.toolStrip1);
+            this.Name = "frChiTietBienNhan";
+            this.Text = "QUẢN LÝ BIÊN NHẬN";
+            this.Load += new System.EventHandler(this.frChiTietBienNhan_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChitiet)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private View.Core.NovPanel panel1;
+        private View.Core.NovToolStrip toolStrip1;
+        private View.Core.NovToolStripButton btnSua;
+        private View.Core.NovToolStripButton btnXoa;
+        private View.Core.NovToolStripButton btnTim;
+        private View.Core.NovToolStripButton btnRF;
+        private View.Core.NovToolStripButton btnEX;
+        private View.Core.NovToolStripButton btnThoat;
+        private View.Core.NovStatusStrip statusStrip1;
+        private View.Core.NovToolStripStatusLabel toolStripStatusLabel1;
+        private View.Core.NovToolStripStatusLabel lbltonghd;
+        private View.Core.NovToolStripStatusLabel lbltongtien;
+        private View.Core.NovToolStripButton btnIn;
+        private View.Core.NovToolStripButton btnDB;
+        private View.Core.NovComboBox cbokyghi;
+        private View.Core.NovComboBox cboNV;
+        private View.Core.NovDateTimePicker dtpNgaylap;
+        private View.Core.NovLabel label5;
+        private View.Core.NovTextBox txtSoCT;
+        private View.Core.NovComboBox cboNVlap;
+        private View.Core.NovDateTimePicker dtpdenngay;
+        private View.Core.NovCheckBox chkKyHD;
+        private View.Core.NovCheckBox chkNgay;
+        private View.Core.NovLabel label1;
+        private View.Core.NovCheckBox chkNVnop;
+        private View.Core.NovCheckBox chkNVlap;
+        private View.Core.NovGroupBox groupBox1;
+        private View.Core.NovComboBox cboLoai;
+        private View.Core.NovCheckBox chkLoai;
+        private View.Core.NovDataGridView dgvChitiet;
+        private View.Core.NovDataGridViewTextBoxColumn STT;
+        private View.Core.NovDataGridViewTextBoxColumn ID_NV;
+        private View.Core.NovDataGridViewTextBoxColumn ID_kyghi;
+        private View.Core.NovDataGridViewTextBoxColumn ID_CT;
+        private View.Core.NovDataGridViewTextBoxColumn NV_lap;
+        private View.Core.NovDataGridViewTextBoxColumn NV_nop;
+        private View.Core.NovDataGridViewTextBoxColumn soCT;
+        private View.Core.NovDataGridViewTextBoxColumn quyenso;
+        private View.Core.NovDataGridViewTextBoxColumn tongtien;
+        private View.Core.NovDataGridViewTextBoxColumn soluong;
+        private View.Core.NovDataGridViewTextBoxColumn soluongchuathu;
+        private View.Core.NovDataGridViewTextBoxColumn trangthai;
+        private View.Core.NovDataGridViewTextBoxColumn ngaylap;
+        private View.Core.NovDataGridViewTextBoxColumn ID_NV_lap;
+    }
+}

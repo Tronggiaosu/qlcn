@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WASSPRO_WS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WASSPRO_WS_Lawaco_Bussiness_BusinessService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://lamdongwacoservicedemo.vnpt-invoice.com.vn/BusinessService.asmx</Value>
+    </Setting>
+    <Setting Name="WASSPRO_WS_Lawaco_Publish_PublishService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://lamdongwacoservicedemo.vnpt-invoice.com.vn/PublishService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

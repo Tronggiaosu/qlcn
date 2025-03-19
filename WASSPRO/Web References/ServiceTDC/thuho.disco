@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://tdapi.capnuocthuduc.vn/thuho.asmx?wsdl" docRef="https://tdapi.capnuocthuduc.vn/thuho.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://tdapi.capnuocthuduc.vn/thuho.asmx" xmlns:q1="http://TDService/" binding="q1:ThuHoSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://tdapi.capnuocthuduc.vn/thuho.asmx" xmlns:q2="http://TDService/" binding="q2:ThuHoSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d7d0bdf6a694782a9144cc13cf6bfa5" Name="Diagram1">
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.BANGGIA" Width="1.5" PointX="8.25" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.BANGGIA_DM" Width="1.5" PointX="10.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.BD_KHACHHANG" Width="1.5" PointX="18" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHINHANH" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHISONUOC" Width="1.5" PointX="9.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHITIET_HD" Width="1.5" PointX="15" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHITIET_HD_EDIT" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHUNGTU" Width="1.5" PointX="9.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHUNGTU_CHISONUOC" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CHUNGTU_HOADON" Width="1.5" PointX="15" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.CONGTY" Width="1.5" PointX="0.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DANHMUCKYGHI" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DANHMUCTRANGTHAI" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DM_LYDO" Width="1.5" PointX="13.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DM_NGANHANG" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.dm_phieu_thu" Width="1.5" PointX="20.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DMGHICHU" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DMNGUYENNHAN" Width="1.5" PointX="11.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DMTRANGTHAI_HD" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DMTRANGTHAI_YC" Width="1.5" PointX="13.5" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DOITUONGSUDUNG" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DUONG" Width="1.5" PointX="5.25" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DUONG_PHUONG" Width="1.5" PointX="11.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.GiaBVMT" Width="1.5" PointX="5.25" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.GiaoPhieu" Width="1.5" PointX="21" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.HIEUDONGHO" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.HINHTHUCTHANHTOAN" Width="1.5" PointX="5.25" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.HOADON" Width="1.5" PointX="12.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.HOADON_HUY" Width="1.5" PointX="20.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.HOADON_LOG" Width="1.5" PointX="12.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.KHACHHANG" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.KHUVUC" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.KICHCODH" Width="1.5" PointX="9.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOAICHUNGTU" Width="1.5" PointX="7.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOAINHANVIEN" Width="1.5" PointX="18.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOAIYEUCAU" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOG_USER" Width="1.5" PointX="20.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOTRINH" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOTRINH_GHI" Width="1.5" PointX="22.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LOTRINH_THU" Width="1.5" PointX="22.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.LTPhu" Width="1.5" PointX="7.5" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.MAU_HD" Width="1.5" PointX="22.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.NGANHNGHE" Width="1.5" PointX="11.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.NGUOIDUNG" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.NGUOIDUNG_QUYEN" Width="1.5" PointX="18" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.NHANVIEN" Width="1.5" PointX="18.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.NHANVIEN_LNV" Width="1.5" PointX="21" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.PHONGBAN" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.PHUONG" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.PublishedInvoice" Width="1.5" PointX="22.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.QUAN" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.QUYEN" Width="1.5" PointX="15.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.QUYEN_MENU" Width="1.5" PointX="18" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.STT_DONGIA" Width="1.5" PointX="22.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.sysdiagram" Width="1.5" PointX="23.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.TAIKHOAN_SERVICE" Width="1.5" PointX="23.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.TINH" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.YEUCAU" Width="1.5" PointX="15.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DSTAM" Width="1.5" PointX="24.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.NHOMDOITUONG" Width="1.5" PointX="0.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.PublishedInvoicesbk29122017" Width="1.5" PointX="9.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.Customer" Width="1.5" PointX="24.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DOANHTHU" Width="1.5" PointX="24.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DSBIENNHAN" Width="1.5" PointX="25.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DSBIENNHANH_APP" Width="1.5" PointX="25.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DSHD_PhieuThu" Width="1.5" PointX="11.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DSHOADON" Width="1.5" PointX="17.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.DSPHIEUTHU_APP" Width="1.5" PointX="19.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAPNUOC_LDGModel.Thongkedoanhthu" Width="1.5" PointX="26.75" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_BANGGIA_DM_BANGGIA" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__BANGGIA_DM__maDT__56D3D912" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_BD_KHACHHANG_YEUCAU" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__CHINHANH__maCTY__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__CHINHANH__maCTY__634EBE90" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__CHINHANH__maCTY__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__LOTRINH__maCN__72910220" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__PHONGBAN__maCN__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__PHONGBAN__maCN__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__PHONGBAN__maCN__7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_CHISONUOC_DANHMUCKYGHI" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_CHISONUOC_DMGHICHU" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_CHISONUOC_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__CHITIET_H__ID_HD__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__CHUNGTU__ID_kygh__538D5813" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_CHUNGTU_LOAICHUNGTU" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_CHUNGTU_HOADON_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_KHACHHANG_DANHMUCTRANGTHAI" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_YEUCAU_DM_LYDO" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_DMGHICHU_LOAIYEUCAU" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_YEUCAU_DMTRANGTHAI_YC" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__KHACHHANG__maDT__5B988E2F" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__KHACHHANG__idduo__5E74FADA" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_HOADON_GiaBVMT" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_KHACHHANG_GiaBVMT" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_GiaoPhieu_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_GiaoPhieu_YEUCAU" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__KHACHHANG__MA_HT__5D80D6A1" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_HOADON_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_HOADON_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__KHACHHANG__maLT__5C8CB268" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_YEUCAU_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__KHUVUC__maPhuong__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_NHANVIEN_LNV_LOAINHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_YEUCAU_LOAIYEUCAU" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__LTPhu__maLT__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__LTPhu__maLT__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__LTPhu__maLT__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_nguoidung_quyen_NGUOIDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_nguoidung_quyen_QUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_NHANVIEN_LNV_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__PHUONG__maQuan__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK__QUAN__maTinh__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="CAPNUOC_LDGModel.FK_QUYEN_MENU_QUYEN" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

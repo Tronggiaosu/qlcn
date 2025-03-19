@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dcec0cf36728445083e861dcdb4656d6" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.BANGGIA_DM_DB" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BD_KHACHHANG" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONGTY" Width="1.5" PointX="0.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHINHANH" Width="1.5" PointX="3" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHISONUOC" Width="1.5" PointX="14.25" PointY="49.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHITIET_HD" Width="1.5" PointX="12" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHITIET_HD_EDIT" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHITIET_HDDIEUCHINH" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHUNGTU" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHUNGTU_CHISONUOC" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHUNGTU_HOADON" Width="1.5" PointX="19.5" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ChungTuLog" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DANGNGAN" Width="1.5" PointX="15" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DANGNGANCK" Width="1.5" PointX="12" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DANGNGANKH" Width="1.5" PointX="15" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DieuChinhTT" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_BANGGIA" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_CHUCVU" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_DOITUONGSUDUNG" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_DOT" Width="1.5" PointX="15" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_DUONG" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_GHICHU" Width="1.5" PointX="12" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_GiaBVMT" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_HIEUDONGHO" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_HINHTHUCTHANHTOAN" Width="1.5" PointX="12.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_KICHCODH" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_KYGHI" Width="1.5" PointX="12" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_KHUVUC" Width="1.5" PointX="15.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_LOAICHUNGTU" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_LOAIHOADON" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_LOAINHANVIEN" Width="1.5" PointX="9.75" PointY="49.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_LOAIYEUCAU" Width="1.5" PointX="9.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_LYDO" Width="1.5" PointX="20" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_NAM" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_NGANHANG" Width="1.5" PointX="12.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_NGANHNGHE" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_NGUYENNHAN" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.dm_phieu_thu" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_PHONGBAN" Width="1.5" PointX="5.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_PHUCAP" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_PHUONG" Width="1.5" PointX="13.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_QUAN" Width="1.5" PointX="11.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_QUYEN" Width="1.5" PointX="12" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_TINH" Width="1.5" PointX="9" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_TO" Width="1.5" PointX="7.5" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_TRANGTHAI_KH" Width="1.5" PointX="12.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_TRANGTHAI_YC" Width="1.5" PointX="20" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DM_TRANGTHAIHOADON" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DOCSO" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DUONG_PHUONG" Width="1.5" PointX="6.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GACHNO" Width="1.5" PointX="19.5" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GACHNO_LOG" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GACHNOCK" Width="1.5" PointX="9.75" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GACHNOKH" Width="1.5" PointX="12.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GACHNONV" Width="1.5" PointX="12.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GIAODICH" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GiaoPhieu" Width="1.5" PointX="19.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON" Width="1.5" PointX="17.25" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON_HUY" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON_KHODOI" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON_LOG" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON_TEST" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HoaDon23" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADONDIEUCHINH" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HoaDonTon" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KHACHHANG" Width="1.5" PointX="15" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KHACHHANG_TDC" Width="1.5" PointX="18" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOG_THUTIENNUOC" Width="1.5" PointX="18" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOG_USER" Width="1.5" PointX="24.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOTRINH" Width="1.5" PointX="12" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOTRINH_GHI" Width="1.5" PointX="14.25" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOTRINH_THU" Width="1.5" PointX="17.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MAU_HD" Width="1.5" PointX="12" PointY="60.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NGUOIDUNG" Width="1.5" PointX="12" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NGUOIDUNG_QUYEN" Width="1.5" PointX="14.25" PointY="63.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NHANVIEN" Width="1.5" PointX="9.75" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NHANVIEN_HOADON" Width="1.5" PointX="20" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NHANVIEN_LNV" Width="1.5" PointX="12" PointY="45.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PublishedInvoice" Width="1.5" PointX="24.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.QUYEN_MENU" Width="1.5" PointX="14.25" PointY="61" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.STT_DONGIA" Width="1.5" PointX="24.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TAIKHOAN_SERVICE" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TDC_CHITIETHD" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TDC_HOADON" Width="1.5" PointX="15" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIEUTHU" Width="1.5" PointX="20.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TonDochub" Width="1.5" PointX="6.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TongDuLieuDieuChinh" Width="1.5" PointX="8.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.THU_HO" Width="1.5" PointX="24.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.THUHO_Log" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.THUTON_HD" Width="1.5" PointX="26.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.YEUCAU" Width="1.5" PointX="22.25" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.YEUCAU_DIEUCHINH" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.dm_phieu_thu20190110" Width="1.5" PointX="26.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GACHNOLOI" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON_CHUATHU" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HOADON_DATHU" Width="1.5" PointX="28.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PublishedInvoices_bk20220803" Width="1.5" PointX="28.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PublishedInvoices2024" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.phieuthu_kh" Width="1.5" PointX="30.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="30.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DOANHTHU" Width="1.5" PointX="2.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSBienNhan" Width="1.5" PointX="4.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSBIENNHANH_APP" Width="1.5" PointX="6.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSCHUNGTU_APP_INVOICE" Width="1.5" PointX="8.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSGACHNO" Width="1.5" PointX="24.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSHD_PhieuThu" Width="1.5" PointX="32.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSHOADON" Width="1.5" PointX="32.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSHoaDonKhoDoi" Width="1.5" PointX="32.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSHoaDonThu" Width="1.5" PointX="32.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DSPHIEUTHU_APP" Width="1.5" PointX="32.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KyGuiSM" Width="1.5" PointX="34.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TONEXXCEL" Width="1.5" PointX="0.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Thongkedoanhthu" Width="1.5" PointX="34.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEW_DSKHACHHANG_HOADON" Width="1.5" PointX="34.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEW_LOGTHUTIENNUOC" Width="1.5" PointX="34.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEW_NHANVIENTHU_HOADON" Width="1.5" PointX="34.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEWCHUADANGNGAN" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEWDANGNGANTHEONGAY" Width="1.5" PointX="24.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEWDANHSACHKHACHHANG" Width="1.5" PointX="34.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEWDANHSACHLOTRINHTHU" Width="1.5" PointX="34.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEWDANHSACHTHU_APP" Width="1.5" PointX="36.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VIEWTHONGTINHOADON" Width="1.5" PointX="36.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__CHINHANH__maCTY__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__CHINHANH__maCTY__634EBE90" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__CHINHANH__maCTY__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__LOTRINH__maCN__72910220" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__PHONGBAN__maCN__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__PHONGBAN__maCN__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__PHONGBAN__maCN__7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHISONUOC_DANHMUCKYGHI" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHISONUOC_DMGHICHU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHITIET_HD_CHITIET_HD" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHITIET_HD_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHITIET_HD_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHITIET_HD_NHANVIEN1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHUNGTU_LOAICHUNGTU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_GACHNOCK_CHUNGTU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_GACHNOKH_CHUNGTU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_GACHNONV_CHUNGTU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CHUNGTU_HOADON_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGAN_GACHNONV" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGAN_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGAN_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGAN_NHANVIEN_BLL" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGANCK_GACHNOCK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGANCK_NHANVIEN_DANGNGAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGANCK_NHANVIEN_LAP" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGANKH_GACHNOKH" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGANKH_NHANVIEN_DANGNGAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DANGNGANKH_NHANVIEN_LAP" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__BANGGIA_DM__maDT__56D3D912" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_DM_DOT" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_HOADON_DM_DOT" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DMGHICHU_LOAIYEUCAU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_DM_HINHTHUCTHANHTOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_TDC__HTTT" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DM_KYGHI_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_DM_KYGHI" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_DM_KYGHI1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__KHUVUC__maPhuong__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_TDC_KHUVUC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_LNV_LOAINHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_YEUCAU_LOAIYEUCAU" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_YEUCAU_DM_LYDO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_DM_NGANHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_DM_TO_DM_PHONGBAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_DM_PHONGBAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__PHUONG__maQuan__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_TDC_PHUONG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__QUAN__maTinh__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_TDC_QUAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_nguoidung_quyen_QUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_QUYEN_MENU_QUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_DM_TO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KHACHHANG_DM_TRANGTHAI_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_YEUCAU_DMTRANGTHAI_YC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_GACHNO_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_NHANVIEN1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_NHANVIEN2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HOADON_TDC_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOG_THUTIENNUOC_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_YEUCAU_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TIEUTHU_KHACHHANG_TDC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOG_THUTIENNUOC_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOTRINH_GHI_LOTRINH" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOTRINH_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOTRINH_THU_LOTRINH" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOTRINH_GHI_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_LOTRINH_THU_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_MAU_HD_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NGUOIDUNG_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_nguoidung_quyen_NGUOIDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_HOADON_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_HOADON_NHANVIEN1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_HOADON_NHANVIEN2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_NHANVIEN_LNV_NHANVIEN" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.MenuItem" Width="1.5" PointX="37.375" PointY="11.75" />
+        <EntityTypeShape EntityType="Model.TB_TRANSACTIONS_LOG" Width="1.5" PointX="37.375" PointY="14.75" />
+        <EntityTypeShape EntityType="Model.DM_GIABIEU" Width="1.5" PointX="37.375" PointY="18.75" />
+        <EntityTypeShape EntityType="Model.GACHNO_TEST" Width="1.5" PointX="37.375" PointY="22.75" />
+        <EntityTypeShape EntityType="Model.Menu" Width="1.5" PointX="27.375" PointY="37.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
