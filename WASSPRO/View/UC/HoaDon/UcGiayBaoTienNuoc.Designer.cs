@@ -45,7 +45,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.groupBox1 = new QLCongNo.View.Core.NovPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new QLCongNo.View.Core.NovLabel();
-            this.cboKy = new QLCongNo.View.Core.NovComboBox();
+            this.cboThang = new QLCongNo.View.Core.NovComboBox();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.label2 = new QLCongNo.View.Core.NovLabel();
             this.cboPhuong = new QLCongNo.View.Core.NovComboBox();
@@ -57,11 +57,6 @@ namespace QLCongNo.View.UC.HoaDon
             this.txtTim = new QLCongNo.View.Core.NovTextBox();
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
-            this.seachButton = new QLCongNo.View.Core.NovToolStripButton();
-            this.btnIn = new QLCongNo.View.Core.NovToolStripButton();
-            this.excelButton = new QLCongNo.View.Core.NovToolStripButton();
-            this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.STTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.trangthaiColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.seriColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -72,6 +67,11 @@ namespace QLCongNo.View.UC.HoaDon
             this.diachiColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.phuongColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.quanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
+            this.seachButton = new QLCongNo.View.Core.NovToolStripButton();
+            this.btnIn = new QLCongNo.View.Core.NovToolStripButton();
+            this.excelButton = new QLCongNo.View.Core.NovToolStripButton();
+            this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,7 +103,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboKy, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboThang, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboPhuong, 4, 1);
@@ -139,18 +139,18 @@ namespace QLCongNo.View.UC.HoaDon
             this.label4.Text = "Tháng";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cboKy
+            // cboThang
             // 
-            this.cboKy.BackColor = System.Drawing.Color.White;
-            this.cboKy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboKy.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboKy.ForeColor = System.Drawing.Color.Black;
-            this.cboKy.FormattingEnabled = true;
-            this.cboKy.Location = new System.Drawing.Point(262, 53);
-            this.cboKy.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
-            this.cboKy.Name = "cboKy";
-            this.cboKy.Size = new System.Drawing.Size(238, 33);
-            this.cboKy.TabIndex = 31;
+            this.cboThang.BackColor = System.Drawing.Color.White;
+            this.cboThang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboThang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboThang.ForeColor = System.Drawing.Color.Black;
+            this.cboThang.FormattingEnabled = true;
+            this.cboThang.Location = new System.Drawing.Point(262, 53);
+            this.cboThang.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
+            this.cboThang.Name = "cboThang";
+            this.cboThang.Size = new System.Drawing.Size(238, 33);
+            this.cboThang.TabIndex = 31;
             // 
             // label1
             // 
@@ -353,75 +353,6 @@ namespace QLCongNo.View.UC.HoaDon
             this.dataGridView1.Size = new System.Drawing.Size(1297, 407);
             this.dataGridView1.TabIndex = 27;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.BorderColor = System.Drawing.Color.Empty;
-            this.toolStrip1.BorderThickness = 0;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
-            this.toolStrip1.IsMainMenu = true;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seachButton,
-            this.btnIn,
-            this.excelButton,
-            this.quitButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.MenuItemHeight = 26;
-            this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip1.Size = new System.Drawing.Size(1297, 39);
-            this.toolStrip1.TabIndex = 28;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // seachButton
-            // 
-            this.seachButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seachButton.Image = global::QLCongNo.Properties.Resources.lay_danh_sach;
-            this.seachButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.seachButton.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.seachButton.Name = "seachButton";
-            this.seachButton.Padding = new System.Windows.Forms.Padding(5);
-            this.seachButton.Size = new System.Drawing.Size(170, 39);
-            this.seachButton.Text = "Lấy danh sách";
-            // 
-            // btnIn
-            // 
-            this.btnIn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.Image = global::QLCongNo.Properties.Resources.print;
-            this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnIn.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Padding = new System.Windows.Forms.Padding(5);
-            this.btnIn.Size = new System.Drawing.Size(158, 39);
-            this.btnIn.Text = "In danh sách";
-            // 
-            // excelButton
-            // 
-            this.excelButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.excelButton.Image = global::QLCongNo.Properties.Resources.excel2019;
-            this.excelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.excelButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.excelButton.Name = "excelButton";
-            this.excelButton.Padding = new System.Windows.Forms.Padding(5);
-            this.excelButton.Size = new System.Drawing.Size(137, 39);
-            this.excelButton.Text = "Xuất Excel";
-            // 
-            // quitButton
-            // 
-            this.quitButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitButton.Image = global::QLCongNo.Properties.Resources.thoat;
-            this.quitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.quitButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.quitButton.Name = "quitButton";
-            this.quitButton.Padding = new System.Windows.Forms.Padding(5);
-            this.quitButton.Size = new System.Drawing.Size(99, 39);
-            this.quitButton.Text = "Thoát";
-            this.quitButton.Visible = false;
-            // 
             // STTColumn
             // 
             this.STTColumn.HeaderText = "STT";
@@ -537,6 +468,76 @@ namespace QLCongNo.View.UC.HoaDon
             this.quanColumn.ReadOnly = true;
             this.quanColumn.Width = 80;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.BorderColor = System.Drawing.Color.Empty;
+            this.toolStrip1.BorderThickness = 0;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.toolStrip1.IsMainMenu = true;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.seachButton,
+            this.btnIn,
+            this.excelButton,
+            this.quitButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.MenuItemHeight = 26;
+            this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.toolStrip1.Size = new System.Drawing.Size(1297, 39);
+            this.toolStrip1.TabIndex = 28;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // seachButton
+            // 
+            this.seachButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seachButton.Image = global::QLCongNo.Properties.Resources.lay_danh_sach;
+            this.seachButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.seachButton.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.seachButton.Name = "seachButton";
+            this.seachButton.Padding = new System.Windows.Forms.Padding(5);
+            this.seachButton.Size = new System.Drawing.Size(170, 39);
+            this.seachButton.Text = "Lấy danh sách";
+            // 
+            // btnIn
+            // 
+            this.btnIn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIn.Image = global::QLCongNo.Properties.Resources.print;
+            this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnIn.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Padding = new System.Windows.Forms.Padding(5);
+            this.btnIn.Size = new System.Drawing.Size(158, 39);
+            this.btnIn.Text = "In danh sách";
+            // 
+            // excelButton
+            // 
+            this.excelButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.excelButton.Image = global::QLCongNo.Properties.Resources.excel2019;
+            this.excelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.excelButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.excelButton.Name = "excelButton";
+            this.excelButton.Padding = new System.Windows.Forms.Padding(5);
+            this.excelButton.Size = new System.Drawing.Size(137, 39);
+            this.excelButton.Text = "Xuất Excel";
+            this.excelButton.Click += new System.EventHandler(this.excelButton_Click_1);
+            // 
+            // quitButton
+            // 
+            this.quitButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Image = global::QLCongNo.Properties.Resources.thoat;
+            this.quitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.quitButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Padding = new System.Windows.Forms.Padding(5);
+            this.quitButton.Size = new System.Drawing.Size(99, 39);
+            this.quitButton.Text = "Thoát";
+            this.quitButton.Visible = false;
+            // 
             // UcGiayBaoTienNuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -570,7 +571,7 @@ namespace QLCongNo.View.UC.HoaDon
         private View.Core.NovLabel label1;
         private View.Core.NovTextBox txtTim;
         private View.Core.NovLabel label6;
-        private View.Core.NovComboBox cboKy;
+        private View.Core.NovComboBox cboThang;
         private View.Core.NovComboBox cboNam;
         private View.Core.NovLabel label3;
         private View.Core.NovLabel label4;

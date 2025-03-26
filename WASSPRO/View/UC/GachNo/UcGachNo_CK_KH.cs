@@ -34,55 +34,120 @@ namespace QLCongNo.View.UC.GachNo
             //btnNext.Click += btnNext_Click;
             //btnFirst.Click += btnFisrt_Click;
             //btnLast.Click += btnLast_Click;
+            this.dgvHoadon.DataError += dgvHoadon_DataError;
+            this.dgvHoadon.CellFormatting += dgvHoadon_CellFormatting;
+            cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
+            dgvHoadon.CellContentClick += dgvHoadon_CellContentClick;
+        }
+        private void dgvHoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvHoadon.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dgvHoadon.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+        private void dgvHoadon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dgvHoadon.RowCount > 0)
+                {
+                    var senderGrid = (DataGridView)sender;
+                    if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        decimal IDHD = decimal.Parse(dgvHoadon.Rows[e.RowIndex].Cells[ID_HDColumn2.Name].Value.ToString());
+                        if (e.ColumnIndex == 11)
+                        {
+                            Portal.PortalService portal = new Portal.PortalService();
+                            var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
+                            var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                            var hoadonloi = db.HOADONs.Where(x => x.ID_KH == hoadon.ID_KH && x.trangthai_id == -22).FirstOrDefault();
+                            var hoadonsai = db.HOADONs.Where(x => x.ID_HD == IDHD && x.DOT_ID == 1 && x.kyghi == "202302" && x.keys == null).FirstOrDefault();
+                            if (hoadonloi != null)
+                                IDHD = hoadonloi.ID_HD;
+                            var result = portal.getInvViewFkeyNoPay(IDHD.ToString(), accWS.acc_service, "123456aA@");
+                            portal78.PortalService p78 = new portal78.PortalService();
+                            if (hoadonsai != null)
+                                result = p78.getInvViewFkeyNoPay(hoadonsai.DienGiai, "capnuocthuducservice", "Einv@oi@vn#pt20");
+                            else if (hoadon.MAU_HD == "1/001" || hoadon.MAU_HD == "1/002" || hoadon.MAU_HD == "1/003")
+                                result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
+                            var frm = new Form();
+                            frm.Size = new System.Drawing.Size(1200, 800);
+                            WebBrowser webBrowser = new WebBrowser();
+                            webBrowser.Dock = DockStyle.Fill;
+                            webBrowser.DocumentText = result;
+                            frm.Controls.Add(webBrowser);
+                            frm.ShowDialog();
+                        }
+                        this.Cursor = Cursors.Default;
+                    }
+                }
+            }
+            catch
+            {
+            }
         }
 
+        private void dgvHoadon_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+        private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var maQuan = cboQuan.SelectedValue.ToString();
+                if (maQuan != "0")
+                {
+                    // dm phuong
+                    cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                    List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
+                    dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
+                    var dataPhuong = db.DM_PHUONG.Where(x => x.maQuan == maQuan).OrderBy(x => x.tenPhuong).ToList();
+                    dsPhuong.AddRange(dataPhuong);
+                    cboPhuong.DataSource = dsPhuong.ToList();
+                    cboPhuong.ValueMember = "maPhuong";
+                    cboPhuong.DisplayMember = "tenPhuong";
+                }
+                else
+                {
+                    cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                    List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
+                    dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
+                    var dataPhuong = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
+                    dsPhuong.AddRange(dataPhuong);
+                    cboPhuong.DataSource = dsPhuong.ToList();
+                    cboPhuong.ValueMember = "maPhuong";
+                    cboPhuong.DisplayMember = "tenPhuong";
+                }
+            }
+            catch
+            {
+            }
+        }
         private void dgvKhachhang_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    if (dgvKhachhang.RowCount > 0)
-            //    {
-            //        ID_KH = decimal.Parse(dgvKhachhang[IDKHColumn.Name, e.RowIndex].Value.ToString());
-            //        var dsHoadon = db.getDSHoaDon_KH(ID_KH)
-            //            .Where(hd => db.PublishedInvoices.Any(pb => pb.IDHD == hd.ID_HD && pb.GACH_NO != "1" && pb.GACH_NO != "2"))
-            //            .Select(hd => new
-            //            {
-            //                hd.ID_HD,
-            //                hd.trangthaiKH,
-            //                hd.kyghi,
-            //                hd.SO_HD,
-            //                hd.tongtien,
-            //                hd.tentrangthai,
-            //                hd.chitiet,
-            //                hd.thanhtoan,
-            //                hd.ghichu,
-            //            })
-            //            .OrderByDescending(X => X.SO_HD)
-            //            .ToList();
-
-            //        txtTongthu.Text = string.Format("{0:n0}", dsHoadon.Select(x => x.tongtien).Sum());
-            //        txttong_HD.Text = dsHoadon.Count().ToString();
-
-            //        if (dsHoadon.Any())
-            //        {
-            //            dgvHoadon.AutoGenerateColumns = false;
-            //            dgvHoadon.DataSource = dsHoadon;
-            //        }
-            //        else
-            //        {
-            //            dgvHoadon.DataSource = new List<object>();
-            //        }
-            //    }
-            //    else
-            //    {
-            //        dgvHoadon.DataSource = new List<object>();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
             try
             {
                 if (dgvKhachhang.RowCount > 0)
@@ -249,6 +314,11 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (dgvHoadon.RowCount == 0)
+            {
+                MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (dgvHoadon.RowCount > 0)
             {
                 DialogResult rs = MessageBox.Show("Có xác nhận thanh toán hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -364,6 +434,11 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnEX_Click(object sender, EventArgs e)
         {
+            if (dgvHoadon.RowCount == 0)
+            {
+                MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DialogResult rs = MessageBox.Show("Bạn có lưu file excel? ", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (rs == DialogResult.OK)
                 Common.ExportExcel(dgvHoadon);
@@ -396,7 +471,7 @@ namespace QLCongNo.View.UC.GachNo
                 string maPhuong = cboPhuong.SelectedValue.ToString();
                 string maQuan = cboQuan.SelectedValue.ToString();
                 string strSearch = txtTim.Text;
-                var khachhang = db.getDanhSachKhachHang(2, maPhuong, maQuan, "0", (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
+                var khachhang = db.getDanhSachKhachHang(2, maQuan, maPhuong, "0", (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
                 if(khachhang.Count > 0 )
                 {
                     dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

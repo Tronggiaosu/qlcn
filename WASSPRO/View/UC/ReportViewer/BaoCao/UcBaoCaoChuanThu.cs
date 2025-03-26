@@ -1,15 +1,10 @@
-﻿using Microsoft.Reporting.WinForms;
-using WinFormsReport = Microsoft.Reporting.WinForms;
+﻿using WinFormsReport = Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using QLCongNo.View.UC.HoaDon;
 
 namespace QLCongNo.View.UC.ReportViewer.BaoCao
 {

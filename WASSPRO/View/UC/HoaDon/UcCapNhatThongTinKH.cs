@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace QLCongNo.View.UC.HoaDon
 {
@@ -20,10 +19,10 @@ namespace QLCongNo.View.UC.HoaDon
             btnUpdate.Click += btnUpdate_Click;
             cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
             chkAll.CheckedChanged += chkAll_CheckedChanged;
-            //dgvHoaDon.RowEnter += dgvHoaDon_RowEnter;
             btnTim.Click += btnTim_Click;
             txtTim.KeyDown += txtTim_KeyDown;
-            //btnDC.Click += btnDC_Click;
+            this.dgvKhachHang.DataError += dgvKhachHang_DataError;
+            this.dgvKhachHang.CellFormatting += dgvKhachHang_CellFormatting;
         }
 
         private void txtTim_KeyDown(object sender, KeyEventArgs e)
@@ -40,28 +39,61 @@ namespace QLCongNo.View.UC.HoaDon
             }
         }
 
+        private void dgvKhachHang_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvKhachHang.Columns[e.ColumnIndex].Name == "kyhd_dgv2")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dgvKhachHang.Columns[e.ColumnIndex].Name == "Nhanviencapnhat")
+            {
+                if (e.Value != null)
+                {
+                    string somay = e.Value.ToString();
+                    var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == somay);
+                    if (nhanvien != null)
+                    {
+                        e.Value = nhanvien?.hoten;
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dgvKhachHang_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
         private void btnTim_Click(object sender, EventArgs e)
         {
-            string text = txtTim.Text.Trim();
-            if (string.IsNullOrEmpty(text))
+            string maDanhBo = txtTim.Text.Trim();
+            if (string.IsNullOrEmpty(maDanhBo))
             {
                 MessageBox.Show("Chưa nhập thông tin mã danh bộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else if (text.Length != 11)
+            else if (maDanhBo.Length != 11)
             {
                 MessageBox.Show("Thông tin tìm kiếm chưa chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
             {
-                var IDKH = db.getDanhSachKhachHang(2, "", "", "", text.Replace(" ", String.Empty)).Where(x => x.madanhbo == text).Select(x => x.ID_KH).Distinct().FirstOrDefault();
                 this.Cursor = Cursors.WaitCursor;
-                var khachhang = db.KHACHHANGs.Where(x => x.ID_KH == IDKH).FirstOrDefault();
+                var khachhang = db.KHACHHANGs.Where(x => x.madanhbo == maDanhBo).FirstOrDefault();
 
                 if (khachhang == null)
                 {
-                    MessageBox.Show("Không tìm thấy khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Không tìm thấy khách hàng có mã danh bộ này {maDanhBo}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Cursor = Cursors.Default;
                     return;
                 }
@@ -138,7 +170,7 @@ namespace QLCongNo.View.UC.HoaDon
                 cboPhuong.DropDownStyle = ComboBoxStyle.DropDownList;
                 cboPhuong.SelectedValue = khachhang.maphuong;
                 // dieu chinh
-                var listKH = db.getDSHoaDon_KH(IDKH).ToList();
+                var listKH = db.getDSHoaDon_KH(khachhang.ID_KH).ToList();
                 if(listKH.Count > 0)
                 {
                     dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -228,289 +260,298 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật thông tin khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (rs == DialogResult.OK)
+            try
             {
-                this.Cursor = Cursors.WaitCursor;
-                var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-                // update khach hang
-                int trangthaiID = int.Parse(cboTrangthai.SelectedValue.ToString());
-                int trangthaiIDHD = int.Parse(cboTTHD.SelectedValue.ToString());
-                var IDKH = db.getDanhSachKhachHang(2, "", "", "", txtTim.Text.Replace(" ", String.Empty)).Where(x => x.madanhbo == txtTim.Text).Select(x => x.ID_KH).Distinct().FirstOrDefault();
-                var khachhang = db.KHACHHANGs.Where(x => x.ID_KH == IDKH).FirstOrDefault();
-                // add bien dong
-                BD_KHACHHANG bd = new BD_KHACHHANG();
-                bd.ID_KH = khachhang.ID_KH;
-                bd.ngaycapnhat = DateTime.Now;
-                bd.hoten_KH = khachhang.hoten_KH;
-                bd.nvid = int.Parse(db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault().nv_id.ToString());
-                bd.diachi = khachhang.diachi;
-                bd.sonha = khachhang.sonha;
-                bd.hieuDH = khachhang.hieuHD;
-                bd.trangthai = khachhang.trangthai;
-                bd.nguoilapdat = Common.username;
-                //bd.kichcoDH = khachhang.hieuHD;
-                bd.maphuong = khachhang.maphuong;
-                bd.madanhbo = khachhang.madanhbo;
-                db.BD_KHACHHANG.Add(bd);
-                db.SaveChanges();
-                khachhang.email = txtmail.Text;
-                bool giaybao = false;
-                if (chkGB.Checked == true)
-                    giaybao = true;
-                //khachhang.diachi = txtdiachi.Text;
-                khachhang.email = txtmail.Text;
-                khachhang.MST_KH = txtMST.Text;
-                //khachhang.sonha = txtSonha.Text;
-                khachhang.SDT_KH = txtSDT.Text;
-                khachhang.soseri_DH = txtseriDH.Text;
-                khachhang.isingiaybao = giaybao;
-                khachhang.hieuHD = txthieuDH.Text;
-                khachhang.kichcoDH = txtkichco.Text;
-                khachhang.hoten_KH = txthoten.Text;
-                khachhang.ViTri_LD = cboTrangthai.Text;
-                khachhang.ghichu = txtghichu.Text;
-                db.SaveChanges();
-                if (chkTT.Checked == true)
+                if(dgvKhachHang.Rows.Count == 0)
                 {
-                    khachhang.ngaycapnhat = DateTime.Now;
-                    khachhang.nguoitao = Common.username;
-                    khachhang.trangthai = trangthaiID;
+                    MessageBox.Show("Danh sách không có khách hàng nào để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }    
+                DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật thông tin khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (rs == DialogResult.OK)
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    string maDanhBo = txtTim.Text.Trim();
+                    var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                    // update khach hang
+                    int trangthaiID = int.Parse(cboTrangthai.SelectedValue.ToString());
+                    int trangthaiIDHD = int.Parse(cboTTHD.SelectedValue.ToString());
+                    var khachhang = db.KHACHHANGs.Where(x => x.madanhbo == maDanhBo).FirstOrDefault();
+                    // add bien dong
+                    BD_KHACHHANG bd = new BD_KHACHHANG();
+                    bd.ID_KH = khachhang?.ID_KH;
+                    bd.ngaycapnhat = DateTime.Now;
+                    bd.hoten_KH = khachhang?.hoten_KH;
+                    bd.nvid = int.Parse(db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault().nv_id.ToString());
+                    bd.diachi = khachhang?.diachi;
+                    bd.sonha = khachhang?.sonha;
+                    bd.hieuDH = khachhang?.hieuHD;
+                    bd.trangthai = khachhang?.trangthai;
+                    bd.nguoilapdat = Common.username;
+                    //bd.kichcoDH = khachhang.hieuHD;
+                    bd.maphuong = khachhang?.maphuong;
+                    bd.madanhbo = khachhang?.madanhbo;
+                    db.BD_KHACHHANG.Add(bd);
                     db.SaveChanges();
-                    foreach (DataGridViewRow r in dgvKhachHang.Rows)
+                    khachhang.email = txtmail.Text;
+                    bool giaybao = false;
+                    if (chkGB.Checked == true)
+                        giaybao = true;
+                    khachhang.diachi = txtdiachi.Text;
+                    khachhang.email = txtmail.Text;
+                    khachhang.MST_KH = txtMST.Text;
+                    khachhang.sonha = txtSonha.Text;
+                    khachhang.SDT_KH = txtSDT.Text;
+                    khachhang.soseri_DH = txtseriDH.Text;
+                    khachhang.isingiaybao = giaybao;
+                    khachhang.hieuHD = txthieuDH.Text;
+                    khachhang.kichcoDH = txtkichco.Text;
+                    khachhang.hoten_KH = txthoten.Text;
+                    khachhang.ViTri_LD = cboTrangthai.Text;
+                    khachhang.ghichu = txtghichu.Text;
+                    db.SaveChanges();
+                    if (chkTT.Checked == true)
                     {
-                        DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
-                        var thu = checks.Value;
-                        if (Convert.ToBoolean(thu) == true)
+                        khachhang.ngaycapnhat = DateTime.Now;
+                        khachhang.nguoitao = Common.username;
+                        khachhang.trangthai = trangthaiID;
+                        db.SaveChanges();
+
+                        //var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == Common.username);
+                        //string hotenNV = nhanvien?.hoten;
+                        //MessageBox.Show(hotenNV);
+                        foreach (DataGridViewRow r in dgvKhachHang.Rows)
                         {
-                            decimal IDHD = decimal.Parse(dgvKhachHang[id_hd_dgv2.Name, r.Index].Value.ToString());
-                            var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
-                            hoadon.trangthaiKH = trangthaiID;
-                            hoadon.NgaycapnhatKH = DateTime.Now;
-                            hoadon.NhanviencapnhatKH = Common.username;
-                            db.SaveChanges();
+                            DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
+                            var thu = checks.Value;
+                            if (Convert.ToBoolean(thu) == true)
+                            {
+                                decimal IDHD = decimal.Parse(dgvKhachHang[id_hd_dgv2.Name, r.Index].Value.ToString());
+                                var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                                hoadon.trangthaiKH = trangthaiID;
+                                hoadon.NgaycapnhatKH = DateTime.Now;
+                                hoadon.NhanviencapnhatKH = Common.username;
+                                db.SaveChanges();
+                            }
                         }
                     }
-                }
-                if (chkTTHD.Checked == true)
-                {
-                    foreach (DataGridViewRow r in dgvKhachHang.Rows)
+                    if (chkTTHD.Checked == true)
                     {
-                        DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
-                        var thu = checks.Value;
-                        if (Convert.ToBoolean(thu) == true)
+                        foreach (DataGridViewRow r in dgvKhachHang.Rows)
                         {
-                            string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
-                            ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
-                            decimal IDHD = decimal.Parse(dgvKhachHang[id_hd_dgv2.Name, r.Index].Value.ToString());
-                            var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD && x.trangthai_id != 2).FirstOrDefault();
-                            var pb = db.PublishedInvoices.Where(x => x.IDHD == IDHD && (x.GACH_NO == "0" || x.GACH_NO == null)).FirstOrDefault();
-                            if (hoadon != null && pb != null)
+                            DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
+                            var thu = checks.Value;
+                            if (Convert.ToBoolean(thu) == true)
                             {
-                                hoadon.ma_HTTT = trangthaiID;
-                                hoadon.date_update = DateTime.Now;
-                                hoadon.user_update = nguoidung.nv_id;
-                                db.SaveChanges();
-                                // KHOA NUOC
-                                if (trangthaiIDHD == 15)
+                                string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
+                                ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
+                                decimal IDHD = decimal.Parse(dgvKhachHang[id_hd_dgv2.Name, r.Index].Value.ToString());
+                                var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD && x.trangthai_id != 2).FirstOrDefault();
+                                var pb = db.PublishedInvoices.Where(x => x.IDHD == IDHD && (x.GACH_NO == "0" || x.GACH_NO == null)).FirstOrDefault();
+                                if (hoadon != null && pb != null)
                                 {
-                                    hoadon.iskhoanuoc = true;
-                                    hoadon.ngaykhoanuoc = DateTime.Now;
+                                    hoadon.ma_HTTT = trangthaiID;
+                                    hoadon.date_update = DateTime.Now;
+                                    hoadon.user_update = nguoidung.nv_id;
                                     db.SaveChanges();
-                                    frCapNhatThongTinKH_Load(null, EventArgs.Empty);
-                                }
-                                // MO NUOC
-                                if (trangthaiIDHD == 1)
-                                {
-                                    string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
-                                    object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "1", txtghichu.Text).ToArray();
-                                    string result1 = reseult[0].ToString().ToUpper();
-                                    if (result1 == "TRUE")
+                                    // KHOA NUOC
+                                    if (trangthaiIDHD == 15)
                                     {
-                                        // update trang thai app
-                                        var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
-                                        if (publisedinvocie != null)
-                                        {
-                                            publisedinvocie.STATUS = null;
-                                            publisedinvocie.isKhodoi = false;
-                                            db.SaveChanges();
-                                        }
-                                        if ((hoadon.trangthai_id == 11 || hoadon.trangthai_id == 12) && hoadon.tienuoc_dc < 0)
-                                        {
-                                            hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
-                                            hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
-                                            hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
-                                        }
-                                        // trang thai hoa don
-                                        hoadon.trangthai_id = 1;
-                                        hoadon.trangthaiKH = 1;
-                                        hoadon.NgaycapnhatKH = DateTime.Now;
-                                        hoadon.NhanviencapnhatKH = Common.username;
-                                        hoadon.iskhoanuoc = false;
+                                        hoadon.iskhoanuoc = true;
+                                        hoadon.ngaykhoanuoc = DateTime.Now;
                                         db.SaveChanges();
                                         frCapNhatThongTinKH_Load(null, EventArgs.Empty);
                                     }
-                                }
-                                // hoa don tra cham
-                                if (trangthaiIDHD == 11)
-                                {
-                                    // goi ws thu ho
-                                    string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
-                                    object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "11", txtghichu.Text).ToArray();
-                                    string result1 = reseult[0].ToString().ToUpper();
-                                    if (result1 == "TRUE")
+                                    // MO NUOC
+                                    if (trangthaiIDHD == 1)
                                     {
-                                        if (hoadon.trangthai_id == 3)
+                                        string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
+                                        object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "1", txtghichu.Text).ToArray();
+                                        string result1 = reseult[0].ToString().ToUpper();
+                                        if (result1 == "TRUE")
                                         {
-                                            hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
-                                            hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
-                                            hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
-                                        }
-                                        // update trang thai app
-                                        var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
-                                        if (publisedinvocie != null)
-                                        {
-                                            publisedinvocie.STATUS = "2";
-                                            publisedinvocie.isKhodoi = true;
+                                            // update trang thai app
+                                            var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
+                                            if (publisedinvocie != null)
+                                            {
+                                                publisedinvocie.STATUS = null;
+                                                publisedinvocie.isKhodoi = false;
+                                                db.SaveChanges();
+                                            }
+                                            if ((hoadon.trangthai_id == 11 || hoadon.trangthai_id == 12) && hoadon.tienuoc_dc < 0)
+                                            {
+                                                hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
+                                                hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
+                                                hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
+                                            }
+                                            // trang thai hoa don
+                                            hoadon.trangthai_id = 1;
+                                            hoadon.trangthaiKH = 1;
+                                            hoadon.NgaycapnhatKH = DateTime.Now;
+                                            hoadon.NhanviencapnhatKH = Common.username;
+                                            hoadon.iskhoanuoc = false;
                                             db.SaveChanges();
+                                            frCapNhatThongTinKH_Load(null, EventArgs.Empty);
                                         }
-                                        // trang thai hoa don
-                                        hoadon.trangthai_id = 11;
-                                        hoadon.NgaycapnhatKH = DateTime.Now;
-                                        hoadon.NhanviencapnhatKH = Common.username;
-                                        db.SaveChanges();
                                     }
-                                    else
-                                        MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
-                                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                // hoa don khieu nai
-                                if (trangthaiIDHD == 14)
-                                {
-                                    // goi ws thu ho
-                                    string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
-                                    object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "14", txtghichu.Text).ToArray();
-                                    string result1 = reseult[0].ToString().ToUpper();
-                                    if (result1 == "TRUE")
+                                    // hoa don tra cham
+                                    if (trangthaiIDHD == 11)
                                     {
-                                        if (hoadon.trangthai_id == 3)
+                                        // goi ws thu ho
+                                        string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
+                                        object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "11", txtghichu.Text).ToArray();
+                                        string result1 = reseult[0].ToString().ToUpper();
+                                        if (result1 == "TRUE")
                                         {
-                                            hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
-                                            hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
-                                            hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
-                                        }
-                                        // update trang thai app
-                                        var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
-                                        if (publisedinvocie != null)
-                                        {
-                                            publisedinvocie.STATUS = "2";
-                                            publisedinvocie.isKhodoi = true;
+                                            if (hoadon.trangthai_id == 3)
+                                            {
+                                                hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
+                                                hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
+                                                hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
+                                            }
+                                            // update trang thai app
+                                            var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
+                                            if (publisedinvocie != null)
+                                            {
+                                                publisedinvocie.STATUS = "2";
+                                                publisedinvocie.isKhodoi = true;
+                                                db.SaveChanges();
+                                            }
+                                            // trang thai hoa don
+                                            hoadon.trangthai_id = 11;
+                                            hoadon.NgaycapnhatKH = DateTime.Now;
+                                            hoadon.NhanviencapnhatKH = Common.username;
                                             db.SaveChanges();
                                         }
-                                        // trang thai hoa don
-                                        hoadon.trangthai_id = 14;
-                                        hoadon.trangthaiKH = 14;
-                                        hoadon.NgaycapnhatKH = DateTime.Now;
-                                        hoadon.NhanviencapnhatKH = Common.username;
-                                        db.SaveChanges();
+                                        else
+                                            MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
+                                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
-                                    else
-                                        MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
-                                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                // hoa don giai toa
-                                else if (trangthaiIDHD == 12)
-                                {
-                                    string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
-                                    object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "12", txtghichu.Text).ToArray();
-                                    string result1 = reseult[0].ToString().ToUpper();
-                                    if (result1 == "TRUE")
+                                    // hoa don khieu nai
+                                    if (trangthaiIDHD == 14)
                                     {
-                                        if (hoadon.trangthai_id == 3)
+                                        // goi ws thu ho
+                                        string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
+                                        object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "14", txtghichu.Text).ToArray();
+                                        string result1 = reseult[0].ToString().ToUpper();
+                                        if (result1 == "TRUE")
                                         {
-                                            hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
-                                            hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
-                                            hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
-                                        }
-                                        //hoadon.trangthai_id = 12;
-                                        // update trang thai app
-                                        var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
-                                        if (publisedinvocie != null)
-                                        {
-                                            publisedinvocie.STATUS = "2";
-                                            publisedinvocie.isKhodoi = true;
+                                            if (hoadon.trangthai_id == 3)
+                                            {
+                                                hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
+                                                hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
+                                                hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
+                                            }
+                                            // update trang thai app
+                                            var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
+                                            if (publisedinvocie != null)
+                                            {
+                                                publisedinvocie.STATUS = "2";
+                                                publisedinvocie.isKhodoi = true;
+                                                db.SaveChanges();
+                                            }
+                                            // trang thai hoa don
+                                            hoadon.trangthai_id = 14;
+                                            hoadon.trangthaiKH = 14;
+                                            hoadon.NgaycapnhatKH = DateTime.Now;
+                                            hoadon.NhanviencapnhatKH = Common.username;
                                             db.SaveChanges();
                                         }
-                                        // trang thai hoa don
-                                        hoadon.trangthai_id = 12;
-                                        hoadon.trangthaiKH = 12;
-                                        hoadon.NgaycapnhatKH = DateTime.Now;
-                                        hoadon.NhanviencapnhatKH = Common.username;
-                                        db.SaveChanges();
+                                        else
+                                            MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
+                                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
-                                    else
-                                        MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
-                                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                // hoa don kho doi
-                                else if (trangthaiIDHD == 13)
-                                {
-                                    string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
-                                    object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "13", txtghichu.Text).ToArray();
-                                    string result1 = reseult[0].ToString().ToUpper();
-                                    if (result1 == "TRUE")
+                                    // hoa don giai toa
+                                    else if (trangthaiIDHD == 12)
                                     {
-                                        hoadon.trangthai_id = 13;
-                                        hoadon.isKhoDoi = true;
-                                        hoadon.ngaychuyenno = DateTime.Now;
-                                        var hoadonKD = db.HOADON_KHODOI.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
-                                        if (hoadonKD == null)
+                                        string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
+                                        object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "12", txtghichu.Text).ToArray();
+                                        string result1 = reseult[0].ToString().ToUpper();
+                                        if (result1 == "TRUE")
                                         {
-                                            HOADON_KHODOI Kd = new HOADON_KHODOI();
-                                            Kd.ID_HD = hoadon.ID_HD;
-                                            Kd.ID_KH = hoadon.ID_KH;
-                                            Kd.NGAYCHUYEN = DateTime.Now;
-                                            Kd.NGUOICHUYEN = int.Parse(nguoidung.nv_id.ToString());
-                                            db.HOADON_KHODOI.Add(Kd);
+                                            if (hoadon.trangthai_id == 3)
+                                            {
+                                                hoadon.tienphi_dc = hoadon.tienphi_dc * -1;
+                                                hoadon.tienuoc_dc = hoadon.tienuoc_dc * -1;
+                                                hoadon.tienthue_dc = hoadon.tienthue_dc * -1;
+                                            }
+                                            //hoadon.trangthai_id = 12;
+                                            // update trang thai app
+                                            var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
+                                            if (publisedinvocie != null)
+                                            {
+                                                publisedinvocie.STATUS = "2";
+                                                publisedinvocie.isKhodoi = true;
+                                                db.SaveChanges();
+                                            }
+                                            // trang thai hoa don
+                                            hoadon.trangthai_id = 12;
+                                            hoadon.trangthaiKH = 12;
+                                            hoadon.NgaycapnhatKH = DateTime.Now;
+                                            hoadon.NhanviencapnhatKH = Common.username;
                                             db.SaveChanges();
                                         }
-                                        var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
-                                        if (publisedinvocie != null)
-                                        {
-                                            publisedinvocie.STATUS = "2";
-                                            publisedinvocie.isKhodoi = true;
-                                            db.SaveChanges();
-                                        }
-                                        khachhang.ghichu = txtghichu.Text;
-                                        khachhang.trangthai = trangthaiID;
-                                        hoadon.trangthaiKH = 13;
-                                        hoadon.NgaycapnhatKH = DateTime.Now;
-                                        hoadon.NhanviencapnhatKH = Common.username;
-                                        db.SaveChanges();
+                                        else
+                                            MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
+                                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
-                                    else
-                                        MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
-                                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    // hoa don kho doi
+                                    else if (trangthaiIDHD == 13)
+                                    {
+                                        string[] dsHoaDon = db.HOADONs.Where(x => x.ID_HD == IDHD).Select(x => x.ID_HD.ToString()).ToArray();
+                                        object[] reseult = tdc.CapNhatTrangThaiHoaDon("WASS01", hashkey, Common.username, hoadon.DANHBO, dsHoaDon, "13", txtghichu.Text).ToArray();
+                                        string result1 = reseult[0].ToString().ToUpper();
+                                        if (result1 == "TRUE")
+                                        {
+                                            hoadon.trangthai_id = 13;
+                                            hoadon.isKhoDoi = true;
+                                            hoadon.ngaychuyenno = DateTime.Now;
+                                            var hoadonKD = db.HOADON_KHODOI.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
+                                            if (hoadonKD == null)
+                                            {
+                                                HOADON_KHODOI Kd = new HOADON_KHODOI();
+                                                Kd.ID_HD = hoadon.ID_HD;
+                                                Kd.ID_KH = hoadon.ID_KH;
+                                                Kd.NGAYCHUYEN = DateTime.Now;
+                                                Kd.NGUOICHUYEN = int.Parse(nguoidung.nv_id.ToString());
+                                                db.HOADON_KHODOI.Add(Kd);
+                                                db.SaveChanges();
+                                            }
+                                            var publisedinvocie = db.PublishedInvoices.Where(x => x.IDHD == hoadon.ID_HD).FirstOrDefault();
+                                            if (publisedinvocie != null)
+                                            {
+                                                publisedinvocie.STATUS = "2";
+                                                publisedinvocie.isKhodoi = true;
+                                                db.SaveChanges();
+                                            }
+                                            khachhang.ghichu = txtghichu.Text;
+                                            khachhang.trangthai = trangthaiID;
+                                            hoadon.trangthaiKH = 13;
+                                            hoadon.NgaycapnhatKH = DateTime.Now;
+                                            hoadon.NhanviencapnhatKH = Common.username;
+                                            db.SaveChanges();
+                                        }
+                                        else
+                                            MessageBox.Show("Có lỗi khi cập nhật trạng thái! Mã lỗi: " + reseult[0].ToString().ToUpper() + reseult[3].ToString().ToUpper(),
+                                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
-                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnTim.PerformClick();
-                db.SaveChanges();
-                if (chkTT.Checked == true)
-                {
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnTim.PerformClick();
+                    db.SaveChanges();
+                    if (chkTT.Checked == true)
+                    {
+                    }
+                    this.Cursor = Cursors.Default;
                 }
-                this.Cursor = Cursors.Default;
             }
-            //}
-            //catch
-            //{
-            //}
+            catch
+            {
+            }
         }
 
         private void quitButton_Click(object sender, EventArgs e)

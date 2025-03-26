@@ -43,10 +43,17 @@ namespace QLCongNo.View.UC.GachNo
         {
             try
             {
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn file!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                this.Cursor = Cursors.WaitCursor;
                 DataTable objTable = ReadFromExcelfile(txtPath.Text);
                 InsertDataIntoSQLServerUsingSQLBulkCopy(objTable);
                 db.Database.ExecuteSqlCommand("exec DoiSoatEx ");
                 dataGridView1.DataSource = db.THU_HO.ToList();
+                this.Cursor = Cursors.Default;
             }
             catch
             {

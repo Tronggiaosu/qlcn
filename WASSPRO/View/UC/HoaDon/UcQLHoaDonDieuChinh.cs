@@ -83,6 +83,11 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void excelButton_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Dữ liệu hiện tại không có để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Common.ExportExcel(dataGridView1);
         }
 
@@ -187,7 +192,14 @@ namespace QLCongNo.View.UC.HoaDon
                     chitiet = "Chi tiết", 
                     x.keys 
                 }).ToList();
-
+            if(dataSourceDGV1.Count > 0)
+            {
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            if (dataSourceDGV2.Count > 0)
+            {
+                dataGridViewDC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
             dataGridView1.DataSource = dataSourceDGV1.OrderByDescending(x => x.ID_HD).ToList();
             dataGridViewDC.DataSource = dataSourceDGV2.OrderByDescending(x => x.keys).ToList();
             this.Cursor = Cursors.Default;
@@ -214,19 +226,19 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void frQLHoaDonDieuChinh_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dataGridView1.Columns["soHDColumn"].Width = 130;
-            dataGridView1.Columns["DanhBoColumn"].Width = 150;
-            dataGridView1.Columns["MaLT"].Width = 150;
-            dataGridView1.Columns["chitietColumn"].Width = 90;
-            dataGridView1.Columns["HotenColumn"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dataGridView1.Columns["soHDColumn"].Width = 130;
+            //dataGridView1.Columns["DanhBoColumn"].Width = 150;
+            //dataGridView1.Columns["MaLT"].Width = 150;
+            //dataGridView1.Columns["chitietColumn"].Width = 90;
+            //dataGridView1.Columns["HotenColumn"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewDC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewDC.Columns["soHDColumn1"].Width = 130;
-            dataGridViewDC.Columns["DanhBoColumn1"].Width = 150;
-            dataGridViewDC.Columns["MaLT1"].Width = 150;
-            dataGridViewDC.Columns["chitietColumn1"].Width = 90;
-            dataGridViewDC.Columns["HotenColumn1"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewDC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dataGridViewDC.Columns["soHDColumn1"].Width = 130;
+            //dataGridViewDC.Columns["DanhBoColumn1"].Width = 150;
+            //dataGridViewDC.Columns["MaLT1"].Width = 150;
+            //dataGridViewDC.Columns["chitietColumn1"].Width = 90;
+            //dataGridViewDC.Columns["HotenColumn1"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridViewDC.AutoGenerateColumns = false;

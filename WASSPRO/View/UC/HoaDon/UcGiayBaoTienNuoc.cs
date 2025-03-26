@@ -21,7 +21,6 @@ namespace QLCongNo.View.UC.HoaDon
             seachButton.Click += seachButton_Click;
             btnIn.Click += btnIn_Click;
             excelButton.Click += excelButton_Click;
-            //quitButton.Click += quitButton_Click;
             txtTim.KeyDown += txtTim_KeyDown;
         }
 
@@ -38,11 +37,6 @@ namespace QLCongNo.View.UC.HoaDon
                 }
             }
         }
-
-        //private void quitButton_Click(object sender, EventArgs e)
-        //{
-        //    //this.Close();
-        //}
 
         private void excelButton_Click(object sender, EventArgs e)
         {
@@ -61,7 +55,7 @@ namespace QLCongNo.View.UC.HoaDon
             try
             {
                 int nam = int.Parse(cboNam.SelectedValue.ToString());
-                string kyghi = cboKy.SelectedValue.ToString();
+                string kyghi = cboThang.SelectedValue.ToString();
                 int trangthai = 2;
                 if (chktrangthai.Checked == true)
                 {
@@ -96,8 +90,10 @@ namespace QLCongNo.View.UC.HoaDon
         private void seachButton_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+            string maDanhBo = txtTim.Text.Trim();
             int nam = int.Parse(cboNam.SelectedValue.ToString());
-            string kyghi = cboKy.SelectedValue.ToString();
+            string thang = cboThang.SelectedValue.ToString();
+            string ky = (nam + 2000).ToString() + thang;
             int trangthai = 2;
             if (chktrangthai.Checked == true)
             {
@@ -109,14 +105,16 @@ namespace QLCongNo.View.UC.HoaDon
 
             string maquan = cboQuan.SelectedValue.ToString();
             string maphuong = cboPhuong.SelectedValue.ToString();
-            var data = db.getDSInGiayBaoTienNuoc(nam, kyghi, trangthai, maquan, maphuong, txtTim.Text.Replace(" ", String.Empty)).ToList();
-            if(data.Count > 0)
+            var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
+            if (data.Count > 0)
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }    
             dataGridView1.DataSource = data.ToList();
             for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
                 dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
+            }                   
             this.Cursor = Cursors.Default;
         }
 
@@ -157,13 +155,19 @@ namespace QLCongNo.View.UC.HoaDon
         private void frGiayBaoTienNuoc_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
-            var dataKyghi = db.DM_KYGHI.OrderByDescending(x => x.ID_kyghi).ToList();
-            dmKyghi.AddRange(dataKyghi);
-            cboKy.DataSource = dmKyghi.ToList();
-            cboKy.ValueMember = "ID_kyghi";
-            cboKy.DisplayMember = "ten_kyghi";
+            for (int i = 1; i <= 12; i++)
+            {
+                dmKyghi.Add(new DM_KYGHI()
+                {
+                    ID_kyghi = i.ToString("00"),
+                    ten_kyghi = $"{i:00}"
+                });
+            }
+            cboThang.DataSource = dmKyghi;
+            cboThang.ValueMember = "ID_kyghi";
+            cboThang.DisplayMember = "ten_kyghi";
             // dm nam
             cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_NAM> dmNam = new List<DM_NAM>();
@@ -203,6 +207,11 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 e.IsInputKey = true;
             }
+        }
+
+        private void excelButton_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -509,6 +509,7 @@
             this.dgvDSKhachHangNo.Location = new System.Drawing.Point(0, 304);
             this.dgvDSKhachHangNo.Margin = new System.Windows.Forms.Padding(5);
             this.dgvDSKhachHangNo.Name = "dgvDSKhachHangNo";
+            this.dgvDSKhachHangNo.ReadOnly = true;
             this.dgvDSKhachHangNo.RowHeadersVisible = false;
             this.dgvDSKhachHangNo.RowHeadersWidth = 51;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
@@ -544,6 +545,7 @@
             this.SO_HD.HeaderText = "Số lượng";
             this.SO_HD.MinimumWidth = 6;
             this.SO_HD.Name = "SO_HD";
+            this.SO_HD.ReadOnly = true;
             this.SO_HD.Width = 106;
             // 
             // tongtien
@@ -556,6 +558,7 @@
             this.tongtien.HeaderText = "Tổng tiền";
             this.tongtien.MinimumWidth = 6;
             this.tongtien.Name = "tongtien";
+            this.tongtien.ReadOnly = true;
             this.tongtien.Width = 111;
             // 
             // IDKHColumn
@@ -564,6 +567,7 @@
             this.IDKHColumn.HeaderText = "ID_KH";
             this.IDKHColumn.MinimumWidth = 6;
             this.IDKHColumn.Name = "IDKHColumn";
+            this.IDKHColumn.ReadOnly = true;
             this.IDKHColumn.Visible = false;
             this.IDKHColumn.Width = 84;
             // 
@@ -581,6 +585,7 @@
             // 
             // Trangthai
             // 
+            this.Trangthai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Trangthai.DataPropertyName = "tenTT";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -588,6 +593,7 @@
             this.Trangthai.HeaderText = "Trạng thái khách hàng";
             this.Trangthai.MinimumWidth = 6;
             this.Trangthai.Name = "Trangthai";
+            this.Trangthai.ReadOnly = true;
             this.Trangthai.Width = 209;
             // 
             // hoten_KH
@@ -599,6 +605,7 @@
             this.hoten_KH.HeaderText = "Họ tên";
             this.hoten_KH.MinimumWidth = 6;
             this.hoten_KH.Name = "hoten_KH";
+            this.hoten_KH.ReadOnly = true;
             this.hoten_KH.Width = 90;
             // 
             // maLT
@@ -610,6 +617,7 @@
             this.maLT.HeaderText = "Mã lộ trình";
             this.maLT.MinimumWidth = 6;
             this.maLT.Name = "maLT";
+            this.maLT.ReadOnly = true;
             this.maLT.Width = 122;
             // 
             // sonhaColumn
@@ -621,6 +629,7 @@
             this.sonhaColumn.HeaderText = "Số nhà";
             this.sonhaColumn.MinimumWidth = 6;
             this.sonhaColumn.Name = "sonhaColumn";
+            this.sonhaColumn.ReadOnly = true;
             this.sonhaColumn.Width = 91;
             // 
             // diachiColumn
@@ -632,6 +641,7 @@
             this.diachiColumn.HeaderText = "Địa chỉ";
             this.diachiColumn.MinimumWidth = 6;
             this.diachiColumn.Name = "diachiColumn";
+            this.diachiColumn.ReadOnly = true;
             this.diachiColumn.Width = 90;
             // 
             // phuongColumn
@@ -643,6 +653,7 @@
             this.phuongColumn.HeaderText = "Phường";
             this.phuongColumn.MinimumWidth = 6;
             this.phuongColumn.Name = "phuongColumn";
+            this.phuongColumn.ReadOnly = true;
             this.phuongColumn.Width = 98;
             // 
             // quanColumn
@@ -654,10 +665,12 @@
             this.quanColumn.HeaderText = "Quận";
             this.quanColumn.MinimumWidth = 6;
             this.quanColumn.Name = "quanColumn";
+            this.quanColumn.ReadOnly = true;
             this.quanColumn.Width = 80;
             // 
             // hoten
             // 
+            this.hoten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.hoten.DataPropertyName = "nvthu";
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -665,6 +678,7 @@
             this.hoten.HeaderText = "Nhân viên thu";
             this.hoten.MinimumWidth = 6;
             this.hoten.Name = "hoten";
+            this.hoten.ReadOnly = true;
             this.hoten.Width = 147;
             // 
             // UcKhachHangNoNhieuKy

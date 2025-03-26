@@ -71,7 +71,14 @@ namespace QLCongNo.View.UC.HoaDon
 
         void excelButton_Click(object sender, EventArgs e)
         {
-            Common.ExportExcel(dataGridView1);
+            if(dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }   
+            else
+            {
+                Common.ExportExcel(dataGridView1);
+            }    
         }
 
          void bdButton_Click(object sender, EventArgs e)
@@ -197,14 +204,6 @@ namespace QLCongNo.View.UC.HoaDon
                   }
               }
         }
-        //private void WriteProcess(int i)
-        //{
-        //    if (!source.Token.IsCancellationRequested)
-        //    {
-        //        Thread.Sleep(10);
-        //        this.Invoke(new Action(() => this.progressBar1.Value = i));
-        //    }
-        //}
         private void StringParserToInv(string result)
         {
             string[] patterns;
@@ -280,21 +279,24 @@ namespace QLCongNo.View.UC.HoaDon
 
         void seachButton_Click(object sender, EventArgs e)
         {
-            decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-            decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-            string kyghi =( cboKy.SelectedValue.ToString());
             this.Cursor = Cursors.WaitCursor;
+            decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+            int nam = int.Parse(cboNam.Text);
+            string thang = cboKy.Text;
+            string result = nam.ToString() + thang;
             var dataHD = db.HOADONs.Where(x => x.trangthai_id == 1 
                                             && x.DOT_ID == dotid 
-                                            //&& x.kyghi == kyghi 
+                                            && x.nam == nam
+                                            && x.kyghi == result
                                             && x.DaPhatHanh == false ).ToList();
             var chitietHD = (from a in db.CHITIET_HD
                              from x in db.HOADONs
                              where a.ID_HD == x.ID_HD && x.ID_KH == a.ID_KH 
                              where x.trangthai_id == 1 
-                                && x.DOT_ID == dotid  
-                                 //&& x.kyghi == kyghi 
-                                 && x.DaPhatHanh == false 
+                                && x.DOT_ID == dotid
+                                && x.nam == nam
+                                && x.kyghi == result
+                                && x.DaPhatHanh == false 
                              select a).ToList().Count();
           
             if (dataHD.Count() == 0)
@@ -340,18 +342,24 @@ namespace QLCongNo.View.UC.HoaDon
             cboKH.ValueMember = "ky_hieu_HD";
             cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
-            //dmKyghi.Add(new DM_KYGHI() { ID_kyghi = "0", ten_kyghi = "Tất cả" });
-            var dataKyghi = db.DM_KYGHI.Where(x => x.hoadon == true).OrderBy(x => x.ten_kyghi).ToList();
-            dmKyghi.AddRange(dataKyghi);
-            cboKy.DataSource = dmKyghi.ToList();
+            for (int i = 1; i <= 12; i++)
+            {
+                dmKyghi.Add(new DM_KYGHI()
+                {
+                    ID_kyghi = i.ToString("00"),
+                    ten_kyghi = $"{i:00}"
+                });
+            }
+            cboKy.DataSource = dmKyghi;
             cboKy.ValueMember = "ID_kyghi";
-            cboKy.DisplayMember = "thang";
-            // dm nam
+            cboKy.DisplayMember = "ten_kyghi";
+
             cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_NAM> dmNam = new List<DM_NAM>();
-            //dmNam.Add(new DM_NAM() { NAM_ID = 0, NAM = "Tất cả" });
-            cboNam.DataSource = dataKyghi.ToList();
-            cboNam.ValueMember = "nam";
+            var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
+            dmNam.AddRange(dataNam);
+            cboNam.DataSource = dmNam.ToList();
+            cboNam.ValueMember = "NAM_ID";
             cboNam.DisplayMember = "NAM";
             // dm dot
             cboDot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

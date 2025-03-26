@@ -28,6 +28,29 @@ namespace QLCongNo.View.UC.HoaDon
             quitButton.Click += quitButton_Click;
             btnConfirm.Click += btnConfirm_Click;
             txtTim.KeyDown += txtTim_KeyDown;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "kyghiColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -575,7 +598,7 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void frQuanlyQD_DieuChinh_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AutoGenerateColumns = false;
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";

@@ -27,8 +27,41 @@ namespace QLCongNo.View.UC.GachNo
             //checkAll_dgv2.CheckedChanged += checkAll_dgv2_CheckedChanged;
             btnCapnhat.Click += btnCapnhat_Click;
             chkHuyTT.CheckedChanged += chkHuyTT_CheckedChanged;
+            this.dgvDSHD.DataError += dgvDSHD_DataError;
+            this.dgvDSHD.CellFormatting += dgvDSHD_CellFormatting;
+        }
+        private void dgvDSHD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvDSHD.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dgvDSHD.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
 
+        private void dgvDSHD_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
         private void chkHuyTT_CheckedChanged(object sender, EventArgs e)
         {
             if (chkHuyTT.Checked == true)
@@ -318,12 +351,14 @@ namespace QLCongNo.View.UC.GachNo
             this.Cursor = Cursors.WaitCursor;
             dsDaDongTien = new List<getDataThuHo_Result>();
             int NVID = int.Parse(cboNV.SelectedValue.ToString());
-            string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            MessageBox.Show(NVID.ToString());
+            string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd");
             string text = txtTim.Text;
             string kyghi = "0";
             if (chkKy.Checked == true)
                 kyghi = cboKy.SelectedValue.ToString();
+                
             var dataSource = db.getDataThuHo(NVID, tungay, denngay, kyghi, text.Replace(" ", String.Empty)).OrderBy(x => x.NGAYTHANHTOAN).ToList();
             dsDaDongTien.AddRange(dataSource);
             dgvDSHD.DataSource = dataSource.ToList();

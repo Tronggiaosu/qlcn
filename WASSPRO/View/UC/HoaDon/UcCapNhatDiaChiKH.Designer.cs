@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new QLCongNo.View.Core.NovPanel();
             this.button1 = new QLCongNo.View.Core.NovButton();
             this.txtPath = new QLCongNo.View.Core.NovTextBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
             this.PnlHeader = new QLCongNo.View.Core.NovPanel();
-            this.btnEX = new FontAwesome.Sharp.IconButton();
-            this.btnImport = new FontAwesome.Sharp.IconButton();
+            this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
+            this.btnImport = new QLCongNo.View.Core.NovToolStripButton();
+            this.excelButton = new QLCongNo.View.Core.NovToolStripButton();
+            this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblsoluong = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.PnlHeader.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -102,29 +105,29 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MediumBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -133,8 +136,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1092, 442);
@@ -143,8 +146,7 @@
             // PnlHeader
             // 
             this.PnlHeader.BackColor = System.Drawing.Color.Transparent;
-            this.PnlHeader.Controls.Add(this.btnEX);
-            this.PnlHeader.Controls.Add(this.btnImport);
+            this.PnlHeader.Controls.Add(this.toolStrip1);
             this.PnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlHeader.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PnlHeader.ForeColor = System.Drawing.Color.MediumBlue;
@@ -154,55 +156,63 @@
             this.PnlHeader.Size = new System.Drawing.Size(1092, 57);
             this.PnlHeader.TabIndex = 30;
             // 
-            // btnEX
+            // toolStrip1
             // 
-            this.btnEX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEX.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnEX.FlatAppearance.BorderSize = 0;
-            this.btnEX.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(119)))), ((int)(((byte)(235)))));
-            this.btnEX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEX.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEX.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnEX.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnEX.IconColor = System.Drawing.Color.White;
-            this.btnEX.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnEX.IconSize = 1;
-            this.btnEX.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEX.Location = new System.Drawing.Point(192, 13);
-            this.btnEX.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnEX.Name = "btnEX";
-            this.btnEX.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnEX.Size = new System.Drawing.Size(150, 38);
-            this.btnEX.TabIndex = 1;
-            this.btnEX.Text = "Xuất Excel";
-            this.btnEX.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEX.UseVisualStyleBackColor = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.BorderColor = System.Drawing.Color.Empty;
+            this.toolStrip1.BorderThickness = 0;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.toolStrip1.IsMainMenu = true;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnImport,
+            this.excelButton,
+            this.quitButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.MenuItemHeight = 26;
+            this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.toolStrip1.Size = new System.Drawing.Size(1092, 39);
+            this.toolStrip1.TabIndex = 30;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // btnImport
             // 
-            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImport.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnImport.FlatAppearance.BorderSize = 0;
-            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(119)))), ((int)(((byte)(235)))));
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnImport.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnImport.IconChar = FontAwesome.Sharp.IconChar._0;
-            this.btnImport.IconColor = System.Drawing.Color.White;
-            this.btnImport.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnImport.IconSize = 1;
-            this.btnImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImport.Location = new System.Drawing.Point(22, 13);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Image = global::QLCongNo.Properties.Resources.lay_danh_sach;
+            this.btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImport.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnImport.Size = new System.Drawing.Size(150, 38);
-            this.btnImport.TabIndex = 0;
-            this.btnImport.Text = "Tải Dữ Liệu";
-            this.btnImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Padding = new System.Windows.Forms.Padding(5);
+            this.btnImport.Size = new System.Drawing.Size(139, 39);
+            this.btnImport.Text = "Tải dữ liệu";
+            // 
+            // excelButton
+            // 
+            this.excelButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.excelButton.Image = global::QLCongNo.Properties.Resources.excel2019;
+            this.excelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.excelButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.excelButton.Name = "excelButton";
+            this.excelButton.Padding = new System.Windows.Forms.Padding(5);
+            this.excelButton.Size = new System.Drawing.Size(137, 39);
+            this.excelButton.Text = "Xuất Excel";
+            this.excelButton.Click += new System.EventHandler(this.excelButton_Click);
+            // 
+            // quitButton
+            // 
+            this.quitButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Image = global::QLCongNo.Properties.Resources.thoat;
+            this.quitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.quitButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Padding = new System.Windows.Forms.Padding(5);
+            this.quitButton.Size = new System.Drawing.Size(99, 39);
+            this.quitButton.Text = "Thoát";
+            this.quitButton.Visible = false;
             // 
             // panel1
             // 
@@ -246,6 +256,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.PnlHeader.ResumeLayout(false);
+            this.PnlHeader.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -259,10 +272,12 @@
         private View.Core.NovTextBox txtPath;
         private View.Core.NovDataGridView dataGridView1;
         private View.Core.NovPanel PnlHeader;
-        private FontAwesome.Sharp.IconButton btnEX;
-        private FontAwesome.Sharp.IconButton btnImport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblsoluong;
         private System.Windows.Forms.Panel panel2;
+        private Core.NovToolStrip toolStrip1;
+        private Core.NovToolStripButton btnImport;
+        private Core.NovToolStripButton excelButton;
+        private Core.NovToolStripButton quitButton;
     }
 }

@@ -22,6 +22,8 @@ namespace QLCongNo.View.UC.HoaDon
             seachButton.Click += seachButton_Click;
             txtTim.KeyDown += txtTim_KeyDown;
             cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
 
         private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,6 +69,28 @@ namespace QLCongNo.View.UC.HoaDon
                     this.Cursor = Cursors.Default;
                 }
             }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "nguoitaoColumn")
+            {
+                if (e.Value != null)
+                {
+                    string somay = e.Value.ToString();
+                    var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == somay);
+                    if (nhanvien != null)
+                    {
+                        e.Value = nhanvien?.hoten;
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         private void seachButton_Click(object sender, EventArgs e)

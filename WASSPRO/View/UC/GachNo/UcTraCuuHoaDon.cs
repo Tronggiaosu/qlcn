@@ -263,6 +263,11 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnEX_Click(object sender, EventArgs e)
         {
+            if (dgvHoaDon.Rows.Count == 0)
+            {
+                MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Common.ExportExcel(dgvHoaDon);
         }
 
@@ -294,8 +299,9 @@ namespace QLCongNo.View.UC.GachNo
                 this.Cursor = Cursors.WaitCursor;
                 string maPhuong = cboPhuong.SelectedValue.ToString();
                 string maQuan = cboQuan.SelectedValue.ToString();
+                string maDT = cboDTSD.SelectedValue.ToString();
                 string strSearch = txtTim.Text.Trim();
-                var khachhang = db.getDanhSachKhachHang(2, maQuan, maPhuong, "", (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
+                var khachhang = db.getDanhSachKhachHang(2, maQuan, maPhuong, maDT, (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
                 if (khachhang.Count > 0)
                 {
                     dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -312,14 +318,6 @@ namespace QLCongNo.View.UC.GachNo
             dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKhachHang.AutoGenerateColumns = false;
             dgvHoaDon.AutoGenerateColumns = false;
-            // dm ky ghi
-            //cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            //List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
-            //var dataKyghi = db.DM_KYGHI.OrderBy(x => x.ten_kyghi).ToList();
-            //dmKyghi.AddRange(dataKyghi);
-            //cboKy.DataSource = dmKyghi.ToList();
-            //cboKy.ValueMember = "ID_kyghi";
-            //cboKy.DisplayMember = "ten_kyghi";
             cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
             dmKyghi.Add(new DM_KYGHI() { ID_kyghi = "00", ten_kyghi = "Tất cả" });
@@ -343,15 +341,6 @@ namespace QLCongNo.View.UC.GachNo
             cboNam.DataSource = dmNam.ToList();
             cboNam.ValueMember = "NAM_ID";
             cboNam.DisplayMember = "NAM";
-            // loai hoa don
-            cboloaiHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_LOAIHOADON> dmLoaiHD = new List<DM_LOAIHOADON>();
-            dmLoaiHD.Add(new DM_LOAIHOADON() { LoaiHD_ID = 0, tenloaiHD = "Tất cả" });
-            var dataLoaiHD = db.DM_LOAIHOADON.OrderBy(x => x.tenloaiHD).ToList();
-            dmLoaiHD.AddRange(dataLoaiHD);
-            cboloaiHD.DataSource = dmLoaiHD.ToList();
-            cboloaiHD.ValueMember = "LoaiHD_ID";
-            cboloaiHD.DisplayMember = "tenloaiHD";
             // loai doi tuong su dung
             cboDTSD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_DOITUONGSUDUNG> dataDTSD = new List<DM_DOITUONGSUDUNG>();
@@ -388,8 +377,6 @@ namespace QLCongNo.View.UC.GachNo
             cboDot.DataSource = dmDot.ToList();
             cboDot.ValueMember = "DOT_ID";
             cboDot.DisplayMember = "TENDOT";
-            dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
         }
 
         private void txtTim_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

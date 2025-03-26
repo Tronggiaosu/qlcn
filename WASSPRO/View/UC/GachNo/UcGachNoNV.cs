@@ -26,17 +26,8 @@ namespace QLCongNo.View.UC.GachNo
             btnConfirm.Click += btnConfirm_Click;
             cboTO.SelectedIndexChanged += cboTO_SelectedIndexChanged;
             btnXoaGachNo.Click += btnXoaGachNo_Click;
-            //dgvDSHD.RowEnter += dgvDSHD_RowEnter;
             txtTim.KeyDown += txtTim_KeyDown;
         }
-
-        //void dgvDSHD_RowEnter(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (dgvDSHD.RowCount > 0)
-        //    {
-        //        pIDHD = decimal.Parse(dgvDSHD[IDHDColumn.Name, e.RowIndex].Value.ToString());
-        //    }
-        //}
 
         private void btnXoaGachNo_Click(object sender, EventArgs e)
         {
@@ -131,6 +122,11 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (dgvDSHD.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (dgvDSHD.RowCount > 0)
             {
                 DialogResult rs = MessageBox.Show("Xác nhận nhân viên đã nộp đủ số tiền?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -170,42 +166,52 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            this.Cursor = Cursors.WaitCursor;
-            decimal NVID = decimal.Parse(cboNV.SelectedValue.ToString());
-            int nam = int.Parse(cboNam.SelectedValue.ToString());
-            int dot = int.Parse(cboDot.SelectedValue.ToString());
-            string kyghi = cboKyHD.SelectedValue.ToString();
-            string denky = cbodenky.SelectedValue.ToString();
-            string tungay = dtpNgaythu.Value.ToString("yyyy-MM-dd");
-            string denngay = dtpdenngay.Value.ToString("yyyy-MM-dd");
-            string text = txtTim.Text;
-            if (chkNam.Checked == false)
-                nam = 0;
-            if (chkDot.Checked == false)
-                dot = 0;
-            if (chkKy.Checked == false)
-                kyghi = "0";
-            if (chkNgay.Checked == false)
-                tungay = "";
-            var dataSource = db.getDataAppMobile(NVID, tungay, denngay, nam, dot, kyghi, denky, text).ToList();
-            if(dataSource.Count > 0)
+            try
             {
-                dgvDSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }    
-            dgvDSHD.DataSource = dataSource.ToList();
-            txtsoHD.Text = dataSource.Count().ToString();
-            txttongthanhtoan.Text = string.Format("{0:n0}", dataSource.Sum(z => z.tongtien));
-            this.Cursor = Cursors.Default;
-            //}
-            //catch
-            //{
-            //}
+                this.Cursor = Cursors.WaitCursor;
+                decimal NVID = decimal.Parse(cboNV.SelectedValue.ToString());
+                int nam = int.Parse(cboNam.SelectedValue.ToString());
+                int dot = int.Parse(cboDot.SelectedValue.ToString());
+
+                string tuthang = cboKyHD.SelectedValue.ToString();
+                string tuky = (nam + 2000).ToString() + tuthang;
+
+                string denthang = cbodenky.SelectedValue.ToString();
+                string denky = (nam + 2000).ToString() + denthang;
+
+                string tungay = dtpNgaythu.Value.ToString("yyyy-MM-dd");
+                string denngay = dtpdenngay.Value.ToString("yyyy-MM-dd");
+                string text = txtTim.Text;
+                if (chkNam.Checked == false)
+                    nam = 0;
+                if (chkDot.Checked == false)
+                    dot = 0;
+                if (chkKy.Checked == false)
+                    tuky = "0";
+                if (chkNgay.Checked == false)
+                    tungay = "";
+                var dataSource = db.getDataAppMobile(NVID, tungay, denngay, nam, dot, tuky, denky, text).ToList();
+                if (dataSource.Count > 0)
+                {
+                    dgvDSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+                dgvDSHD.DataSource = dataSource.ToList();
+                txtsoHD.Text = dataSource.Count().ToString();
+                txttongthanhtoan.Text = string.Format("{0:n0}", dataSource.Sum(z => z.tongtien));
+                this.Cursor = Cursors.Default;
+            }
+            catch
+            {
+            }
         }
 
         private void btnEX_Click(object sender, EventArgs e)
         {
+            if (dgvDSHD.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Common.ExportExcel(dgvDSHD);
         }
 
@@ -233,13 +239,42 @@ namespace QLCongNo.View.UC.GachNo
             cboNam.DataSource = dataNam;
             cboNam.ValueMember = "NAM_ID";
             cboNam.DisplayMember = "NAM";
-            var dataKyHD = db.DM_KYGHI.ToList();
-            cboKyHD.DataSource = dataKyHD.ToList();
-            cboKyHD.ValueMember = "Id_kyghi";
+
+
+            //var dataKyHD = db.DM_KYGHI.ToList();
+            //cboKyHD.DataSource = dataKyHD.ToList();
+            //cboKyHD.ValueMember = "Id_kyghi";
+            //cboKyHD.DisplayMember = "ten_kyghi";
+
+            cboKyHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbodenky.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+
+            List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>
+            {
+                new DM_KYGHI() { ID_kyghi = "00", ten_kyghi = "Tất cả" }
+            };
+
+            for (int i = 1; i <= 12; i++)
+            {
+                dmKyghi.Add(new DM_KYGHI()
+                {
+                    ID_kyghi = i.ToString("00"),
+                    ten_kyghi = i.ToString("00")
+                });
+            }
+
+            cboKyHD.DataSource = new List<DM_KYGHI>(dmKyghi);
+            cboKyHD.ValueMember = "ID_kyghi";
             cboKyHD.DisplayMember = "ten_kyghi";
-            cbodenky.DataSource = dataKyHD.ToList();
-            cbodenky.ValueMember = "Id_kyghi";
+
+            cbodenky.DataSource = new List<DM_KYGHI>(dmKyghi);
+            cbodenky.ValueMember = "ID_kyghi";
             cbodenky.DisplayMember = "ten_kyghi";
+
+
+            //cbodenky.DataSource = dataKyHD.ToList();
+            //cbodenky.ValueMember = "Id_kyghi";
+            //cbodenky.DisplayMember = "ten_kyghi";
             LoadNhanVien(Common.TOID);
             if (Common.TOID == 0)
                 LoadTO(-1);

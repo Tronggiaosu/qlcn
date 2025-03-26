@@ -19,6 +19,28 @@ namespace QLCongNo.View.UC.HoaDon
             txtTim.KeyDown += txtTim_KeyDown;
             btnUpdate.Click += btnUpdate_Click;
             btnThoat.Click += btnThoat_Click;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "kyHDColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         void btnThoat_Click(object sender, EventArgs e)

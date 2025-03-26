@@ -591,11 +591,11 @@
             dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.sokynoColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.sokynoColumn.FillWeight = 99.46326F;
-            this.sokynoColumn.HeaderText = "Số kỳ nợ";
+            this.sokynoColumn.HeaderText = "Số tháng nợ";
             this.sokynoColumn.MinimumWidth = 6;
             this.sokynoColumn.Name = "sokynoColumn";
             this.sokynoColumn.ReadOnly = true;
-            this.sokynoColumn.Width = 103;
+            this.sokynoColumn.Width = 132;
             // 
             // tongtiennoColumn
             // 
@@ -617,11 +617,11 @@
             dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.cackynoColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.cackynoColumn.FillWeight = 98.2966F;
-            this.cackynoColumn.HeaderText = "Các kỳ nợ";
+            this.cackynoColumn.HeaderText = "Các tháng nợ";
             this.cackynoColumn.MinimumWidth = 6;
             this.cackynoColumn.Name = "cackynoColumn";
             this.cackynoColumn.ReadOnly = true;
-            this.cackynoColumn.Width = 112;
+            this.cackynoColumn.Width = 141;
             // 
             // sonhaColumn
             // 

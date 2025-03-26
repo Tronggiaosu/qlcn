@@ -30,12 +30,47 @@ namespace QLCongNo.View.UC.DangNgan
             chkAll.CheckedChanged += chkAll_CheckedChanged;
             //btnIn.Click += btnIn_Click;
             textBox1.KeyDown += textBox1_KeyDown;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
 
         public UcDangNganChuyenKhoan(string maloai) : this()
         {
             this._maloai = maloai;
         }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
@@ -191,6 +226,11 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnInbaocao_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.RowCount == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để in!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (chkisdangngan.Checked == false)
                 MessageBox.Show("Chưa chọn trạng thái đăng ngân", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
@@ -441,36 +481,10 @@ namespace QLCongNo.View.UC.DangNgan
             return result;
         }
 
-        //void chkAll_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    this.Cursor = Cursors.WaitCursor;
-        //    if (chkAll.Checked == true)
-        //    {
-        //        foreach (DataGridViewRow r in dataGridView1.Rows)
-        //        {
-        //            r.Cells[chkColumn.Name].Value = true;
-        //        }
-        //    }
-        //    else if (chkAll.Checked == false)
-        //    {
-        //        foreach (DataGridViewRow r in dataGridView1.Rows)
-        //        {
-        //            r.Cells[chkColumn.Name].Value = false;
-        //        }
-        //    }
-        //    this.Cursor = Cursors.Default;
-        //}
-
         private void btnTim_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
             var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-            //var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-            ////var tungay = dtpTungay.Value.Date;
-            ////var startDate = dtpTungay.Value.Date;
-            ////var endDate = startDate.AddDays(1);
-            //var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
-
             var tungay = dtpTungay.Value;
             var denngay = dtpDenngay.Value;
 
@@ -581,6 +595,11 @@ namespace QLCongNo.View.UC.DangNgan
         {
             try
             {
+                if (dataGridView1.RowCount == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để xử lý!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 db.XuLyDangNgan();
                 MessageBox.Show("Tổng hợp dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

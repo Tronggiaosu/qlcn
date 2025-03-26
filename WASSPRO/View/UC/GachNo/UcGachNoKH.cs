@@ -44,10 +44,43 @@ namespace QLCongNo.View.UC.GachNo
             dgvHoadon.SelectionChanged += dgvHoadon_SelectionChanged;
             chkAll.CheckedChanged += chkAll_CheckedChanged;
             btnHuy.Click += btnHuy_Click;
-            //cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
+            cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
             dgvHoadon.CellContentClick += dgvHoadon_CellContentClick;
-            //dgvKhachhang.SelectionChanged += dgvKhachhang_SelectionChanged;
+            this.dgvHoadon.DataError += dgvHoadon_DataError;
+            this.dgvHoadon.CellFormatting += dgvHoadon_CellFormatting;
 
+        }
+        private void dgvHoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvHoadon.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dgvHoadon.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dgvHoadon_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         private void dgvHoadon_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -76,11 +109,6 @@ namespace QLCongNo.View.UC.GachNo
                                 result = p78.getInvViewFkeyNoPay(hoadonsai.DienGiai, "capnuocthuducservice", "Einv@oi@vn#pt20");
                             else if (hoadon.MAU_HD == "1/001" || hoadon.MAU_HD == "1/002" || hoadon.MAU_HD == "1/003")
                                 result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
-                            //var frm = new UcViewInv
-                            //{
-                            //    html = result
-                            //};
-                            //new FrmDialog().ShowDialog(frm);
                             var frm = new Form();
                             frm.Size = new Size(1200, 800);
                             WebBrowser webBrowser = new WebBrowser();
@@ -165,24 +193,6 @@ namespace QLCongNo.View.UC.GachNo
                         r.Cells[checksColumn.Name].Value = false;
                 }
             }
-
-            //if (chkAll.Checked == true)
-            //{
-            //    foreach (DataGridViewRow r in dgvHoadon.Rows)
-            //    {
-            //        r.Cells[checksColumn.Name].Value = true;
-            //        //if (r.Cells[trangthaiColumn.Name].Value.ToString() == "Đã thu" || r.Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy")
-            //        //    r.Cells[checksColumn.Name].Value = false;
-            //    }
-            //}
-            //else
-            //{
-            //    foreach (DataGridViewRow r in dgvHoadon.Rows)
-            //    {
-            //        //if (r.Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu" || r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Hủy")
-            //        r.Cells[checksColumn.Name].Value = false;
-            //    }
-            //}
         }
 
         private void dgvHoadon_SelectionChanged(object sender, EventArgs e)
@@ -664,6 +674,14 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnEX_Click(object sender, EventArgs e)
         {
+            if (dgvHoadon.RowCount == 0)
+            {
+                MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult rs = MessageBox.Show("Bạn có lưu file excel? ", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (rs == DialogResult.OK)
+                Common.ExportExcel(dgvHoadon);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

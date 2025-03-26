@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -35,11 +36,78 @@ namespace QLCongNo.View.UC.GachNo
             btnNext.Click += btnNext_Click;
             btnFirst.Click += btnFisrt_Click;
             btnLast.Click += btnLast_Click;
-            btnConfirm.Click+=btnConfirm_Click;
+            btnConfirm.Click += btnConfirm_Click;
             cboHTTT.SelectedIndexChanged += cboHTTT_SelectedIndexChanged;
             dgvKH.RowEnter += dgvKH_RowEnter;
+            this.dgvHD.DataError += dgvHD_DataError;
+            this.dgvHD.CellFormatting += dgvHD_CellFormatting;
+            cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
+        }
+        private void dgvHD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvHD.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dgvHD.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
 
+        private void dgvHD_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+        private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var maQuan = cboQuan.SelectedValue.ToString();
+                if (maQuan != "0")
+                {
+                    // dm phuong
+                    cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                    List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
+                    dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
+                    var dataPhuong = db.DM_PHUONG.Where(x => x.maQuan == maQuan).OrderBy(x => x.tenPhuong).ToList();
+                    dsPhuong.AddRange(dataPhuong);
+                    cboPhuong.DataSource = dsPhuong.ToList();
+                    cboPhuong.ValueMember = "maPhuong";
+                    cboPhuong.DisplayMember = "tenPhuong";
+                }
+                else
+                {
+                    cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                    List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
+                    dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
+                    var dataPhuong = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
+                    dsPhuong.AddRange(dataPhuong);
+                    cboPhuong.DataSource = dsPhuong.ToList();
+                    cboPhuong.ValueMember = "maPhuong";
+                    cboPhuong.DisplayMember = "tenPhuong";
+                }
+            }
+            catch
+            {
+            }
+        }
         private void cboHTTT_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -378,6 +446,11 @@ namespace QLCongNo.View.UC.GachNo
 
         void btnEX_Click(object sender, EventArgs e)
         {
+            if (dgvHD.RowCount == 0)
+            {
+                MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DialogResult rs = MessageBox.Show("Bạn có lưu file excel? ", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (rs == DialogResult.OK)
                 Common.ExportExcel(dgvHD);
@@ -427,10 +500,10 @@ namespace QLCongNo.View.UC.GachNo
         {
             this.Cursor = Cursors.WaitCursor;
             string search = txtTim.Text.Trim();
+            string tenPhuong = (cboPhuong.SelectedItem as DM_PHUONG)?.tenPhuong ?? "";
+            string tenQuan = (cboQuan.SelectedItem as DM_QUAN)?.tenQuan ?? "";
 
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                var khachHang = db.KHACHHANGs
+            var query = db.KHACHHANGs
                     .Join(
                         db.HOADON_KHODOI.Where(hdkd => hdkd.TRANGTHAI == false),
                         kh => kh.ID_KH,
@@ -458,65 +531,32 @@ namespace QLCongNo.View.UC.GachNo
                             TenPhuong = kh_hdkd_p.p.tenPhuong,
                             TenQuan = q.tenQuan
                         }
-                    )
-                    .Where(kh => 
-                        (string.IsNullOrEmpty(search) || kh.madanhbo.Contains(search))
-                    )
-                    .Distinct()
-                    .ToList();
-                if(khachHang.Count > 0)
-                {
-                    dgvKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                }    
-                dgvKH.DataSource = khachHang;
-
-                if (khachHang.Count() == 0)
-                {
-                    dgvHD.DataSource = null;
-                }
+                    );
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(kh => kh.madanhbo.Contains(search));
             }
-            else
-            {
-                var khachHang = db.KHACHHANGs
-                    .Join(
-                        db.HOADON_KHODOI.Where(hdkd => hdkd.TRANGTHAI == false),
-                        kh => kh.ID_KH,
-                        hdkd => hdkd.ID_KH,
-                        (kh, hdkd) => new { kh, hdkd }
-                    )
-                    .Join(
-                        db.DM_PHUONG,
-                        kh_hdkd => kh_hdkd.kh.maphuong,
-                        p => p.maPhuong,
-                        (kh_hdkd, p) => new { kh_hdkd.kh, kh_hdkd.hdkd, p }
-                    )
-                    .Join(
-                        db.DM_QUAN,
-                        kh_hdkd_p => kh_hdkd_p.kh.maquan,
-                        q => q.maQuan,
-                        (kh_hdkd_p, q) => new
-                        {
-                            kh_hdkd_p.kh.ID_KH,
-                            kh_hdkd_p.kh.maLT,
-                            kh_hdkd_p.kh.madanhbo,
-                            kh_hdkd_p.kh.hoten_KH,
-                            kh_hdkd_p.kh.sonha,
-                            kh_hdkd_p.kh.diachi,
-                            TenPhuong = kh_hdkd_p.p.tenPhuong,
-                            TenQuan = q.tenQuan
-                        }
-                    ).Distinct()
-                    .ToList();
-                if (khachHang.Count > 0)
-                {
-                    dgvKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                }
-                dgvKH.DataSource = khachHang;
 
-                if (khachHang.Count() == 0)
-                {
-                    dgvHD.DataSource = null;
-                }
+            if (!string.IsNullOrEmpty(tenPhuong) && tenPhuong != "Tất cả")
+            {
+                query = query.Where(kh => kh.TenPhuong == tenPhuong);
+            }
+
+            if (!string.IsNullOrEmpty(tenQuan) && tenQuan != "Tất cả")
+            {
+                query = query.Where(kh => kh.TenQuan == tenQuan);
+            }
+
+            var khachHang = query.Distinct().ToList();
+            if (khachHang.Count > 0)
+            {
+                dgvKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            dgvKH.DataSource = khachHang;
+
+            if (khachHang.Count() == 0)
+            {
+                dgvHD.DataSource = null;
             }
             this.Cursor = Cursors.Default;
         }

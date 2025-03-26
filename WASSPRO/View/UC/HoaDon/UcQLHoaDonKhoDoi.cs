@@ -20,8 +20,41 @@ namespace QLCongNo.View.UC.HoaDon
             dataGridView1.CellContentClick += dgvHoadon_CellContentClick;
             chkAll.CheckedChanged += chkAll_CheckedChanged;
             btnConfirm.Click += btnConfirm_Click;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
 
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             DialogResult rs = MessageBox.Show("Bạn có muốn chuyển trạng thái của khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -107,7 +140,7 @@ namespace QLCongNo.View.UC.HoaDon
                     {
                         this.Cursor = Cursors.WaitCursor;
                         decimal IDHD = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[ID_HDColumn2.Name].Value.ToString());
-                        if (e.ColumnIndex == 11)
+                        if (e.ColumnIndex == 12)
                         {
                             Portal.PortalService portal = new Portal.PortalService();
                             var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
@@ -222,7 +255,7 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void frQLHoaDonKhoDoi_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AutoGenerateColumns = false;
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";

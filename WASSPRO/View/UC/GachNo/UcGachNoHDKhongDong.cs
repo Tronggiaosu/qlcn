@@ -1,5 +1,6 @@
 ﻿using QLCongNo.Data;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,8 +20,41 @@ namespace QLCongNo.View.UC.GachNo
             btnThoat.Click += btnThoat_Click;
             btnEX.Click += btnEX_Click;
             btnConfirm.Click += btnConfirm_Click;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
 
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0)
@@ -36,7 +70,7 @@ namespace QLCongNo.View.UC.GachNo
                     var pkyghi = db.DM_KYGHI.Where(x => x.gachno == true).FirstOrDefault();
                     int DOTID = int.Parse(cboDot.SelectedValue.ToString());
                     int TOID = int.Parse(cboTo.SelectedValue.ToString());
-                    string kyghi = cboKyHD.SelectedValue.ToString();
+                    string kyghi = cboThang.SelectedValue.ToString();
                     int NVID = int.Parse(cboNV.SelectedValue.ToString());
                     int NVLap = int.Parse(Common.NVID.ToString());
                     if (chkKy.Checked == false)
@@ -117,9 +151,11 @@ namespace QLCongNo.View.UC.GachNo
             this.Cursor = Cursors.WaitCursor;
             int DOTID = int.Parse(cboDot.SelectedValue.ToString());
             int TOID = int.Parse(cboTo.SelectedValue.ToString());
-            string kyghi = cboKyHD.SelectedValue.ToString();
+            string nam = cboNam.SelectedValue.ToString();
+            string thang = cboThang.SelectedValue.ToString();
+            string kyghi = (int.Parse(nam) + 2000).ToString() + thang;
             int NVID = int.Parse(cboNV.SelectedValue.ToString());
-            if (chkKy.Checked == false)
+            if (chkNam.Checked == false || chkKy.Checked == false)
                 kyghi = "0";
             if (chkNV.Checked == false)
                 NVID = 0;
@@ -183,10 +219,34 @@ namespace QLCongNo.View.UC.GachNo
 
         private void LoadKyghi()
         {
-            var dataKy = db.DM_KYGHI.OrderByDescending(x => x.ID_kyghi).ToList();
-            cboKyHD.DataSource = dataKy;
-            cboKyHD.ValueMember = "ID_Kyghi";
-            cboKyHD.DisplayMember = "ten_kyghi";
+            //var dataKy = db.DM_KYGHI.OrderByDescending(x => x.ID_kyghi).ToList();
+            //cboThang.DataSource = dataKy;
+            //cboThang.ValueMember = "ID_Kyghi";
+            //cboThang.DisplayMember = "ten_kyghi";
+
+            cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
+            dmKyghi.Add(new DM_KYGHI() { ID_kyghi = "00", ten_kyghi = "Tất cả" });
+            for (int i = 1; i <= 12; i++)
+            {
+                dmKyghi.Add(new DM_KYGHI()
+                {
+                    ID_kyghi = i.ToString("00"),
+                    ten_kyghi = $"{i:00}"
+                });
+            }
+            cboThang.DataSource = dmKyghi;
+            cboThang.ValueMember = "ID_kyghi";
+            cboThang.DisplayMember = "ten_kyghi";
+            // dm nam
+            cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            List<DM_NAM> dmNam = new List<DM_NAM>();
+            dmNam.Add(new DM_NAM() { NAM_ID = 0, NAM = "Tất cả" });
+            var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
+            dmNam.AddRange(dataNam);
+            cboNam.DataSource = dmNam.ToList();
+            cboNam.ValueMember = "NAM_ID";
+            cboNam.DisplayMember = "NAM";
         }
 
         public void LoadNhanVien(decimal? TOID)

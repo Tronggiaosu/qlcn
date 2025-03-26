@@ -343,7 +343,7 @@
             // TNVColumn
             // 
             this.TNVColumn.DataPropertyName = "soluong";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle5.Format = "N0";
             dataGridViewCellStyle5.NullValue = null;
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);

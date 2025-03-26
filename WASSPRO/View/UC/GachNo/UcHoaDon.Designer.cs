@@ -133,7 +133,7 @@
             this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip1.Size = new System.Drawing.Size(1098, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(1189, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -171,7 +171,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1098, 114);
+            this.groupBox1.Size = new System.Drawing.Size(1189, 114);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -182,8 +182,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.32223F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.32223F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.32223F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.45857F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.2525F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.43869F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.53315F));
             this.tableLayoutPanel2.Controls.Add(this.novLabel1, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.cboNam, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 2, 0);
@@ -199,7 +199,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1074, 95);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1101, 80);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // novLabel1
@@ -208,10 +208,10 @@
             this.novLabel1.BackColor = System.Drawing.Color.Transparent;
             this.novLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.novLabel1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.novLabel1.Location = new System.Drawing.Point(570, 14);
+            this.novLabel1.Location = new System.Drawing.Point(582, 14);
             this.novLabel1.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.novLabel1.Name = "novLabel1";
-            this.novLabel1.Size = new System.Drawing.Size(90, 23);
+            this.novLabel1.Size = new System.Drawing.Size(90, 21);
             this.novLabel1.TabIndex = 9;
             this.novLabel1.Text = "Tải lên tệp";
             // 
@@ -222,10 +222,10 @@
             this.cboNam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNam.ForeColor = System.Drawing.Color.Black;
             this.cboNam.FormattingEnabled = true;
-            this.cboNam.Location = new System.Drawing.Point(12, 52);
+            this.cboNam.Location = new System.Drawing.Point(12, 45);
             this.cboNam.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNam.Name = "cboNam";
-            this.cboNam.Size = new System.Drawing.Size(162, 33);
+            this.cboNam.Size = new System.Drawing.Size(166, 33);
             this.cboNam.TabIndex = 1;
             // 
             // label1
@@ -234,10 +234,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(384, 14);
+            this.label1.Location = new System.Drawing.Point(392, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 23);
+            this.label1.Size = new System.Drawing.Size(38, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "Đợt";
             // 
@@ -247,10 +247,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(198, 14);
+            this.label2.Location = new System.Drawing.Point(202, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 23);
+            this.label2.Size = new System.Drawing.Size(58, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tháng";
             // 
@@ -263,7 +263,7 @@
             this.label5.Location = new System.Drawing.Point(12, 14);
             this.label5.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 23);
+            this.label5.Size = new System.Drawing.Size(47, 21);
             this.label5.TabIndex = 0;
             this.label5.Text = "Năm";
             // 
@@ -274,10 +274,10 @@
             this.cboKy.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboKy.ForeColor = System.Drawing.Color.Black;
             this.cboKy.FormattingEnabled = true;
-            this.cboKy.Location = new System.Drawing.Point(198, 52);
+            this.cboKy.Location = new System.Drawing.Point(202, 45);
             this.cboKy.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboKy.Name = "cboKy";
-            this.cboKy.Size = new System.Drawing.Size(162, 33);
+            this.cboKy.Size = new System.Drawing.Size(166, 33);
             this.cboKy.TabIndex = 3;
             // 
             // txtPath
@@ -287,10 +287,10 @@
             this.txtPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath.ForeColor = System.Drawing.Color.Black;
-            this.txtPath.Location = new System.Drawing.Point(570, 52);
+            this.txtPath.Location = new System.Drawing.Point(582, 45);
             this.txtPath.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(360, 32);
+            this.txtPath.Size = new System.Drawing.Size(357, 32);
             this.txtPath.TabIndex = 7;
             // 
             // cboDot
@@ -300,10 +300,10 @@
             this.cboDot.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDot.ForeColor = System.Drawing.Color.Black;
             this.cboDot.FormattingEnabled = true;
-            this.cboDot.Location = new System.Drawing.Point(384, 52);
+            this.cboDot.Location = new System.Drawing.Point(392, 45);
             this.cboDot.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboDot.Name = "cboDot";
-            this.cboDot.Size = new System.Drawing.Size(162, 33);
+            this.cboDot.Size = new System.Drawing.Size(166, 33);
             this.cboDot.TabIndex = 5;
             // 
             // button1
@@ -318,11 +318,11 @@
             this.button1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.button1.IconSize = 1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(942, 47);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Location = new System.Drawing.Point(953, 42);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(132, 48);
+            this.button1.Size = new System.Drawing.Size(146, 36);
             this.button1.TabIndex = 8;
             this.button1.Text = "Chọn File";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -333,10 +333,10 @@
             // 
             this.linkChonFile.AutoSize = true;
             this.linkChonFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkChonFile.Location = new System.Drawing.Point(756, 14);
+            this.linkChonFile.Location = new System.Drawing.Point(772, 14);
             this.linkChonFile.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.linkChonFile.Name = "linkChonFile";
-            this.linkChonFile.Size = new System.Drawing.Size(78, 23);
+            this.linkChonFile.Size = new System.Drawing.Size(78, 21);
             this.linkChonFile.TabIndex = 6;
             this.linkChonFile.TabStop = true;
             this.linkChonFile.Text = "Chọn file";
@@ -347,9 +347,9 @@
             // 
             this.panel2.Controls.Add(this.lbltongso);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 622);
+            this.panel2.Location = new System.Drawing.Point(0, 640);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1098, 48);
+            this.panel2.Size = new System.Drawing.Size(1189, 48);
             this.panel2.TabIndex = 2;
             // 
             // lbltongso
@@ -367,7 +367,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 153);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1098, 469);
+            this.panel1.Size = new System.Drawing.Size(1189, 487);
             this.panel1.TabIndex = 3;
             // 
             // dataGridView1
@@ -379,6 +379,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -418,7 +419,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1098, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(1189, 487);
             this.dataGridView1.TabIndex = 5;
             // 
             // NAMColumn
@@ -458,7 +459,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UcHoaDon";
-            this.Size = new System.Drawing.Size(1098, 670);
+            this.Size = new System.Drawing.Size(1189, 688);
             this.Load += new System.EventHandler(this.frHoaDon_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

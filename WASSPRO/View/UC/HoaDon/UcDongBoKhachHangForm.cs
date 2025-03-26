@@ -30,7 +30,7 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 Cursor.Current = Cursors.WaitCursor;
                 string strSearch = txtTim.Text;
-                var khachhang = db.getDanhSachKhachHang(2, "", "", "", (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
+                var khachhang = db.getDanhSachKhachHang(2, "0", "0", "0", (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
                 if(khachhang.Count > 0 )
                 {
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -54,6 +54,11 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
+                if(dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Chưa có dữ liệu để đồng bộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }    
                 decimal IDKH = decimal.Parse(dataGridView1.SelectedRows[0].Cells[IDKHColumn.Name].Value.ToString());
                 var xml = db.sp_xmlUpdateCusByIDKH(IDKH).FirstOrDefault().ToString();
                 pb78.PublishService pb78 = new pb78.PublishService();

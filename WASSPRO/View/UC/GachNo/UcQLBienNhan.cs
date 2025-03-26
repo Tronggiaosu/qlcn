@@ -96,7 +96,7 @@ namespace QLCongNo.View.UC.GachNo
             var dataSource = db.getDSTongThanhToan(tungay, denngay + gio, 0, hinhthuc).ToList();
             if(dataSource.Count > 0)
             {
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }    
             dataGridView1.DataSource = dataSource.ToList();
             lbl.Text = "Số lượng: " + string.Format("{0:n0}", dataSource.Select(x => x.soluong).Sum()) + " Tổng tiền: " + string.Format("{0:n0}", dataSource.Select(x => x.tongtien).Sum());
@@ -115,6 +115,11 @@ namespace QLCongNo.View.UC.GachNo
 
         void btnEX_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.RowCount == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Common.ExportExcel(dataGridView1);
         }
 

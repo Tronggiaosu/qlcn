@@ -23,6 +23,75 @@ namespace QLCongNo.View.UC.DangNgan
             btnCN.Click += btnCN_Click;
             //chkAll.CheckedChanged += chkAll_CheckedChanged;
             //chkKD.CheckedChanged += chkKD_CheckedChanged;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            this.dataGridView2.DataError += dataGridView2_DataError;
+            this.dataGridView2.CellFormatting += dataGridView2_CellFormatting;
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn1")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn1")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "thangColumn2")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "namColumn2")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         private void btnCN_Click(object sender, EventArgs e)
@@ -249,25 +318,25 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            this.Cursor = Cursors.WaitCursor; ;
-            var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-            var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
-            dataGridView1.DataSource = dataSource.ToList();
-            lbltong.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dataSource.Count())
-                + " | Tổng tiền: " + string.Format("{0:n0}", dataSource.Sum(x => x.tongtien));
-            var dataChuyenNo = db.getDataChuyenNoKhoDoi(0, 0, tungay, denngay, "", "", false, 0).ToList();
-            table = ExcelExportHelper.ListToDataTable(dataSource.OrderBy(x => x.somay).ThenBy(x => x.somay).ToList());
-            dataGridView2.DataSource = dataChuyenNo.ToList();
-            lblCN.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}",
-                dataChuyenNo.Count()) + " | Tổng tiền: " + string.Format("{0:n0}", dataChuyenNo.Sum(x => x.tongtien));
-            this.Cursor = Cursors.Default;
-            //}
-            //catch
-            //{
-            //}
+            try
+            {
+                this.Cursor = Cursors.WaitCursor; ;
+                var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+                var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
+                dataGridView1.DataSource = dataSource.ToList();
+                lbltong.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dataSource.Count())
+                    + " | Tổng tiền: " + string.Format("{0:n0}", dataSource.Sum(x => x.tongtien));
+                var dataChuyenNo = db.getDataChuyenNoKhoDoi(0, 0, tungay, denngay, "", "", false, 0).ToList();
+                table = ExcelExportHelper.ListToDataTable(dataSource.OrderBy(x => x.somay).ThenBy(x => x.somay).ToList());
+                dataGridView2.DataSource = dataChuyenNo.ToList();
+                lblCN.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}",
+                    dataChuyenNo.Count()) + " | Tổng tiền: " + string.Format("{0:n0}", dataChuyenNo.Sum(x => x.tongtien));
+                this.Cursor = Cursors.Default;
+            }
+            catch
+            {
+            }
         }
 
         private void quitButton_Click(object sender, EventArgs e)

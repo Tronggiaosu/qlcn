@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using QLCongNo.Data;
+using System.Collections.Generic;
 
 namespace QLCongNo.View.UC.HoaDon
 {
@@ -20,7 +21,30 @@ namespace QLCongNo.View.UC.HoaDon
             seachButton.Click += seachButton_Click;
             excelButton.Click += excelButton_Click;
             btnDB.Click += btnDB_Click;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "kyColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(4, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
 
         private void btnDB_Click(object sender, EventArgs e)
         {
@@ -173,14 +197,19 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
-                var dataKyghi = db.DM_KYGHI.Where(x => x.hoadon == true).FirstOrDefault();
+                this.Cursor = Cursors.WaitCursor;
+                int nam = int.Parse(cboNam.Text);
+                string thang = cboThang.Text;
+                string result = nam + thang;
                 int DOTID = int.Parse(cboDot.SelectedValue.ToString());
-                var dataSource = db.getDSDongBoDuLieuThuHo(dataKyghi.nam, dataKyghi.ID_kyghi, DOTID, 0).ToList();
+                int trangthai = 0; 
+                var dataSource = db.getDSDongBoDuLieuThuHo(nam, result, DOTID, trangthai).ToList();
                 if(dataSource.Count > 0)
                 {
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }    
                 dataGridView1.DataSource = dataSource.ToList();
+                this.Cursor = Cursors.Default;
             }
             catch
             {
@@ -207,22 +236,39 @@ namespace QLCongNo.View.UC.HoaDon
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoGenerateColumns = false;
 
-            // dm ky ghi
-            cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            var dataKyghi = db.DM_KYGHI.Where(x => x.hoadon == true).OrderByDescending(x => x.ID_kyghi).ToList();
-            cboKy.DataSource = dataKyghi.ToList();
-            cboKy.ValueMember = "ID_kyghi";
-            cboKy.DisplayMember = "ten_kyghi";
+            cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
+            for (int i = 1; i <= 12; i++)
+            {
+                dmKyghi.Add(new DM_KYGHI()
+                {
+                    ID_kyghi = i.ToString("00"),
+                    ten_kyghi = $"{i:00}"
+                });
+            }
+            cboThang.DataSource = dmKyghi;
+            cboThang.ValueMember = "ID_kyghi";
+            cboThang.DisplayMember = "ten_kyghi";
+
+            cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            List<DM_NAM> dmNam = new List<DM_NAM>();
+            var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
+            dmNam.AddRange(dataNam);
+            cboNam.DataSource = dmNam.ToList();
+            cboNam.ValueMember = "NAM_ID";
+            cboNam.DisplayMember = "NAM";
+
             // dot
             cboDot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             var dataDot = db.DM_DOT.OrderBy(x => x.TENDOT).ToList();
             cboDot.DataSource = dataDot.ToList();
             cboDot.ValueMember = "DOT_ID";
             cboDot.DisplayMember = "TENDOT";
-            // trang thai
-            cboTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            string[] trangthai = { "Chưa đồng bộ", "Đã đồng bộ" };
-            cboTT.DataSource = trangthai;
+        }
+
+        private void chkTT_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

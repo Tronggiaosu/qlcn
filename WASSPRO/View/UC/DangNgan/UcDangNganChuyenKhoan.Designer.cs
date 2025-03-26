@@ -81,7 +81,7 @@
             this.chkColumn = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.seriColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.namColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
-            this.kyHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.thangColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.soHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.danhboColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ngaythuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -292,8 +292,8 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label4.Location = new System.Drawing.Point(12, 14);
-            this.label4.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label4.Location = new System.Drawing.Point(8, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 23);
             this.label4.TabIndex = 97;
@@ -399,8 +399,8 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(252, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label6.Location = new System.Drawing.Point(248, 14);
+            this.label6.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 23);
             this.label6.TabIndex = 99;
@@ -440,8 +440,8 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(12, 105);
-            this.label1.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label1.Location = new System.Drawing.Point(8, 105);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 0;
@@ -479,8 +479,8 @@
             this.chkNgayDN.BackColor = System.Drawing.Color.Transparent;
             this.chkNgayDN.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNgayDN.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNgayDN.Location = new System.Drawing.Point(252, 105);
-            this.chkNgayDN.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkNgayDN.Location = new System.Drawing.Point(248, 105);
+            this.chkNgayDN.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.chkNgayDN.Name = "chkNgayDN";
             this.chkNgayDN.Size = new System.Drawing.Size(160, 27);
             this.chkNgayDN.TabIndex = 114;
@@ -506,12 +506,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(492, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label3.Location = new System.Drawing.Point(488, 14);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 23);
+            this.label3.Size = new System.Drawing.Size(175, 23);
             this.label3.TabIndex = 100;
-            this.label3.Text = "Tra cứu";
+            this.label3.Text = "Tra cứu theo danh bộ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // statusStrip1
@@ -585,7 +585,7 @@
             this.chkColumn,
             this.seriColumn,
             this.namColumn,
-            this.kyHDColumn,
+            this.thangColumn,
             this.soHDColumn,
             this.danhboColumn,
             this.ngaythuColumn,
@@ -646,24 +646,23 @@
             // 
             // namColumn
             // 
-            this.namColumn.DataPropertyName = "nam";
+            this.namColumn.DataPropertyName = "ten_kyghi";
             this.namColumn.HeaderText = "Năm";
             this.namColumn.MinimumWidth = 6;
             this.namColumn.Name = "namColumn";
             this.namColumn.ReadOnly = true;
-            this.namColumn.Visible = false;
             this.namColumn.Width = 75;
             // 
-            // kyHDColumn
+            // thangColumn
             // 
-            this.kyHDColumn.DataPropertyName = "ten_kyghi";
+            this.thangColumn.DataPropertyName = "ten_kyghi";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.kyHDColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.kyHDColumn.HeaderText = "Tháng";
-            this.kyHDColumn.MinimumWidth = 6;
-            this.kyHDColumn.Name = "kyHDColumn";
-            this.kyHDColumn.Width = 86;
+            this.thangColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.thangColumn.HeaderText = "Tháng";
+            this.thangColumn.MinimumWidth = 6;
+            this.thangColumn.Name = "thangColumn";
+            this.thangColumn.Width = 86;
             // 
             // soHDColumn
             // 
@@ -691,6 +690,7 @@
             // 
             // ngaythuColumn
             // 
+            this.ngaythuColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ngaythuColumn.DataPropertyName = "ngaydangngan";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.Format = "dd/MM/yyyy";
@@ -705,6 +705,7 @@
             // 
             // ngayBKColumn
             // 
+            this.ngayBKColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ngayBKColumn.DataPropertyName = "ngayBK";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.Format = "dd/MM/yyyy";
@@ -732,6 +733,7 @@
             // 
             // nganhangColumn
             // 
+            this.nganhangColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nganhangColumn.DataPropertyName = "NVNop";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -851,7 +853,7 @@
         private Core.NovDataGridViewCheckBoxColumn chkColumn;
         private Core.NovDataGridViewTextBoxColumn seriColumn;
         private Core.NovDataGridViewTextBoxColumn namColumn;
-        private Core.NovDataGridViewTextBoxColumn kyHDColumn;
+        private Core.NovDataGridViewTextBoxColumn thangColumn;
         private Core.NovDataGridViewTextBoxColumn soHDColumn;
         private Core.NovDataGridViewTextBoxColumn danhboColumn;
         private Core.NovDataGridViewTextBoxColumn ngaythuColumn;

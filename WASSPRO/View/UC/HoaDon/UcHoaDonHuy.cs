@@ -26,7 +26,41 @@ namespace QLCongNo.View.UC.HoaDon
             btnEX.Click += btnEX_Click;
             btnRF.Click += btnRF_Click;
             btnConfirm.Click += btnConfirm_Click;
-            txtSoHD.KeyDown += txtTim_KeyDown;
+            txtDanhBo.KeyDown += txtTim_KeyDown;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "KyColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         void btnConfirm_Click(object sender, EventArgs e)
@@ -113,7 +147,7 @@ namespace QLCongNo.View.UC.HoaDon
 
         void txtTim_KeyDown(object sender, KeyEventArgs e)
         {
-            string text = txtSoHD.Text;
+            string text = txtDanhBo.Text;
             if (text != "")
             {
                 if (e.KeyCode == Keys.Enter)
@@ -128,45 +162,42 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(txtSoHD.Text))
+                string maDanhBo = txtDanhBo.Text.Trim();
+                if (!string.IsNullOrWhiteSpace(maDanhBo))
                 {
-                    if (decimal.TryParse(txtSoHD.Text, out decimal soHDDecimal))
+                    if (maDanhBo.Length != 11)
                     {
-                        string SOHD = soHDDecimal.ToString("0000000");
-                        var hoadon = db.HOADONs.Where(x => x.SO_HD == SOHD &&
-                                                      x.MAU_HD == cboMauSo.Text &&
-                                                      x.KY_HIEU_HD == cboKyHieu.Text &&
-                                                      x.trangthai_id != 0).FirstOrDefault();
-                        if (hoadon != null)
+                        MessageBox.Show("Thông tin tìm kiếm chưa chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    var khachHang = db.KHACHHANGs.Where(x => x.madanhbo == maDanhBo).FirstOrDefault();
+                    if (khachHang != null)
+                    {
+                        var data = db.getDSHoaDon_KH(khachHang.ID_KH).ToList();
+
+                        if (data.Any())
                         {
-                            var data = db.getDSHoaDon_KH(hoadon.ID_KH)
-                                         .Where(x => x.ID_HD == hoadon.ID_HD)
-                                         .ToList();
-                            if (data.Any())
+                            if (data.Count > 0)
                             {
-                                dataGridView1.DataSource = data;
+                                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                             }
-                            else
-                            {
-                                MessageBox.Show("Hóa đơn tìm thấy nhưng không có dữ liệu chi tiết để hiển thị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                dataGridView1.DataSource = null;
-                            }
+                            dataGridView1.DataSource = data;
                         }
                         else
                         {
-                            MessageBox.Show("Không tìm thấy hóa đơn với thông tin đã nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Hóa đơn tìm thấy nhưng không có dữ liệu chi tiết để hiển thị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridView1.DataSource = null;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Số hóa đơn không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtSoHD.Focus();
+                        MessageBox.Show("Không tìm thấy hóa đơn với thông tin đã nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        dataGridView1.DataSource = null;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa nhập số hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Chưa nhập thông tin tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     dataGridView1.DataSource = null;
                 }
             }
@@ -178,14 +209,8 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void frHoaDonHuy_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoGenerateColumns = false;
-            cboMauSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboMauSo.DataSource = db.MAU_HD.OrderBy(x => x.ky_hieu_HD).ToList();
-            cboMauSo.ValueMember = "mau_HD1";
-            // dm ky hieu
-            cboKyHieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            string[] kyghieu = { "TD/19E", "TD/20E", "TD/21E" };
-            cboKyHieu.DataSource = kyghieu;
         }
 
         private void btnTim_Click_1(object sender, EventArgs e)
