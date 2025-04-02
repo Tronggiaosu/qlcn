@@ -45,11 +45,17 @@ namespace QLCongNo.portal78 {
         
         private System.Threading.SendOrPostCallback downloadInvOperationCompleted;
         
+        private System.Threading.SendOrPostCallback downloadInvErrorOperationCompleted;
+        
         private System.Threading.SendOrPostCallback downloadInvNoPayOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadInvNoPayErrorOperationCompleted;
         
         private System.Threading.SendOrPostCallback downloadInvPDFOperationCompleted;
         
         private System.Threading.SendOrPostCallback downloadInvPDFNoPayOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadInvZipTokenOperationCompleted;
         
         private System.Threading.SendOrPostCallback listInvByCusFkeyOperationCompleted;
         
@@ -77,13 +83,23 @@ namespace QLCongNo.portal78 {
         
         private System.Threading.SendOrPostCallback downloadInvFkeyOperationCompleted;
         
+        private System.Threading.SendOrPostCallback downloadInvFkeyOriginOperationCompleted;
+        
         private System.Threading.SendOrPostCallback downloadInvFkeyNoPayOperationCompleted;
         
         private System.Threading.SendOrPostCallback downloadInvErrorFkeyOperationCompleted;
         
         private System.Threading.SendOrPostCallback downloadInvErrorPDFOperationCompleted;
         
+        private System.Threading.SendOrPostCallback downloadInvPDFNoPayErrorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadInvPDFFkeyErrorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadInvPDFFkeyNoPayErrorOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetInvErrorViewFkeyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadInvZipFkeyOperationCompleted;
         
         private System.Threading.SendOrPostCallback getDigestOperationCompleted;
         
@@ -92,6 +108,8 @@ namespace QLCongNo.portal78 {
         private System.Threading.SendOrPostCallback getCusOperationCompleted;
         
         private System.Threading.SendOrPostCallback getStaffOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCusWithBuyerOperationCompleted;
         
         private System.Threading.SendOrPostCallback listInvFromNoToNoOperationCompleted;
         
@@ -114,6 +132,12 @@ namespace QLCongNo.portal78 {
         private System.Threading.SendOrPostCallback convertForVerifyBase64HtmlByFkeyOperationCompleted;
         
         private System.Threading.SendOrPostCallback convertForStoreBase64HtmlByFkeyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetInvViewByDateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadCTTTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback downloadCTTFkeyOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -178,13 +202,22 @@ namespace QLCongNo.portal78 {
         public event downloadInvCompletedEventHandler downloadInvCompleted;
         
         /// <remarks/>
+        public event downloadInvErrorCompletedEventHandler downloadInvErrorCompleted;
+        
+        /// <remarks/>
         public event downloadInvNoPayCompletedEventHandler downloadInvNoPayCompleted;
+        
+        /// <remarks/>
+        public event downloadInvNoPayErrorCompletedEventHandler downloadInvNoPayErrorCompleted;
         
         /// <remarks/>
         public event downloadInvPDFCompletedEventHandler downloadInvPDFCompleted;
         
         /// <remarks/>
         public event downloadInvPDFNoPayCompletedEventHandler downloadInvPDFNoPayCompleted;
+        
+        /// <remarks/>
+        public event downloadInvZipTokenCompletedEventHandler downloadInvZipTokenCompleted;
         
         /// <remarks/>
         public event listInvByCusFkeyCompletedEventHandler listInvByCusFkeyCompleted;
@@ -226,6 +259,9 @@ namespace QLCongNo.portal78 {
         public event downloadInvFkeyCompletedEventHandler downloadInvFkeyCompleted;
         
         /// <remarks/>
+        public event downloadInvFkeyOriginCompletedEventHandler downloadInvFkeyOriginCompleted;
+        
+        /// <remarks/>
         public event downloadInvFkeyNoPayCompletedEventHandler downloadInvFkeyNoPayCompleted;
         
         /// <remarks/>
@@ -235,7 +271,19 @@ namespace QLCongNo.portal78 {
         public event downloadInvErrorPDFCompletedEventHandler downloadInvErrorPDFCompleted;
         
         /// <remarks/>
+        public event downloadInvPDFNoPayErrorCompletedEventHandler downloadInvPDFNoPayErrorCompleted;
+        
+        /// <remarks/>
+        public event downloadInvPDFFkeyErrorCompletedEventHandler downloadInvPDFFkeyErrorCompleted;
+        
+        /// <remarks/>
+        public event downloadInvPDFFkeyNoPayErrorCompletedEventHandler downloadInvPDFFkeyNoPayErrorCompleted;
+        
+        /// <remarks/>
         public event GetInvErrorViewFkeyCompletedEventHandler GetInvErrorViewFkeyCompleted;
+        
+        /// <remarks/>
+        public event downloadInvZipFkeyCompletedEventHandler downloadInvZipFkeyCompleted;
         
         /// <remarks/>
         public event getDigestCompletedEventHandler getDigestCompleted;
@@ -248,6 +296,9 @@ namespace QLCongNo.portal78 {
         
         /// <remarks/>
         public event getStaffCompletedEventHandler getStaffCompleted;
+        
+        /// <remarks/>
+        public event getCusWithBuyerCompletedEventHandler getCusWithBuyerCompleted;
         
         /// <remarks/>
         public event listInvFromNoToNoCompletedEventHandler listInvFromNoToNoCompleted;
@@ -281,6 +332,15 @@ namespace QLCongNo.portal78 {
         
         /// <remarks/>
         public event convertForStoreBase64HtmlByFkeyCompletedEventHandler convertForStoreBase64HtmlByFkeyCompleted;
+        
+        /// <remarks/>
+        public event GetInvViewByDateCompletedEventHandler GetInvViewByDateCompleted;
+        
+        /// <remarks/>
+        public event downloadCTTTokenCompletedEventHandler downloadCTTTokenCompleted;
+        
+        /// <remarks/>
+        public event downloadCTTFkeyCompletedEventHandler downloadCTTFkeyCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/listInvByCus", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -569,6 +629,39 @@ namespace QLCongNo.portal78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvError", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvError(string invToken, string userName, string userPass) {
+            object[] results = this.Invoke("downloadInvError", new object[] {
+                        invToken,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvErrorAsync(string invToken, string userName, string userPass) {
+            this.downloadInvErrorAsync(invToken, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvErrorAsync(string invToken, string userName, string userPass, object userState) {
+            if ((this.downloadInvErrorOperationCompleted == null)) {
+                this.downloadInvErrorOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvErrorOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvError", new object[] {
+                        invToken,
+                        userName,
+                        userPass}, this.downloadInvErrorOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvErrorOperationCompleted(object arg) {
+            if ((this.downloadInvErrorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvErrorCompleted(this, new downloadInvErrorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvNoPay", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string downloadInvNoPay(string invToken, string userName, string userPass) {
             object[] results = this.Invoke("downloadInvNoPay", new object[] {
@@ -598,6 +691,39 @@ namespace QLCongNo.portal78 {
             if ((this.downloadInvNoPayCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.downloadInvNoPayCompleted(this, new downloadInvNoPayCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvNoPayError", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvNoPayError(string invToken, string userName, string userPass) {
+            object[] results = this.Invoke("downloadInvNoPayError", new object[] {
+                        invToken,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvNoPayErrorAsync(string invToken, string userName, string userPass) {
+            this.downloadInvNoPayErrorAsync(invToken, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvNoPayErrorAsync(string invToken, string userName, string userPass, object userState) {
+            if ((this.downloadInvNoPayErrorOperationCompleted == null)) {
+                this.downloadInvNoPayErrorOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvNoPayErrorOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvNoPayError", new object[] {
+                        invToken,
+                        userName,
+                        userPass}, this.downloadInvNoPayErrorOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvNoPayErrorOperationCompleted(object arg) {
+            if ((this.downloadInvNoPayErrorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvNoPayErrorCompleted(this, new downloadInvNoPayErrorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -664,6 +790,41 @@ namespace QLCongNo.portal78 {
             if ((this.downloadInvPDFNoPayCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.downloadInvPDFNoPayCompleted(this, new downloadInvPDFNoPayCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvZipToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvZipToken(string invToken, string userName, string userPass, bool checkPayment) {
+            object[] results = this.Invoke("downloadInvZipToken", new object[] {
+                        invToken,
+                        userName,
+                        userPass,
+                        checkPayment});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvZipTokenAsync(string invToken, string userName, string userPass, bool checkPayment) {
+            this.downloadInvZipTokenAsync(invToken, userName, userPass, checkPayment, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvZipTokenAsync(string invToken, string userName, string userPass, bool checkPayment, object userState) {
+            if ((this.downloadInvZipTokenOperationCompleted == null)) {
+                this.downloadInvZipTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvZipTokenOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvZipToken", new object[] {
+                        invToken,
+                        userName,
+                        userPass,
+                        checkPayment}, this.downloadInvZipTokenOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvZipTokenOperationCompleted(object arg) {
+            if ((this.downloadInvZipTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvZipTokenCompleted(this, new downloadInvZipTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1105,6 +1266,39 @@ namespace QLCongNo.portal78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvFkeyOrigin", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvFkeyOrigin(string fkey, string userName, string userPass) {
+            object[] results = this.Invoke("downloadInvFkeyOrigin", new object[] {
+                        fkey,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvFkeyOriginAsync(string fkey, string userName, string userPass) {
+            this.downloadInvFkeyOriginAsync(fkey, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvFkeyOriginAsync(string fkey, string userName, string userPass, object userState) {
+            if ((this.downloadInvFkeyOriginOperationCompleted == null)) {
+                this.downloadInvFkeyOriginOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvFkeyOriginOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvFkeyOrigin", new object[] {
+                        fkey,
+                        userName,
+                        userPass}, this.downloadInvFkeyOriginOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvFkeyOriginOperationCompleted(object arg) {
+            if ((this.downloadInvFkeyOriginCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvFkeyOriginCompleted(this, new downloadInvFkeyOriginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvFkeyNoPay", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string downloadInvFkeyNoPay(string fkey, string userName, string userPass) {
             object[] results = this.Invoke("downloadInvFkeyNoPay", new object[] {
@@ -1204,6 +1398,105 @@ namespace QLCongNo.portal78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvPDFNoPayError", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvPDFNoPayError(string token, string userName, string userPass) {
+            object[] results = this.Invoke("downloadInvPDFNoPayError", new object[] {
+                        token,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvPDFNoPayErrorAsync(string token, string userName, string userPass) {
+            this.downloadInvPDFNoPayErrorAsync(token, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvPDFNoPayErrorAsync(string token, string userName, string userPass, object userState) {
+            if ((this.downloadInvPDFNoPayErrorOperationCompleted == null)) {
+                this.downloadInvPDFNoPayErrorOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvPDFNoPayErrorOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvPDFNoPayError", new object[] {
+                        token,
+                        userName,
+                        userPass}, this.downloadInvPDFNoPayErrorOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvPDFNoPayErrorOperationCompleted(object arg) {
+            if ((this.downloadInvPDFNoPayErrorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvPDFNoPayErrorCompleted(this, new downloadInvPDFNoPayErrorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvPDFFkeyError", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvPDFFkeyError(string fkey, string userName, string userPass) {
+            object[] results = this.Invoke("downloadInvPDFFkeyError", new object[] {
+                        fkey,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvPDFFkeyErrorAsync(string fkey, string userName, string userPass) {
+            this.downloadInvPDFFkeyErrorAsync(fkey, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvPDFFkeyErrorAsync(string fkey, string userName, string userPass, object userState) {
+            if ((this.downloadInvPDFFkeyErrorOperationCompleted == null)) {
+                this.downloadInvPDFFkeyErrorOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvPDFFkeyErrorOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvPDFFkeyError", new object[] {
+                        fkey,
+                        userName,
+                        userPass}, this.downloadInvPDFFkeyErrorOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvPDFFkeyErrorOperationCompleted(object arg) {
+            if ((this.downloadInvPDFFkeyErrorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvPDFFkeyErrorCompleted(this, new downloadInvPDFFkeyErrorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvPDFFkeyNoPayError", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvPDFFkeyNoPayError(string fkey, string userName, string userPass) {
+            object[] results = this.Invoke("downloadInvPDFFkeyNoPayError", new object[] {
+                        fkey,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvPDFFkeyNoPayErrorAsync(string fkey, string userName, string userPass) {
+            this.downloadInvPDFFkeyNoPayErrorAsync(fkey, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvPDFFkeyNoPayErrorAsync(string fkey, string userName, string userPass, object userState) {
+            if ((this.downloadInvPDFFkeyNoPayErrorOperationCompleted == null)) {
+                this.downloadInvPDFFkeyNoPayErrorOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvPDFFkeyNoPayErrorOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvPDFFkeyNoPayError", new object[] {
+                        fkey,
+                        userName,
+                        userPass}, this.downloadInvPDFFkeyNoPayErrorOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvPDFFkeyNoPayErrorOperationCompleted(object arg) {
+            if ((this.downloadInvPDFFkeyNoPayErrorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvPDFFkeyNoPayErrorCompleted(this, new downloadInvPDFFkeyNoPayErrorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetInvErrorViewFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string GetInvErrorViewFkey(string fkey, string userName, string userPass) {
             object[] results = this.Invoke("GetInvErrorViewFkey", new object[] {
@@ -1233,6 +1526,41 @@ namespace QLCongNo.portal78 {
             if ((this.GetInvErrorViewFkeyCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetInvErrorViewFkeyCompleted(this, new GetInvErrorViewFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadInvZipFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadInvZipFkey(string fkey, string userName, string userPass, bool checkPayment) {
+            object[] results = this.Invoke("downloadInvZipFkey", new object[] {
+                        fkey,
+                        userName,
+                        userPass,
+                        checkPayment});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadInvZipFkeyAsync(string fkey, string userName, string userPass, bool checkPayment) {
+            this.downloadInvZipFkeyAsync(fkey, userName, userPass, checkPayment, null);
+        }
+        
+        /// <remarks/>
+        public void downloadInvZipFkeyAsync(string fkey, string userName, string userPass, bool checkPayment, object userState) {
+            if ((this.downloadInvZipFkeyOperationCompleted == null)) {
+                this.downloadInvZipFkeyOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadInvZipFkeyOperationCompleted);
+            }
+            this.InvokeAsync("downloadInvZipFkey", new object[] {
+                        fkey,
+                        userName,
+                        userPass,
+                        checkPayment}, this.downloadInvZipFkeyOperationCompleted, userState);
+        }
+        
+        private void OndownloadInvZipFkeyOperationCompleted(object arg) {
+            if ((this.downloadInvZipFkeyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadInvZipFkeyCompleted(this, new downloadInvZipFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1369,6 +1697,39 @@ namespace QLCongNo.portal78 {
             if ((this.getStaffCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getStaffCompleted(this, new getStaffCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getCusWithBuyer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getCusWithBuyer(string cusCode, string userName, string userPass) {
+            object[] results = this.Invoke("getCusWithBuyer", new object[] {
+                        cusCode,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCusWithBuyerAsync(string cusCode, string userName, string userPass) {
+            this.getCusWithBuyerAsync(cusCode, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void getCusWithBuyerAsync(string cusCode, string userName, string userPass, object userState) {
+            if ((this.getCusWithBuyerOperationCompleted == null)) {
+                this.getCusWithBuyerOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCusWithBuyerOperationCompleted);
+            }
+            this.InvokeAsync("getCusWithBuyer", new object[] {
+                        cusCode,
+                        userName,
+                        userPass}, this.getCusWithBuyerOperationCompleted, userState);
+        }
+        
+        private void OngetCusWithBuyerOperationCompleted(object arg) {
+            if ((this.getCusWithBuyerCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCusWithBuyerCompleted(this, new getCusWithBuyerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1762,6 +2123,115 @@ namespace QLCongNo.portal78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetInvViewByDate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetInvViewByDate(string userName, string userPass, string pattern, string serial, string fromDate, string toDate) {
+            object[] results = this.Invoke("GetInvViewByDate", new object[] {
+                        userName,
+                        userPass,
+                        pattern,
+                        serial,
+                        fromDate,
+                        toDate});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetInvViewByDateAsync(string userName, string userPass, string pattern, string serial, string fromDate, string toDate) {
+            this.GetInvViewByDateAsync(userName, userPass, pattern, serial, fromDate, toDate, null);
+        }
+        
+        /// <remarks/>
+        public void GetInvViewByDateAsync(string userName, string userPass, string pattern, string serial, string fromDate, string toDate, object userState) {
+            if ((this.GetInvViewByDateOperationCompleted == null)) {
+                this.GetInvViewByDateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetInvViewByDateOperationCompleted);
+            }
+            this.InvokeAsync("GetInvViewByDate", new object[] {
+                        userName,
+                        userPass,
+                        pattern,
+                        serial,
+                        fromDate,
+                        toDate}, this.GetInvViewByDateOperationCompleted, userState);
+        }
+        
+        private void OnGetInvViewByDateOperationCompleted(object arg) {
+            if ((this.GetInvViewByDateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetInvViewByDateCompleted(this, new GetInvViewByDateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadCTTToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadCTTToken(string token, string username, string password, int type) {
+            object[] results = this.Invoke("downloadCTTToken", new object[] {
+                        token,
+                        username,
+                        password,
+                        type});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadCTTTokenAsync(string token, string username, string password, int type) {
+            this.downloadCTTTokenAsync(token, username, password, type, null);
+        }
+        
+        /// <remarks/>
+        public void downloadCTTTokenAsync(string token, string username, string password, int type, object userState) {
+            if ((this.downloadCTTTokenOperationCompleted == null)) {
+                this.downloadCTTTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadCTTTokenOperationCompleted);
+            }
+            this.InvokeAsync("downloadCTTToken", new object[] {
+                        token,
+                        username,
+                        password,
+                        type}, this.downloadCTTTokenOperationCompleted, userState);
+        }
+        
+        private void OndownloadCTTTokenOperationCompleted(object arg) {
+            if ((this.downloadCTTTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadCTTTokenCompleted(this, new downloadCTTTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/downloadCTTFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string downloadCTTFkey(string fkey, string username, string password, int type) {
+            object[] results = this.Invoke("downloadCTTFkey", new object[] {
+                        fkey,
+                        username,
+                        password,
+                        type});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void downloadCTTFkeyAsync(string fkey, string username, string password, int type) {
+            this.downloadCTTFkeyAsync(fkey, username, password, type, null);
+        }
+        
+        /// <remarks/>
+        public void downloadCTTFkeyAsync(string fkey, string username, string password, int type, object userState) {
+            if ((this.downloadCTTFkeyOperationCompleted == null)) {
+                this.downloadCTTFkeyOperationCompleted = new System.Threading.SendOrPostCallback(this.OndownloadCTTFkeyOperationCompleted);
+            }
+            this.InvokeAsync("downloadCTTFkey", new object[] {
+                        fkey,
+                        username,
+                        password,
+                        type}, this.downloadCTTFkeyOperationCompleted, userState);
+        }
+        
+        private void OndownloadCTTFkeyOperationCompleted(object arg) {
+            if ((this.downloadCTTFkeyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.downloadCTTFkeyCompleted(this, new downloadCTTFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1990,6 +2460,32 @@ namespace QLCongNo.portal78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvErrorCompletedEventHandler(object sender, downloadInvErrorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvErrorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvErrorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void downloadInvNoPayCompletedEventHandler(object sender, downloadInvNoPayCompletedEventArgs e);
     
     /// <remarks/>
@@ -2001,6 +2497,32 @@ namespace QLCongNo.portal78 {
         private object[] results;
         
         internal downloadInvNoPayCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvNoPayErrorCompletedEventHandler(object sender, downloadInvNoPayErrorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvNoPayErrorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvNoPayErrorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2053,6 +2575,32 @@ namespace QLCongNo.portal78 {
         private object[] results;
         
         internal downloadInvPDFNoPayCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvZipTokenCompletedEventHandler(object sender, downloadInvZipTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvZipTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvZipTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2406,6 +2954,32 @@ namespace QLCongNo.portal78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvFkeyOriginCompletedEventHandler(object sender, downloadInvFkeyOriginCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvFkeyOriginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvFkeyOriginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void downloadInvFkeyNoPayCompletedEventHandler(object sender, downloadInvFkeyNoPayCompletedEventArgs e);
     
     /// <remarks/>
@@ -2484,6 +3058,84 @@ namespace QLCongNo.portal78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvPDFNoPayErrorCompletedEventHandler(object sender, downloadInvPDFNoPayErrorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvPDFNoPayErrorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvPDFNoPayErrorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvPDFFkeyErrorCompletedEventHandler(object sender, downloadInvPDFFkeyErrorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvPDFFkeyErrorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvPDFFkeyErrorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvPDFFkeyNoPayErrorCompletedEventHandler(object sender, downloadInvPDFFkeyNoPayErrorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvPDFFkeyNoPayErrorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvPDFFkeyNoPayErrorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetInvErrorViewFkeyCompletedEventHandler(object sender, GetInvErrorViewFkeyCompletedEventArgs e);
     
     /// <remarks/>
@@ -2495,6 +3147,32 @@ namespace QLCongNo.portal78 {
         private object[] results;
         
         internal GetInvErrorViewFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadInvZipFkeyCompletedEventHandler(object sender, downloadInvZipFkeyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadInvZipFkeyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadInvZipFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2599,6 +3277,32 @@ namespace QLCongNo.portal78 {
         private object[] results;
         
         internal getStaffCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void getCusWithBuyerCompletedEventHandler(object sender, getCusWithBuyerCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCusWithBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCusWithBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2885,6 +3589,84 @@ namespace QLCongNo.portal78 {
         private object[] results;
         
         internal convertForStoreBase64HtmlByFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetInvViewByDateCompletedEventHandler(object sender, GetInvViewByDateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetInvViewByDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetInvViewByDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadCTTTokenCompletedEventHandler(object sender, downloadCTTTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadCTTTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadCTTTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void downloadCTTFkeyCompletedEventHandler(object sender, downloadCTTFkeyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class downloadCTTFkeyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal downloadCTTFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

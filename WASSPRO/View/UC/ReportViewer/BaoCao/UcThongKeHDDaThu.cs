@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLCongNo.View.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
     {
         private CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
         private DataTable table;
+        private List<dynamic> danhsach = new List<dynamic>();
 
         public UcThongKeHDDaThu()
         {
@@ -21,7 +23,56 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             textBox1.KeyDown += textBox1_KeyDown;
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            this.ptbSendSMS.Click += (sender, e) => SendSMS();
         }
+
+        private void SendSMS()
+        {
+            try
+            {
+                var countRow = this.danhsach.Count;
+                var currentRow = this.dataGridView1.CurrentRow;
+
+                if (countRow == 0) return;
+                if (currentRow == null)
+                {
+                    MessageBox.Show("Vui lòng chọn số danh bộ muốn gửi tin nhắn SMS", "Thông báo",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var currentIndex = currentRow.Index;
+                var currentDanhBo = this.dataGridView1.Rows[currentIndex].Cells[4].Value;
+                var currentInfo = this.danhsach.FirstOrDefault(x => x.DANHBO == currentDanhBo);
+                if (currentInfo != null)
+                {
+                    var danhbo = currentInfo.DANHBO;
+                    var soHD = currentInfo.so_hd;
+                    var hoten = currentInfo.hoten_KH;
+                    var sdt = String.Empty;
+                    var thoigian = currentInfo.ten_kyghi;
+                    var tongtien = string.Format("{0:n0}", currentInfo.tongtien);
+                    var thongtin = $"{thoigian}; Tong tien {tongtien}";
+
+                    var type = "SMS_HOADON_THANHTOAN";
+                    var title = "Hóa đơn đã thanh toán";
+                    var frm = new FrmSMS();
+                    frm.Type = type;
+                    frm.Title = title;
+                    frm.DanhBo = danhbo;
+                    frm.HoTen = hoten;
+                    frm.SDT = sdt;
+                    frm.ThongTin = thongtin;
+                    frm.DanhSach = null;
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+            }
+        }
+
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
@@ -154,6 +205,11 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 lbltongtien.Text = "Tổng tiền:  " + string.Format("{0:n0}", result.ToList().Sum(x => x.tongtien));
                 table = ExcelExportHelper.ListToDataTable(result);
                 this.Cursor = Cursors.Default;
+
+                foreach (var item in result)
+                {
+                    this.danhsach.Add(item);
+                }
             }
             catch (Exception ex)
             {

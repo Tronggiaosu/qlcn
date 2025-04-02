@@ -853,6 +853,12 @@
     <Compile Include="View\Core\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Core\FrmSMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Core\FrmSMS.Designer.cs">
+      <DependentUpon>FrmSMS.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Core\NovButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1640,6 +1646,11 @@
     <Compile Include="VIEW_NHANVIENTHU_HOADON.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Web References\AccountTDC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\bs78\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1697,11 +1708,15 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Web References\AccountTDC\account.disco" />
     <EmbeddedResource Include="GachNo\frPhanQuyenNhanVienThu.resx">
       <DependentUpon>frPhanQuyenNhanVienThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Core\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Core\FrmSMS.resx">
+      <DependentUpon>FrmSMS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Core\NovDropdownMenu.resx">
       <DependentUpon>NovDropdownMenu.cs</DependentUpon>
@@ -2088,9 +2103,13 @@
     <None Include="Resources\new\mo-nuoc.png" />
     <None Include="Resources\logoThuDuc2.png" />
     <Content Include="Resources\Images\app.ico" />
+    <Content Include="Resources\Images\close24px.png" />
     <Content Include="Resources\Images\cntd.png" />
     <Content Include="Resources\Images\logomoi.png" />
     <Content Include="Resources\Images\pass.png" />
+    <Content Include="Resources\Images\sms24px.png" />
+    <Content Include="Resources\Images\sms32px.png" />
+    <Content Include="Resources\Images\sms48px.png" />
     <Content Include="Resources\Images\user.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\SqlServerSpatial110.dll" />
@@ -2152,6 +2171,11 @@
     <None Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNgay.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopHoaDon.rdlc" />
     <None Include="View\UC\ReportViewer\ReportView\TraLaiHoaDonHanhThu.rdlc" />
+    <None Include="Web References\AccountTDC\account.wsdl" />
+    <None Include="Web References\AccountTDC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\portal78\Portalservice.disco" />
     <None Include="Web References\pb78\Publishservice.disco" />
     <None Include="Web References\bs78\BusinessService.disco" />
@@ -2499,6 +2523,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="https://tdapi.capnuocthuduc.vn/account.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AccountTDC\</RelPath>
+      <UpdateFromURL>https://tdapi.capnuocthuduc.vn/account.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>QLCongNo_AccountTDC_Account</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://tdapi.capnuocthuduc.vn/thuho.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ServiceTDC\</RelPath>

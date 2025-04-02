@@ -109,9 +109,9 @@
             this.lbltongsokyno = new System.Windows.Forms.Label();
             this.lblsoluong = new System.Windows.Forms.Label();
             this.novLabel2 = new QLCongNo.View.Core.NovLabel();
-            this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             this.miniToolStrip = new QLCongNo.View.Core.NovStatusStrip();
             this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
+            this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             this.toolStrip2.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -624,7 +624,7 @@
             this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvHoaDon.RowTemplate.Height = 35;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1342, 292);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1342, 289);
             this.dgvHoaDon.TabIndex = 1;
             // 
             // namColumn
@@ -900,18 +900,6 @@
             this.novLabel2.TabIndex = 19;
             this.novLabel2.Text = "Danh sách hóa đơn";
             // 
-            // iconSplitButton1
-            // 
-            this.iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconSplitButton1.IconColor = System.Drawing.Color.Black;
-            this.iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSplitButton1.IconSize = 48;
-            this.iconSplitButton1.Name = "iconSplitButton1";
-            this.iconSplitButton1.Rotation = 0D;
-            this.iconSplitButton1.Size = new System.Drawing.Size(23, 23);
-            this.iconSplitButton1.Text = "iconSplitButton1";
-            // 
             // miniToolStrip
             // 
             this.miniToolStrip.AccessibleName = "New item selection";
@@ -940,6 +928,18 @@
             this.statusStrip1.Size = new System.Drawing.Size(405, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // iconSplitButton1
+            // 
+            this.iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconSplitButton1.IconColor = System.Drawing.Color.Black;
+            this.iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconSplitButton1.IconSize = 48;
+            this.iconSplitButton1.Name = "iconSplitButton1";
+            this.iconSplitButton1.Rotation = 0D;
+            this.iconSplitButton1.Size = new System.Drawing.Size(23, 23);
+            this.iconSplitButton1.Text = "iconSplitButton1";
             // 
             // UcTraCuuHoaDon
             // 

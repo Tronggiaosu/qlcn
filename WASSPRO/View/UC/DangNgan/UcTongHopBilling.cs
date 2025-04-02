@@ -106,7 +106,7 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnTT_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.Rows.Count == 0)
+            if (dataGridView1.Rows.Count == 0)
             {
                 MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -185,7 +185,7 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.Rows.Count == 0)
+            if (dataGridView1.Rows.Count == 0)
             {
                 MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

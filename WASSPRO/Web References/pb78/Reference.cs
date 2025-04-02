@@ -31,7 +31,11 @@ namespace QLCongNo.pb78 {
         
         private System.Threading.SendOrPostCallback ImportAndPublishInvOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ImportAndPublishInvMTT32OperationCompleted;
+        
         private System.Threading.SendOrPostCallback ImportAndPublishAssignedNoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ImportAndPublishAssignedNoMTTOperationCompleted;
         
         private System.Threading.SendOrPostCallback ImportInvOperationCompleted;
         
@@ -45,6 +49,10 @@ namespace QLCongNo.pb78 {
         
         private System.Threading.SendOrPostCallback publishInvOperationCompleted;
         
+        private System.Threading.SendOrPostCallback PrintNoticeInvErrorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PrintNoticeInvErrorCQTOperationCompleted;
+        
         private System.Threading.SendOrPostCallback PublishInvFkeyOperationCompleted;
         
         private System.Threading.SendOrPostCallback PublishInvByDateOperationCompleted;
@@ -52,8 +60,6 @@ namespace QLCongNo.pb78 {
         private System.Threading.SendOrPostCallback UpdateCusOperationCompleted;
         
         private System.Threading.SendOrPostCallback setCusCertOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback ImportFromXmlOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCertInfoOperationCompleted;
         
@@ -135,19 +141,31 @@ namespace QLCongNo.pb78 {
         
         private System.Threading.SendOrPostCallback GetMCCQThueByFkeysNoXMLSignOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetMCCQThueFromNoToNoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SendInvToCQTByFkeysOperationCompleted;
         
         private System.Threading.SendOrPostCallback SendInvToCQTByInvTokensOperationCompleted;
         
         private System.Threading.SendOrPostCallback SendInvNoticeErrorsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SendInvErrorMTTOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetHashInvNoticeErrorsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvErrorMTTWithTokenOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetHashInvNoticeErrorsWithSmartCAOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetHashInvErrorMTTWithSmartCAOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SendInvNoticeErrorsWithSmartCAOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SendInvErrorMTTWithSmartCAOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SendInvNoticeErrorsWidthTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvErrorMTTWithTokenOperationCompleted;
         
         private System.Threading.SendOrPostCallback HandleInvoiceErrorsOperationCompleted;
         
@@ -171,11 +189,45 @@ namespace QLCongNo.pb78 {
         
         private System.Threading.SendOrPostCallback CancelPublishInvoiceOperationCompleted;
         
+        private System.Threading.SendOrPostCallback RemovePublishInvoiceOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetTransactionItemsOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetTransactionDetailOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetStepDetailOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetResultsTransactionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ImportInvByPatternCTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ImportAndPublishCTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashCTTSmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PublishCTTSmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getHashCTTWithTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback publishCTTWithTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RegisterPublishCTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ImportAndPublishInvMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ImportInvByPatternMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getHashInvWithTokenMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback publishInvWithTokenMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvSmartCAMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PublishInvSmartCAMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListSummaryReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSummaryReportDetailOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -219,7 +271,13 @@ namespace QLCongNo.pb78 {
         public event ImportAndPublishInvCompletedEventHandler ImportAndPublishInvCompleted;
         
         /// <remarks/>
+        public event ImportAndPublishInvMTT32CompletedEventHandler ImportAndPublishInvMTT32Completed;
+        
+        /// <remarks/>
         public event ImportAndPublishAssignedNoCompletedEventHandler ImportAndPublishAssignedNoCompleted;
+        
+        /// <remarks/>
+        public event ImportAndPublishAssignedNoMTTCompletedEventHandler ImportAndPublishAssignedNoMTTCompleted;
         
         /// <remarks/>
         public event ImportInvCompletedEventHandler ImportInvCompleted;
@@ -240,6 +298,12 @@ namespace QLCongNo.pb78 {
         public event publishInvCompletedEventHandler publishInvCompleted;
         
         /// <remarks/>
+        public event PrintNoticeInvErrorCompletedEventHandler PrintNoticeInvErrorCompleted;
+        
+        /// <remarks/>
+        public event PrintNoticeInvErrorCQTCompletedEventHandler PrintNoticeInvErrorCQTCompleted;
+        
+        /// <remarks/>
         public event PublishInvFkeyCompletedEventHandler PublishInvFkeyCompleted;
         
         /// <remarks/>
@@ -250,9 +314,6 @@ namespace QLCongNo.pb78 {
         
         /// <remarks/>
         public event setCusCertCompletedEventHandler setCusCertCompleted;
-        
-        /// <remarks/>
-        public event ImportFromXmlCompletedEventHandler ImportFromXmlCompleted;
         
         /// <remarks/>
         public event GetCertInfoCompletedEventHandler GetCertInfoCompleted;
@@ -375,6 +436,9 @@ namespace QLCongNo.pb78 {
         public event GetMCCQThueByFkeysNoXMLSignCompletedEventHandler GetMCCQThueByFkeysNoXMLSignCompleted;
         
         /// <remarks/>
+        public event GetMCCQThueFromNoToNoCompletedEventHandler GetMCCQThueFromNoToNoCompleted;
+        
+        /// <remarks/>
         public event SendInvToCQTByFkeysCompletedEventHandler SendInvToCQTByFkeysCompleted;
         
         /// <remarks/>
@@ -384,16 +448,31 @@ namespace QLCongNo.pb78 {
         public event SendInvNoticeErrorsCompletedEventHandler SendInvNoticeErrorsCompleted;
         
         /// <remarks/>
+        public event SendInvErrorMTTCompletedEventHandler SendInvErrorMTTCompleted;
+        
+        /// <remarks/>
         public event GetHashInvNoticeErrorsCompletedEventHandler GetHashInvNoticeErrorsCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvErrorMTTWithTokenCompletedEventHandler GetHashInvErrorMTTWithTokenCompleted;
         
         /// <remarks/>
         public event GetHashInvNoticeErrorsWithSmartCACompletedEventHandler GetHashInvNoticeErrorsWithSmartCACompleted;
         
         /// <remarks/>
+        public event GetHashInvErrorMTTWithSmartCACompletedEventHandler GetHashInvErrorMTTWithSmartCACompleted;
+        
+        /// <remarks/>
         public event SendInvNoticeErrorsWithSmartCACompletedEventHandler SendInvNoticeErrorsWithSmartCACompleted;
         
         /// <remarks/>
+        public event SendInvErrorMTTWithSmartCACompletedEventHandler SendInvErrorMTTWithSmartCACompleted;
+        
+        /// <remarks/>
         public event SendInvNoticeErrorsWidthTokenCompletedEventHandler SendInvNoticeErrorsWidthTokenCompleted;
+        
+        /// <remarks/>
+        public event SendInvErrorMTTWithTokenCompletedEventHandler SendInvErrorMTTWithTokenCompleted;
         
         /// <remarks/>
         public event HandleInvoiceErrorsCompletedEventHandler HandleInvoiceErrorsCompleted;
@@ -429,6 +508,9 @@ namespace QLCongNo.pb78 {
         public event CancelPublishInvoiceCompletedEventHandler CancelPublishInvoiceCompleted;
         
         /// <remarks/>
+        public event RemovePublishInvoiceCompletedEventHandler RemovePublishInvoiceCompleted;
+        
+        /// <remarks/>
         public event GetTransactionItemsCompletedEventHandler GetTransactionItemsCompleted;
         
         /// <remarks/>
@@ -436,6 +518,54 @@ namespace QLCongNo.pb78 {
         
         /// <remarks/>
         public event GetStepDetailCompletedEventHandler GetStepDetailCompleted;
+        
+        /// <remarks/>
+        public event GetResultsTransactionCompletedEventHandler GetResultsTransactionCompleted;
+        
+        /// <remarks/>
+        public event ImportInvByPatternCTTCompletedEventHandler ImportInvByPatternCTTCompleted;
+        
+        /// <remarks/>
+        public event ImportAndPublishCTTCompletedEventHandler ImportAndPublishCTTCompleted;
+        
+        /// <remarks/>
+        public event GetHashCTTSmartCACompletedEventHandler GetHashCTTSmartCACompleted;
+        
+        /// <remarks/>
+        public event PublishCTTSmartCACompletedEventHandler PublishCTTSmartCACompleted;
+        
+        /// <remarks/>
+        public event getHashCTTWithTokenCompletedEventHandler getHashCTTWithTokenCompleted;
+        
+        /// <remarks/>
+        public event publishCTTWithTokenCompletedEventHandler publishCTTWithTokenCompleted;
+        
+        /// <remarks/>
+        public event RegisterPublishCTTCompletedEventHandler RegisterPublishCTTCompleted;
+        
+        /// <remarks/>
+        public event ImportAndPublishInvMTTCompletedEventHandler ImportAndPublishInvMTTCompleted;
+        
+        /// <remarks/>
+        public event ImportInvByPatternMTTCompletedEventHandler ImportInvByPatternMTTCompleted;
+        
+        /// <remarks/>
+        public event getHashInvWithTokenMTTCompletedEventHandler getHashInvWithTokenMTTCompleted;
+        
+        /// <remarks/>
+        public event publishInvWithTokenMTTCompletedEventHandler publishInvWithTokenMTTCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvSmartCAMTTCompletedEventHandler GetHashInvSmartCAMTTCompleted;
+        
+        /// <remarks/>
+        public event PublishInvSmartCAMTTCompletedEventHandler PublishInvSmartCAMTTCompleted;
+        
+        /// <remarks/>
+        public event GetListSummaryReportCompletedEventHandler GetListSummaryReportCompleted;
+        
+        /// <remarks/>
+        public event GetSummaryReportDetailCompletedEventHandler GetSummaryReportDetailCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportAndPublishInv", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -481,6 +611,49 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportAndPublishInvMTT32", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ImportAndPublishInvMTT32(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("ImportAndPublishInvMTT32", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishInvMTT32Async(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            this.ImportAndPublishInvMTT32Async(Account, ACpass, xmlInvData, username, password, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishInvMTT32Async(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert, object userState) {
+            if ((this.ImportAndPublishInvMTT32OperationCompleted == null)) {
+                this.ImportAndPublishInvMTT32OperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportAndPublishInvMTT32OperationCompleted);
+            }
+            this.InvokeAsync("ImportAndPublishInvMTT32", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert}, this.ImportAndPublishInvMTT32OperationCompleted, userState);
+        }
+        
+        private void OnImportAndPublishInvMTT32OperationCompleted(object arg) {
+            if ((this.ImportAndPublishInvMTT32Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ImportAndPublishInvMTT32Completed(this, new ImportAndPublishInvMTT32CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportAndPublishAssignedNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string ImportAndPublishAssignedNo(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
             object[] results = this.Invoke("ImportAndPublishAssignedNo", new object[] {
@@ -520,6 +693,49 @@ namespace QLCongNo.pb78 {
             if ((this.ImportAndPublishAssignedNoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ImportAndPublishAssignedNoCompleted(this, new ImportAndPublishAssignedNoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportAndPublishAssignedNoMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ImportAndPublishAssignedNoMTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("ImportAndPublishAssignedNoMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishAssignedNoMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            this.ImportAndPublishAssignedNoMTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishAssignedNoMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert, object userState) {
+            if ((this.ImportAndPublishAssignedNoMTTOperationCompleted == null)) {
+                this.ImportAndPublishAssignedNoMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportAndPublishAssignedNoMTTOperationCompleted);
+            }
+            this.InvokeAsync("ImportAndPublishAssignedNoMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert}, this.ImportAndPublishAssignedNoMTTOperationCompleted, userState);
+        }
+        
+        private void OnImportAndPublishAssignedNoMTTOperationCompleted(object arg) {
+            if ((this.ImportAndPublishAssignedNoMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ImportAndPublishAssignedNoMTTCompleted(this, new ImportAndPublishAssignedNoMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -752,6 +968,72 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PrintNoticeInvError", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string PrintNoticeInvError(string mtdiep, string username, string password) {
+            object[] results = this.Invoke("PrintNoticeInvError", new object[] {
+                        mtdiep,
+                        username,
+                        password});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PrintNoticeInvErrorAsync(string mtdiep, string username, string password) {
+            this.PrintNoticeInvErrorAsync(mtdiep, username, password, null);
+        }
+        
+        /// <remarks/>
+        public void PrintNoticeInvErrorAsync(string mtdiep, string username, string password, object userState) {
+            if ((this.PrintNoticeInvErrorOperationCompleted == null)) {
+                this.PrintNoticeInvErrorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrintNoticeInvErrorOperationCompleted);
+            }
+            this.InvokeAsync("PrintNoticeInvError", new object[] {
+                        mtdiep,
+                        username,
+                        password}, this.PrintNoticeInvErrorOperationCompleted, userState);
+        }
+        
+        private void OnPrintNoticeInvErrorOperationCompleted(object arg) {
+            if ((this.PrintNoticeInvErrorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrintNoticeInvErrorCompleted(this, new PrintNoticeInvErrorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PrintNoticeInvErrorCQT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string PrintNoticeInvErrorCQT(string mtdiep, string username, string password) {
+            object[] results = this.Invoke("PrintNoticeInvErrorCQT", new object[] {
+                        mtdiep,
+                        username,
+                        password});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PrintNoticeInvErrorCQTAsync(string mtdiep, string username, string password) {
+            this.PrintNoticeInvErrorCQTAsync(mtdiep, username, password, null);
+        }
+        
+        /// <remarks/>
+        public void PrintNoticeInvErrorCQTAsync(string mtdiep, string username, string password, object userState) {
+            if ((this.PrintNoticeInvErrorCQTOperationCompleted == null)) {
+                this.PrintNoticeInvErrorCQTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPrintNoticeInvErrorCQTOperationCompleted);
+            }
+            this.InvokeAsync("PrintNoticeInvErrorCQT", new object[] {
+                        mtdiep,
+                        username,
+                        password}, this.PrintNoticeInvErrorCQTOperationCompleted, userState);
+        }
+        
+        private void OnPrintNoticeInvErrorCQTOperationCompleted(object arg) {
+            if ((this.PrintNoticeInvErrorCQTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PrintNoticeInvErrorCQTCompleted(this, new PrintNoticeInvErrorCQTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PublishInvFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string PublishInvFkey(string Account, string ACpass, string lsFkey, string username, string password, string pattern, string serial) {
             object[] results = this.Invoke("PublishInvFkey", new object[] {
@@ -900,43 +1182,6 @@ namespace QLCongNo.pb78 {
             if ((this.setCusCertCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.setCusCertCompleted(this, new setCusCertCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportFromXml", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string ImportFromXml(string account, string pass, string userName, string password, string productXml) {
-            object[] results = this.Invoke("ImportFromXml", new object[] {
-                        account,
-                        pass,
-                        userName,
-                        password,
-                        productXml});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void ImportFromXmlAsync(string account, string pass, string userName, string password, string productXml) {
-            this.ImportFromXmlAsync(account, pass, userName, password, productXml, null);
-        }
-        
-        /// <remarks/>
-        public void ImportFromXmlAsync(string account, string pass, string userName, string password, string productXml, object userState) {
-            if ((this.ImportFromXmlOperationCompleted == null)) {
-                this.ImportFromXmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportFromXmlOperationCompleted);
-            }
-            this.InvokeAsync("ImportFromXml", new object[] {
-                        account,
-                        pass,
-                        userName,
-                        password,
-                        productXml}, this.ImportFromXmlOperationCompleted, userState);
-        }
-        
-        private void OnImportFromXmlOperationCompleted(object arg) {
-            if ((this.ImportFromXmlCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ImportFromXmlCompleted(this, new ImportFromXmlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2415,6 +2660,51 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMCCQThueFromNoToNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetMCCQThueFromNoToNo(string invFromNo, string invToNo, string invPattern, string invSerial, bool isXMLData, string Account, string ACpass, string userName, string userPass) {
+            object[] results = this.Invoke("GetMCCQThueFromNoToNo", new object[] {
+                        invFromNo,
+                        invToNo,
+                        invPattern,
+                        invSerial,
+                        isXMLData,
+                        Account,
+                        ACpass,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetMCCQThueFromNoToNoAsync(string invFromNo, string invToNo, string invPattern, string invSerial, bool isXMLData, string Account, string ACpass, string userName, string userPass) {
+            this.GetMCCQThueFromNoToNoAsync(invFromNo, invToNo, invPattern, invSerial, isXMLData, Account, ACpass, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void GetMCCQThueFromNoToNoAsync(string invFromNo, string invToNo, string invPattern, string invSerial, bool isXMLData, string Account, string ACpass, string userName, string userPass, object userState) {
+            if ((this.GetMCCQThueFromNoToNoOperationCompleted == null)) {
+                this.GetMCCQThueFromNoToNoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMCCQThueFromNoToNoOperationCompleted);
+            }
+            this.InvokeAsync("GetMCCQThueFromNoToNo", new object[] {
+                        invFromNo,
+                        invToNo,
+                        invPattern,
+                        invSerial,
+                        isXMLData,
+                        Account,
+                        ACpass,
+                        userName,
+                        userPass}, this.GetMCCQThueFromNoToNoOperationCompleted, userState);
+        }
+        
+        private void OnGetMCCQThueFromNoToNoOperationCompleted(object arg) {
+            if ((this.GetMCCQThueFromNoToNoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMCCQThueFromNoToNoCompleted(this, new GetMCCQThueFromNoToNoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvToCQTByFkeys", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string SendInvToCQTByFkeys(string Account, string ACpass, string username, string password, string pattern, string fkeys) {
             object[] results = this.Invoke("SendInvToCQTByFkeys", new object[] {
@@ -2532,8 +2822,49 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvErrorMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvErrorMTT(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert) {
+            object[] results = this.Invoke("SendInvErrorMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        serialCert,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvErrorMTTAsync(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert) {
+            this.SendInvErrorMTTAsync(Account, ACpass, xml, username, password, serialCert, convert, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvErrorMTTAsync(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert, object userState) {
+            if ((this.SendInvErrorMTTOperationCompleted == null)) {
+                this.SendInvErrorMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvErrorMTTOperationCompleted);
+            }
+            this.InvokeAsync("SendInvErrorMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        serialCert,
+                        convert}, this.SendInvErrorMTTOperationCompleted, userState);
+        }
+        
+        private void OnSendInvErrorMTTOperationCompleted(object arg) {
+            if ((this.SendInvErrorMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvErrorMTTCompleted(this, new SendInvErrorMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvNoticeErrors", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetHashInvNoticeErrors(string Account, string ACpass, string xml, string username, string password, string pattern, int convert) {
+        public string GetHashInvNoticeErrors(string Account, string ACpass, string xml, string username, string password, string pattern, int convert, string serialCert) {
             object[] results = this.Invoke("GetHashInvNoticeErrors", new object[] {
                         Account,
                         ACpass,
@@ -2541,17 +2872,18 @@ namespace QLCongNo.pb78 {
                         username,
                         password,
                         pattern,
-                        convert});
+                        convert,
+                        serialCert});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GetHashInvNoticeErrorsAsync(string Account, string ACpass, string xml, string username, string password, string pattern, int convert) {
-            this.GetHashInvNoticeErrorsAsync(Account, ACpass, xml, username, password, pattern, convert, null);
+        public void GetHashInvNoticeErrorsAsync(string Account, string ACpass, string xml, string username, string password, string pattern, int convert, string serialCert) {
+            this.GetHashInvNoticeErrorsAsync(Account, ACpass, xml, username, password, pattern, convert, serialCert, null);
         }
         
         /// <remarks/>
-        public void GetHashInvNoticeErrorsAsync(string Account, string ACpass, string xml, string username, string password, string pattern, int convert, object userState) {
+        public void GetHashInvNoticeErrorsAsync(string Account, string ACpass, string xml, string username, string password, string pattern, int convert, string serialCert, object userState) {
             if ((this.GetHashInvNoticeErrorsOperationCompleted == null)) {
                 this.GetHashInvNoticeErrorsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvNoticeErrorsOperationCompleted);
             }
@@ -2562,13 +2894,55 @@ namespace QLCongNo.pb78 {
                         username,
                         password,
                         pattern,
-                        convert}, this.GetHashInvNoticeErrorsOperationCompleted, userState);
+                        convert,
+                        serialCert}, this.GetHashInvNoticeErrorsOperationCompleted, userState);
         }
         
         private void OnGetHashInvNoticeErrorsOperationCompleted(object arg) {
             if ((this.GetHashInvNoticeErrorsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetHashInvNoticeErrorsCompleted(this, new GetHashInvNoticeErrorsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvErrorMTTWithToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvErrorMTTWithToken(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert) {
+            object[] results = this.Invoke("GetHashInvErrorMTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        serialCert,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvErrorMTTWithTokenAsync(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert) {
+            this.GetHashInvErrorMTTWithTokenAsync(Account, ACpass, xml, username, password, serialCert, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvErrorMTTWithTokenAsync(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert, object userState) {
+            if ((this.GetHashInvErrorMTTWithTokenOperationCompleted == null)) {
+                this.GetHashInvErrorMTTWithTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvErrorMTTWithTokenOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvErrorMTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        serialCert,
+                        convert}, this.GetHashInvErrorMTTWithTokenOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvErrorMTTWithTokenOperationCompleted(object arg) {
+            if ((this.GetHashInvErrorMTTWithTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvErrorMTTWithTokenCompleted(this, new GetHashInvErrorMTTWithTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2616,6 +2990,47 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvErrorMTTWithSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvErrorMTTWithSmartCA(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert) {
+            object[] results = this.Invoke("GetHashInvErrorMTTWithSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        serialCert,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvErrorMTTWithSmartCAAsync(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert) {
+            this.GetHashInvErrorMTTWithSmartCAAsync(Account, ACpass, xml, username, password, serialCert, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvErrorMTTWithSmartCAAsync(string Account, string ACpass, string xml, string username, string password, string serialCert, int convert, object userState) {
+            if ((this.GetHashInvErrorMTTWithSmartCAOperationCompleted == null)) {
+                this.GetHashInvErrorMTTWithSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvErrorMTTWithSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvErrorMTTWithSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        serialCert,
+                        convert}, this.GetHashInvErrorMTTWithSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvErrorMTTWithSmartCAOperationCompleted(object arg) {
+            if ((this.GetHashInvErrorMTTWithSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvErrorMTTWithSmartCACompleted(this, new GetHashInvErrorMTTWithSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvNoticeErrorsWithSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string SendInvNoticeErrorsWithSmartCA(string Account, string ACpass, string username, string password, string xml) {
             object[] results = this.Invoke("SendInvNoticeErrorsWithSmartCA", new object[] {
@@ -2653,6 +3068,43 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvErrorMTTWithSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvErrorMTTWithSmartCA(string Account, string ACpass, string username, string password, string xml) {
+            object[] results = this.Invoke("SendInvErrorMTTWithSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        xml});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvErrorMTTWithSmartCAAsync(string Account, string ACpass, string username, string password, string xml) {
+            this.SendInvErrorMTTWithSmartCAAsync(Account, ACpass, username, password, xml, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvErrorMTTWithSmartCAAsync(string Account, string ACpass, string username, string password, string xml, object userState) {
+            if ((this.SendInvErrorMTTWithSmartCAOperationCompleted == null)) {
+                this.SendInvErrorMTTWithSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvErrorMTTWithSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("SendInvErrorMTTWithSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        xml}, this.SendInvErrorMTTWithSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnSendInvErrorMTTWithSmartCAOperationCompleted(object arg) {
+            if ((this.SendInvErrorMTTWithSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvErrorMTTWithSmartCACompleted(this, new SendInvErrorMTTWithSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvNoticeErrorsWidthToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string SendInvNoticeErrorsWidthToken(string Account, string ACpass, string username, string password, string xml) {
             object[] results = this.Invoke("SendInvNoticeErrorsWidthToken", new object[] {
@@ -2686,6 +3138,43 @@ namespace QLCongNo.pb78 {
             if ((this.SendInvNoticeErrorsWidthTokenCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SendInvNoticeErrorsWidthTokenCompleted(this, new SendInvNoticeErrorsWidthTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvErrorMTTWithToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvErrorMTTWithToken(string Account, string ACpass, string username, string password, string xml) {
+            object[] results = this.Invoke("SendInvErrorMTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        xml});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvErrorMTTWithTokenAsync(string Account, string ACpass, string username, string password, string xml) {
+            this.SendInvErrorMTTWithTokenAsync(Account, ACpass, username, password, xml, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvErrorMTTWithTokenAsync(string Account, string ACpass, string username, string password, string xml, object userState) {
+            if ((this.SendInvErrorMTTWithTokenOperationCompleted == null)) {
+                this.SendInvErrorMTTWithTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvErrorMTTWithTokenOperationCompleted);
+            }
+            this.InvokeAsync("SendInvErrorMTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        xml}, this.SendInvErrorMTTWithTokenOperationCompleted, userState);
+        }
+        
+        private void OnSendInvErrorMTTWithTokenOperationCompleted(object arg) {
+            if ((this.SendInvErrorMTTWithTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvErrorMTTWithTokenCompleted(this, new SendInvErrorMTTWithTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3115,6 +3604,45 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RemovePublishInvoice", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RemovePublishInvoice(string Account, string ACpass, string username, string password, string Pattern, string Serial) {
+            object[] results = this.Invoke("RemovePublishInvoice", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        Pattern,
+                        Serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RemovePublishInvoiceAsync(string Account, string ACpass, string username, string password, string Pattern, string Serial) {
+            this.RemovePublishInvoiceAsync(Account, ACpass, username, password, Pattern, Serial, null);
+        }
+        
+        /// <remarks/>
+        public void RemovePublishInvoiceAsync(string Account, string ACpass, string username, string password, string Pattern, string Serial, object userState) {
+            if ((this.RemovePublishInvoiceOperationCompleted == null)) {
+                this.RemovePublishInvoiceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRemovePublishInvoiceOperationCompleted);
+            }
+            this.InvokeAsync("RemovePublishInvoice", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        Pattern,
+                        Serial}, this.RemovePublishInvoiceOperationCompleted, userState);
+        }
+        
+        private void OnRemovePublishInvoiceOperationCompleted(object arg) {
+            if ((this.RemovePublishInvoiceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RemovePublishInvoiceCompleted(this, new RemovePublishInvoiceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetTransactionItems", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string GetTransactionItems(string username, string password, int status, string mtdiep, string message, string fromDate, string toDate, string mltdiep, string pattern, string serial, decimal invNo, int step, int pageIndex, int pageSize) {
             object[] results = this.Invoke("GetTransactionItems", new object[] {
@@ -3238,6 +3766,704 @@ namespace QLCongNo.pb78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetResultsTransaction", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetResultsTransaction(string username, string password, int Id, bool tranErr) {
+            object[] results = this.Invoke("GetResultsTransaction", new object[] {
+                        username,
+                        password,
+                        Id,
+                        tranErr});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetResultsTransactionAsync(string username, string password, int Id, bool tranErr) {
+            this.GetResultsTransactionAsync(username, password, Id, tranErr, null);
+        }
+        
+        /// <remarks/>
+        public void GetResultsTransactionAsync(string username, string password, int Id, bool tranErr, object userState) {
+            if ((this.GetResultsTransactionOperationCompleted == null)) {
+                this.GetResultsTransactionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetResultsTransactionOperationCompleted);
+            }
+            this.InvokeAsync("GetResultsTransaction", new object[] {
+                        username,
+                        password,
+                        Id,
+                        tranErr}, this.GetResultsTransactionOperationCompleted, userState);
+        }
+        
+        private void OnGetResultsTransactionOperationCompleted(object arg) {
+            if ((this.GetResultsTransactionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetResultsTransactionCompleted(this, new GetResultsTransactionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportInvByPatternCTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ImportInvByPatternCTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("ImportInvByPatternCTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ImportInvByPatternCTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            this.ImportInvByPatternCTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void ImportInvByPatternCTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert, object userState) {
+            if ((this.ImportInvByPatternCTTOperationCompleted == null)) {
+                this.ImportInvByPatternCTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportInvByPatternCTTOperationCompleted);
+            }
+            this.InvokeAsync("ImportInvByPatternCTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert}, this.ImportInvByPatternCTTOperationCompleted, userState);
+        }
+        
+        private void OnImportInvByPatternCTTOperationCompleted(object arg) {
+            if ((this.ImportInvByPatternCTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ImportInvByPatternCTTCompleted(this, new ImportInvByPatternCTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportAndPublishCTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ImportAndPublishCTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("ImportAndPublishCTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishCTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            this.ImportAndPublishCTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishCTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert, object userState) {
+            if ((this.ImportAndPublishCTTOperationCompleted == null)) {
+                this.ImportAndPublishCTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportAndPublishCTTOperationCompleted);
+            }
+            this.InvokeAsync("ImportAndPublishCTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert}, this.ImportAndPublishCTTOperationCompleted, userState);
+        }
+        
+        private void OnImportAndPublishCTTOperationCompleted(object arg) {
+            if ((this.ImportAndPublishCTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ImportAndPublishCTTCompleted(this, new ImportAndPublishCTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashCTTSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashCTTSmartCA(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("GetHashCTTSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashCTTSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            this.GetHashCTTSmartCAAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, invToken, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashCTTSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert, object userState) {
+            if ((this.GetHashCTTSmartCAOperationCompleted == null)) {
+                this.GetHashCTTSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashCTTSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("GetHashCTTSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert}, this.GetHashCTTSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnGetHashCTTSmartCAOperationCompleted(object arg) {
+            if ((this.GetHashCTTSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashCTTSmartCACompleted(this, new GetHashCTTSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PublishCTTSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string PublishCTTSmartCA(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("PublishCTTSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PublishCTTSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            this.PublishCTTSmartCAAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void PublishCTTSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, object userState) {
+            if ((this.PublishCTTSmartCAOperationCompleted == null)) {
+                this.PublishCTTSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPublishCTTSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("PublishCTTSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.PublishCTTSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnPublishCTTSmartCAOperationCompleted(object arg) {
+            if ((this.PublishCTTSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PublishCTTSmartCACompleted(this, new PublishCTTSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getHashCTTWithToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getHashCTTWithToken(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("getHashCTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getHashCTTWithTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            this.getHashCTTWithTokenAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, invToken, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void getHashCTTWithTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert, object userState) {
+            if ((this.getHashCTTWithTokenOperationCompleted == null)) {
+                this.getHashCTTWithTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetHashCTTWithTokenOperationCompleted);
+            }
+            this.InvokeAsync("getHashCTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert}, this.getHashCTTWithTokenOperationCompleted, userState);
+        }
+        
+        private void OngetHashCTTWithTokenOperationCompleted(object arg) {
+            if ((this.getHashCTTWithTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getHashCTTWithTokenCompleted(this, new getHashCTTWithTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/publishCTTWithToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string publishCTTWithToken(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("publishCTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void publishCTTWithTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            this.publishCTTWithTokenAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void publishCTTWithTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, object userState) {
+            if ((this.publishCTTWithTokenOperationCompleted == null)) {
+                this.publishCTTWithTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnpublishCTTWithTokenOperationCompleted);
+            }
+            this.InvokeAsync("publishCTTWithToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.publishCTTWithTokenOperationCompleted, userState);
+        }
+        
+        private void OnpublishCTTWithTokenOperationCompleted(object arg) {
+            if ((this.publishCTTWithTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.publishCTTWithTokenCompleted(this, new publishCTTWithTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterPublishCTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RegisterPublishCTT(string Account, string ACpass, string xmlInvData, string username, string password, int type, int version) {
+            object[] results = this.Invoke("RegisterPublishCTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        version});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RegisterPublishCTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, int version) {
+            this.RegisterPublishCTTAsync(Account, ACpass, xmlInvData, username, password, type, version, null);
+        }
+        
+        /// <remarks/>
+        public void RegisterPublishCTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, int version, object userState) {
+            if ((this.RegisterPublishCTTOperationCompleted == null)) {
+                this.RegisterPublishCTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegisterPublishCTTOperationCompleted);
+            }
+            this.InvokeAsync("RegisterPublishCTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        version}, this.RegisterPublishCTTOperationCompleted, userState);
+        }
+        
+        private void OnRegisterPublishCTTOperationCompleted(object arg) {
+            if ((this.RegisterPublishCTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RegisterPublishCTTCompleted(this, new RegisterPublishCTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportAndPublishInvMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ImportAndPublishInvMTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("ImportAndPublishInvMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishInvMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            this.ImportAndPublishInvMTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void ImportAndPublishInvMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert, object userState) {
+            if ((this.ImportAndPublishInvMTTOperationCompleted == null)) {
+                this.ImportAndPublishInvMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportAndPublishInvMTTOperationCompleted);
+            }
+            this.InvokeAsync("ImportAndPublishInvMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert}, this.ImportAndPublishInvMTTOperationCompleted, userState);
+        }
+        
+        private void OnImportAndPublishInvMTTOperationCompleted(object arg) {
+            if ((this.ImportAndPublishInvMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ImportAndPublishInvMTTCompleted(this, new ImportAndPublishInvMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ImportInvByPatternMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ImportInvByPatternMTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("ImportInvByPatternMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ImportInvByPatternMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert) {
+            this.ImportInvByPatternMTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void ImportInvByPatternMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, int convert, object userState) {
+            if ((this.ImportInvByPatternMTTOperationCompleted == null)) {
+                this.ImportInvByPatternMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnImportInvByPatternMTTOperationCompleted);
+            }
+            this.InvokeAsync("ImportInvByPatternMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        convert}, this.ImportInvByPatternMTTOperationCompleted, userState);
+        }
+        
+        private void OnImportInvByPatternMTTOperationCompleted(object arg) {
+            if ((this.ImportInvByPatternMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ImportInvByPatternMTTCompleted(this, new ImportInvByPatternMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getHashInvWithTokenMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getHashInvWithTokenMTT(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("getHashInvWithTokenMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getHashInvWithTokenMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            this.getHashInvWithTokenMTTAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, invToken, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void getHashInvWithTokenMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert, object userState) {
+            if ((this.getHashInvWithTokenMTTOperationCompleted == null)) {
+                this.getHashInvWithTokenMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetHashInvWithTokenMTTOperationCompleted);
+            }
+            this.InvokeAsync("getHashInvWithTokenMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert}, this.getHashInvWithTokenMTTOperationCompleted, userState);
+        }
+        
+        private void OngetHashInvWithTokenMTTOperationCompleted(object arg) {
+            if ((this.getHashInvWithTokenMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getHashInvWithTokenMTTCompleted(this, new getHashInvWithTokenMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/publishInvWithTokenMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string publishInvWithTokenMTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("publishInvWithTokenMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void publishInvWithTokenMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            this.publishInvWithTokenMTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void publishInvWithTokenMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, object userState) {
+            if ((this.publishInvWithTokenMTTOperationCompleted == null)) {
+                this.publishInvWithTokenMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnpublishInvWithTokenMTTOperationCompleted);
+            }
+            this.InvokeAsync("publishInvWithTokenMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.publishInvWithTokenMTTOperationCompleted, userState);
+        }
+        
+        private void OnpublishInvWithTokenMTTOperationCompleted(object arg) {
+            if ((this.publishInvWithTokenMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.publishInvWithTokenMTTCompleted(this, new publishInvWithTokenMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvSmartCAMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvSmartCAMTT(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("GetHashInvSmartCAMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvSmartCAMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            this.GetHashInvSmartCAMTTAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, invToken, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvSmartCAMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert, object userState) {
+            if ((this.GetHashInvSmartCAMTTOperationCompleted == null)) {
+                this.GetHashInvSmartCAMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvSmartCAMTTOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvSmartCAMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert}, this.GetHashInvSmartCAMTTOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvSmartCAMTTOperationCompleted(object arg) {
+            if ((this.GetHashInvSmartCAMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvSmartCAMTTCompleted(this, new GetHashInvSmartCAMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PublishInvSmartCAMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string PublishInvSmartCAMTT(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("PublishInvSmartCAMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PublishInvSmartCAMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial) {
+            this.PublishInvSmartCAMTTAsync(Account, ACpass, xmlInvData, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void PublishInvSmartCAMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, string pattern, string serial, object userState) {
+            if ((this.PublishInvSmartCAMTTOperationCompleted == null)) {
+                this.PublishInvSmartCAMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPublishInvSmartCAMTTOperationCompleted);
+            }
+            this.InvokeAsync("PublishInvSmartCAMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.PublishInvSmartCAMTTOperationCompleted, userState);
+        }
+        
+        private void OnPublishInvSmartCAMTTOperationCompleted(object arg) {
+            if ((this.PublishInvSmartCAMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PublishInvSmartCAMTTCompleted(this, new PublishInvSmartCAMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListSummaryReport", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetListSummaryReport(string Account, string ACpass, string username, string pass, int businessType, int periodType, string periodValue, int status, string pattern) {
+            object[] results = this.Invoke("GetListSummaryReport", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        pass,
+                        businessType,
+                        periodType,
+                        periodValue,
+                        status,
+                        pattern});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListSummaryReportAsync(string Account, string ACpass, string username, string pass, int businessType, int periodType, string periodValue, int status, string pattern) {
+            this.GetListSummaryReportAsync(Account, ACpass, username, pass, businessType, periodType, periodValue, status, pattern, null);
+        }
+        
+        /// <remarks/>
+        public void GetListSummaryReportAsync(string Account, string ACpass, string username, string pass, int businessType, int periodType, string periodValue, int status, string pattern, object userState) {
+            if ((this.GetListSummaryReportOperationCompleted == null)) {
+                this.GetListSummaryReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListSummaryReportOperationCompleted);
+            }
+            this.InvokeAsync("GetListSummaryReport", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        pass,
+                        businessType,
+                        periodType,
+                        periodValue,
+                        status,
+                        pattern}, this.GetListSummaryReportOperationCompleted, userState);
+        }
+        
+        private void OnGetListSummaryReportOperationCompleted(object arg) {
+            if ((this.GetListSummaryReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListSummaryReportCompleted(this, new GetListSummaryReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSummaryReportDetail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetSummaryReportDetail(string Account, string ACpass, string username, string pass, int businessType, int periodType, string periodValue, int reportNumber, int reportRound) {
+            object[] results = this.Invoke("GetSummaryReportDetail", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        pass,
+                        businessType,
+                        periodType,
+                        periodValue,
+                        reportNumber,
+                        reportRound});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSummaryReportDetailAsync(string Account, string ACpass, string username, string pass, int businessType, int periodType, string periodValue, int reportNumber, int reportRound) {
+            this.GetSummaryReportDetailAsync(Account, ACpass, username, pass, businessType, periodType, periodValue, reportNumber, reportRound, null);
+        }
+        
+        /// <remarks/>
+        public void GetSummaryReportDetailAsync(string Account, string ACpass, string username, string pass, int businessType, int periodType, string periodValue, int reportNumber, int reportRound, object userState) {
+            if ((this.GetSummaryReportDetailOperationCompleted == null)) {
+                this.GetSummaryReportDetailOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSummaryReportDetailOperationCompleted);
+            }
+            this.InvokeAsync("GetSummaryReportDetail", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        pass,
+                        businessType,
+                        periodType,
+                        periodValue,
+                        reportNumber,
+                        reportRound}, this.GetSummaryReportDetailOperationCompleted, userState);
+        }
+        
+        private void OnGetSummaryReportDetailOperationCompleted(object arg) {
+            if ((this.GetSummaryReportDetailCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSummaryReportDetailCompleted(this, new GetSummaryReportDetailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -3284,6 +4510,32 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ImportAndPublishInvMTT32CompletedEventHandler(object sender, ImportAndPublishInvMTT32CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ImportAndPublishInvMTT32CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ImportAndPublishInvMTT32CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void ImportAndPublishAssignedNoCompletedEventHandler(object sender, ImportAndPublishAssignedNoCompletedEventArgs e);
     
     /// <remarks/>
@@ -3295,6 +4547,32 @@ namespace QLCongNo.pb78 {
         private object[] results;
         
         internal ImportAndPublishAssignedNoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ImportAndPublishAssignedNoMTTCompletedEventHandler(object sender, ImportAndPublishAssignedNoMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ImportAndPublishAssignedNoMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ImportAndPublishAssignedNoMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -3466,6 +4744,58 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void PrintNoticeInvErrorCompletedEventHandler(object sender, PrintNoticeInvErrorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PrintNoticeInvErrorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PrintNoticeInvErrorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void PrintNoticeInvErrorCQTCompletedEventHandler(object sender, PrintNoticeInvErrorCQTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PrintNoticeInvErrorCQTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PrintNoticeInvErrorCQTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void PublishInvFkeyCompletedEventHandler(object sender, PublishInvFkeyCompletedEventArgs e);
     
     /// <remarks/>
@@ -3564,32 +4894,6 @@ namespace QLCongNo.pb78 {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void ImportFromXmlCompletedEventHandler(object sender, ImportFromXmlCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ImportFromXmlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal ImportFromXmlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
             }
         }
     }
@@ -4636,6 +5940,32 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetMCCQThueFromNoToNoCompletedEventHandler(object sender, GetMCCQThueFromNoToNoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMCCQThueFromNoToNoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMCCQThueFromNoToNoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void SendInvToCQTByFkeysCompletedEventHandler(object sender, SendInvToCQTByFkeysCompletedEventArgs e);
     
     /// <remarks/>
@@ -4714,6 +6044,32 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvErrorMTTCompletedEventHandler(object sender, SendInvErrorMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvErrorMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvErrorMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetHashInvNoticeErrorsCompletedEventHandler(object sender, GetHashInvNoticeErrorsCompletedEventArgs e);
     
     /// <remarks/>
@@ -4725,6 +6081,32 @@ namespace QLCongNo.pb78 {
         private object[] results;
         
         internal GetHashInvNoticeErrorsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvErrorMTTWithTokenCompletedEventHandler(object sender, GetHashInvErrorMTTWithTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvErrorMTTWithTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvErrorMTTWithTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -4766,6 +6148,32 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvErrorMTTWithSmartCACompletedEventHandler(object sender, GetHashInvErrorMTTWithSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvErrorMTTWithSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvErrorMTTWithSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void SendInvNoticeErrorsWithSmartCACompletedEventHandler(object sender, SendInvNoticeErrorsWithSmartCACompletedEventArgs e);
     
     /// <remarks/>
@@ -4792,6 +6200,32 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvErrorMTTWithSmartCACompletedEventHandler(object sender, SendInvErrorMTTWithSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvErrorMTTWithSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvErrorMTTWithSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void SendInvNoticeErrorsWidthTokenCompletedEventHandler(object sender, SendInvNoticeErrorsWidthTokenCompletedEventArgs e);
     
     /// <remarks/>
@@ -4803,6 +6237,32 @@ namespace QLCongNo.pb78 {
         private object[] results;
         
         internal SendInvNoticeErrorsWidthTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvErrorMTTWithTokenCompletedEventHandler(object sender, SendInvErrorMTTWithTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvErrorMTTWithTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvErrorMTTWithTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -5104,6 +6564,32 @@ namespace QLCongNo.pb78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void RemovePublishInvoiceCompletedEventHandler(object sender, RemovePublishInvoiceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RemovePublishInvoiceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RemovePublishInvoiceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetTransactionItemsCompletedEventHandler(object sender, GetTransactionItemsCompletedEventArgs e);
     
     /// <remarks/>
@@ -5167,6 +6653,422 @@ namespace QLCongNo.pb78 {
         private object[] results;
         
         internal GetStepDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetResultsTransactionCompletedEventHandler(object sender, GetResultsTransactionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetResultsTransactionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetResultsTransactionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ImportInvByPatternCTTCompletedEventHandler(object sender, ImportInvByPatternCTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ImportInvByPatternCTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ImportInvByPatternCTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ImportAndPublishCTTCompletedEventHandler(object sender, ImportAndPublishCTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ImportAndPublishCTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ImportAndPublishCTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashCTTSmartCACompletedEventHandler(object sender, GetHashCTTSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashCTTSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashCTTSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void PublishCTTSmartCACompletedEventHandler(object sender, PublishCTTSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PublishCTTSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PublishCTTSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void getHashCTTWithTokenCompletedEventHandler(object sender, getHashCTTWithTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getHashCTTWithTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getHashCTTWithTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void publishCTTWithTokenCompletedEventHandler(object sender, publishCTTWithTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class publishCTTWithTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal publishCTTWithTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void RegisterPublishCTTCompletedEventHandler(object sender, RegisterPublishCTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RegisterPublishCTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RegisterPublishCTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ImportAndPublishInvMTTCompletedEventHandler(object sender, ImportAndPublishInvMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ImportAndPublishInvMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ImportAndPublishInvMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ImportInvByPatternMTTCompletedEventHandler(object sender, ImportInvByPatternMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ImportInvByPatternMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ImportInvByPatternMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void getHashInvWithTokenMTTCompletedEventHandler(object sender, getHashInvWithTokenMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getHashInvWithTokenMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getHashInvWithTokenMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void publishInvWithTokenMTTCompletedEventHandler(object sender, publishInvWithTokenMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class publishInvWithTokenMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal publishInvWithTokenMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvSmartCAMTTCompletedEventHandler(object sender, GetHashInvSmartCAMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvSmartCAMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvSmartCAMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void PublishInvSmartCAMTTCompletedEventHandler(object sender, PublishInvSmartCAMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PublishInvSmartCAMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PublishInvSmartCAMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetListSummaryReportCompletedEventHandler(object sender, GetListSummaryReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListSummaryReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListSummaryReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetSummaryReportDetailCompletedEventHandler(object sender, GetSummaryReportDetailCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSummaryReportDetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSummaryReportDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

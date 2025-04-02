@@ -44,6 +44,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcQLHoaDonKhoDoi));
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnConfirm = new QLCongNo.View.Core.NovToolStripButton();
@@ -57,11 +58,6 @@
             this.txtTim = new QLCongNo.View.Core.NovTextBox();
             this.groupBox6 = new QLCongNo.View.Core.NovGroupBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
-            this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.lbltongno = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.chkAll = new QLCongNo.View.Core.NovCheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.checksColumn = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.TrangthaiKH = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -80,12 +76,19 @@
             this.dataGridViewTextBoxColumn7 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ngaythuchienColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
+            this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.lbltongno = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.chkAll = new QLCongNo.View.Core.NovCheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -148,6 +151,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ptbSendSMS);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.chkNgaychuyen);
             this.groupBox1.Controls.Add(this.label5);
@@ -325,62 +329,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1381, 659);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.White;
-            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusStrip1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblsoluong,
-            this.lbltongno});
-            this.statusStrip1.Location = new System.Drawing.Point(4, 687);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 15, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1381, 34);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.BackColor = System.Drawing.Color.White;
-            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsoluong.ForeColor = System.Drawing.Color.Blue;
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(0, 28);
-            // 
-            // lbltongno
-            // 
-            this.lbltongno.BackColor = System.Drawing.Color.White;
-            this.lbltongno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltongno.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbltongno.Name = "lbltongno";
-            this.lbltongno.Size = new System.Drawing.Size(86, 28);
-            this.lbltongno.Text = "Tổng số:";
-            // 
-            // chkAll
-            // 
-            this.chkAll.AutoSize = true;
-            this.chkAll.BackColor = System.Drawing.Color.Transparent;
-            this.chkAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAll.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkAll.Location = new System.Drawing.Point(18, 0);
-            this.chkAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkAll.Name = "chkAll";
-            this.chkAll.Size = new System.Drawing.Size(121, 27);
-            this.chkAll.TabIndex = 0;
-            this.chkAll.Text = "Chọn tất cả";
-            this.chkAll.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.chkAll);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 157);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1389, 26);
-            this.panel1.TabIndex = 3;
             // 
             // checksColumn
             // 
@@ -588,6 +536,77 @@
             this.ngaythuchienColumn.Name = "ngaythuchienColumn";
             this.ngaythuchienColumn.Width = 166;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblsoluong,
+            this.lbltongno});
+            this.statusStrip1.Location = new System.Drawing.Point(4, 687);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 15, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1381, 34);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.BackColor = System.Drawing.Color.White;
+            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsoluong.ForeColor = System.Drawing.Color.Blue;
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(0, 28);
+            // 
+            // lbltongno
+            // 
+            this.lbltongno.BackColor = System.Drawing.Color.White;
+            this.lbltongno.Enabled = false;
+            this.lbltongno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltongno.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lbltongno.Name = "lbltongno";
+            this.lbltongno.Size = new System.Drawing.Size(86, 28);
+            this.lbltongno.Text = "Tổng số:";
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.BackColor = System.Drawing.Color.Transparent;
+            this.chkAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAll.ForeColor = System.Drawing.Color.MediumBlue;
+            this.chkAll.Location = new System.Drawing.Point(18, 0);
+            this.chkAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(121, 27);
+            this.chkAll.TabIndex = 0;
+            this.chkAll.Text = "Chọn tất cả";
+            this.chkAll.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.chkAll);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 157);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1389, 26);
+            this.panel1.TabIndex = 3;
+            // 
+            // ptbSendSMS
+            // 
+            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
+            this.ptbSendSMS.Location = new System.Drawing.Point(1317, 40);
+            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
+            this.ptbSendSMS.Name = "ptbSendSMS";
+            this.ptbSendSMS.Size = new System.Drawing.Size(55, 53);
+            this.ptbSendSMS.TabIndex = 26;
+            this.ptbSendSMS.TabStop = false;
+            // 
             // UcQLHoaDonKhoDoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -612,6 +631,7 @@
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -655,5 +675,6 @@
         private Core.NovDataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private Core.NovDataGridViewTextBoxColumn ghichuColumn;
         private Core.NovDataGridViewTextBoxColumn ngaythuchienColumn;
+        private System.Windows.Forms.PictureBox ptbSendSMS;
     }
 }

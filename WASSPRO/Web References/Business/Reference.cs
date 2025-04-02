@@ -33,23 +33,17 @@ namespace QLCongNo.Business {
         
         private System.Threading.SendOrPostCallback ReplaceInvoieOperationCompleted;
         
-        private System.Threading.SendOrPostCallback replaceInvOperationCompleted;
+        private System.Threading.SendOrPostCallback ReplaceInvoiceActionOperationCompleted;
         
-        private System.Threading.SendOrPostCallback replaceInv1OperationCompleted;
+        private System.Threading.SendOrPostCallback replaceInvOperationCompleted;
         
         private System.Threading.SendOrPostCallback adjustInvOperationCompleted;
         
-        private System.Threading.SendOrPostCallback adjustInv1OperationCompleted;
-        
-        private System.Threading.SendOrPostCallback ReplaceInvoiceActionOperationCompleted;
+        private System.Threading.SendOrPostCallback AdjustInvoieOperationCompleted;
         
         private System.Threading.SendOrPostCallback AdjustInvoiceActionOperationCompleted;
         
-        private System.Threading.SendOrPostCallback AdjustInvoieOperationCompleted;
-        
         private System.Threading.SendOrPostCallback cancelInvOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback cancelInv1OperationCompleted;
         
         private System.Threading.SendOrPostCallback cancelInvDetailFkeyOperationCompleted;
         
@@ -69,15 +63,11 @@ namespace QLCongNo.Business {
         
         private System.Threading.SendOrPostCallback confirmPaymentFkeyOperationCompleted;
         
-        private System.Threading.SendOrPostCallback confirmPaymentFkey1OperationCompleted;
-        
         private System.Threading.SendOrPostCallback confirmPaymentDetailFkeyOperationCompleted;
         
         private System.Threading.SendOrPostCallback confirmPaymentFkeyVNPOperationCompleted;
         
         private System.Threading.SendOrPostCallback UnConfirmPaymentFkeyOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback UnConfirmPaymentFkey1OperationCompleted;
         
         private System.Threading.SendOrPostCallback UnConfirmPaymentFkeyVNPOperationCompleted;
         
@@ -128,31 +118,22 @@ namespace QLCongNo.Business {
         public event ReplaceInvoieCompletedEventHandler ReplaceInvoieCompleted;
         
         /// <remarks/>
-        public event replaceInvCompletedEventHandler replaceInvCompleted;
+        public event ReplaceInvoiceActionCompletedEventHandler ReplaceInvoiceActionCompleted;
         
         /// <remarks/>
-        public event replaceInv1CompletedEventHandler replaceInv1Completed;
+        public event replaceInvCompletedEventHandler replaceInvCompleted;
         
         /// <remarks/>
         public event adjustInvCompletedEventHandler adjustInvCompleted;
         
         /// <remarks/>
-        public event adjustInv1CompletedEventHandler adjustInv1Completed;
-        
-        /// <remarks/>
-        public event ReplaceInvoiceActionCompletedEventHandler ReplaceInvoiceActionCompleted;
+        public event AdjustInvoieCompletedEventHandler AdjustInvoieCompleted;
         
         /// <remarks/>
         public event AdjustInvoiceActionCompletedEventHandler AdjustInvoiceActionCompleted;
         
         /// <remarks/>
-        public event AdjustInvoieCompletedEventHandler AdjustInvoieCompleted;
-        
-        /// <remarks/>
         public event cancelInvCompletedEventHandler cancelInvCompleted;
-        
-        /// <remarks/>
-        public event cancelInv1CompletedEventHandler cancelInv1Completed;
         
         /// <remarks/>
         public event cancelInvDetailFkeyCompletedEventHandler cancelInvDetailFkeyCompleted;
@@ -182,9 +163,6 @@ namespace QLCongNo.Business {
         public event confirmPaymentFkeyCompletedEventHandler confirmPaymentFkeyCompleted;
         
         /// <remarks/>
-        public event confirmPaymentFkey1CompletedEventHandler confirmPaymentFkey1Completed;
-        
-        /// <remarks/>
         public event confirmPaymentDetailFkeyCompletedEventHandler confirmPaymentDetailFkeyCompleted;
         
         /// <remarks/>
@@ -192,9 +170,6 @@ namespace QLCongNo.Business {
         
         /// <remarks/>
         public event UnConfirmPaymentFkeyCompletedEventHandler UnConfirmPaymentFkeyCompleted;
-        
-        /// <remarks/>
-        public event UnConfirmPaymentFkey1CompletedEventHandler UnConfirmPaymentFkey1Completed;
         
         /// <remarks/>
         public event UnConfirmPaymentFkeyVNPCompletedEventHandler UnConfirmPaymentFkeyVNPCompleted;
@@ -279,29 +254,73 @@ namespace QLCongNo.Business {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/replaceInvPattern", RequestElementName="replaceInvPattern", RequestNamespace="http://tempuri.org/", ResponseElementName="replaceInvPatternResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("replaceInvPatternResult")]
-        public string replaceInv(string Account, string ACpass, string xmlInvData, string username, string pass, string pattern, string serial, string fkey, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceInvoiceAction", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ReplaceInvoiceAction(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial) {
+            object[] results = this.Invoke("ReplaceInvoiceAction", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ReplaceInvoiceActionAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial) {
+            this.ReplaceInvoiceActionAsync(Account, ACpass, xmlInvData, username, pass, fkey, Attachfile, convert, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void ReplaceInvoiceActionAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial, object userState) {
+            if ((this.ReplaceInvoiceActionOperationCompleted == null)) {
+                this.ReplaceInvoiceActionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceInvoiceActionOperationCompleted);
+            }
+            this.InvokeAsync("ReplaceInvoiceAction", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial}, this.ReplaceInvoiceActionOperationCompleted, userState);
+        }
+        
+        private void OnReplaceInvoiceActionOperationCompleted(object arg) {
+            if ((this.ReplaceInvoiceActionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ReplaceInvoiceActionCompleted(this, new ReplaceInvoiceActionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/replaceInv", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string replaceInv(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert) {
             object[] results = this.Invoke("replaceInv", new object[] {
                         Account,
                         ACpass,
                         xmlInvData,
                         username,
                         pass,
-                        pattern,
-                        serial,
                         fkey,
                         convert});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void replaceInvAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string pattern, string serial, string fkey, System.Nullable<int> convert) {
-            this.replaceInvAsync(Account, ACpass, xmlInvData, username, pass, pattern, serial, fkey, convert, null);
+        public void replaceInvAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert) {
+            this.replaceInvAsync(Account, ACpass, xmlInvData, username, pass, fkey, convert, null);
         }
         
         /// <remarks/>
-        public void replaceInvAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string pattern, string serial, string fkey, System.Nullable<int> convert, object userState) {
+        public void replaceInvAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert, object userState) {
             if ((this.replaceInvOperationCompleted == null)) {
                 this.replaceInvOperationCompleted = new System.Threading.SendOrPostCallback(this.OnreplaceInvOperationCompleted);
             }
@@ -311,8 +330,6 @@ namespace QLCongNo.Business {
                         xmlInvData,
                         username,
                         pass,
-                        pattern,
-                        serial,
                         fkey,
                         convert}, this.replaceInvOperationCompleted, userState);
         }
@@ -321,49 +338,6 @@ namespace QLCongNo.Business {
             if ((this.replaceInvCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.replaceInvCompleted(this, new replaceInvCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.WebMethodAttribute(MessageName="replaceInv1")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/replaceInv", RequestElementName="replaceInv", RequestNamespace="http://tempuri.org/", ResponseElementName="replaceInvResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("replaceInvResult")]
-        public string replaceInv(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert) {
-            object[] results = this.Invoke("replaceInv1", new object[] {
-                        Account,
-                        ACpass,
-                        xmlInvData,
-                        username,
-                        pass,
-                        fkey,
-                        convert});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void replaceInv1Async(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert) {
-            this.replaceInv1Async(Account, ACpass, xmlInvData, username, pass, fkey, convert, null);
-        }
-        
-        /// <remarks/>
-        public void replaceInv1Async(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert, object userState) {
-            if ((this.replaceInv1OperationCompleted == null)) {
-                this.replaceInv1OperationCompleted = new System.Threading.SendOrPostCallback(this.OnreplaceInv1OperationCompleted);
-            }
-            this.InvokeAsync("replaceInv1", new object[] {
-                        Account,
-                        ACpass,
-                        xmlInvData,
-                        username,
-                        pass,
-                        fkey,
-                        convert}, this.replaceInv1OperationCompleted, userState);
-        }
-        
-        private void OnreplaceInv1OperationCompleted(object arg) {
-            if ((this.replaceInv1Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.replaceInv1Completed(this, new replaceInv1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -409,96 +383,45 @@ namespace QLCongNo.Business {
         }
         
         /// <remarks/>
-        [System.Web.Services.WebMethodAttribute(MessageName="adjustInv1")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/adjustInvPattern", RequestElementName="adjustInvPattern", RequestNamespace="http://tempuri.org/", ResponseElementName="adjustInvPatternResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("adjustInvPatternResult")]
-        public string adjustInv(string Account, string ACpass, string xmlInvData, string username, string pass, string pattern, string serial, string fkey, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert) {
-            object[] results = this.Invoke("adjustInv1", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustInvoie", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustInvoie(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert) {
+            object[] results = this.Invoke("AdjustInvoie", new object[] {
                         Account,
                         ACpass,
                         xmlInvData,
                         username,
                         pass,
-                        pattern,
-                        serial,
                         fkey,
+                        AttachFile,
                         convert});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void adjustInv1Async(string Account, string ACpass, string xmlInvData, string username, string pass, string pattern, string serial, string fkey, System.Nullable<int> convert) {
-            this.adjustInv1Async(Account, ACpass, xmlInvData, username, pass, pattern, serial, fkey, convert, null);
+        public void AdjustInvoieAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert) {
+            this.AdjustInvoieAsync(Account, ACpass, xmlInvData, username, pass, fkey, AttachFile, convert, null);
         }
         
         /// <remarks/>
-        public void adjustInv1Async(string Account, string ACpass, string xmlInvData, string username, string pass, string pattern, string serial, string fkey, System.Nullable<int> convert, object userState) {
-            if ((this.adjustInv1OperationCompleted == null)) {
-                this.adjustInv1OperationCompleted = new System.Threading.SendOrPostCallback(this.OnadjustInv1OperationCompleted);
+        public void AdjustInvoieAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert, object userState) {
+            if ((this.AdjustInvoieOperationCompleted == null)) {
+                this.AdjustInvoieOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustInvoieOperationCompleted);
             }
-            this.InvokeAsync("adjustInv1", new object[] {
+            this.InvokeAsync("AdjustInvoie", new object[] {
                         Account,
                         ACpass,
                         xmlInvData,
                         username,
                         pass,
-                        pattern,
-                        serial,
                         fkey,
-                        convert}, this.adjustInv1OperationCompleted, userState);
+                        AttachFile,
+                        convert}, this.AdjustInvoieOperationCompleted, userState);
         }
         
-        private void OnadjustInv1OperationCompleted(object arg) {
-            if ((this.adjustInv1Completed != null)) {
+        private void OnAdjustInvoieOperationCompleted(object arg) {
+            if ((this.AdjustInvoieCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.adjustInv1Completed(this, new adjustInv1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceInvoiceAction", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string ReplaceInvoiceAction(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial) {
-            object[] results = this.Invoke("ReplaceInvoiceAction", new object[] {
-                        Account,
-                        ACpass,
-                        xmlInvData,
-                        username,
-                        pass,
-                        fkey,
-                        Attachfile,
-                        convert,
-                        pattern,
-                        serial});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void ReplaceInvoiceActionAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial) {
-            this.ReplaceInvoiceActionAsync(Account, ACpass, xmlInvData, username, pass, fkey, Attachfile, convert, pattern, serial, null);
-        }
-        
-        /// <remarks/>
-        public void ReplaceInvoiceActionAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial, object userState) {
-            if ((this.ReplaceInvoiceActionOperationCompleted == null)) {
-                this.ReplaceInvoiceActionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceInvoiceActionOperationCompleted);
-            }
-            this.InvokeAsync("ReplaceInvoiceAction", new object[] {
-                        Account,
-                        ACpass,
-                        xmlInvData,
-                        username,
-                        pass,
-                        fkey,
-                        Attachfile,
-                        convert,
-                        pattern,
-                        serial}, this.ReplaceInvoiceActionOperationCompleted, userState);
-        }
-        
-        private void OnReplaceInvoiceActionOperationCompleted(object arg) {
-            if ((this.ReplaceInvoiceActionCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ReplaceInvoiceActionCompleted(this, new ReplaceInvoiceActionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AdjustInvoieCompleted(this, new AdjustInvoieCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -550,49 +473,6 @@ namespace QLCongNo.Business {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustInvoie", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string AdjustInvoie(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert) {
-            object[] results = this.Invoke("AdjustInvoie", new object[] {
-                        Account,
-                        ACpass,
-                        xmlInvData,
-                        username,
-                        pass,
-                        fkey,
-                        AttachFile,
-                        convert});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void AdjustInvoieAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert) {
-            this.AdjustInvoieAsync(Account, ACpass, xmlInvData, username, pass, fkey, AttachFile, convert, null);
-        }
-        
-        /// <remarks/>
-        public void AdjustInvoieAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert, object userState) {
-            if ((this.AdjustInvoieOperationCompleted == null)) {
-                this.AdjustInvoieOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustInvoieOperationCompleted);
-            }
-            this.InvokeAsync("AdjustInvoie", new object[] {
-                        Account,
-                        ACpass,
-                        xmlInvData,
-                        username,
-                        pass,
-                        fkey,
-                        AttachFile,
-                        convert}, this.AdjustInvoieOperationCompleted, userState);
-        }
-        
-        private void OnAdjustInvoieOperationCompleted(object arg) {
-            if ((this.AdjustInvoieCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AdjustInvoieCompleted(this, new AdjustInvoieCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/cancelInv", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string cancelInv(string Account, string ACpass, string fkey, string userName, string userPass) {
             object[] results = this.Invoke("cancelInv", new object[] {
@@ -626,47 +506,6 @@ namespace QLCongNo.Business {
             if ((this.cancelInvCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.cancelInvCompleted(this, new cancelInvCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.WebMethodAttribute(MessageName="cancelInv1")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/cancelInvPattern", RequestElementName="cancelInvPattern", RequestNamespace="http://tempuri.org/", ResponseElementName="cancelInvPatternResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("cancelInvPatternResult")]
-        public string cancelInv(string Account, string ACpass, string fkey, string userName, string userPass, string pattern) {
-            object[] results = this.Invoke("cancelInv1", new object[] {
-                        Account,
-                        ACpass,
-                        fkey,
-                        userName,
-                        userPass,
-                        pattern});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void cancelInv1Async(string Account, string ACpass, string fkey, string userName, string userPass, string pattern) {
-            this.cancelInv1Async(Account, ACpass, fkey, userName, userPass, pattern, null);
-        }
-        
-        /// <remarks/>
-        public void cancelInv1Async(string Account, string ACpass, string fkey, string userName, string userPass, string pattern, object userState) {
-            if ((this.cancelInv1OperationCompleted == null)) {
-                this.cancelInv1OperationCompleted = new System.Threading.SendOrPostCallback(this.OncancelInv1OperationCompleted);
-            }
-            this.InvokeAsync("cancelInv1", new object[] {
-                        Account,
-                        ACpass,
-                        fkey,
-                        userName,
-                        userPass,
-                        pattern}, this.cancelInv1OperationCompleted, userState);
-        }
-        
-        private void OncancelInv1OperationCompleted(object arg) {
-            if ((this.cancelInv1Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.cancelInv1Completed(this, new cancelInv1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -982,45 +821,6 @@ namespace QLCongNo.Business {
         }
         
         /// <remarks/>
-        [System.Web.Services.WebMethodAttribute(MessageName="confirmPaymentFkey1")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/confirmPaymentFkeyPattern", RequestElementName="confirmPaymentFkeyPattern", RequestNamespace="http://tempuri.org/", ResponseElementName="confirmPaymentFkeyPatternResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("confirmPaymentFkeyPatternResult")]
-        public string confirmPaymentFkey(string lstFkey, string userName, string userPass, string pattern, string serial) {
-            object[] results = this.Invoke("confirmPaymentFkey1", new object[] {
-                        lstFkey,
-                        userName,
-                        userPass,
-                        pattern,
-                        serial});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void confirmPaymentFkey1Async(string lstFkey, string userName, string userPass, string pattern, string serial) {
-            this.confirmPaymentFkey1Async(lstFkey, userName, userPass, pattern, serial, null);
-        }
-        
-        /// <remarks/>
-        public void confirmPaymentFkey1Async(string lstFkey, string userName, string userPass, string pattern, string serial, object userState) {
-            if ((this.confirmPaymentFkey1OperationCompleted == null)) {
-                this.confirmPaymentFkey1OperationCompleted = new System.Threading.SendOrPostCallback(this.OnconfirmPaymentFkey1OperationCompleted);
-            }
-            this.InvokeAsync("confirmPaymentFkey1", new object[] {
-                        lstFkey,
-                        userName,
-                        userPass,
-                        pattern,
-                        serial}, this.confirmPaymentFkey1OperationCompleted, userState);
-        }
-        
-        private void OnconfirmPaymentFkey1OperationCompleted(object arg) {
-            if ((this.confirmPaymentFkey1Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.confirmPaymentFkey1Completed(this, new confirmPaymentFkey1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/confirmPaymentDetailFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string confirmPaymentDetailFkey(string lstFkey, string userName, string userPass) {
             object[] results = this.Invoke("confirmPaymentDetailFkey", new object[] {
@@ -1118,45 +918,6 @@ namespace QLCongNo.Business {
             if ((this.UnConfirmPaymentFkeyCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.UnConfirmPaymentFkeyCompleted(this, new UnConfirmPaymentFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.WebMethodAttribute(MessageName="UnConfirmPaymentFkey1")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UnConfirmPaymentFkeyPattern", RequestElementName="UnConfirmPaymentFkeyPattern", RequestNamespace="http://tempuri.org/", ResponseElementName="UnConfirmPaymentFkeyPatternResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("UnConfirmPaymentFkeyPatternResult")]
-        public string UnConfirmPaymentFkey(string lstFkey, string userName, string userPass, string pattern, string serial) {
-            object[] results = this.Invoke("UnConfirmPaymentFkey1", new object[] {
-                        lstFkey,
-                        userName,
-                        userPass,
-                        pattern,
-                        serial});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void UnConfirmPaymentFkey1Async(string lstFkey, string userName, string userPass, string pattern, string serial) {
-            this.UnConfirmPaymentFkey1Async(lstFkey, userName, userPass, pattern, serial, null);
-        }
-        
-        /// <remarks/>
-        public void UnConfirmPaymentFkey1Async(string lstFkey, string userName, string userPass, string pattern, string serial, object userState) {
-            if ((this.UnConfirmPaymentFkey1OperationCompleted == null)) {
-                this.UnConfirmPaymentFkey1OperationCompleted = new System.Threading.SendOrPostCallback(this.OnUnConfirmPaymentFkey1OperationCompleted);
-            }
-            this.InvokeAsync("UnConfirmPaymentFkey1", new object[] {
-                        lstFkey,
-                        userName,
-                        userPass,
-                        pattern,
-                        serial}, this.UnConfirmPaymentFkey1OperationCompleted, userState);
-        }
-        
-        private void OnUnConfirmPaymentFkey1OperationCompleted(object arg) {
-            if ((this.UnConfirmPaymentFkey1Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UnConfirmPaymentFkey1Completed(this, new UnConfirmPaymentFkey1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1299,17 +1060,17 @@ namespace QLCongNo.Business {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void replaceInvCompletedEventHandler(object sender, replaceInvCompletedEventArgs e);
+    public delegate void ReplaceInvoiceActionCompletedEventHandler(object sender, ReplaceInvoiceActionCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class replaceInvCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ReplaceInvoiceActionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal replaceInvCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal ReplaceInvoiceActionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1325,17 +1086,17 @@ namespace QLCongNo.Business {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void replaceInv1CompletedEventHandler(object sender, replaceInv1CompletedEventArgs e);
+    public delegate void replaceInvCompletedEventHandler(object sender, replaceInvCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class replaceInv1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class replaceInvCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal replaceInv1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal replaceInvCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1377,43 +1138,17 @@ namespace QLCongNo.Business {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void adjustInv1CompletedEventHandler(object sender, adjustInv1CompletedEventArgs e);
+    public delegate void AdjustInvoieCompletedEventHandler(object sender, AdjustInvoieCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class adjustInv1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class AdjustInvoieCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal adjustInv1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void ReplaceInvoiceActionCompletedEventHandler(object sender, ReplaceInvoiceActionCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ReplaceInvoiceActionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal ReplaceInvoiceActionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal AdjustInvoieCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1455,32 +1190,6 @@ namespace QLCongNo.Business {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void AdjustInvoieCompletedEventHandler(object sender, AdjustInvoieCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class AdjustInvoieCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal AdjustInvoieCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void cancelInvCompletedEventHandler(object sender, cancelInvCompletedEventArgs e);
     
     /// <remarks/>
@@ -1492,32 +1201,6 @@ namespace QLCongNo.Business {
         private object[] results;
         
         internal cancelInvCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void cancelInv1CompletedEventHandler(object sender, cancelInv1CompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class cancelInv1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal cancelInv1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1767,32 +1450,6 @@ namespace QLCongNo.Business {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void confirmPaymentFkey1CompletedEventHandler(object sender, confirmPaymentFkey1CompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class confirmPaymentFkey1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal confirmPaymentFkey1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void confirmPaymentDetailFkeyCompletedEventHandler(object sender, confirmPaymentDetailFkeyCompletedEventArgs e);
     
     /// <remarks/>
@@ -1856,32 +1513,6 @@ namespace QLCongNo.Business {
         private object[] results;
         
         internal UnConfirmPaymentFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void UnConfirmPaymentFkey1CompletedEventHandler(object sender, UnConfirmPaymentFkey1CompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UnConfirmPaymentFkey1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal UnConfirmPaymentFkey1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

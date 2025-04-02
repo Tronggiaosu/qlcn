@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPhatHanhHD));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,6 +73,7 @@
             this.cboKH = new QLCongNo.View.Core.NovComboBox();
             this.label3 = new QLCongNo.View.Core.NovLabel();
             this.btnDC = new QLCongNo.View.Core.NovButton();
+            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTongtien = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -87,6 +89,7 @@
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -215,6 +218,7 @@
             this.tableLayoutPanel1.Controls.Add(this.cboKH, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDC, 7, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ptbSendSMS, 7, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -574,6 +578,20 @@
             this.btnDC.UseVisualStyleBackColor = true;
             this.btnDC.Click += new System.EventHandler(this.btnDC_Click);
             // 
+            // ptbSendSMS
+            // 
+            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbSendSMS.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
+            this.ptbSendSMS.Location = new System.Drawing.Point(1315, 118);
+            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 7, 10, 3);
+            this.ptbSendSMS.Name = "ptbSendSMS";
+            this.ptbSendSMS.Size = new System.Drawing.Size(40, 41);
+            this.ptbSendSMS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.ptbSendSMS.TabIndex = 25;
+            this.ptbSendSMS.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblTongtien);
@@ -779,6 +797,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -834,5 +853,6 @@
         private Core.NovDataGridViewTextBoxColumn tienthueColumn;
         private Core.NovDataGridViewTextBoxColumn tienBVMT;
         private Core.NovDataGridViewTextBoxColumn tongtienColumn;
+        private System.Windows.Forms.PictureBox ptbSendSMS;
     }
 }

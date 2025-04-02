@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="getSerialByPattern">
@@ -39,7 +39,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="replaceInvPattern">
+      <s:element name="ReplaceInvoiceAction">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
@@ -47,17 +47,18 @@
             <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Attachfile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="replaceInvPatternResponse">
+      <s:element name="ReplaceInvoiceActionResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="replaceInvPatternResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReplaceInvoiceActionResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -101,29 +102,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="adjustInvPattern">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="adjustInvPatternResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="adjustInvPatternResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="ReplaceInvoiceAction">
+      <s:element name="AdjustInvoie">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
@@ -132,17 +111,15 @@
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Attachfile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="ReplaceInvoiceActionResponse">
+      <s:element name="AdjustInvoieResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ReplaceInvoiceActionResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustInvoieResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -169,27 +146,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="AdjustInvoie">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="AdjustInvoieResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AdjustInvoieResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="cancelInv">
         <s:complexType>
           <s:sequence>
@@ -205,25 +161,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="cancelInvResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="cancelInvPattern">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="cancelInvPatternResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="cancelInvPatternResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -378,24 +315,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="confirmPaymentFkeyPattern">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="lstFkey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="confirmPaymentFkeyPatternResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="confirmPaymentFkeyPatternResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="confirmPaymentDetailFkey">
         <s:complexType>
           <s:sequence>
@@ -445,24 +364,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UnConfirmPaymentFkeyPattern">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="lstFkey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UnConfirmPaymentFkeyPatternResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UnConfirmPaymentFkeyPatternResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="UnConfirmPaymentFkeyVNP">
         <s:complexType>
           <s:sequence>
@@ -509,11 +410,11 @@
   <wsdl:message name="ReplaceInvoieSoapOut">
     <wsdl:part name="parameters" element="tns:ReplaceInvoieResponse" />
   </wsdl:message>
-  <wsdl:message name="replaceInvPatternSoapIn">
-    <wsdl:part name="parameters" element="tns:replaceInvPattern" />
+  <wsdl:message name="ReplaceInvoiceActionSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceInvoiceAction" />
   </wsdl:message>
-  <wsdl:message name="replaceInvPatternSoapOut">
-    <wsdl:part name="parameters" element="tns:replaceInvPatternResponse" />
+  <wsdl:message name="ReplaceInvoiceActionSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceInvoiceActionResponse" />
   </wsdl:message>
   <wsdl:message name="replaceInvSoapIn">
     <wsdl:part name="parameters" element="tns:replaceInv" />
@@ -527,17 +428,11 @@
   <wsdl:message name="adjustInvSoapOut">
     <wsdl:part name="parameters" element="tns:adjustInvResponse" />
   </wsdl:message>
-  <wsdl:message name="adjustInvPatternSoapIn">
-    <wsdl:part name="parameters" element="tns:adjustInvPattern" />
+  <wsdl:message name="AdjustInvoieSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustInvoie" />
   </wsdl:message>
-  <wsdl:message name="adjustInvPatternSoapOut">
-    <wsdl:part name="parameters" element="tns:adjustInvPatternResponse" />
-  </wsdl:message>
-  <wsdl:message name="ReplaceInvoiceActionSoapIn">
-    <wsdl:part name="parameters" element="tns:ReplaceInvoiceAction" />
-  </wsdl:message>
-  <wsdl:message name="ReplaceInvoiceActionSoapOut">
-    <wsdl:part name="parameters" element="tns:ReplaceInvoiceActionResponse" />
+  <wsdl:message name="AdjustInvoieSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustInvoieResponse" />
   </wsdl:message>
   <wsdl:message name="AdjustInvoiceActionSoapIn">
     <wsdl:part name="parameters" element="tns:AdjustInvoiceAction" />
@@ -545,23 +440,11 @@
   <wsdl:message name="AdjustInvoiceActionSoapOut">
     <wsdl:part name="parameters" element="tns:AdjustInvoiceActionResponse" />
   </wsdl:message>
-  <wsdl:message name="AdjustInvoieSoapIn">
-    <wsdl:part name="parameters" element="tns:AdjustInvoie" />
-  </wsdl:message>
-  <wsdl:message name="AdjustInvoieSoapOut">
-    <wsdl:part name="parameters" element="tns:AdjustInvoieResponse" />
-  </wsdl:message>
   <wsdl:message name="cancelInvSoapIn">
     <wsdl:part name="parameters" element="tns:cancelInv" />
   </wsdl:message>
   <wsdl:message name="cancelInvSoapOut">
     <wsdl:part name="parameters" element="tns:cancelInvResponse" />
-  </wsdl:message>
-  <wsdl:message name="cancelInvPatternSoapIn">
-    <wsdl:part name="parameters" element="tns:cancelInvPattern" />
-  </wsdl:message>
-  <wsdl:message name="cancelInvPatternSoapOut">
-    <wsdl:part name="parameters" element="tns:cancelInvPatternResponse" />
   </wsdl:message>
   <wsdl:message name="cancelInvDetailFkeySoapIn">
     <wsdl:part name="parameters" element="tns:cancelInvDetailFkey" />
@@ -617,12 +500,6 @@
   <wsdl:message name="confirmPaymentFkeySoapOut">
     <wsdl:part name="parameters" element="tns:confirmPaymentFkeyResponse" />
   </wsdl:message>
-  <wsdl:message name="confirmPaymentFkeyPatternSoapIn">
-    <wsdl:part name="parameters" element="tns:confirmPaymentFkeyPattern" />
-  </wsdl:message>
-  <wsdl:message name="confirmPaymentFkeyPatternSoapOut">
-    <wsdl:part name="parameters" element="tns:confirmPaymentFkeyPatternResponse" />
-  </wsdl:message>
   <wsdl:message name="confirmPaymentDetailFkeySoapIn">
     <wsdl:part name="parameters" element="tns:confirmPaymentDetailFkey" />
   </wsdl:message>
@@ -640,12 +517,6 @@
   </wsdl:message>
   <wsdl:message name="UnConfirmPaymentFkeySoapOut">
     <wsdl:part name="parameters" element="tns:UnConfirmPaymentFkeyResponse" />
-  </wsdl:message>
-  <wsdl:message name="UnConfirmPaymentFkeyPatternSoapIn">
-    <wsdl:part name="parameters" element="tns:UnConfirmPaymentFkeyPattern" />
-  </wsdl:message>
-  <wsdl:message name="UnConfirmPaymentFkeyPatternSoapOut">
-    <wsdl:part name="parameters" element="tns:UnConfirmPaymentFkeyPatternResponse" />
   </wsdl:message>
   <wsdl:message name="UnConfirmPaymentFkeyVNPSoapIn">
     <wsdl:part name="parameters" element="tns:UnConfirmPaymentFkeyVNP" />
@@ -668,47 +539,29 @@
       <wsdl:input message="tns:ReplaceInvoieSoapIn" />
       <wsdl:output message="tns:ReplaceInvoieSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="replaceInv">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">replaceInvPattern</wsdl:documentation>
-      <wsdl:input name="replaceInvPattern" message="tns:replaceInvPatternSoapIn" />
-      <wsdl:output name="replaceInvPattern" message="tns:replaceInvPatternSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="replaceInv">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">replaceInv</wsdl:documentation>
-      <wsdl:input message="tns:replaceInvSoapIn" />
-      <wsdl:output message="tns:replaceInvSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="adjustInv">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">adjustInv</wsdl:documentation>
-      <wsdl:input message="tns:adjustInvSoapIn" />
-      <wsdl:output message="tns:adjustInvSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="adjustInv">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">adjustInvPattern</wsdl:documentation>
-      <wsdl:input name="adjustInvPattern" message="tns:adjustInvPatternSoapIn" />
-      <wsdl:output name="adjustInvPattern" message="tns:adjustInvPatternSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="ReplaceInvoiceAction">
       <wsdl:input message="tns:ReplaceInvoiceActionSoapIn" />
       <wsdl:output message="tns:ReplaceInvoiceActionSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="AdjustInvoiceAction">
-      <wsdl:input message="tns:AdjustInvoiceActionSoapIn" />
-      <wsdl:output message="tns:AdjustInvoiceActionSoapOut" />
+    <wsdl:operation name="replaceInv">
+      <wsdl:input message="tns:replaceInvSoapIn" />
+      <wsdl:output message="tns:replaceInvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adjustInv">
+      <wsdl:input message="tns:adjustInvSoapIn" />
+      <wsdl:output message="tns:adjustInvSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AdjustInvoie">
       <wsdl:input message="tns:AdjustInvoieSoapIn" />
       <wsdl:output message="tns:AdjustInvoieSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="cancelInv">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">cancelInv</wsdl:documentation>
-      <wsdl:input message="tns:cancelInvSoapIn" />
-      <wsdl:output message="tns:cancelInvSoapOut" />
+    <wsdl:operation name="AdjustInvoiceAction">
+      <wsdl:input message="tns:AdjustInvoiceActionSoapIn" />
+      <wsdl:output message="tns:AdjustInvoiceActionSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="cancelInv">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">cancelInvPattern</wsdl:documentation>
-      <wsdl:input name="cancelInvPattern" message="tns:cancelInvPatternSoapIn" />
-      <wsdl:output name="cancelInvPattern" message="tns:cancelInvPatternSoapOut" />
+      <wsdl:input message="tns:cancelInvSoapIn" />
+      <wsdl:output message="tns:cancelInvSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="cancelInvDetailFkey">
       <wsdl:input message="tns:cancelInvDetailFkeySoapIn" />
@@ -743,14 +596,8 @@
       <wsdl:output message="tns:unConfirmPaymentSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="confirmPaymentFkey">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">confirmPaymentFkey</wsdl:documentation>
       <wsdl:input message="tns:confirmPaymentFkeySoapIn" />
       <wsdl:output message="tns:confirmPaymentFkeySoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="confirmPaymentFkey">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">confirmPaymentFkeyPattern</wsdl:documentation>
-      <wsdl:input name="confirmPaymentFkeyPattern" message="tns:confirmPaymentFkeyPatternSoapIn" />
-      <wsdl:output name="confirmPaymentFkeyPattern" message="tns:confirmPaymentFkeyPatternSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="confirmPaymentDetailFkey">
       <wsdl:input message="tns:confirmPaymentDetailFkeySoapIn" />
@@ -761,14 +608,8 @@
       <wsdl:output message="tns:confirmPaymentFkeyVNPSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UnConfirmPaymentFkey">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">UnConfirmPaymentFkey</wsdl:documentation>
       <wsdl:input message="tns:UnConfirmPaymentFkeySoapIn" />
       <wsdl:output message="tns:UnConfirmPaymentFkeySoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="UnConfirmPaymentFkey">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">UnConfirmPaymentFkeyPattern</wsdl:documentation>
-      <wsdl:input name="UnConfirmPaymentFkeyPattern" message="tns:UnConfirmPaymentFkeyPatternSoapIn" />
-      <wsdl:output name="UnConfirmPaymentFkeyPattern" message="tns:UnConfirmPaymentFkeyPatternSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UnConfirmPaymentFkeyVNP">
       <wsdl:input message="tns:UnConfirmPaymentFkeyVNPSoapIn" />
@@ -799,12 +640,12 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="replaceInv">
-      <soap:operation soapAction="http://tempuri.org/replaceInvPattern" style="document" />
-      <wsdl:input name="replaceInvPattern">
+    <wsdl:operation name="ReplaceInvoiceAction">
+      <soap:operation soapAction="http://tempuri.org/ReplaceInvoiceAction" style="document" />
+      <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="replaceInvPattern">
+      <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -826,17 +667,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="adjustInv">
-      <soap:operation soapAction="http://tempuri.org/adjustInvPattern" style="document" />
-      <wsdl:input name="adjustInvPattern">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="adjustInvPattern">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReplaceInvoiceAction">
-      <soap:operation soapAction="http://tempuri.org/ReplaceInvoiceAction" style="document" />
+    <wsdl:operation name="AdjustInvoie">
+      <soap:operation soapAction="http://tempuri.org/AdjustInvoie" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -853,30 +685,12 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AdjustInvoie">
-      <soap:operation soapAction="http://tempuri.org/AdjustInvoie" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="cancelInv">
       <soap:operation soapAction="http://tempuri.org/cancelInv" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="cancelInv">
-      <soap:operation soapAction="http://tempuri.org/cancelInvPattern" style="document" />
-      <wsdl:input name="cancelInvPattern">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="cancelInvPattern">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -961,15 +775,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="confirmPaymentFkey">
-      <soap:operation soapAction="http://tempuri.org/confirmPaymentFkeyPattern" style="document" />
-      <wsdl:input name="confirmPaymentFkeyPattern">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="confirmPaymentFkeyPattern">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="confirmPaymentDetailFkey">
       <soap:operation soapAction="http://tempuri.org/confirmPaymentDetailFkey" style="document" />
       <wsdl:input>
@@ -994,15 +799,6 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UnConfirmPaymentFkey">
-      <soap:operation soapAction="http://tempuri.org/UnConfirmPaymentFkeyPattern" style="document" />
-      <wsdl:input name="UnConfirmPaymentFkeyPattern">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="UnConfirmPaymentFkeyPattern">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -1045,12 +841,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="replaceInv">
-      <soap12:operation soapAction="http://tempuri.org/replaceInvPattern" style="document" />
-      <wsdl:input name="replaceInvPattern">
+    <wsdl:operation name="ReplaceInvoiceAction">
+      <soap12:operation soapAction="http://tempuri.org/ReplaceInvoiceAction" style="document" />
+      <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="replaceInvPattern">
+      <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -1072,17 +868,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="adjustInv">
-      <soap12:operation soapAction="http://tempuri.org/adjustInvPattern" style="document" />
-      <wsdl:input name="adjustInvPattern">
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="adjustInvPattern">
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReplaceInvoiceAction">
-      <soap12:operation soapAction="http://tempuri.org/ReplaceInvoiceAction" style="document" />
+    <wsdl:operation name="AdjustInvoie">
+      <soap12:operation soapAction="http://tempuri.org/AdjustInvoie" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1099,30 +886,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AdjustInvoie">
-      <soap12:operation soapAction="http://tempuri.org/AdjustInvoie" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="cancelInv">
       <soap12:operation soapAction="http://tempuri.org/cancelInv" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="cancelInv">
-      <soap12:operation soapAction="http://tempuri.org/cancelInvPattern" style="document" />
-      <wsdl:input name="cancelInvPattern">
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="cancelInvPattern">
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -1207,15 +976,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="confirmPaymentFkey">
-      <soap12:operation soapAction="http://tempuri.org/confirmPaymentFkeyPattern" style="document" />
-      <wsdl:input name="confirmPaymentFkeyPattern">
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="confirmPaymentFkeyPattern">
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="confirmPaymentDetailFkey">
       <soap12:operation soapAction="http://tempuri.org/confirmPaymentDetailFkey" style="document" />
       <wsdl:input>
@@ -1240,15 +1000,6 @@
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UnConfirmPaymentFkey">
-      <soap12:operation soapAction="http://tempuri.org/UnConfirmPaymentFkeyPattern" style="document" />
-      <wsdl:input name="UnConfirmPaymentFkeyPattern">
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="UnConfirmPaymentFkeyPattern">
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

@@ -295,7 +295,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(210, 23);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Tìm kiếm theo số hóa đơn";
+            this.label7.Text = "Tìm kiếm theo số danh bộ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
@@ -520,7 +520,7 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 478, 6, 478);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 579, 6, 579);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -530,7 +530,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(621, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(621, 322);
             this.dataGridView1.TabIndex = 0;
             // 
             // soHDColumn
@@ -646,7 +646,7 @@
             this.dataGridViewDC.EnableHeadersVisualStyles = false;
             this.dataGridViewDC.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.dataGridViewDC.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewDC.Margin = new System.Windows.Forms.Padding(6, 478, 6, 478);
+            this.dataGridViewDC.Margin = new System.Windows.Forms.Padding(6, 579, 6, 579);
             this.dataGridViewDC.Name = "dataGridViewDC";
             this.dataGridViewDC.RowHeadersVisible = false;
             this.dataGridViewDC.RowHeadersWidth = 51;
@@ -656,7 +656,7 @@
             this.dataGridViewDC.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewDC.RowTemplate.Height = 35;
             this.dataGridViewDC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDC.Size = new System.Drawing.Size(619, 334);
+            this.dataGridViewDC.Size = new System.Drawing.Size(619, 322);
             this.dataGridViewDC.TabIndex = 0;
             this.dataGridViewDC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDC_CellContentClick_1);
             // 
@@ -757,10 +757,10 @@
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 58);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(0, 70);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(621, 334);
+            this.panel2.Size = new System.Drawing.Size(621, 322);
             this.panel2.TabIndex = 20;
             // 
             // panel1
@@ -768,9 +768,9 @@
             this.panel1.Controls.Add(this.novLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(621, 58);
+            this.panel1.Size = new System.Drawing.Size(621, 70);
             this.panel1.TabIndex = 19;
             // 
             // novLabel1
@@ -779,8 +779,8 @@
             this.novLabel1.BackColor = System.Drawing.Color.Transparent;
             this.novLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.novLabel1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.novLabel1.Location = new System.Drawing.Point(12, 13);
-            this.novLabel1.Margin = new System.Windows.Forms.Padding(12, 765, 12, 269);
+            this.novLabel1.Location = new System.Drawing.Point(12, 16);
+            this.novLabel1.Margin = new System.Windows.Forms.Padding(12, 926, 12, 326);
             this.novLabel1.Name = "novLabel1";
             this.novLabel1.Size = new System.Drawing.Size(180, 23);
             this.novLabel1.TabIndex = 18;
@@ -790,10 +790,10 @@
             // 
             this.panel4.Controls.Add(this.dataGridViewDC);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 58);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel4.Location = new System.Drawing.Point(0, 70);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(619, 334);
+            this.panel4.Size = new System.Drawing.Size(619, 322);
             this.panel4.TabIndex = 21;
             // 
             // panel3
@@ -801,9 +801,9 @@
             this.panel3.Controls.Add(this.novLabel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(619, 58);
+            this.panel3.Size = new System.Drawing.Size(619, 70);
             this.panel3.TabIndex = 20;
             // 
             // novLabel2
@@ -812,8 +812,8 @@
             this.novLabel2.BackColor = System.Drawing.Color.Transparent;
             this.novLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.novLabel2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.novLabel2.Location = new System.Drawing.Point(12, 13);
-            this.novLabel2.Margin = new System.Windows.Forms.Padding(12, 765, 12, 269);
+            this.novLabel2.Location = new System.Drawing.Point(12, 16);
+            this.novLabel2.Margin = new System.Windows.Forms.Padding(12, 926, 12, 326);
             this.novLabel2.Name = "novLabel2";
             this.novLabel2.Size = new System.Drawing.Size(161, 23);
             this.novLabel2.TabIndex = 19;

@@ -73,6 +73,9 @@
             this.dateTimePicker2 = new QLCongNo.View.Core.NovDateTimePicker();
             this.label2 = new QLCongNo.View.Core.NovLabel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblsoluong = new System.Windows.Forms.Label();
             this.ngaytaoColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.nguoitaoColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.maltColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -91,9 +94,6 @@
             this.hotenColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.diachiColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.QDIDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblsoluong = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -307,9 +307,9 @@
             this.label3.Location = new System.Drawing.Point(585, 14);
             this.label3.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 23);
+            this.label3.Size = new System.Drawing.Size(136, 23);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Tìm kiếm theo mã danh bộ";
+            this.label3.Text = "Tìm mã danh bộ";
             // 
             // txtTim
             // 
@@ -468,6 +468,35 @@
             this.dataGridView1.Size = new System.Drawing.Size(1413, 292);
             this.dataGridView1.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(0, 174);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1413, 292);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblsoluong);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 473);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1413, 97);
+            this.panel2.TabIndex = 3;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Location = new System.Drawing.Point(13, 9);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(75, 21);
+            this.lblsoluong.TabIndex = 0;
+            this.lblsoluong.Text = "Tổng số:";
+            // 
             // ngaytaoColumn
             // 
             this.ngaytaoColumn.DataPropertyName = "date_create";
@@ -623,7 +652,7 @@
             dataGridViewCellStyle15.Format = "N0";
             dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.tongtienDCColumn.DefaultCellStyle = dataGridViewCellStyle15;
-            this.tongtienDCColumn.HeaderText = "Tổng tiền DC";
+            this.tongtienDCColumn.HeaderText = "Tổng tiền ĐC";
             this.tongtienDCColumn.MinimumWidth = 6;
             this.tongtienDCColumn.Name = "tongtienDCColumn";
             this.tongtienDCColumn.ReadOnly = true;
@@ -689,35 +718,6 @@
             this.QDIDColumn.ReadOnly = true;
             this.QDIDColumn.Visible = false;
             this.QDIDColumn.Width = 80;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(0, 174);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1413, 292);
-            this.panel1.TabIndex = 28;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblsoluong);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 473);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1413, 97);
-            this.panel2.TabIndex = 3;
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.AutoSize = true;
-            this.lblsoluong.Location = new System.Drawing.Point(13, 9);
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(75, 21);
-            this.lblsoluong.TabIndex = 0;
-            this.lblsoluong.Text = "Tổng số:";
             // 
             // UcQuanlyQD_DieuChinh
             // 

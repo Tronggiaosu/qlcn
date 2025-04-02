@@ -12,7 +12,7 @@ namespace QLCongNo.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -106,19 +106,19 @@ namespace QLCongNo.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.24.63;Initial Catalog=CAPNUOC_TDC;Persist Security Info=True;" +
-            "User ID=sa;Password=sqlSA@Admin;TrustServerCertificate=True")]
-        public string CAPNUOC_TDCConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=QLCongNo.capnuocthuduc.vn,11001;Initial Catalog=CAPNUOC_TDC_TEST;User" +
+            " ID=wasspro_tdc;Password=wtdc@123")]
+        public string CAPNUOC_TDC_TESTConnectionString {
             get {
-                return ((string)(this["CAPNUOC_TDCConnectionString"]));
+                return ((string)(this["CAPNUOC_TDC_TESTConnectionString"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=QLCongNo.capnuocthuduc.vn,11001;Initial Catalog=CAPNUOC_TDC;Persist S" +
-            "ecurity Info=True;User ID=wasspro_tdc;Password=wtdc@123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=QLCongNo.capnuocthuduc.vn,11001;Initial Catalog=CAPNUOC_TDC2;Persist " +
+            "Security Info=True;User ID=wasspro_tdc;Password=wtdc@123")]
         public string CAPNUOC_TNCConnectionString {
             get {
                 return ((string)(this["CAPNUOC_TNCConnectionString"]));
@@ -128,11 +128,21 @@ namespace QLCongNo.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=QLCongNo.capnuocthuduc.vn,11001;Initial Catalog=CAPNUOC_TDC_TEST;User" +
-            " ID=wasspro_tdc;Password=wtdc@123")]
-        public string CAPNUOC_TDC_TESTConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.24.63;Initial Catalog=CAPNUOC_TDC2;Persist Security Info=True" +
+            ";User ID=sa;Password=sqlSA@Admin;TrustServerCertificate=True")]
+        public string CAPNUOC_TDCConnectionString {
             get {
-                return ((string)(this["CAPNUOC_TDC_TESTConnectionString"]));
+                return ((string)(this["CAPNUOC_TDCConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://tdapi.capnuocthuduc.vn/account.asmx")]
+        public string QLCongNo_AccountTDC_Account {
+            get {
+                return ((string)(this["QLCongNo_AccountTDC_Account"]));
             }
         }
     }

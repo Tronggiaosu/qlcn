@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QLCongNo.View.Core;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -8,6 +10,9 @@ namespace QLCongNo.View.UC.HoaDon
 {
     public partial class UcQLHoaDonKhoDoi : View.Core.NovUserControl
     {
+        private string hoten;
+        private string sdt;
+        private string thongtinsms;
         private CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
         public int trangthai;
 
@@ -22,7 +27,42 @@ namespace QLCongNo.View.UC.HoaDon
             btnConfirm.Click += btnConfirm_Click;
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            this.ptbSendSMS.Click += (sender, e) => SendSMS();
         }
+
+        private void SendSMS()
+        {
+            try
+            {
+                var countRow = this.dataGridView1.RowCount;
+                if (countRow == 0) return;
+
+                var currentRow = this.dataGridView1.CurrentRow.Index;
+                var nam = this.dataGridView1.Rows[currentRow].Cells[2].Value;
+                var thang = this.dataGridView1.Rows[currentRow].Cells[3].Value;
+                var danhbo = this.txtTim.Text;
+                var hoten = this.hoten;
+                var sdt = this.sdt;
+                var thongtin = this.thongtinsms;
+
+                var type = "SMS_HOADON_NO";
+                var title = "Báo nợ khó đòi";
+                var frm = new FrmSMS();
+                frm.Type = type;
+                frm.Title = title;
+                frm.DanhBo = danhbo;
+                frm.HoTen = hoten;
+                frm.SDT = sdt;
+                frm.ThongTin = thongtin;
+                frm.DanhSach = null;
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+            }
+        }
+
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
@@ -145,6 +185,9 @@ namespace QLCongNo.View.UC.HoaDon
                             Portal.PortalService portal = new Portal.PortalService();
                             var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
                             var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                            var sdt = hoadon.KHACHHANG.SDT_KH;
+                            var hoten = hoadon.KHACHHANG.hoten_KH;
+                            
                             var hoadonloi = db.HOADONs.Where(x => x.ID_KH == hoadon.ID_KH && x.trangthai_id == -22).FirstOrDefault();
                             var hoadonsai = db.HOADONs.Where(x => x.ID_HD == IDHD && x.DOT_ID == 1 && x.kyghi == "202302" && x.keys == null).FirstOrDefault();
                             if (hoadonloi != null)
@@ -209,12 +252,15 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 this.Cursor = Cursors.WaitCursor;
                 var khachhang = db.KHACHHANGs.Where(x => x.madanhbo == pmadanhbo).FirstOrDefault();
+                this.hoten = khachhang.hoten_KH;
+                this.sdt = khachhang.SDT_KH;
+
                 if (khachhang != null)
                 {
                     var data = db.getDSHoaDon_KH(khachhang.ID_KH).ToList();
                     if (data.Count != 0)
                     {
-                        if (data.Count > 0) 
+                        if (data.Count > 0)
                         {
                             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         }
@@ -231,11 +277,27 @@ namespace QLCongNo.View.UC.HoaDon
                         }
                         chkAll.Checked = true;
                         CheckedDatagrid();
-                        lbltongno.Text = "Số lượng: " + data.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy").Count().ToString()
-                            + "          Tổng số tiền nợ: " + string.Format("{0:n0}", data.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy").Select(x => x.tongtien).Sum());
+
+                        var ds = data.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy").Reverse().ToList();
+                        var tongtien = string.Format("{0:n0}", data.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy").Select(x => x.tongtien).Sum());
+                        var kyhoadon = new List<string>();
+
+                        foreach (var item in ds)
+                        {
+                            var thoigian = item.kyghi;
+                            var sohd = item.SO_HD;
+                            var tien = item.tongtien;
+                            kyhoadon.Add(thoigian);
+                        }
+
+                        this.thongtinsms = $"{string.Join(", ", kyhoadon)}; Tong tien {tongtien}";
+                        this.lbltongno.Text = "Số lượng: " + ds.Count().ToString() + "          Tổng số tiền nợ: " + tongtien;
                     }
                     else
+                    {
+                        this.thongtinsms = String.Empty;
                         dataGridView1.DataSource = null;
+                    }
                 }
                 else
                     dataGridView1.DataSource = null;

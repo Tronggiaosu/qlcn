@@ -351,7 +351,7 @@ namespace QLCongNo.View.UC.GachNo
             this.Cursor = Cursors.WaitCursor;
             dsDaDongTien = new List<getDataThuHo_Result>();
             int NVID = int.Parse(cboNV.SelectedValue.ToString());
-            MessageBox.Show(NVID.ToString());
+
             string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd");
             string text = txtTim.Text;

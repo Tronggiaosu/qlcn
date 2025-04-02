@@ -59,6 +59,14 @@ namespace QLCongNo.bs78 {
         
         private System.Threading.SendOrPostCallback cancelInvSignFileNoPayOperationCompleted;
         
+        private System.Threading.SendOrPostCallback restoreCancelInvFkeyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback restoreCancelInvTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback restoreReplacedInvFkeyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback restoreReplacedInvTokenOperationCompleted;
+        
         private System.Threading.SendOrPostCallback poolingInvOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetInvbyFkeyOperationCompleted;
@@ -93,6 +101,10 @@ namespace QLCongNo.bs78 {
         
         private System.Threading.SendOrPostCallback CreateNewUserbyAccOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateSStaffAccountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateSStaffAccountOperationCompleted;
+        
         private System.Threading.SendOrPostCallback getSerialByPatternOperationCompleted;
         
         private System.Threading.SendOrPostCallback getPublishInvsOperationCompleted;
@@ -100,6 +112,10 @@ namespace QLCongNo.bs78 {
         private System.Threading.SendOrPostCallback ReplaceInvoiceNoPublishOperationCompleted;
         
         private System.Threading.SendOrPostCallback AdjustInvoiceNoPublishOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ReplaceInvoiceNoPublishExtendOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustInvoiceNoPublishExtendOperationCompleted;
         
         private System.Threading.SendOrPostCallback AdjustInvoiceMultiOperationCompleted;
         
@@ -130,6 +146,74 @@ namespace QLCongNo.bs78 {
         private System.Threading.SendOrPostCallback cancelInvDetailFkeyOperationCompleted;
         
         private System.Threading.SendOrPostCallback UnconfirmPaymentDetailFkeyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashWithOutInvTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashWithOutInvSmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustReplaceWithOutInvTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustReplaceWithOutInvSmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCompanyConfigOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ReplaceCTTActionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getHashCTTTokenReplaceOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashCTTSmartCAReplaceOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustReplaceCTTTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustReplaceCTTSmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback cancelInvCTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTFkeyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvMTTFkeyByTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTFkeyByTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvMTTFkeyBySmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTFkeyBySmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTNoRangeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvMTTNoRangeByTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTNoRangeByTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvMTTNoRangeBySmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTNoRangeBySmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTInvTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvMTTInvTokenByTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTInvTokenByTokenOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHashInvMTTInvTokenBySmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendInvMTTInvTokenBySmartCAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ReplaceInvMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustInvMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustWithoutInvMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ReplaceWithoutInvMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ReplaceActionAssignedNoMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustActionAssignedNoMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustReplaceInvWithTokenMTTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AdjustReplaceInvSmartCAMTTOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -215,6 +299,18 @@ namespace QLCongNo.bs78 {
         public event cancelInvSignFileNoPayCompletedEventHandler cancelInvSignFileNoPayCompleted;
         
         /// <remarks/>
+        public event restoreCancelInvFkeyCompletedEventHandler restoreCancelInvFkeyCompleted;
+        
+        /// <remarks/>
+        public event restoreCancelInvTokenCompletedEventHandler restoreCancelInvTokenCompleted;
+        
+        /// <remarks/>
+        public event restoreReplacedInvFkeyCompletedEventHandler restoreReplacedInvFkeyCompleted;
+        
+        /// <remarks/>
+        public event restoreReplacedInvTokenCompletedEventHandler restoreReplacedInvTokenCompleted;
+        
+        /// <remarks/>
         public event poolingInvCompletedEventHandler poolingInvCompleted;
         
         /// <remarks/>
@@ -266,6 +362,12 @@ namespace QLCongNo.bs78 {
         public event CreateNewUserbyAccCompletedEventHandler CreateNewUserbyAccCompleted;
         
         /// <remarks/>
+        public event UpdateSStaffAccountCompletedEventHandler UpdateSStaffAccountCompleted;
+        
+        /// <remarks/>
+        public event CreateSStaffAccountCompletedEventHandler CreateSStaffAccountCompleted;
+        
+        /// <remarks/>
         public event getSerialByPatternCompletedEventHandler getSerialByPatternCompleted;
         
         /// <remarks/>
@@ -276,6 +378,12 @@ namespace QLCongNo.bs78 {
         
         /// <remarks/>
         public event AdjustInvoiceNoPublishCompletedEventHandler AdjustInvoiceNoPublishCompleted;
+        
+        /// <remarks/>
+        public event ReplaceInvoiceNoPublishExtendCompletedEventHandler ReplaceInvoiceNoPublishExtendCompleted;
+        
+        /// <remarks/>
+        public event AdjustInvoiceNoPublishExtendCompletedEventHandler AdjustInvoiceNoPublishExtendCompleted;
         
         /// <remarks/>
         public event AdjustInvoiceMultiCompletedEventHandler AdjustInvoiceMultiCompleted;
@@ -321,6 +429,108 @@ namespace QLCongNo.bs78 {
         
         /// <remarks/>
         public event UnconfirmPaymentDetailFkeyCompletedEventHandler UnconfirmPaymentDetailFkeyCompleted;
+        
+        /// <remarks/>
+        public event GetHashWithOutInvTokenCompletedEventHandler GetHashWithOutInvTokenCompleted;
+        
+        /// <remarks/>
+        public event GetHashWithOutInvSmartCACompletedEventHandler GetHashWithOutInvSmartCACompleted;
+        
+        /// <remarks/>
+        public event AdjustReplaceWithOutInvTokenCompletedEventHandler AdjustReplaceWithOutInvTokenCompleted;
+        
+        /// <remarks/>
+        public event AdjustReplaceWithOutInvSmartCACompletedEventHandler AdjustReplaceWithOutInvSmartCACompleted;
+        
+        /// <remarks/>
+        public event getCompanyConfigCompletedEventHandler getCompanyConfigCompleted;
+        
+        /// <remarks/>
+        public event ReplaceCTTActionCompletedEventHandler ReplaceCTTActionCompleted;
+        
+        /// <remarks/>
+        public event getHashCTTTokenReplaceCompletedEventHandler getHashCTTTokenReplaceCompleted;
+        
+        /// <remarks/>
+        public event GetHashCTTSmartCAReplaceCompletedEventHandler GetHashCTTSmartCAReplaceCompleted;
+        
+        /// <remarks/>
+        public event AdjustReplaceCTTTokenCompletedEventHandler AdjustReplaceCTTTokenCompleted;
+        
+        /// <remarks/>
+        public event AdjustReplaceCTTSmartCACompletedEventHandler AdjustReplaceCTTSmartCACompleted;
+        
+        /// <remarks/>
+        public event cancelInvCTTCompletedEventHandler cancelInvCTTCompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTFkeyCompletedEventHandler SendInvMTTFkeyCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvMTTFkeyByTokenCompletedEventHandler GetHashInvMTTFkeyByTokenCompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTFkeyByTokenCompletedEventHandler SendInvMTTFkeyByTokenCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvMTTFkeyBySmartCACompletedEventHandler GetHashInvMTTFkeyBySmartCACompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTFkeyBySmartCACompletedEventHandler SendInvMTTFkeyBySmartCACompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTNoRangeCompletedEventHandler SendInvMTTNoRangeCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvMTTNoRangeByTokenCompletedEventHandler GetHashInvMTTNoRangeByTokenCompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTNoRangeByTokenCompletedEventHandler SendInvMTTNoRangeByTokenCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvMTTNoRangeBySmartCACompletedEventHandler GetHashInvMTTNoRangeBySmartCACompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTNoRangeBySmartCACompletedEventHandler SendInvMTTNoRangeBySmartCACompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTInvTokenCompletedEventHandler SendInvMTTInvTokenCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvMTTInvTokenByTokenCompletedEventHandler GetHashInvMTTInvTokenByTokenCompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTInvTokenByTokenCompletedEventHandler SendInvMTTInvTokenByTokenCompleted;
+        
+        /// <remarks/>
+        public event GetHashInvMTTInvTokenBySmartCACompletedEventHandler GetHashInvMTTInvTokenBySmartCACompleted;
+        
+        /// <remarks/>
+        public event SendInvMTTInvTokenBySmartCACompletedEventHandler SendInvMTTInvTokenBySmartCACompleted;
+        
+        /// <remarks/>
+        public event ReplaceInvMTTCompletedEventHandler ReplaceInvMTTCompleted;
+        
+        /// <remarks/>
+        public event AdjustInvMTTCompletedEventHandler AdjustInvMTTCompleted;
+        
+        /// <remarks/>
+        public event AdjustWithoutInvMTTCompletedEventHandler AdjustWithoutInvMTTCompleted;
+        
+        /// <remarks/>
+        public event ReplaceWithoutInvMTTCompletedEventHandler ReplaceWithoutInvMTTCompleted;
+        
+        /// <remarks/>
+        public event ReplaceActionAssignedNoMTTCompletedEventHandler ReplaceActionAssignedNoMTTCompleted;
+        
+        /// <remarks/>
+        public event AdjustActionAssignedNoMTTCompletedEventHandler AdjustActionAssignedNoMTTCompleted;
+        
+        /// <remarks/>
+        public event AdjustReplaceInvWithTokenMTTCompletedEventHandler AdjustReplaceInvWithTokenMTTCompleted;
+        
+        /// <remarks/>
+        public event AdjustReplaceInvSmartCAMTTCompletedEventHandler AdjustReplaceInvSmartCAMTTCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/replaceInv", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -984,6 +1194,158 @@ namespace QLCongNo.bs78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/restoreCancelInvFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string restoreCancelInvFkey(string Account, string ACpass, string fkey, string userName, string userPass) {
+            object[] results = this.Invoke("restoreCancelInvFkey", new object[] {
+                        Account,
+                        ACpass,
+                        fkey,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void restoreCancelInvFkeyAsync(string Account, string ACpass, string fkey, string userName, string userPass) {
+            this.restoreCancelInvFkeyAsync(Account, ACpass, fkey, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void restoreCancelInvFkeyAsync(string Account, string ACpass, string fkey, string userName, string userPass, object userState) {
+            if ((this.restoreCancelInvFkeyOperationCompleted == null)) {
+                this.restoreCancelInvFkeyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnrestoreCancelInvFkeyOperationCompleted);
+            }
+            this.InvokeAsync("restoreCancelInvFkey", new object[] {
+                        Account,
+                        ACpass,
+                        fkey,
+                        userName,
+                        userPass}, this.restoreCancelInvFkeyOperationCompleted, userState);
+        }
+        
+        private void OnrestoreCancelInvFkeyOperationCompleted(object arg) {
+            if ((this.restoreCancelInvFkeyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.restoreCancelInvFkeyCompleted(this, new restoreCancelInvFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/restoreCancelInvToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string restoreCancelInvToken(string Account, string ACpass, string token, string userName, string userPass) {
+            object[] results = this.Invoke("restoreCancelInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        token,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void restoreCancelInvTokenAsync(string Account, string ACpass, string token, string userName, string userPass) {
+            this.restoreCancelInvTokenAsync(Account, ACpass, token, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void restoreCancelInvTokenAsync(string Account, string ACpass, string token, string userName, string userPass, object userState) {
+            if ((this.restoreCancelInvTokenOperationCompleted == null)) {
+                this.restoreCancelInvTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnrestoreCancelInvTokenOperationCompleted);
+            }
+            this.InvokeAsync("restoreCancelInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        token,
+                        userName,
+                        userPass}, this.restoreCancelInvTokenOperationCompleted, userState);
+        }
+        
+        private void OnrestoreCancelInvTokenOperationCompleted(object arg) {
+            if ((this.restoreCancelInvTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.restoreCancelInvTokenCompleted(this, new restoreCancelInvTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/restoreReplacedInvFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string restoreReplacedInvFkey(string Account, string ACpass, string fkeyReplaced, string fkeyReplacedOld, string userName, string userPass) {
+            object[] results = this.Invoke("restoreReplacedInvFkey", new object[] {
+                        Account,
+                        ACpass,
+                        fkeyReplaced,
+                        fkeyReplacedOld,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void restoreReplacedInvFkeyAsync(string Account, string ACpass, string fkeyReplaced, string fkeyReplacedOld, string userName, string userPass) {
+            this.restoreReplacedInvFkeyAsync(Account, ACpass, fkeyReplaced, fkeyReplacedOld, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void restoreReplacedInvFkeyAsync(string Account, string ACpass, string fkeyReplaced, string fkeyReplacedOld, string userName, string userPass, object userState) {
+            if ((this.restoreReplacedInvFkeyOperationCompleted == null)) {
+                this.restoreReplacedInvFkeyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnrestoreReplacedInvFkeyOperationCompleted);
+            }
+            this.InvokeAsync("restoreReplacedInvFkey", new object[] {
+                        Account,
+                        ACpass,
+                        fkeyReplaced,
+                        fkeyReplacedOld,
+                        userName,
+                        userPass}, this.restoreReplacedInvFkeyOperationCompleted, userState);
+        }
+        
+        private void OnrestoreReplacedInvFkeyOperationCompleted(object arg) {
+            if ((this.restoreReplacedInvFkeyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.restoreReplacedInvFkeyCompleted(this, new restoreReplacedInvFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/restoreReplacedInvToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string restoreReplacedInvToken(string Account, string ACpass, string tokenReplaced, string tokenReplacedOld, string userName, string userPass) {
+            object[] results = this.Invoke("restoreReplacedInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        tokenReplaced,
+                        tokenReplacedOld,
+                        userName,
+                        userPass});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void restoreReplacedInvTokenAsync(string Account, string ACpass, string tokenReplaced, string tokenReplacedOld, string userName, string userPass) {
+            this.restoreReplacedInvTokenAsync(Account, ACpass, tokenReplaced, tokenReplacedOld, userName, userPass, null);
+        }
+        
+        /// <remarks/>
+        public void restoreReplacedInvTokenAsync(string Account, string ACpass, string tokenReplaced, string tokenReplacedOld, string userName, string userPass, object userState) {
+            if ((this.restoreReplacedInvTokenOperationCompleted == null)) {
+                this.restoreReplacedInvTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnrestoreReplacedInvTokenOperationCompleted);
+            }
+            this.InvokeAsync("restoreReplacedInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        tokenReplaced,
+                        tokenReplacedOld,
+                        userName,
+                        userPass}, this.restoreReplacedInvTokenOperationCompleted, userState);
+        }
+        
+        private void OnrestoreReplacedInvTokenOperationCompleted(object arg) {
+            if ((this.restoreReplacedInvTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.restoreReplacedInvTokenCompleted(this, new restoreReplacedInvTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/poolingInv", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string poolingInv(string userName, string passWord, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] invData, string pattern) {
             object[] results = this.Invoke("poolingInv", new object[] {
@@ -1567,6 +1929,82 @@ namespace QLCongNo.bs78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateSStaffAccount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateSStaffAccount(string username, string password, string newUser, string secretKey) {
+            object[] results = this.Invoke("UpdateSStaffAccount", new object[] {
+                        username,
+                        password,
+                        newUser,
+                        secretKey});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateSStaffAccountAsync(string username, string password, string newUser, string secretKey) {
+            this.UpdateSStaffAccountAsync(username, password, newUser, secretKey, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateSStaffAccountAsync(string username, string password, string newUser, string secretKey, object userState) {
+            if ((this.UpdateSStaffAccountOperationCompleted == null)) {
+                this.UpdateSStaffAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateSStaffAccountOperationCompleted);
+            }
+            this.InvokeAsync("UpdateSStaffAccount", new object[] {
+                        username,
+                        password,
+                        newUser,
+                        secretKey}, this.UpdateSStaffAccountOperationCompleted, userState);
+        }
+        
+        private void OnUpdateSStaffAccountOperationCompleted(object arg) {
+            if ((this.UpdateSStaffAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateSStaffAccountCompleted(this, new UpdateSStaffAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateSStaffAccount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string CreateSStaffAccount(string username, string password, string newUser, string newPassword, string email, bool isApproved, string secretKey) {
+            object[] results = this.Invoke("CreateSStaffAccount", new object[] {
+                        username,
+                        password,
+                        newUser,
+                        newPassword,
+                        email,
+                        isApproved,
+                        secretKey});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateSStaffAccountAsync(string username, string password, string newUser, string newPassword, string email, bool isApproved, string secretKey) {
+            this.CreateSStaffAccountAsync(username, password, newUser, newPassword, email, isApproved, secretKey, null);
+        }
+        
+        /// <remarks/>
+        public void CreateSStaffAccountAsync(string username, string password, string newUser, string newPassword, string email, bool isApproved, string secretKey, object userState) {
+            if ((this.CreateSStaffAccountOperationCompleted == null)) {
+                this.CreateSStaffAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateSStaffAccountOperationCompleted);
+            }
+            this.InvokeAsync("CreateSStaffAccount", new object[] {
+                        username,
+                        password,
+                        newUser,
+                        newPassword,
+                        email,
+                        isApproved,
+                        secretKey}, this.CreateSStaffAccountOperationCompleted, userState);
+        }
+        
+        private void OnCreateSStaffAccountOperationCompleted(object arg) {
+            if ((this.CreateSStaffAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateSStaffAccountCompleted(this, new CreateSStaffAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getSerialByPattern", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string getSerialByPattern(string userName, string userPass, string pattern) {
             object[] results = this.Invoke("getSerialByPattern", new object[] {
@@ -1721,6 +2159,100 @@ namespace QLCongNo.bs78 {
             if ((this.AdjustInvoiceNoPublishCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.AdjustInvoiceNoPublishCompleted(this, new AdjustInvoiceNoPublishCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceInvoiceNoPublishExtend", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ReplaceInvoiceNoPublishExtend(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            object[] results = this.Invoke("ReplaceInvoiceNoPublishExtend", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ReplaceInvoiceNoPublishExtendAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            this.ReplaceInvoiceNoPublishExtendAsync(Account, ACpass, xmlInvData, username, pass, fkey, convert, pattern, serial, OldPattern, null);
+        }
+        
+        /// <remarks/>
+        public void ReplaceInvoiceNoPublishExtendAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert, string pattern, string serial, string OldPattern, object userState) {
+            if ((this.ReplaceInvoiceNoPublishExtendOperationCompleted == null)) {
+                this.ReplaceInvoiceNoPublishExtendOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceInvoiceNoPublishExtendOperationCompleted);
+            }
+            this.InvokeAsync("ReplaceInvoiceNoPublishExtend", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern}, this.ReplaceInvoiceNoPublishExtendOperationCompleted, userState);
+        }
+        
+        private void OnReplaceInvoiceNoPublishExtendOperationCompleted(object arg) {
+            if ((this.ReplaceInvoiceNoPublishExtendCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ReplaceInvoiceNoPublishExtendCompleted(this, new ReplaceInvoiceNoPublishExtendCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustInvoiceNoPublishExtend", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustInvoiceNoPublishExtend(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            object[] results = this.Invoke("AdjustInvoiceNoPublishExtend", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustInvoiceNoPublishExtendAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            this.AdjustInvoiceNoPublishExtendAsync(Account, ACpass, xmlInvData, username, pass, fkey, convert, pattern, serial, OldPattern, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustInvoiceNoPublishExtendAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, System.Nullable<int> convert, string pattern, string serial, string OldPattern, object userState) {
+            if ((this.AdjustInvoiceNoPublishExtendOperationCompleted == null)) {
+                this.AdjustInvoiceNoPublishExtendOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustInvoiceNoPublishExtendOperationCompleted);
+            }
+            this.InvokeAsync("AdjustInvoiceNoPublishExtend", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern}, this.AdjustInvoiceNoPublishExtendOperationCompleted, userState);
+        }
+        
+        private void OnAdjustInvoiceNoPublishExtendOperationCompleted(object arg) {
+            if ((this.AdjustInvoiceNoPublishExtendCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustInvoiceNoPublishExtendCompleted(this, new AdjustInvoiceNoPublishExtendCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2340,6 +2872,1558 @@ namespace QLCongNo.bs78 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashWithOutInvToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashWithOutInvToken(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string oldPattern, string oldSerial, decimal oldNo, string strOldArisingDate, int oldInvType, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("GetHashWithOutInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        oldInvType,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashWithOutInvTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string oldPattern, string oldSerial, decimal oldNo, string strOldArisingDate, int oldInvType, string pattern, string serial, int convert) {
+            this.GetHashWithOutInvTokenAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, oldPattern, oldSerial, oldNo, strOldArisingDate, oldInvType, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashWithOutInvTokenAsync(
+                    string Account, 
+                    string ACpass, 
+                    string xmlInvData, 
+                    string username, 
+                    string password, 
+                    string serialCert, 
+                    int type, 
+                    string oldPattern, 
+                    string oldSerial, 
+                    decimal oldNo, 
+                    string strOldArisingDate, 
+                    int oldInvType, 
+                    string pattern, 
+                    string serial, 
+                    int convert, 
+                    object userState) {
+            if ((this.GetHashWithOutInvTokenOperationCompleted == null)) {
+                this.GetHashWithOutInvTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashWithOutInvTokenOperationCompleted);
+            }
+            this.InvokeAsync("GetHashWithOutInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        oldInvType,
+                        pattern,
+                        serial,
+                        convert}, this.GetHashWithOutInvTokenOperationCompleted, userState);
+        }
+        
+        private void OnGetHashWithOutInvTokenOperationCompleted(object arg) {
+            if ((this.GetHashWithOutInvTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashWithOutInvTokenCompleted(this, new GetHashWithOutInvTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashWithOutInvSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashWithOutInvSmartCA(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string oldPattern, string oldSerial, decimal oldNo, string strOldArisingDate, int oldInvType, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("GetHashWithOutInvSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        oldInvType,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashWithOutInvSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string oldPattern, string oldSerial, decimal oldNo, string strOldArisingDate, int oldInvType, string pattern, string serial, int convert) {
+            this.GetHashWithOutInvSmartCAAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, oldPattern, oldSerial, oldNo, strOldArisingDate, oldInvType, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashWithOutInvSmartCAAsync(
+                    string Account, 
+                    string ACpass, 
+                    string xmlInvData, 
+                    string username, 
+                    string password, 
+                    string serialCert, 
+                    int type, 
+                    string oldPattern, 
+                    string oldSerial, 
+                    decimal oldNo, 
+                    string strOldArisingDate, 
+                    int oldInvType, 
+                    string pattern, 
+                    string serial, 
+                    int convert, 
+                    object userState) {
+            if ((this.GetHashWithOutInvSmartCAOperationCompleted == null)) {
+                this.GetHashWithOutInvSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashWithOutInvSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("GetHashWithOutInvSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        oldInvType,
+                        pattern,
+                        serial,
+                        convert}, this.GetHashWithOutInvSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnGetHashWithOutInvSmartCAOperationCompleted(object arg) {
+            if ((this.GetHashWithOutInvSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashWithOutInvSmartCACompleted(this, new GetHashWithOutInvSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustReplaceWithOutInvToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustReplaceWithOutInvToken(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustReplaceWithOutInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceWithOutInvTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            this.AdjustReplaceWithOutInvTokenAsync(Account, ACpass, xmlInvData, username, password, type, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceWithOutInvTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial, object userState) {
+            if ((this.AdjustReplaceWithOutInvTokenOperationCompleted == null)) {
+                this.AdjustReplaceWithOutInvTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustReplaceWithOutInvTokenOperationCompleted);
+            }
+            this.InvokeAsync("AdjustReplaceWithOutInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial}, this.AdjustReplaceWithOutInvTokenOperationCompleted, userState);
+        }
+        
+        private void OnAdjustReplaceWithOutInvTokenOperationCompleted(object arg) {
+            if ((this.AdjustReplaceWithOutInvTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustReplaceWithOutInvTokenCompleted(this, new AdjustReplaceWithOutInvTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustReplaceWithOutInvSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustReplaceWithOutInvSmartCA(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustReplaceWithOutInvSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceWithOutInvSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            this.AdjustReplaceWithOutInvSmartCAAsync(Account, ACpass, xmlInvData, username, password, type, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceWithOutInvSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial, object userState) {
+            if ((this.AdjustReplaceWithOutInvSmartCAOperationCompleted == null)) {
+                this.AdjustReplaceWithOutInvSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustReplaceWithOutInvSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("AdjustReplaceWithOutInvSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial}, this.AdjustReplaceWithOutInvSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnAdjustReplaceWithOutInvSmartCAOperationCompleted(object arg) {
+            if ((this.AdjustReplaceWithOutInvSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustReplaceWithOutInvSmartCACompleted(this, new AdjustReplaceWithOutInvSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getCompanyConfig", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getCompanyConfig(string Account, string ACpass, string configKey) {
+            object[] results = this.Invoke("getCompanyConfig", new object[] {
+                        Account,
+                        ACpass,
+                        configKey});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCompanyConfigAsync(string Account, string ACpass, string configKey) {
+            this.getCompanyConfigAsync(Account, ACpass, configKey, null);
+        }
+        
+        /// <remarks/>
+        public void getCompanyConfigAsync(string Account, string ACpass, string configKey, object userState) {
+            if ((this.getCompanyConfigOperationCompleted == null)) {
+                this.getCompanyConfigOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCompanyConfigOperationCompleted);
+            }
+            this.InvokeAsync("getCompanyConfig", new object[] {
+                        Account,
+                        ACpass,
+                        configKey}, this.getCompanyConfigOperationCompleted, userState);
+        }
+        
+        private void OngetCompanyConfigOperationCompleted(object arg) {
+            if ((this.getCompanyConfigCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCompanyConfigCompleted(this, new getCompanyConfigCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceCTTAction", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ReplaceCTTAction(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial) {
+            object[] results = this.Invoke("ReplaceCTTAction", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ReplaceCTTActionAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial) {
+            this.ReplaceCTTActionAsync(Account, ACpass, xmlInvData, username, pass, fkey, Attachfile, convert, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void ReplaceCTTActionAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial, object userState) {
+            if ((this.ReplaceCTTActionOperationCompleted == null)) {
+                this.ReplaceCTTActionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceCTTActionOperationCompleted);
+            }
+            this.InvokeAsync("ReplaceCTTAction", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial}, this.ReplaceCTTActionOperationCompleted, userState);
+        }
+        
+        private void OnReplaceCTTActionOperationCompleted(object arg) {
+            if ((this.ReplaceCTTActionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ReplaceCTTActionCompleted(this, new ReplaceCTTActionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getHashCTTTokenReplace", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getHashCTTTokenReplace(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("getHashCTTTokenReplace", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getHashCTTTokenReplaceAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            this.getHashCTTTokenReplaceAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, invToken, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void getHashCTTTokenReplaceAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert, object userState) {
+            if ((this.getHashCTTTokenReplaceOperationCompleted == null)) {
+                this.getHashCTTTokenReplaceOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetHashCTTTokenReplaceOperationCompleted);
+            }
+            this.InvokeAsync("getHashCTTTokenReplace", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert}, this.getHashCTTTokenReplaceOperationCompleted, userState);
+        }
+        
+        private void OngetHashCTTTokenReplaceOperationCompleted(object arg) {
+            if ((this.getHashCTTTokenReplaceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getHashCTTTokenReplaceCompleted(this, new getHashCTTTokenReplaceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashCTTSmartCAReplace", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashCTTSmartCAReplace(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            object[] results = this.Invoke("GetHashCTTSmartCAReplace", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashCTTSmartCAReplaceAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert) {
+            this.GetHashCTTSmartCAReplaceAsync(Account, ACpass, xmlInvData, username, password, serialCert, type, invToken, pattern, serial, convert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashCTTSmartCAReplaceAsync(string Account, string ACpass, string xmlInvData, string username, string password, string serialCert, int type, string invToken, string pattern, string serial, int convert, object userState) {
+            if ((this.GetHashCTTSmartCAReplaceOperationCompleted == null)) {
+                this.GetHashCTTSmartCAReplaceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashCTTSmartCAReplaceOperationCompleted);
+            }
+            this.InvokeAsync("GetHashCTTSmartCAReplace", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        serialCert,
+                        type,
+                        invToken,
+                        pattern,
+                        serial,
+                        convert}, this.GetHashCTTSmartCAReplaceOperationCompleted, userState);
+        }
+        
+        private void OnGetHashCTTSmartCAReplaceOperationCompleted(object arg) {
+            if ((this.GetHashCTTSmartCAReplaceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashCTTSmartCAReplaceCompleted(this, new GetHashCTTSmartCAReplaceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustReplaceCTTToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustReplaceCTTToken(string Account, string ACpass, string xmlInvData, string username, string password, string type, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustReplaceCTTToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceCTTTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string type, string pattern, string serial) {
+            this.AdjustReplaceCTTTokenAsync(Account, ACpass, xmlInvData, username, password, type, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceCTTTokenAsync(string Account, string ACpass, string xmlInvData, string username, string password, string type, string pattern, string serial, object userState) {
+            if ((this.AdjustReplaceCTTTokenOperationCompleted == null)) {
+                this.AdjustReplaceCTTTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustReplaceCTTTokenOperationCompleted);
+            }
+            this.InvokeAsync("AdjustReplaceCTTToken", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial}, this.AdjustReplaceCTTTokenOperationCompleted, userState);
+        }
+        
+        private void OnAdjustReplaceCTTTokenOperationCompleted(object arg) {
+            if ((this.AdjustReplaceCTTTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustReplaceCTTTokenCompleted(this, new AdjustReplaceCTTTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustReplaceCTTSmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustReplaceCTTSmartCA(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustReplaceCTTSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceCTTSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            this.AdjustReplaceCTTSmartCAAsync(Account, ACpass, xmlInvData, username, password, type, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceCTTSmartCAAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial, object userState) {
+            if ((this.AdjustReplaceCTTSmartCAOperationCompleted == null)) {
+                this.AdjustReplaceCTTSmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustReplaceCTTSmartCAOperationCompleted);
+            }
+            this.InvokeAsync("AdjustReplaceCTTSmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial}, this.AdjustReplaceCTTSmartCAOperationCompleted, userState);
+        }
+        
+        private void OnAdjustReplaceCTTSmartCAOperationCompleted(object arg) {
+            if ((this.AdjustReplaceCTTSmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustReplaceCTTSmartCACompleted(this, new AdjustReplaceCTTSmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/cancelInvCTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string cancelInvCTT(string Account, string ACpass, string fkey, string functionName, string userName, string userPass, string note) {
+            object[] results = this.Invoke("cancelInvCTT", new object[] {
+                        Account,
+                        ACpass,
+                        fkey,
+                        functionName,
+                        userName,
+                        userPass,
+                        note});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void cancelInvCTTAsync(string Account, string ACpass, string fkey, string functionName, string userName, string userPass, string note) {
+            this.cancelInvCTTAsync(Account, ACpass, fkey, functionName, userName, userPass, note, null);
+        }
+        
+        /// <remarks/>
+        public void cancelInvCTTAsync(string Account, string ACpass, string fkey, string functionName, string userName, string userPass, string note, object userState) {
+            if ((this.cancelInvCTTOperationCompleted == null)) {
+                this.cancelInvCTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OncancelInvCTTOperationCompleted);
+            }
+            this.InvokeAsync("cancelInvCTT", new object[] {
+                        Account,
+                        ACpass,
+                        fkey,
+                        functionName,
+                        userName,
+                        userPass,
+                        note}, this.cancelInvCTTOperationCompleted, userState);
+        }
+        
+        private void OncancelInvCTTOperationCompleted(object arg) {
+            if ((this.cancelInvCTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.cancelInvCTTCompleted(this, new cancelInvCTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTFkey", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTFkey(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert) {
+            object[] results = this.Invoke("SendInvMTTFkey", new object[] {
+                        Account,
+                        ACpass,
+                        lstFkey,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTFkeyAsync(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert) {
+            this.SendInvMTTFkeyAsync(Account, ACpass, lstFkey, username, password, pattern, serial, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTFkeyAsync(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert, object userState) {
+            if ((this.SendInvMTTFkeyOperationCompleted == null)) {
+                this.SendInvMTTFkeyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTFkeyOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTFkey", new object[] {
+                        Account,
+                        ACpass,
+                        lstFkey,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        serialCert}, this.SendInvMTTFkeyOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTFkeyOperationCompleted(object arg) {
+            if ((this.SendInvMTTFkeyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTFkeyCompleted(this, new SendInvMTTFkeyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvMTTFkeyByToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvMTTFkeyByToken(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert) {
+            object[] results = this.Invoke("GetHashInvMTTFkeyByToken", new object[] {
+                        Account,
+                        ACpass,
+                        lstFkey,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTFkeyByTokenAsync(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert) {
+            this.GetHashInvMTTFkeyByTokenAsync(Account, ACpass, lstFkey, username, password, pattern, serial, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTFkeyByTokenAsync(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert, object userState) {
+            if ((this.GetHashInvMTTFkeyByTokenOperationCompleted == null)) {
+                this.GetHashInvMTTFkeyByTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvMTTFkeyByTokenOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvMTTFkeyByToken", new object[] {
+                        Account,
+                        ACpass,
+                        lstFkey,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        serialCert}, this.GetHashInvMTTFkeyByTokenOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvMTTFkeyByTokenOperationCompleted(object arg) {
+            if ((this.GetHashInvMTTFkeyByTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvMTTFkeyByTokenCompleted(this, new GetHashInvMTTFkeyByTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTFkeyByToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTFkeyByToken(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("SendInvMTTFkeyByToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTFkeyByTokenAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            this.SendInvMTTFkeyByTokenAsync(Account, ACpass, xml, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTFkeyByTokenAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial, object userState) {
+            if ((this.SendInvMTTFkeyByTokenOperationCompleted == null)) {
+                this.SendInvMTTFkeyByTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTFkeyByTokenOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTFkeyByToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.SendInvMTTFkeyByTokenOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTFkeyByTokenOperationCompleted(object arg) {
+            if ((this.SendInvMTTFkeyByTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTFkeyByTokenCompleted(this, new SendInvMTTFkeyByTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvMTTFkeyBySmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvMTTFkeyBySmartCA(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert) {
+            object[] results = this.Invoke("GetHashInvMTTFkeyBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        lstFkey,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTFkeyBySmartCAAsync(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert) {
+            this.GetHashInvMTTFkeyBySmartCAAsync(Account, ACpass, lstFkey, username, password, pattern, serial, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTFkeyBySmartCAAsync(string Account, string ACpass, string lstFkey, string username, string password, string pattern, string serial, string serialCert, object userState) {
+            if ((this.GetHashInvMTTFkeyBySmartCAOperationCompleted == null)) {
+                this.GetHashInvMTTFkeyBySmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvMTTFkeyBySmartCAOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvMTTFkeyBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        lstFkey,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        serialCert}, this.GetHashInvMTTFkeyBySmartCAOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvMTTFkeyBySmartCAOperationCompleted(object arg) {
+            if ((this.GetHashInvMTTFkeyBySmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvMTTFkeyBySmartCACompleted(this, new GetHashInvMTTFkeyBySmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTFkeyBySmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTFkeyBySmartCA(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("SendInvMTTFkeyBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTFkeyBySmartCAAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            this.SendInvMTTFkeyBySmartCAAsync(Account, ACpass, xml, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTFkeyBySmartCAAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial, object userState) {
+            if ((this.SendInvMTTFkeyBySmartCAOperationCompleted == null)) {
+                this.SendInvMTTFkeyBySmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTFkeyBySmartCAOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTFkeyBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.SendInvMTTFkeyBySmartCAOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTFkeyBySmartCAOperationCompleted(object arg) {
+            if ((this.SendInvMTTFkeyBySmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTFkeyBySmartCACompleted(this, new SendInvMTTFkeyBySmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTNoRange", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTNoRange(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert) {
+            object[] results = this.Invoke("SendInvMTTNoRange", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        fromNo,
+                        toNo,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTNoRangeAsync(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert) {
+            this.SendInvMTTNoRangeAsync(Account, ACpass, username, password, pattern, serial, fromNo, toNo, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTNoRangeAsync(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert, object userState) {
+            if ((this.SendInvMTTNoRangeOperationCompleted == null)) {
+                this.SendInvMTTNoRangeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTNoRangeOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTNoRange", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        fromNo,
+                        toNo,
+                        serialCert}, this.SendInvMTTNoRangeOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTNoRangeOperationCompleted(object arg) {
+            if ((this.SendInvMTTNoRangeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTNoRangeCompleted(this, new SendInvMTTNoRangeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvMTTNoRangeByToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvMTTNoRangeByToken(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert) {
+            object[] results = this.Invoke("GetHashInvMTTNoRangeByToken", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        fromNo,
+                        toNo,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTNoRangeByTokenAsync(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert) {
+            this.GetHashInvMTTNoRangeByTokenAsync(Account, ACpass, username, password, pattern, serial, fromNo, toNo, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTNoRangeByTokenAsync(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert, object userState) {
+            if ((this.GetHashInvMTTNoRangeByTokenOperationCompleted == null)) {
+                this.GetHashInvMTTNoRangeByTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvMTTNoRangeByTokenOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvMTTNoRangeByToken", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        fromNo,
+                        toNo,
+                        serialCert}, this.GetHashInvMTTNoRangeByTokenOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvMTTNoRangeByTokenOperationCompleted(object arg) {
+            if ((this.GetHashInvMTTNoRangeByTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvMTTNoRangeByTokenCompleted(this, new GetHashInvMTTNoRangeByTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTNoRangeByToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTNoRangeByToken(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("SendInvMTTNoRangeByToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTNoRangeByTokenAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            this.SendInvMTTNoRangeByTokenAsync(Account, ACpass, xml, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTNoRangeByTokenAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial, object userState) {
+            if ((this.SendInvMTTNoRangeByTokenOperationCompleted == null)) {
+                this.SendInvMTTNoRangeByTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTNoRangeByTokenOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTNoRangeByToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.SendInvMTTNoRangeByTokenOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTNoRangeByTokenOperationCompleted(object arg) {
+            if ((this.SendInvMTTNoRangeByTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTNoRangeByTokenCompleted(this, new SendInvMTTNoRangeByTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvMTTNoRangeBySmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvMTTNoRangeBySmartCA(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert) {
+            object[] results = this.Invoke("GetHashInvMTTNoRangeBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        fromNo,
+                        toNo,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTNoRangeBySmartCAAsync(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert) {
+            this.GetHashInvMTTNoRangeBySmartCAAsync(Account, ACpass, username, password, pattern, serial, fromNo, toNo, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTNoRangeBySmartCAAsync(string Account, string ACpass, string username, string password, string pattern, string serial, decimal fromNo, decimal toNo, string serialCert, object userState) {
+            if ((this.GetHashInvMTTNoRangeBySmartCAOperationCompleted == null)) {
+                this.GetHashInvMTTNoRangeBySmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvMTTNoRangeBySmartCAOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvMTTNoRangeBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        username,
+                        password,
+                        pattern,
+                        serial,
+                        fromNo,
+                        toNo,
+                        serialCert}, this.GetHashInvMTTNoRangeBySmartCAOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvMTTNoRangeBySmartCAOperationCompleted(object arg) {
+            if ((this.GetHashInvMTTNoRangeBySmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvMTTNoRangeBySmartCACompleted(this, new GetHashInvMTTNoRangeBySmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTNoRangeBySmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTNoRangeBySmartCA(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("SendInvMTTNoRangeBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTNoRangeBySmartCAAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            this.SendInvMTTNoRangeBySmartCAAsync(Account, ACpass, xml, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTNoRangeBySmartCAAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial, object userState) {
+            if ((this.SendInvMTTNoRangeBySmartCAOperationCompleted == null)) {
+                this.SendInvMTTNoRangeBySmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTNoRangeBySmartCAOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTNoRangeBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.SendInvMTTNoRangeBySmartCAOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTNoRangeBySmartCAOperationCompleted(object arg) {
+            if ((this.SendInvMTTNoRangeBySmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTNoRangeBySmartCACompleted(this, new SendInvMTTNoRangeBySmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTInvToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTInvToken(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert) {
+            object[] results = this.Invoke("SendInvMTTInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        lstInvToken,
+                        username,
+                        password,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTInvTokenAsync(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert) {
+            this.SendInvMTTInvTokenAsync(Account, ACpass, lstInvToken, username, password, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTInvTokenAsync(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert, object userState) {
+            if ((this.SendInvMTTInvTokenOperationCompleted == null)) {
+                this.SendInvMTTInvTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTInvTokenOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTInvToken", new object[] {
+                        Account,
+                        ACpass,
+                        lstInvToken,
+                        username,
+                        password,
+                        serialCert}, this.SendInvMTTInvTokenOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTInvTokenOperationCompleted(object arg) {
+            if ((this.SendInvMTTInvTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTInvTokenCompleted(this, new SendInvMTTInvTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvMTTInvTokenByToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvMTTInvTokenByToken(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert) {
+            object[] results = this.Invoke("GetHashInvMTTInvTokenByToken", new object[] {
+                        Account,
+                        ACpass,
+                        lstInvToken,
+                        username,
+                        password,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTInvTokenByTokenAsync(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert) {
+            this.GetHashInvMTTInvTokenByTokenAsync(Account, ACpass, lstInvToken, username, password, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTInvTokenByTokenAsync(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert, object userState) {
+            if ((this.GetHashInvMTTInvTokenByTokenOperationCompleted == null)) {
+                this.GetHashInvMTTInvTokenByTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvMTTInvTokenByTokenOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvMTTInvTokenByToken", new object[] {
+                        Account,
+                        ACpass,
+                        lstInvToken,
+                        username,
+                        password,
+                        serialCert}, this.GetHashInvMTTInvTokenByTokenOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvMTTInvTokenByTokenOperationCompleted(object arg) {
+            if ((this.GetHashInvMTTInvTokenByTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvMTTInvTokenByTokenCompleted(this, new GetHashInvMTTInvTokenByTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTInvTokenByToken", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTInvTokenByToken(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("SendInvMTTInvTokenByToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTInvTokenByTokenAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            this.SendInvMTTInvTokenByTokenAsync(Account, ACpass, xml, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTInvTokenByTokenAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial, object userState) {
+            if ((this.SendInvMTTInvTokenByTokenOperationCompleted == null)) {
+                this.SendInvMTTInvTokenByTokenOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTInvTokenByTokenOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTInvTokenByToken", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.SendInvMTTInvTokenByTokenOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTInvTokenByTokenOperationCompleted(object arg) {
+            if ((this.SendInvMTTInvTokenByTokenCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTInvTokenByTokenCompleted(this, new SendInvMTTInvTokenByTokenCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHashInvMTTInvTokenBySmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHashInvMTTInvTokenBySmartCA(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert) {
+            object[] results = this.Invoke("GetHashInvMTTInvTokenBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        lstInvToken,
+                        username,
+                        password,
+                        serialCert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTInvTokenBySmartCAAsync(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert) {
+            this.GetHashInvMTTInvTokenBySmartCAAsync(Account, ACpass, lstInvToken, username, password, serialCert, null);
+        }
+        
+        /// <remarks/>
+        public void GetHashInvMTTInvTokenBySmartCAAsync(string Account, string ACpass, string lstInvToken, string username, string password, string serialCert, object userState) {
+            if ((this.GetHashInvMTTInvTokenBySmartCAOperationCompleted == null)) {
+                this.GetHashInvMTTInvTokenBySmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHashInvMTTInvTokenBySmartCAOperationCompleted);
+            }
+            this.InvokeAsync("GetHashInvMTTInvTokenBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        lstInvToken,
+                        username,
+                        password,
+                        serialCert}, this.GetHashInvMTTInvTokenBySmartCAOperationCompleted, userState);
+        }
+        
+        private void OnGetHashInvMTTInvTokenBySmartCAOperationCompleted(object arg) {
+            if ((this.GetHashInvMTTInvTokenBySmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHashInvMTTInvTokenBySmartCACompleted(this, new GetHashInvMTTInvTokenBySmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendInvMTTInvTokenBySmartCA", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SendInvMTTInvTokenBySmartCA(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            object[] results = this.Invoke("SendInvMTTInvTokenBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTInvTokenBySmartCAAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial) {
+            this.SendInvMTTInvTokenBySmartCAAsync(Account, ACpass, xml, username, password, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void SendInvMTTInvTokenBySmartCAAsync(string Account, string ACpass, string xml, string username, string password, string pattern, string serial, object userState) {
+            if ((this.SendInvMTTInvTokenBySmartCAOperationCompleted == null)) {
+                this.SendInvMTTInvTokenBySmartCAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendInvMTTInvTokenBySmartCAOperationCompleted);
+            }
+            this.InvokeAsync("SendInvMTTInvTokenBySmartCA", new object[] {
+                        Account,
+                        ACpass,
+                        xml,
+                        username,
+                        password,
+                        pattern,
+                        serial}, this.SendInvMTTInvTokenBySmartCAOperationCompleted, userState);
+        }
+        
+        private void OnSendInvMTTInvTokenBySmartCAOperationCompleted(object arg) {
+            if ((this.SendInvMTTInvTokenBySmartCACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendInvMTTInvTokenBySmartCACompleted(this, new SendInvMTTInvTokenBySmartCACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceInvMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ReplaceInvMTT(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            object[] results = this.Invoke("ReplaceInvMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ReplaceInvMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            this.ReplaceInvMTTAsync(Account, ACpass, xmlInvData, username, pass, fkey, Attachfile, convert, pattern, serial, OldPattern, null);
+        }
+        
+        /// <remarks/>
+        public void ReplaceInvMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial, string OldPattern, object userState) {
+            if ((this.ReplaceInvMTTOperationCompleted == null)) {
+                this.ReplaceInvMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceInvMTTOperationCompleted);
+            }
+            this.InvokeAsync("ReplaceInvMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern}, this.ReplaceInvMTTOperationCompleted, userState);
+        }
+        
+        private void OnReplaceInvMTTOperationCompleted(object arg) {
+            if ((this.ReplaceInvMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ReplaceInvMTTCompleted(this, new ReplaceInvMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustInvMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustInvMTT(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            object[] results = this.Invoke("AdjustInvMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        AttachFile,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustInvMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert, string pattern, string serial, string OldPattern) {
+            this.AdjustInvMTTAsync(Account, ACpass, xmlInvData, username, pass, fkey, AttachFile, convert, pattern, serial, OldPattern, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustInvMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert, string pattern, string serial, string OldPattern, object userState) {
+            if ((this.AdjustInvMTTOperationCompleted == null)) {
+                this.AdjustInvMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustInvMTTOperationCompleted);
+            }
+            this.InvokeAsync("AdjustInvMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        AttachFile,
+                        convert,
+                        pattern,
+                        serial,
+                        OldPattern}, this.AdjustInvMTTOperationCompleted, userState);
+        }
+        
+        private void OnAdjustInvMTTOperationCompleted(object arg) {
+            if ((this.AdjustInvMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustInvMTTCompleted(this, new AdjustInvMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustWithoutInvMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustWithoutInvMTT(string account, string accPass, string invXml, string userName, string userPass, string oldPattern, string oldSerial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<decimal> oldNo, string strOldArisingDate, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> relatedInvType, string feature) {
+            object[] results = this.Invoke("AdjustWithoutInvMTT", new object[] {
+                        account,
+                        accPass,
+                        invXml,
+                        userName,
+                        userPass,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        convert,
+                        pattern,
+                        serial,
+                        relatedInvType,
+                        feature});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustWithoutInvMTTAsync(string account, string accPass, string invXml, string userName, string userPass, string oldPattern, string oldSerial, System.Nullable<decimal> oldNo, string strOldArisingDate, System.Nullable<int> convert, string pattern, string serial, System.Nullable<int> relatedInvType, string feature) {
+            this.AdjustWithoutInvMTTAsync(account, accPass, invXml, userName, userPass, oldPattern, oldSerial, oldNo, strOldArisingDate, convert, pattern, serial, relatedInvType, feature, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustWithoutInvMTTAsync(string account, string accPass, string invXml, string userName, string userPass, string oldPattern, string oldSerial, System.Nullable<decimal> oldNo, string strOldArisingDate, System.Nullable<int> convert, string pattern, string serial, System.Nullable<int> relatedInvType, string feature, object userState) {
+            if ((this.AdjustWithoutInvMTTOperationCompleted == null)) {
+                this.AdjustWithoutInvMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustWithoutInvMTTOperationCompleted);
+            }
+            this.InvokeAsync("AdjustWithoutInvMTT", new object[] {
+                        account,
+                        accPass,
+                        invXml,
+                        userName,
+                        userPass,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        convert,
+                        pattern,
+                        serial,
+                        relatedInvType,
+                        feature}, this.AdjustWithoutInvMTTOperationCompleted, userState);
+        }
+        
+        private void OnAdjustWithoutInvMTTOperationCompleted(object arg) {
+            if ((this.AdjustWithoutInvMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustWithoutInvMTTCompleted(this, new AdjustWithoutInvMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceWithoutInvMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ReplaceWithoutInvMTT(string account, string accPass, string invXml, string userName, string userPass, string oldPattern, string oldSerial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<decimal> oldNo, string strOldArisingDate, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> relatedInvType, string feature) {
+            object[] results = this.Invoke("ReplaceWithoutInvMTT", new object[] {
+                        account,
+                        accPass,
+                        invXml,
+                        userName,
+                        userPass,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        convert,
+                        pattern,
+                        serial,
+                        relatedInvType,
+                        feature});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ReplaceWithoutInvMTTAsync(string account, string accPass, string invXml, string userName, string userPass, string oldPattern, string oldSerial, System.Nullable<decimal> oldNo, string strOldArisingDate, System.Nullable<int> convert, string pattern, string serial, System.Nullable<int> relatedInvType, string feature) {
+            this.ReplaceWithoutInvMTTAsync(account, accPass, invXml, userName, userPass, oldPattern, oldSerial, oldNo, strOldArisingDate, convert, pattern, serial, relatedInvType, feature, null);
+        }
+        
+        /// <remarks/>
+        public void ReplaceWithoutInvMTTAsync(string account, string accPass, string invXml, string userName, string userPass, string oldPattern, string oldSerial, System.Nullable<decimal> oldNo, string strOldArisingDate, System.Nullable<int> convert, string pattern, string serial, System.Nullable<int> relatedInvType, string feature, object userState) {
+            if ((this.ReplaceWithoutInvMTTOperationCompleted == null)) {
+                this.ReplaceWithoutInvMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceWithoutInvMTTOperationCompleted);
+            }
+            this.InvokeAsync("ReplaceWithoutInvMTT", new object[] {
+                        account,
+                        accPass,
+                        invXml,
+                        userName,
+                        userPass,
+                        oldPattern,
+                        oldSerial,
+                        oldNo,
+                        strOldArisingDate,
+                        convert,
+                        pattern,
+                        serial,
+                        relatedInvType,
+                        feature}, this.ReplaceWithoutInvMTTOperationCompleted, userState);
+        }
+        
+        private void OnReplaceWithoutInvMTTOperationCompleted(object arg) {
+            if ((this.ReplaceWithoutInvMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ReplaceWithoutInvMTTCompleted(this, new ReplaceWithoutInvMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ReplaceActionAssignedNoMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ReplaceActionAssignedNoMTT(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial) {
+            object[] results = this.Invoke("ReplaceActionAssignedNoMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ReplaceActionAssignedNoMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial) {
+            this.ReplaceActionAssignedNoMTTAsync(Account, ACpass, xmlInvData, username, pass, fkey, Attachfile, convert, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void ReplaceActionAssignedNoMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string Attachfile, System.Nullable<int> convert, string pattern, string serial, object userState) {
+            if ((this.ReplaceActionAssignedNoMTTOperationCompleted == null)) {
+                this.ReplaceActionAssignedNoMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnReplaceActionAssignedNoMTTOperationCompleted);
+            }
+            this.InvokeAsync("ReplaceActionAssignedNoMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        Attachfile,
+                        convert,
+                        pattern,
+                        serial}, this.ReplaceActionAssignedNoMTTOperationCompleted, userState);
+        }
+        
+        private void OnReplaceActionAssignedNoMTTOperationCompleted(object arg) {
+            if ((this.ReplaceActionAssignedNoMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ReplaceActionAssignedNoMTTCompleted(this, new ReplaceActionAssignedNoMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustActionAssignedNoMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustActionAssignedNoMTT(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> convert, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustActionAssignedNoMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        AttachFile,
+                        convert,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustActionAssignedNoMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert, string pattern, string serial) {
+            this.AdjustActionAssignedNoMTTAsync(Account, ACpass, xmlInvData, username, pass, fkey, AttachFile, convert, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustActionAssignedNoMTTAsync(string Account, string ACpass, string xmlInvData, string username, string pass, string fkey, string AttachFile, System.Nullable<int> convert, string pattern, string serial, object userState) {
+            if ((this.AdjustActionAssignedNoMTTOperationCompleted == null)) {
+                this.AdjustActionAssignedNoMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustActionAssignedNoMTTOperationCompleted);
+            }
+            this.InvokeAsync("AdjustActionAssignedNoMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        pass,
+                        fkey,
+                        AttachFile,
+                        convert,
+                        pattern,
+                        serial}, this.AdjustActionAssignedNoMTTOperationCompleted, userState);
+        }
+        
+        private void OnAdjustActionAssignedNoMTTOperationCompleted(object arg) {
+            if ((this.AdjustActionAssignedNoMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustActionAssignedNoMTTCompleted(this, new AdjustActionAssignedNoMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustReplaceInvWithTokenMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustReplaceInvWithTokenMTT(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustReplaceInvWithTokenMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceInvWithTokenMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            this.AdjustReplaceInvWithTokenMTTAsync(Account, ACpass, xmlInvData, username, password, type, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceInvWithTokenMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial, object userState) {
+            if ((this.AdjustReplaceInvWithTokenMTTOperationCompleted == null)) {
+                this.AdjustReplaceInvWithTokenMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustReplaceInvWithTokenMTTOperationCompleted);
+            }
+            this.InvokeAsync("AdjustReplaceInvWithTokenMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial}, this.AdjustReplaceInvWithTokenMTTOperationCompleted, userState);
+        }
+        
+        private void OnAdjustReplaceInvWithTokenMTTOperationCompleted(object arg) {
+            if ((this.AdjustReplaceInvWithTokenMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustReplaceInvWithTokenMTTCompleted(this, new AdjustReplaceInvWithTokenMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdjustReplaceInvSmartCAMTT", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AdjustReplaceInvSmartCAMTT(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            object[] results = this.Invoke("AdjustReplaceInvSmartCAMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceInvSmartCAMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial) {
+            this.AdjustReplaceInvSmartCAMTTAsync(Account, ACpass, xmlInvData, username, password, type, pattern, serial, null);
+        }
+        
+        /// <remarks/>
+        public void AdjustReplaceInvSmartCAMTTAsync(string Account, string ACpass, string xmlInvData, string username, string password, int type, string pattern, string serial, object userState) {
+            if ((this.AdjustReplaceInvSmartCAMTTOperationCompleted == null)) {
+                this.AdjustReplaceInvSmartCAMTTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdjustReplaceInvSmartCAMTTOperationCompleted);
+            }
+            this.InvokeAsync("AdjustReplaceInvSmartCAMTT", new object[] {
+                        Account,
+                        ACpass,
+                        xmlInvData,
+                        username,
+                        password,
+                        type,
+                        pattern,
+                        serial}, this.AdjustReplaceInvSmartCAMTTOperationCompleted, userState);
+        }
+        
+        private void OnAdjustReplaceInvSmartCAMTTOperationCompleted(object arg) {
+            if ((this.AdjustReplaceInvSmartCAMTTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AdjustReplaceInvSmartCAMTTCompleted(this, new AdjustReplaceInvSmartCAMTTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -2735,6 +4819,110 @@ namespace QLCongNo.bs78 {
         private object[] results;
         
         internal cancelInvSignFileNoPayCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void restoreCancelInvFkeyCompletedEventHandler(object sender, restoreCancelInvFkeyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class restoreCancelInvFkeyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal restoreCancelInvFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void restoreCancelInvTokenCompletedEventHandler(object sender, restoreCancelInvTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class restoreCancelInvTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal restoreCancelInvTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void restoreReplacedInvFkeyCompletedEventHandler(object sender, restoreReplacedInvFkeyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class restoreReplacedInvFkeyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal restoreReplacedInvFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void restoreReplacedInvTokenCompletedEventHandler(object sender, restoreReplacedInvTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class restoreReplacedInvTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal restoreReplacedInvTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -3192,6 +5380,58 @@ namespace QLCongNo.bs78 {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void UpdateSStaffAccountCompletedEventHandler(object sender, UpdateSStaffAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateSStaffAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateSStaffAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void CreateSStaffAccountCompletedEventHandler(object sender, CreateSStaffAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateSStaffAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateSStaffAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void getSerialByPatternCompletedEventHandler(object sender, getSerialByPatternCompletedEventArgs e);
     
     /// <remarks/>
@@ -3281,6 +5521,58 @@ namespace QLCongNo.bs78 {
         private object[] results;
         
         internal AdjustInvoiceNoPublishCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ReplaceInvoiceNoPublishExtendCompletedEventHandler(object sender, ReplaceInvoiceNoPublishExtendCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReplaceInvoiceNoPublishExtendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ReplaceInvoiceNoPublishExtendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustInvoiceNoPublishExtendCompletedEventHandler(object sender, AdjustInvoiceNoPublishExtendCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustInvoiceNoPublishExtendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustInvoiceNoPublishExtendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -3671,6 +5963,890 @@ namespace QLCongNo.bs78 {
         private object[] results;
         
         internal UnconfirmPaymentDetailFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashWithOutInvTokenCompletedEventHandler(object sender, GetHashWithOutInvTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashWithOutInvTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashWithOutInvTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashWithOutInvSmartCACompletedEventHandler(object sender, GetHashWithOutInvSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashWithOutInvSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashWithOutInvSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustReplaceWithOutInvTokenCompletedEventHandler(object sender, AdjustReplaceWithOutInvTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustReplaceWithOutInvTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustReplaceWithOutInvTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustReplaceWithOutInvSmartCACompletedEventHandler(object sender, AdjustReplaceWithOutInvSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustReplaceWithOutInvSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustReplaceWithOutInvSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void getCompanyConfigCompletedEventHandler(object sender, getCompanyConfigCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCompanyConfigCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCompanyConfigCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ReplaceCTTActionCompletedEventHandler(object sender, ReplaceCTTActionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReplaceCTTActionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ReplaceCTTActionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void getHashCTTTokenReplaceCompletedEventHandler(object sender, getHashCTTTokenReplaceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getHashCTTTokenReplaceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getHashCTTTokenReplaceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashCTTSmartCAReplaceCompletedEventHandler(object sender, GetHashCTTSmartCAReplaceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashCTTSmartCAReplaceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashCTTSmartCAReplaceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustReplaceCTTTokenCompletedEventHandler(object sender, AdjustReplaceCTTTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustReplaceCTTTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustReplaceCTTTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustReplaceCTTSmartCACompletedEventHandler(object sender, AdjustReplaceCTTSmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustReplaceCTTSmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustReplaceCTTSmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void cancelInvCTTCompletedEventHandler(object sender, cancelInvCTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class cancelInvCTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal cancelInvCTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTFkeyCompletedEventHandler(object sender, SendInvMTTFkeyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTFkeyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTFkeyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvMTTFkeyByTokenCompletedEventHandler(object sender, GetHashInvMTTFkeyByTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvMTTFkeyByTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvMTTFkeyByTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTFkeyByTokenCompletedEventHandler(object sender, SendInvMTTFkeyByTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTFkeyByTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTFkeyByTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvMTTFkeyBySmartCACompletedEventHandler(object sender, GetHashInvMTTFkeyBySmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvMTTFkeyBySmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvMTTFkeyBySmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTFkeyBySmartCACompletedEventHandler(object sender, SendInvMTTFkeyBySmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTFkeyBySmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTFkeyBySmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTNoRangeCompletedEventHandler(object sender, SendInvMTTNoRangeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTNoRangeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTNoRangeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvMTTNoRangeByTokenCompletedEventHandler(object sender, GetHashInvMTTNoRangeByTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvMTTNoRangeByTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvMTTNoRangeByTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTNoRangeByTokenCompletedEventHandler(object sender, SendInvMTTNoRangeByTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTNoRangeByTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTNoRangeByTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvMTTNoRangeBySmartCACompletedEventHandler(object sender, GetHashInvMTTNoRangeBySmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvMTTNoRangeBySmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvMTTNoRangeBySmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTNoRangeBySmartCACompletedEventHandler(object sender, SendInvMTTNoRangeBySmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTNoRangeBySmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTNoRangeBySmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTInvTokenCompletedEventHandler(object sender, SendInvMTTInvTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTInvTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTInvTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvMTTInvTokenByTokenCompletedEventHandler(object sender, GetHashInvMTTInvTokenByTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvMTTInvTokenByTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvMTTInvTokenByTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTInvTokenByTokenCompletedEventHandler(object sender, SendInvMTTInvTokenByTokenCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTInvTokenByTokenCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTInvTokenByTokenCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetHashInvMTTInvTokenBySmartCACompletedEventHandler(object sender, GetHashInvMTTInvTokenBySmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHashInvMTTInvTokenBySmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHashInvMTTInvTokenBySmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendInvMTTInvTokenBySmartCACompletedEventHandler(object sender, SendInvMTTInvTokenBySmartCACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendInvMTTInvTokenBySmartCACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendInvMTTInvTokenBySmartCACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ReplaceInvMTTCompletedEventHandler(object sender, ReplaceInvMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReplaceInvMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ReplaceInvMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustInvMTTCompletedEventHandler(object sender, AdjustInvMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustInvMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustInvMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustWithoutInvMTTCompletedEventHandler(object sender, AdjustWithoutInvMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustWithoutInvMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustWithoutInvMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ReplaceWithoutInvMTTCompletedEventHandler(object sender, ReplaceWithoutInvMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReplaceWithoutInvMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ReplaceWithoutInvMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ReplaceActionAssignedNoMTTCompletedEventHandler(object sender, ReplaceActionAssignedNoMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ReplaceActionAssignedNoMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ReplaceActionAssignedNoMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustActionAssignedNoMTTCompletedEventHandler(object sender, AdjustActionAssignedNoMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustActionAssignedNoMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustActionAssignedNoMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustReplaceInvWithTokenMTTCompletedEventHandler(object sender, AdjustReplaceInvWithTokenMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustReplaceInvWithTokenMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustReplaceInvWithTokenMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void AdjustReplaceInvSmartCAMTTCompletedEventHandler(object sender, AdjustReplaceInvSmartCAMTTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AdjustReplaceInvSmartCAMTTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AdjustReplaceInvSmartCAMTTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

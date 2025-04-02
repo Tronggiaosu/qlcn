@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcThongKeHDDaThu));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,6 +58,7 @@
             this.btnExcel = new QLCongNo.View.Core.NovToolStripButton();
             this.btnQuit = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
+            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox1 = new QLCongNo.View.Core.NovTextBox();
             this.chkHTT = new QLCongNo.View.Core.NovCheckBox();
@@ -101,6 +103,7 @@
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -171,6 +174,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ptbSendSMS);
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,6 +185,20 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // ptbSendSMS
+            // 
+            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
+            this.ptbSendSMS.Location = new System.Drawing.Point(1285, 65);
+            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
+            this.ptbSendSMS.Name = "ptbSendSMS";
+            this.ptbSendSMS.Size = new System.Drawing.Size(48, 48);
+            this.ptbSendSMS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ptbSendSMS.TabIndex = 26;
+            this.ptbSendSMS.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -211,19 +229,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.06557F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.88525F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1310, 122);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1290, 122);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 5);
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 4);
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(225, 81);
+            this.textBox1.Location = new System.Drawing.Point(222, 81);
             this.textBox1.Margin = new System.Windows.Forms.Padding(7, 5, 12, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(871, 32);
+            this.textBox1.Size = new System.Drawing.Size(1069, 40);
             this.textBox1.TabIndex = 12;
             this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
             // 
@@ -233,7 +251,7 @@
             this.chkHTT.BackColor = System.Drawing.Color.Transparent;
             this.chkHTT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkHTT.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkHTT.Location = new System.Drawing.Point(888, 3);
+            this.chkHTT.Location = new System.Drawing.Point(875, 3);
             this.chkHTT.Name = "chkHTT";
             this.chkHTT.Size = new System.Drawing.Size(138, 26);
             this.chkHTT.TabIndex = 8;
@@ -244,14 +262,14 @@
             // 
             this.cboHTTT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboHTTT.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.SetColumnSpan(this.cboHTTT, 2);
+            this.cboHTTT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboHTTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHTTT.ForeColor = System.Drawing.Color.Black;
             this.cboHTTT.FormattingEnabled = true;
-            this.cboHTTT.Location = new System.Drawing.Point(888, 37);
+            this.cboHTTT.Location = new System.Drawing.Point(875, 37);
             this.cboHTTT.Margin = new System.Windows.Forms.Padding(3, 5, 12, 14);
             this.cboHTTT.Name = "cboHTTT";
-            this.cboHTTT.Size = new System.Drawing.Size(208, 33);
+            this.cboHTTT.Size = new System.Drawing.Size(202, 33);
             this.cboHTTT.TabIndex = 9;
             // 
             // chkisdangngan
@@ -260,7 +278,7 @@
             this.chkisdangngan.BackColor = System.Drawing.Color.Transparent;
             this.chkisdangngan.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkisdangngan.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkisdangngan.Location = new System.Drawing.Point(1108, 3);
+            this.chkisdangngan.Location = new System.Drawing.Point(1092, 3);
             this.chkisdangngan.Name = "chkisdangngan";
             this.chkisdangngan.Size = new System.Drawing.Size(141, 26);
             this.chkisdangngan.TabIndex = 10;
@@ -276,7 +294,7 @@
             this.dtpTungay.Location = new System.Drawing.Point(9, 37);
             this.dtpTungay.Margin = new System.Windows.Forms.Padding(9, 5, 12, 14);
             this.dtpTungay.Name = "dtpTungay";
-            this.dtpTungay.Size = new System.Drawing.Size(197, 30);
+            this.dtpTungay.Size = new System.Drawing.Size(194, 30);
             this.dtpTungay.TabIndex = 1;
             // 
             // chkTN
@@ -285,7 +303,7 @@
             this.chkTN.BackColor = System.Drawing.Color.Transparent;
             this.chkTN.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkTN.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkTN.Location = new System.Drawing.Point(459, 3);
+            this.chkTN.Location = new System.Drawing.Point(452, 3);
             this.chkTN.Name = "chkTN";
             this.chkTN.Size = new System.Drawing.Size(105, 26);
             this.chkTN.TabIndex = 4;
@@ -300,10 +318,10 @@
             this.cboThuNgan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThuNgan.ForeColor = System.Drawing.Color.Black;
             this.cboThuNgan.FormattingEnabled = true;
-            this.cboThuNgan.Location = new System.Drawing.Point(459, 37);
+            this.cboThuNgan.Location = new System.Drawing.Point(452, 37);
             this.cboThuNgan.Margin = new System.Windows.Forms.Padding(3, 5, 12, 14);
             this.cboThuNgan.Name = "cboThuNgan";
-            this.cboThuNgan.Size = new System.Drawing.Size(196, 33);
+            this.cboThuNgan.Size = new System.Drawing.Size(193, 33);
             this.cboThuNgan.TabIndex = 5;
             // 
             // chkNH
@@ -312,7 +330,7 @@
             this.chkNH.BackColor = System.Drawing.Color.Transparent;
             this.chkNH.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNH.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNH.Location = new System.Drawing.Point(670, 3);
+            this.chkNH.Location = new System.Drawing.Point(660, 3);
             this.chkNH.Name = "chkNH";
             this.chkNH.Size = new System.Drawing.Size(118, 26);
             this.chkNH.TabIndex = 6;
@@ -325,10 +343,10 @@
             this.dtpDenngay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDenngay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDenngay.Location = new System.Drawing.Point(225, 37);
+            this.dtpDenngay.Location = new System.Drawing.Point(222, 37);
             this.dtpDenngay.Margin = new System.Windows.Forms.Padding(7, 5, 12, 14);
             this.dtpDenngay.Name = "dtpDenngay";
-            this.dtpDenngay.Size = new System.Drawing.Size(219, 30);
+            this.dtpDenngay.Size = new System.Drawing.Size(215, 30);
             this.dtpDenngay.TabIndex = 3;
             // 
             // cboNganhang
@@ -339,10 +357,10 @@
             this.cboNganhang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNganhang.ForeColor = System.Drawing.Color.Black;
             this.cboNganhang.FormattingEnabled = true;
-            this.cboNganhang.Location = new System.Drawing.Point(670, 37);
+            this.cboNganhang.Location = new System.Drawing.Point(660, 37);
             this.cboNganhang.Margin = new System.Windows.Forms.Padding(3, 5, 12, 14);
             this.cboNganhang.Name = "cboNganhang";
-            this.cboNganhang.Size = new System.Drawing.Size(203, 33);
+            this.cboNganhang.Size = new System.Drawing.Size(200, 33);
             this.cboNganhang.TabIndex = 7;
             // 
             // label6
@@ -351,7 +369,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(221, 0);
+            this.label6.Location = new System.Drawing.Point(218, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 23);
             this.label6.TabIndex = 2;
@@ -364,7 +382,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(42, 76);
+            this.label3.Location = new System.Drawing.Point(39, 76);
             this.label3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 41);
@@ -796,6 +814,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -858,5 +878,6 @@
         private Core.NovDataGridViewTextBoxColumn maLTColumn;
         private Core.NovDataGridViewTextBoxColumn ghichuColumn;
         private Core.NovDataGridViewTextBoxColumn IDHDColumn;
+        private System.Windows.Forms.PictureBox ptbSendSMS;
     }
 }

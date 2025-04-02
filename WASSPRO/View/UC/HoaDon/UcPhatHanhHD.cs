@@ -1,4 +1,6 @@
 ﻿using Ionic.Zip;
+using Microsoft.VisualBasic;
+using QLCongNo.View.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,7 @@ namespace QLCongNo.View.UC.HoaDon
     {
         CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
         private DateTime dt = DateTime.Now;
+        private List<HOADON> danhsach = new List<HOADON>();
         CancellationTokenSource source = new CancellationTokenSource();
         public UcPhatHanhHD()
         {
@@ -28,6 +31,58 @@ namespace QLCongNo.View.UC.HoaDon
             bdButton.Click += bdButton_Click;
             excelButton.Click += excelButton_Click;
             this.btnDC.FlatStyle = FlatStyle.Standard;
+            this.ptbSendSMS.Click += (sender, e) => SendSMS();
+        }
+
+        private void SendSMS()
+        {
+            try
+            {
+                var countRow = this.danhsach.Count;
+                var currentRow = this.dataGridView1.CurrentRow;
+
+                if (countRow == 0) return;
+                if (currentRow == null)
+                {
+                    MessageBox.Show("Vui lòng chọn số danh bộ muốn gửi tin nhắn SMS", "Thông báo",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var currentIndex = currentRow.Index;
+                var currentDanhBo = this.dataGridView1.Rows[currentIndex].Cells[0].Value;
+                var currentInfo = this.danhsach.FirstOrDefault(x => x.DANHBO  == currentDanhBo as string);
+
+                if (currentInfo != null)
+                {
+                    var nam = this.cboNam.Text;
+                    var thang = this.cboKy.Text;
+                    var danhbo = currentInfo.DANHBO;
+                    var soHD = currentInfo.sohopdong;
+                    var loaiHD = currentInfo.LoaiHD_ID;
+                    var hoten = currentInfo.KHACHHANG.hoten_KH;
+                    var sdt = currentInfo.KHACHHANG.SDT_KH;
+                    var tongtien = string.Format("{0:n0}", currentInfo.tongtien);
+                    var thongtin = $"{thang}/{nam}; Tong tien {tongtien}";
+
+                    var type = "SMS_HOADON_MOI";
+                    var title = "Hóa đơn mới";
+                    var frm = new FrmSMS();
+                    frm.Type = type;
+                    frm.Title = title;
+                    frm.LoaiHD = loaiHD.ToString();
+                    frm.DanhBo = danhbo;
+                    frm.HoTen = hoten;
+                    frm.SDT = sdt;
+                    frm.ThongTin = thongtin;
+                    frm.DanhSach = null;
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+            }
         }
 
         void btnTH_Click(object sender, EventArgs e)
@@ -321,6 +376,7 @@ namespace QLCongNo.View.UC.HoaDon
                 lblTongtien.Text = "Số lượng: " + string.Format("{0:n0}", dataHD.Count()) + " Tiền nước: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT)) +
                     " Tiền thuế GTGT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienvat)) + " Tiền BVMT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienBVMT)) +
                     " Tổng tiền: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
+                this.danhsach = dataHD;
             }
             this.Cursor = Cursors.Default;  
         }

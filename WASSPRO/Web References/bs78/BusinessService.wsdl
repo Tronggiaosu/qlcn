@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="replaceInv">
@@ -325,6 +325,80 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="restoreCancelInvFkey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreCancelInvFkeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="restoreCancelInvFkeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreCancelInvToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreCancelInvTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="restoreCancelInvTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreReplacedInvFkey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkeyReplaced" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkeyReplacedOld" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreReplacedInvFkeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="restoreReplacedInvFkeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreReplacedInvToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenReplaced" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenReplacedOld" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreReplacedInvTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="restoreReplacedInvTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="poolingInv">
         <s:complexType>
           <s:sequence>
@@ -608,6 +682,43 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateSStaffAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secretKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSStaffAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSStaffAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSStaffAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isApproved" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="secretKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSStaffAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSStaffAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getSerialByPattern">
         <s:complexType>
           <s:sequence>
@@ -682,6 +793,52 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="AdjustInvoiceNoPublishResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceInvoiceNoPublishExtend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceInvoiceNoPublishExtendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplaceInvoiceNoPublishExtendResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustInvoiceNoPublishExtend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustInvoiceNoPublishExtendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustInvoiceNoPublishExtendResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -985,6 +1142,749 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetHashWithOutInvToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldSerial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldNo" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOldArisingDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldInvType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashWithOutInvTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashWithOutInvTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashWithOutInvSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldSerial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldNo" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOldArisingDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldInvType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashWithOutInvSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashWithOutInvSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceWithOutInvToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceWithOutInvTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustReplaceWithOutInvTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceWithOutInvSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceWithOutInvSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustReplaceWithOutInvSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCompanyConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="configKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCompanyConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCompanyConfigResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceCTTAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Attachfile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceCTTActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplaceCTTActionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHashCTTTokenReplace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHashCTTTokenReplaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHashCTTTokenReplaceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashCTTSmartCAReplace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashCTTSmartCAReplaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashCTTSmartCAReplaceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceCTTToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceCTTTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustReplaceCTTTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceCTTSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceCTTSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustReplaceCTTSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelInvCTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="functionName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="note" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelInvCTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cancelInvCTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTFkey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstFkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTFkeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTFkeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTFkeyByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstFkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTFkeyByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvMTTFkeyByTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTFkeyByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTFkeyByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTFkeyByTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTFkeyBySmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstFkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTFkeyBySmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvMTTFkeyBySmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTFkeyBySmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTFkeyBySmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTFkeyBySmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTNoRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromNo" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="toNo" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTNoRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTNoRangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTNoRangeByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromNo" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="toNo" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTNoRangeByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvMTTNoRangeByTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTNoRangeByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTNoRangeByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTNoRangeByTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTNoRangeBySmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromNo" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="toNo" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTNoRangeBySmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvMTTNoRangeBySmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTNoRangeBySmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTNoRangeBySmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTNoRangeBySmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTInvToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstInvToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTInvTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTInvTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTInvTokenByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstInvToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTInvTokenByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvMTTInvTokenByTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTInvTokenByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTInvTokenByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTInvTokenByTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTInvTokenBySmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstInvToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvMTTInvTokenBySmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvMTTInvTokenBySmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTInvTokenBySmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvMTTInvTokenBySmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvMTTInvTokenBySmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceInvMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Attachfile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceInvMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplaceInvMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustInvMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustInvMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustInvMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustWithoutInvMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldSerial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldNo" nillable="true" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOldArisingDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="relatedInvType" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="feature" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustWithoutInvMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustWithoutInvMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceWithoutInvMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldSerial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oldNo" nillable="true" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOldArisingDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="relatedInvType" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="feature" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceWithoutInvMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplaceWithoutInvMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceActionAssignedNoMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Attachfile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceActionAssignedNoMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplaceActionAssignedNoMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustActionAssignedNoMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AttachFile" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustActionAssignedNoMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustActionAssignedNoMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceInvWithTokenMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceInvWithTokenMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustReplaceInvWithTokenMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceInvSmartCAMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustReplaceInvSmartCAMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdjustReplaceInvSmartCAMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="replaceInvSoapIn">
@@ -1076,6 +1976,30 @@
   </wsdl:message>
   <wsdl:message name="cancelInvSignFileNoPaySoapOut">
     <wsdl:part name="parameters" element="tns:cancelInvSignFileNoPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="restoreCancelInvFkeySoapIn">
+    <wsdl:part name="parameters" element="tns:restoreCancelInvFkey" />
+  </wsdl:message>
+  <wsdl:message name="restoreCancelInvFkeySoapOut">
+    <wsdl:part name="parameters" element="tns:restoreCancelInvFkeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="restoreCancelInvTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:restoreCancelInvToken" />
+  </wsdl:message>
+  <wsdl:message name="restoreCancelInvTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:restoreCancelInvTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="restoreReplacedInvFkeySoapIn">
+    <wsdl:part name="parameters" element="tns:restoreReplacedInvFkey" />
+  </wsdl:message>
+  <wsdl:message name="restoreReplacedInvFkeySoapOut">
+    <wsdl:part name="parameters" element="tns:restoreReplacedInvFkeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="restoreReplacedInvTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:restoreReplacedInvToken" />
+  </wsdl:message>
+  <wsdl:message name="restoreReplacedInvTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:restoreReplacedInvTokenResponse" />
   </wsdl:message>
   <wsdl:message name="poolingInvSoapIn">
     <wsdl:part name="parameters" element="tns:poolingInv" />
@@ -1179,6 +2103,18 @@
   <wsdl:message name="CreateNewUserbyAccSoapOut">
     <wsdl:part name="parameters" element="tns:CreateNewUserbyAccResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateSStaffAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSStaffAccount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSStaffAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSStaffAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSStaffAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSStaffAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateSStaffAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSStaffAccountResponse" />
+  </wsdl:message>
   <wsdl:message name="getSerialByPatternSoapIn">
     <wsdl:part name="parameters" element="tns:getSerialByPattern" />
   </wsdl:message>
@@ -1202,6 +2138,18 @@
   </wsdl:message>
   <wsdl:message name="AdjustInvoiceNoPublishSoapOut">
     <wsdl:part name="parameters" element="tns:AdjustInvoiceNoPublishResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceInvoiceNoPublishExtendSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceInvoiceNoPublishExtend" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceInvoiceNoPublishExtendSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceInvoiceNoPublishExtendResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustInvoiceNoPublishExtendSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustInvoiceNoPublishExtend" />
+  </wsdl:message>
+  <wsdl:message name="AdjustInvoiceNoPublishExtendSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustInvoiceNoPublishExtendResponse" />
   </wsdl:message>
   <wsdl:message name="AdjustInvoiceMultiSoapIn">
     <wsdl:part name="parameters" element="tns:AdjustInvoiceMulti" />
@@ -1293,6 +2241,210 @@
   <wsdl:message name="UnconfirmPaymentDetailFkeySoapOut">
     <wsdl:part name="parameters" element="tns:UnconfirmPaymentDetailFkeyResponse" />
   </wsdl:message>
+  <wsdl:message name="GetHashWithOutInvTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashWithOutInvToken" />
+  </wsdl:message>
+  <wsdl:message name="GetHashWithOutInvTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashWithOutInvTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashWithOutInvSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashWithOutInvSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="GetHashWithOutInvSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashWithOutInvSmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceWithOutInvTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceWithOutInvToken" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceWithOutInvTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceWithOutInvTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceWithOutInvSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceWithOutInvSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceWithOutInvSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceWithOutInvSmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCompanyConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:getCompanyConfig" />
+  </wsdl:message>
+  <wsdl:message name="getCompanyConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:getCompanyConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceCTTActionSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceCTTAction" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceCTTActionSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceCTTActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHashCTTTokenReplaceSoapIn">
+    <wsdl:part name="parameters" element="tns:getHashCTTTokenReplace" />
+  </wsdl:message>
+  <wsdl:message name="getHashCTTTokenReplaceSoapOut">
+    <wsdl:part name="parameters" element="tns:getHashCTTTokenReplaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashCTTSmartCAReplaceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashCTTSmartCAReplace" />
+  </wsdl:message>
+  <wsdl:message name="GetHashCTTSmartCAReplaceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashCTTSmartCAReplaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceCTTTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceCTTToken" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceCTTTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceCTTTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceCTTSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceCTTSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceCTTSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceCTTSmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelInvCTTSoapIn">
+    <wsdl:part name="parameters" element="tns:cancelInvCTT" />
+  </wsdl:message>
+  <wsdl:message name="cancelInvCTTSoapOut">
+    <wsdl:part name="parameters" element="tns:cancelInvCTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTFkeySoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTFkey" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTFkeySoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTFkeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTFkeyByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTFkeyByToken" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTFkeyByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTFkeyByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTFkeyByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTFkeyByToken" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTFkeyByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTFkeyByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTFkeyBySmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTFkeyBySmartCA" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTFkeyBySmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTFkeyBySmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTFkeyBySmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTFkeyBySmartCA" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTFkeyBySmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTFkeyBySmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTNoRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTNoRange" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTNoRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTNoRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTNoRangeByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTNoRangeByToken" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTNoRangeByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTNoRangeByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTNoRangeByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTNoRangeByToken" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTNoRangeByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTNoRangeByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTNoRangeBySmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTNoRangeBySmartCA" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTNoRangeBySmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTNoRangeBySmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTNoRangeBySmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTNoRangeBySmartCA" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTNoRangeBySmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTNoRangeBySmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTInvTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTInvToken" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTInvTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTInvTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTInvTokenByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTInvTokenByToken" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTInvTokenByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTInvTokenByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTInvTokenByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTInvTokenByToken" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTInvTokenByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTInvTokenByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTInvTokenBySmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTInvTokenBySmartCA" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvMTTInvTokenBySmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvMTTInvTokenBySmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTInvTokenBySmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvMTTInvTokenBySmartCA" />
+  </wsdl:message>
+  <wsdl:message name="SendInvMTTInvTokenBySmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvMTTInvTokenBySmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceInvMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceInvMTT" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceInvMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceInvMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustInvMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustInvMTT" />
+  </wsdl:message>
+  <wsdl:message name="AdjustInvMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustInvMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustWithoutInvMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustWithoutInvMTT" />
+  </wsdl:message>
+  <wsdl:message name="AdjustWithoutInvMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustWithoutInvMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceWithoutInvMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceWithoutInvMTT" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceWithoutInvMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceWithoutInvMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceActionAssignedNoMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceActionAssignedNoMTT" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceActionAssignedNoMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceActionAssignedNoMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustActionAssignedNoMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustActionAssignedNoMTT" />
+  </wsdl:message>
+  <wsdl:message name="AdjustActionAssignedNoMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustActionAssignedNoMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceInvWithTokenMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceInvWithTokenMTT" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceInvWithTokenMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceInvWithTokenMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceInvSmartCAMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceInvSmartCAMTT" />
+  </wsdl:message>
+  <wsdl:message name="AdjustReplaceInvSmartCAMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustReplaceInvSmartCAMTTResponse" />
+  </wsdl:message>
   <wsdl:portType name="BusinessServiceSoap">
     <wsdl:operation name="replaceInv">
       <wsdl:input message="tns:replaceInvSoapIn" />
@@ -1353,6 +2505,22 @@
     <wsdl:operation name="cancelInvSignFileNoPay">
       <wsdl:input message="tns:cancelInvSignFileNoPaySoapIn" />
       <wsdl:output message="tns:cancelInvSignFileNoPaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreCancelInvFkey">
+      <wsdl:input message="tns:restoreCancelInvFkeySoapIn" />
+      <wsdl:output message="tns:restoreCancelInvFkeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreCancelInvToken">
+      <wsdl:input message="tns:restoreCancelInvTokenSoapIn" />
+      <wsdl:output message="tns:restoreCancelInvTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreReplacedInvFkey">
+      <wsdl:input message="tns:restoreReplacedInvFkeySoapIn" />
+      <wsdl:output message="tns:restoreReplacedInvFkeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreReplacedInvToken">
+      <wsdl:input message="tns:restoreReplacedInvTokenSoapIn" />
+      <wsdl:output message="tns:restoreReplacedInvTokenSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="poolingInv">
       <wsdl:input message="tns:poolingInvSoapIn" />
@@ -1422,6 +2590,14 @@
       <wsdl:input message="tns:CreateNewUserbyAccSoapIn" />
       <wsdl:output message="tns:CreateNewUserbyAccSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateSStaffAccount">
+      <wsdl:input message="tns:UpdateSStaffAccountSoapIn" />
+      <wsdl:output message="tns:UpdateSStaffAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSStaffAccount">
+      <wsdl:input message="tns:CreateSStaffAccountSoapIn" />
+      <wsdl:output message="tns:CreateSStaffAccountSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getSerialByPattern">
       <wsdl:input message="tns:getSerialByPatternSoapIn" />
       <wsdl:output message="tns:getSerialByPatternSoapOut" />
@@ -1437,6 +2613,14 @@
     <wsdl:operation name="AdjustInvoiceNoPublish">
       <wsdl:input message="tns:AdjustInvoiceNoPublishSoapIn" />
       <wsdl:output message="tns:AdjustInvoiceNoPublishSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceInvoiceNoPublishExtend">
+      <wsdl:input message="tns:ReplaceInvoiceNoPublishExtendSoapIn" />
+      <wsdl:output message="tns:ReplaceInvoiceNoPublishExtendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustInvoiceNoPublishExtend">
+      <wsdl:input message="tns:AdjustInvoiceNoPublishExtendSoapIn" />
+      <wsdl:output message="tns:AdjustInvoiceNoPublishExtendSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AdjustInvoiceMulti">
       <wsdl:input message="tns:AdjustInvoiceMultiSoapIn" />
@@ -1497,6 +2681,142 @@
     <wsdl:operation name="UnconfirmPaymentDetailFkey">
       <wsdl:input message="tns:UnconfirmPaymentDetailFkeySoapIn" />
       <wsdl:output message="tns:UnconfirmPaymentDetailFkeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashWithOutInvToken">
+      <wsdl:input message="tns:GetHashWithOutInvTokenSoapIn" />
+      <wsdl:output message="tns:GetHashWithOutInvTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashWithOutInvSmartCA">
+      <wsdl:input message="tns:GetHashWithOutInvSmartCASoapIn" />
+      <wsdl:output message="tns:GetHashWithOutInvSmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceWithOutInvToken">
+      <wsdl:input message="tns:AdjustReplaceWithOutInvTokenSoapIn" />
+      <wsdl:output message="tns:AdjustReplaceWithOutInvTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceWithOutInvSmartCA">
+      <wsdl:input message="tns:AdjustReplaceWithOutInvSmartCASoapIn" />
+      <wsdl:output message="tns:AdjustReplaceWithOutInvSmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyConfig">
+      <wsdl:input message="tns:getCompanyConfigSoapIn" />
+      <wsdl:output message="tns:getCompanyConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceCTTAction">
+      <wsdl:input message="tns:ReplaceCTTActionSoapIn" />
+      <wsdl:output message="tns:ReplaceCTTActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHashCTTTokenReplace">
+      <wsdl:input message="tns:getHashCTTTokenReplaceSoapIn" />
+      <wsdl:output message="tns:getHashCTTTokenReplaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashCTTSmartCAReplace">
+      <wsdl:input message="tns:GetHashCTTSmartCAReplaceSoapIn" />
+      <wsdl:output message="tns:GetHashCTTSmartCAReplaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceCTTToken">
+      <wsdl:input message="tns:AdjustReplaceCTTTokenSoapIn" />
+      <wsdl:output message="tns:AdjustReplaceCTTTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceCTTSmartCA">
+      <wsdl:input message="tns:AdjustReplaceCTTSmartCASoapIn" />
+      <wsdl:output message="tns:AdjustReplaceCTTSmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelInvCTT">
+      <wsdl:input message="tns:cancelInvCTTSoapIn" />
+      <wsdl:output message="tns:cancelInvCTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkey">
+      <wsdl:input message="tns:SendInvMTTFkeySoapIn" />
+      <wsdl:output message="tns:SendInvMTTFkeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTFkeyByToken">
+      <wsdl:input message="tns:GetHashInvMTTFkeyByTokenSoapIn" />
+      <wsdl:output message="tns:GetHashInvMTTFkeyByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkeyByToken">
+      <wsdl:input message="tns:SendInvMTTFkeyByTokenSoapIn" />
+      <wsdl:output message="tns:SendInvMTTFkeyByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTFkeyBySmartCA">
+      <wsdl:input message="tns:GetHashInvMTTFkeyBySmartCASoapIn" />
+      <wsdl:output message="tns:GetHashInvMTTFkeyBySmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkeyBySmartCA">
+      <wsdl:input message="tns:SendInvMTTFkeyBySmartCASoapIn" />
+      <wsdl:output message="tns:SendInvMTTFkeyBySmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRange">
+      <wsdl:input message="tns:SendInvMTTNoRangeSoapIn" />
+      <wsdl:output message="tns:SendInvMTTNoRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTNoRangeByToken">
+      <wsdl:input message="tns:GetHashInvMTTNoRangeByTokenSoapIn" />
+      <wsdl:output message="tns:GetHashInvMTTNoRangeByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRangeByToken">
+      <wsdl:input message="tns:SendInvMTTNoRangeByTokenSoapIn" />
+      <wsdl:output message="tns:SendInvMTTNoRangeByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTNoRangeBySmartCA">
+      <wsdl:input message="tns:GetHashInvMTTNoRangeBySmartCASoapIn" />
+      <wsdl:output message="tns:GetHashInvMTTNoRangeBySmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRangeBySmartCA">
+      <wsdl:input message="tns:SendInvMTTNoRangeBySmartCASoapIn" />
+      <wsdl:output message="tns:SendInvMTTNoRangeBySmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvToken">
+      <wsdl:input message="tns:SendInvMTTInvTokenSoapIn" />
+      <wsdl:output message="tns:SendInvMTTInvTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTInvTokenByToken">
+      <wsdl:input message="tns:GetHashInvMTTInvTokenByTokenSoapIn" />
+      <wsdl:output message="tns:GetHashInvMTTInvTokenByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvTokenByToken">
+      <wsdl:input message="tns:SendInvMTTInvTokenByTokenSoapIn" />
+      <wsdl:output message="tns:SendInvMTTInvTokenByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTInvTokenBySmartCA">
+      <wsdl:input message="tns:GetHashInvMTTInvTokenBySmartCASoapIn" />
+      <wsdl:output message="tns:GetHashInvMTTInvTokenBySmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvTokenBySmartCA">
+      <wsdl:input message="tns:SendInvMTTInvTokenBySmartCASoapIn" />
+      <wsdl:output message="tns:SendInvMTTInvTokenBySmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceInvMTT">
+      <wsdl:input message="tns:ReplaceInvMTTSoapIn" />
+      <wsdl:output message="tns:ReplaceInvMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustInvMTT">
+      <wsdl:input message="tns:AdjustInvMTTSoapIn" />
+      <wsdl:output message="tns:AdjustInvMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustWithoutInvMTT">
+      <wsdl:input message="tns:AdjustWithoutInvMTTSoapIn" />
+      <wsdl:output message="tns:AdjustWithoutInvMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceWithoutInvMTT">
+      <wsdl:input message="tns:ReplaceWithoutInvMTTSoapIn" />
+      <wsdl:output message="tns:ReplaceWithoutInvMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceActionAssignedNoMTT">
+      <wsdl:input message="tns:ReplaceActionAssignedNoMTTSoapIn" />
+      <wsdl:output message="tns:ReplaceActionAssignedNoMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustActionAssignedNoMTT">
+      <wsdl:input message="tns:AdjustActionAssignedNoMTTSoapIn" />
+      <wsdl:output message="tns:AdjustActionAssignedNoMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceInvWithTokenMTT">
+      <wsdl:input message="tns:AdjustReplaceInvWithTokenMTTSoapIn" />
+      <wsdl:output message="tns:AdjustReplaceInvWithTokenMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceInvSmartCAMTT">
+      <wsdl:input message="tns:AdjustReplaceInvSmartCAMTTSoapIn" />
+      <wsdl:output message="tns:AdjustReplaceInvSmartCAMTTSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BusinessServiceSoap" type="tns:BusinessServiceSoap">
@@ -1629,6 +2949,42 @@
     </wsdl:operation>
     <wsdl:operation name="cancelInvSignFileNoPay">
       <soap:operation soapAction="http://tempuri.org/cancelInvSignFileNoPay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreCancelInvFkey">
+      <soap:operation soapAction="http://tempuri.org/restoreCancelInvFkey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreCancelInvToken">
+      <soap:operation soapAction="http://tempuri.org/restoreCancelInvToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreReplacedInvFkey">
+      <soap:operation soapAction="http://tempuri.org/restoreReplacedInvFkey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreReplacedInvToken">
+      <soap:operation soapAction="http://tempuri.org/restoreReplacedInvToken" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1789,6 +3145,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateSStaffAccount">
+      <soap:operation soapAction="http://tempuri.org/UpdateSStaffAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSStaffAccount">
+      <soap:operation soapAction="http://tempuri.org/CreateSStaffAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getSerialByPattern">
       <soap:operation soapAction="http://tempuri.org/getSerialByPattern" style="document" />
       <wsdl:input>
@@ -1818,6 +3192,24 @@
     </wsdl:operation>
     <wsdl:operation name="AdjustInvoiceNoPublish">
       <soap:operation soapAction="http://tempuri.org/AdjustInvoiceNoPublish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceInvoiceNoPublishExtend">
+      <soap:operation soapAction="http://tempuri.org/ReplaceInvoiceNoPublishExtend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustInvoiceNoPublishExtend">
+      <soap:operation soapAction="http://tempuri.org/AdjustInvoiceNoPublishExtend" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1960,6 +3352,312 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetHashWithOutInvToken">
+      <soap:operation soapAction="http://tempuri.org/GetHashWithOutInvToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashWithOutInvSmartCA">
+      <soap:operation soapAction="http://tempuri.org/GetHashWithOutInvSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceWithOutInvToken">
+      <soap:operation soapAction="http://tempuri.org/AdjustReplaceWithOutInvToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceWithOutInvSmartCA">
+      <soap:operation soapAction="http://tempuri.org/AdjustReplaceWithOutInvSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyConfig">
+      <soap:operation soapAction="http://tempuri.org/getCompanyConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceCTTAction">
+      <soap:operation soapAction="http://tempuri.org/ReplaceCTTAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHashCTTTokenReplace">
+      <soap:operation soapAction="http://tempuri.org/getHashCTTTokenReplace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashCTTSmartCAReplace">
+      <soap:operation soapAction="http://tempuri.org/GetHashCTTSmartCAReplace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceCTTToken">
+      <soap:operation soapAction="http://tempuri.org/AdjustReplaceCTTToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceCTTSmartCA">
+      <soap:operation soapAction="http://tempuri.org/AdjustReplaceCTTSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelInvCTT">
+      <soap:operation soapAction="http://tempuri.org/cancelInvCTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkey">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTFkey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTFkeyByToken">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvMTTFkeyByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkeyByToken">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTFkeyByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTFkeyBySmartCA">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvMTTFkeyBySmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkeyBySmartCA">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTFkeyBySmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRange">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTNoRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTNoRangeByToken">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvMTTNoRangeByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRangeByToken">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTNoRangeByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTNoRangeBySmartCA">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvMTTNoRangeBySmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRangeBySmartCA">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTNoRangeBySmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvToken">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTInvToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTInvTokenByToken">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvMTTInvTokenByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvTokenByToken">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTInvTokenByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTInvTokenBySmartCA">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvMTTInvTokenBySmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvTokenBySmartCA">
+      <soap:operation soapAction="http://tempuri.org/SendInvMTTInvTokenBySmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceInvMTT">
+      <soap:operation soapAction="http://tempuri.org/ReplaceInvMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustInvMTT">
+      <soap:operation soapAction="http://tempuri.org/AdjustInvMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustWithoutInvMTT">
+      <soap:operation soapAction="http://tempuri.org/AdjustWithoutInvMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceWithoutInvMTT">
+      <soap:operation soapAction="http://tempuri.org/ReplaceWithoutInvMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceActionAssignedNoMTT">
+      <soap:operation soapAction="http://tempuri.org/ReplaceActionAssignedNoMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustActionAssignedNoMTT">
+      <soap:operation soapAction="http://tempuri.org/AdjustActionAssignedNoMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceInvWithTokenMTT">
+      <soap:operation soapAction="http://tempuri.org/AdjustReplaceInvWithTokenMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceInvSmartCAMTT">
+      <soap:operation soapAction="http://tempuri.org/AdjustReplaceInvSmartCAMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BusinessServiceSoap12" type="tns:BusinessServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2091,6 +3789,42 @@
     </wsdl:operation>
     <wsdl:operation name="cancelInvSignFileNoPay">
       <soap12:operation soapAction="http://tempuri.org/cancelInvSignFileNoPay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreCancelInvFkey">
+      <soap12:operation soapAction="http://tempuri.org/restoreCancelInvFkey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreCancelInvToken">
+      <soap12:operation soapAction="http://tempuri.org/restoreCancelInvToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreReplacedInvFkey">
+      <soap12:operation soapAction="http://tempuri.org/restoreReplacedInvFkey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreReplacedInvToken">
+      <soap12:operation soapAction="http://tempuri.org/restoreReplacedInvToken" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2251,6 +3985,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateSStaffAccount">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSStaffAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSStaffAccount">
+      <soap12:operation soapAction="http://tempuri.org/CreateSStaffAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getSerialByPattern">
       <soap12:operation soapAction="http://tempuri.org/getSerialByPattern" style="document" />
       <wsdl:input>
@@ -2280,6 +4032,24 @@
     </wsdl:operation>
     <wsdl:operation name="AdjustInvoiceNoPublish">
       <soap12:operation soapAction="http://tempuri.org/AdjustInvoiceNoPublish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceInvoiceNoPublishExtend">
+      <soap12:operation soapAction="http://tempuri.org/ReplaceInvoiceNoPublishExtend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustInvoiceNoPublishExtend">
+      <soap12:operation soapAction="http://tempuri.org/AdjustInvoiceNoPublishExtend" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2415,6 +4185,312 @@
     </wsdl:operation>
     <wsdl:operation name="UnconfirmPaymentDetailFkey">
       <soap12:operation soapAction="http://tempuri.org/UnconfirmPaymentDetailFkey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashWithOutInvToken">
+      <soap12:operation soapAction="http://tempuri.org/GetHashWithOutInvToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashWithOutInvSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/GetHashWithOutInvSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceWithOutInvToken">
+      <soap12:operation soapAction="http://tempuri.org/AdjustReplaceWithOutInvToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceWithOutInvSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/AdjustReplaceWithOutInvSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyConfig">
+      <soap12:operation soapAction="http://tempuri.org/getCompanyConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceCTTAction">
+      <soap12:operation soapAction="http://tempuri.org/ReplaceCTTAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHashCTTTokenReplace">
+      <soap12:operation soapAction="http://tempuri.org/getHashCTTTokenReplace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashCTTSmartCAReplace">
+      <soap12:operation soapAction="http://tempuri.org/GetHashCTTSmartCAReplace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceCTTToken">
+      <soap12:operation soapAction="http://tempuri.org/AdjustReplaceCTTToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceCTTSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/AdjustReplaceCTTSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelInvCTT">
+      <soap12:operation soapAction="http://tempuri.org/cancelInvCTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkey">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTFkey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTFkeyByToken">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvMTTFkeyByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkeyByToken">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTFkeyByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTFkeyBySmartCA">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvMTTFkeyBySmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTFkeyBySmartCA">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTFkeyBySmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRange">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTNoRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTNoRangeByToken">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvMTTNoRangeByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRangeByToken">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTNoRangeByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTNoRangeBySmartCA">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvMTTNoRangeBySmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTNoRangeBySmartCA">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTNoRangeBySmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvToken">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTInvToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTInvTokenByToken">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvMTTInvTokenByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvTokenByToken">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTInvTokenByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvMTTInvTokenBySmartCA">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvMTTInvTokenBySmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvMTTInvTokenBySmartCA">
+      <soap12:operation soapAction="http://tempuri.org/SendInvMTTInvTokenBySmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceInvMTT">
+      <soap12:operation soapAction="http://tempuri.org/ReplaceInvMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustInvMTT">
+      <soap12:operation soapAction="http://tempuri.org/AdjustInvMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustWithoutInvMTT">
+      <soap12:operation soapAction="http://tempuri.org/AdjustWithoutInvMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceWithoutInvMTT">
+      <soap12:operation soapAction="http://tempuri.org/ReplaceWithoutInvMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceActionAssignedNoMTT">
+      <soap12:operation soapAction="http://tempuri.org/ReplaceActionAssignedNoMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustActionAssignedNoMTT">
+      <soap12:operation soapAction="http://tempuri.org/AdjustActionAssignedNoMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceInvWithTokenMTT">
+      <soap12:operation soapAction="http://tempuri.org/AdjustReplaceInvWithTokenMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustReplaceInvSmartCAMTT">
+      <soap12:operation soapAction="http://tempuri.org/AdjustReplaceInvSmartCAMTT" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

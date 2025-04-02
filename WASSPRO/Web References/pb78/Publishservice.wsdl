@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="ImportAndPublishInv">
@@ -23,6 +23,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ImportAndPublishInvMTT32">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishInvMTT32Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportAndPublishInvMTT32Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ImportAndPublishAssignedNo">
         <s:complexType>
           <s:sequence>
@@ -41,6 +62,27 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="ImportAndPublishAssignedNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishAssignedNoMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishAssignedNoMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportAndPublishAssignedNoMTTResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -160,6 +202,38 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="PrintNoticeInvError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mtdiep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintNoticeInvErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrintNoticeInvErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintNoticeInvErrorCQT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mtdiep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintNoticeInvErrorCQTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrintNoticeInvErrorCQTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="PublishInvFkey">
         <s:complexType>
           <s:sequence>
@@ -231,24 +305,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="setCusCertResult" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="ImportFromXml">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="productXml" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="ImportFromXmlResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ImportFromXmlResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -974,6 +1030,28 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetMCCQThueFromNoToNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="invFromNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invPattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invSerial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isXMLData" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMCCQThueFromNoToNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMCCQThueFromNoToNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SendInvToCQTByFkeys">
         <s:complexType>
           <s:sequence>
@@ -1031,6 +1109,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SendInvErrorMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvErrorMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvErrorMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetHashInvNoticeErrors">
         <s:complexType>
           <s:sequence>
@@ -1041,6 +1139,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1048,6 +1147,26 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetHashInvNoticeErrorsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvErrorMTTWithToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvErrorMTTWithTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvErrorMTTWithTokenResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1072,6 +1191,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetHashInvErrorMTTWithSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvErrorMTTWithSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvErrorMTTWithSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SendInvNoticeErrorsWithSmartCA">
         <s:complexType>
           <s:sequence>
@@ -1090,6 +1229,24 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SendInvErrorMTTWithSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvErrorMTTWithSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvErrorMTTWithSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SendInvNoticeErrorsWidthToken">
         <s:complexType>
           <s:sequence>
@@ -1105,6 +1262,24 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="SendInvNoticeErrorsWidthTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvErrorMTTWithToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendInvErrorMTTWithTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendInvErrorMTTWithTokenResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1315,6 +1490,25 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="RemovePublishInvoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemovePublishInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemovePublishInvoiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetTransactionItems">
         <s:complexType>
           <s:sequence>
@@ -1375,6 +1569,347 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetResultsTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tranErr" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResultsTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResultsTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportInvByPatternCTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportInvByPatternCTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportInvByPatternCTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishCTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishCTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportAndPublishCTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashCTTSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashCTTSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashCTTSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishCTTSmartCA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishCTTSmartCAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PublishCTTSmartCAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHashCTTWithToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHashCTTWithTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHashCTTWithTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="publishCTTWithToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="publishCTTWithTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="publishCTTWithTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterPublishCTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="version" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterPublishCTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterPublishCTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishInvMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportAndPublishInvMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportAndPublishInvMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportInvByPatternMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportInvByPatternMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportInvByPatternMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHashInvWithTokenMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHashInvWithTokenMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHashInvWithTokenMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="publishInvWithTokenMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="publishInvWithTokenMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="publishInvWithTokenMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvSmartCAMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialCert" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="convert" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashInvSmartCAMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashInvSmartCAMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishInvSmartCAMTT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlInvData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishInvSmartCAMTTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PublishInvSmartCAMTTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListSummaryReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="businessType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="periodType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="periodValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pattern" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListSummaryReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListSummaryReportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSummaryReportDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ACpass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="businessType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="periodType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="periodValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportRound" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSummaryReportDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSummaryReportDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="ImportAndPublishInvSoapIn">
@@ -1383,11 +1918,23 @@
   <wsdl:message name="ImportAndPublishInvSoapOut">
     <wsdl:part name="parameters" element="tns:ImportAndPublishInvResponse" />
   </wsdl:message>
+  <wsdl:message name="ImportAndPublishInvMTT32SoapIn">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishInvMTT32" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishInvMTT32SoapOut">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishInvMTT32Response" />
+  </wsdl:message>
   <wsdl:message name="ImportAndPublishAssignedNoSoapIn">
     <wsdl:part name="parameters" element="tns:ImportAndPublishAssignedNo" />
   </wsdl:message>
   <wsdl:message name="ImportAndPublishAssignedNoSoapOut">
     <wsdl:part name="parameters" element="tns:ImportAndPublishAssignedNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishAssignedNoMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishAssignedNoMTT" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishAssignedNoMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishAssignedNoMTTResponse" />
   </wsdl:message>
   <wsdl:message name="ImportInvSoapIn">
     <wsdl:part name="parameters" element="tns:ImportInv" />
@@ -1425,6 +1972,18 @@
   <wsdl:message name="publishInvSoapOut">
     <wsdl:part name="parameters" element="tns:publishInvResponse" />
   </wsdl:message>
+  <wsdl:message name="PrintNoticeInvErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:PrintNoticeInvError" />
+  </wsdl:message>
+  <wsdl:message name="PrintNoticeInvErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:PrintNoticeInvErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrintNoticeInvErrorCQTSoapIn">
+    <wsdl:part name="parameters" element="tns:PrintNoticeInvErrorCQT" />
+  </wsdl:message>
+  <wsdl:message name="PrintNoticeInvErrorCQTSoapOut">
+    <wsdl:part name="parameters" element="tns:PrintNoticeInvErrorCQTResponse" />
+  </wsdl:message>
   <wsdl:message name="PublishInvFkeySoapIn">
     <wsdl:part name="parameters" element="tns:PublishInvFkey" />
   </wsdl:message>
@@ -1448,12 +2007,6 @@
   </wsdl:message>
   <wsdl:message name="setCusCertSoapOut">
     <wsdl:part name="parameters" element="tns:setCusCertResponse" />
-  </wsdl:message>
-  <wsdl:message name="ImportFromXmlSoapIn">
-    <wsdl:part name="parameters" element="tns:ImportFromXml" />
-  </wsdl:message>
-  <wsdl:message name="ImportFromXmlSoapOut">
-    <wsdl:part name="parameters" element="tns:ImportFromXmlResponse" />
   </wsdl:message>
   <wsdl:message name="GetCertInfoSoapIn">
     <wsdl:part name="parameters" element="tns:GetCertInfo" />
@@ -1695,6 +2248,12 @@
   <wsdl:message name="GetMCCQThueByFkeysNoXMLSignSoapOut">
     <wsdl:part name="parameters" element="tns:GetMCCQThueByFkeysNoXMLSignResponse" />
   </wsdl:message>
+  <wsdl:message name="GetMCCQThueFromNoToNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMCCQThueFromNoToNo" />
+  </wsdl:message>
+  <wsdl:message name="GetMCCQThueFromNoToNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMCCQThueFromNoToNoResponse" />
+  </wsdl:message>
   <wsdl:message name="SendInvToCQTByFkeysSoapIn">
     <wsdl:part name="parameters" element="tns:SendInvToCQTByFkeys" />
   </wsdl:message>
@@ -1713,11 +2272,23 @@
   <wsdl:message name="SendInvNoticeErrorsSoapOut">
     <wsdl:part name="parameters" element="tns:SendInvNoticeErrorsResponse" />
   </wsdl:message>
+  <wsdl:message name="SendInvErrorMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvErrorMTT" />
+  </wsdl:message>
+  <wsdl:message name="SendInvErrorMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvErrorMTTResponse" />
+  </wsdl:message>
   <wsdl:message name="GetHashInvNoticeErrorsSoapIn">
     <wsdl:part name="parameters" element="tns:GetHashInvNoticeErrors" />
   </wsdl:message>
   <wsdl:message name="GetHashInvNoticeErrorsSoapOut">
     <wsdl:part name="parameters" element="tns:GetHashInvNoticeErrorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvErrorMTTWithTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvErrorMTTWithToken" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvErrorMTTWithTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvErrorMTTWithTokenResponse" />
   </wsdl:message>
   <wsdl:message name="GetHashInvNoticeErrorsWithSmartCASoapIn">
     <wsdl:part name="parameters" element="tns:GetHashInvNoticeErrorsWithSmartCA" />
@@ -1725,17 +2296,35 @@
   <wsdl:message name="GetHashInvNoticeErrorsWithSmartCASoapOut">
     <wsdl:part name="parameters" element="tns:GetHashInvNoticeErrorsWithSmartCAResponse" />
   </wsdl:message>
+  <wsdl:message name="GetHashInvErrorMTTWithSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvErrorMTTWithSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvErrorMTTWithSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvErrorMTTWithSmartCAResponse" />
+  </wsdl:message>
   <wsdl:message name="SendInvNoticeErrorsWithSmartCASoapIn">
     <wsdl:part name="parameters" element="tns:SendInvNoticeErrorsWithSmartCA" />
   </wsdl:message>
   <wsdl:message name="SendInvNoticeErrorsWithSmartCASoapOut">
     <wsdl:part name="parameters" element="tns:SendInvNoticeErrorsWithSmartCAResponse" />
   </wsdl:message>
+  <wsdl:message name="SendInvErrorMTTWithSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvErrorMTTWithSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="SendInvErrorMTTWithSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvErrorMTTWithSmartCAResponse" />
+  </wsdl:message>
   <wsdl:message name="SendInvNoticeErrorsWidthTokenSoapIn">
     <wsdl:part name="parameters" element="tns:SendInvNoticeErrorsWidthToken" />
   </wsdl:message>
   <wsdl:message name="SendInvNoticeErrorsWidthTokenSoapOut">
     <wsdl:part name="parameters" element="tns:SendInvNoticeErrorsWidthTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendInvErrorMTTWithTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:SendInvErrorMTTWithToken" />
+  </wsdl:message>
+  <wsdl:message name="SendInvErrorMTTWithTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:SendInvErrorMTTWithTokenResponse" />
   </wsdl:message>
   <wsdl:message name="HandleInvoiceErrorsSoapIn">
     <wsdl:part name="parameters" element="tns:HandleInvoiceErrors" />
@@ -1803,6 +2392,12 @@
   <wsdl:message name="CancelPublishInvoiceSoapOut">
     <wsdl:part name="parameters" element="tns:CancelPublishInvoiceResponse" />
   </wsdl:message>
+  <wsdl:message name="RemovePublishInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:RemovePublishInvoice" />
+  </wsdl:message>
+  <wsdl:message name="RemovePublishInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:RemovePublishInvoiceResponse" />
+  </wsdl:message>
   <wsdl:message name="GetTransactionItemsSoapIn">
     <wsdl:part name="parameters" element="tns:GetTransactionItems" />
   </wsdl:message>
@@ -1821,14 +2416,118 @@
   <wsdl:message name="GetStepDetailSoapOut">
     <wsdl:part name="parameters" element="tns:GetStepDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="GetResultsTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResultsTransaction" />
+  </wsdl:message>
+  <wsdl:message name="GetResultsTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResultsTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportInvByPatternCTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportInvByPatternCTT" />
+  </wsdl:message>
+  <wsdl:message name="ImportInvByPatternCTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportInvByPatternCTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishCTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishCTT" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishCTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishCTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashCTTSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashCTTSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="GetHashCTTSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashCTTSmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishCTTSmartCASoapIn">
+    <wsdl:part name="parameters" element="tns:PublishCTTSmartCA" />
+  </wsdl:message>
+  <wsdl:message name="PublishCTTSmartCASoapOut">
+    <wsdl:part name="parameters" element="tns:PublishCTTSmartCAResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHashCTTWithTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:getHashCTTWithToken" />
+  </wsdl:message>
+  <wsdl:message name="getHashCTTWithTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:getHashCTTWithTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="publishCTTWithTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:publishCTTWithToken" />
+  </wsdl:message>
+  <wsdl:message name="publishCTTWithTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:publishCTTWithTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterPublishCTTSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterPublishCTT" />
+  </wsdl:message>
+  <wsdl:message name="RegisterPublishCTTSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterPublishCTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishInvMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishInvMTT" />
+  </wsdl:message>
+  <wsdl:message name="ImportAndPublishInvMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportAndPublishInvMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportInvByPatternMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportInvByPatternMTT" />
+  </wsdl:message>
+  <wsdl:message name="ImportInvByPatternMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportInvByPatternMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHashInvWithTokenMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:getHashInvWithTokenMTT" />
+  </wsdl:message>
+  <wsdl:message name="getHashInvWithTokenMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:getHashInvWithTokenMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="publishInvWithTokenMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:publishInvWithTokenMTT" />
+  </wsdl:message>
+  <wsdl:message name="publishInvWithTokenMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:publishInvWithTokenMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvSmartCAMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHashInvSmartCAMTT" />
+  </wsdl:message>
+  <wsdl:message name="GetHashInvSmartCAMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashInvSmartCAMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishInvSmartCAMTTSoapIn">
+    <wsdl:part name="parameters" element="tns:PublishInvSmartCAMTT" />
+  </wsdl:message>
+  <wsdl:message name="PublishInvSmartCAMTTSoapOut">
+    <wsdl:part name="parameters" element="tns:PublishInvSmartCAMTTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSummaryReportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListSummaryReport" />
+  </wsdl:message>
+  <wsdl:message name="GetListSummaryReportSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListSummaryReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryReportDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSummaryReportDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryReportDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSummaryReportDetailResponse" />
+  </wsdl:message>
   <wsdl:portType name="PublishServiceSoap">
     <wsdl:operation name="ImportAndPublishInv">
       <wsdl:input message="tns:ImportAndPublishInvSoapIn" />
       <wsdl:output message="tns:ImportAndPublishInvSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishInvMTT32">
+      <wsdl:input message="tns:ImportAndPublishInvMTT32SoapIn" />
+      <wsdl:output message="tns:ImportAndPublishInvMTT32SoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="ImportAndPublishAssignedNo">
       <wsdl:input message="tns:ImportAndPublishAssignedNoSoapIn" />
       <wsdl:output message="tns:ImportAndPublishAssignedNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishAssignedNoMTT">
+      <wsdl:input message="tns:ImportAndPublishAssignedNoMTTSoapIn" />
+      <wsdl:output message="tns:ImportAndPublishAssignedNoMTTSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ImportInv">
       <wsdl:input message="tns:ImportInvSoapIn" />
@@ -1854,6 +2553,14 @@
       <wsdl:input message="tns:publishInvSoapIn" />
       <wsdl:output message="tns:publishInvSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="PrintNoticeInvError">
+      <wsdl:input message="tns:PrintNoticeInvErrorSoapIn" />
+      <wsdl:output message="tns:PrintNoticeInvErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintNoticeInvErrorCQT">
+      <wsdl:input message="tns:PrintNoticeInvErrorCQTSoapIn" />
+      <wsdl:output message="tns:PrintNoticeInvErrorCQTSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="PublishInvFkey">
       <wsdl:input message="tns:PublishInvFkeySoapIn" />
       <wsdl:output message="tns:PublishInvFkeySoapOut" />
@@ -1869,10 +2576,6 @@
     <wsdl:operation name="setCusCert">
       <wsdl:input message="tns:setCusCertSoapIn" />
       <wsdl:output message="tns:setCusCertSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="ImportFromXml">
-      <wsdl:input message="tns:ImportFromXmlSoapIn" />
-      <wsdl:output message="tns:ImportFromXmlSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCertInfo">
       <wsdl:input message="tns:GetCertInfoSoapIn" />
@@ -2034,6 +2737,10 @@
       <wsdl:input message="tns:GetMCCQThueByFkeysNoXMLSignSoapIn" />
       <wsdl:output message="tns:GetMCCQThueByFkeysNoXMLSignSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetMCCQThueFromNoToNo">
+      <wsdl:input message="tns:GetMCCQThueFromNoToNoSoapIn" />
+      <wsdl:output message="tns:GetMCCQThueFromNoToNoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendInvToCQTByFkeys">
       <wsdl:input message="tns:SendInvToCQTByFkeysSoapIn" />
       <wsdl:output message="tns:SendInvToCQTByFkeysSoapOut" />
@@ -2046,21 +2753,41 @@
       <wsdl:input message="tns:SendInvNoticeErrorsSoapIn" />
       <wsdl:output message="tns:SendInvNoticeErrorsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTT">
+      <wsdl:input message="tns:SendInvErrorMTTSoapIn" />
+      <wsdl:output message="tns:SendInvErrorMTTSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetHashInvNoticeErrors">
       <wsdl:input message="tns:GetHashInvNoticeErrorsSoapIn" />
       <wsdl:output message="tns:GetHashInvNoticeErrorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvErrorMTTWithToken">
+      <wsdl:input message="tns:GetHashInvErrorMTTWithTokenSoapIn" />
+      <wsdl:output message="tns:GetHashInvErrorMTTWithTokenSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetHashInvNoticeErrorsWithSmartCA">
       <wsdl:input message="tns:GetHashInvNoticeErrorsWithSmartCASoapIn" />
       <wsdl:output message="tns:GetHashInvNoticeErrorsWithSmartCASoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetHashInvErrorMTTWithSmartCA">
+      <wsdl:input message="tns:GetHashInvErrorMTTWithSmartCASoapIn" />
+      <wsdl:output message="tns:GetHashInvErrorMTTWithSmartCASoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendInvNoticeErrorsWithSmartCA">
       <wsdl:input message="tns:SendInvNoticeErrorsWithSmartCASoapIn" />
       <wsdl:output message="tns:SendInvNoticeErrorsWithSmartCASoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTTWithSmartCA">
+      <wsdl:input message="tns:SendInvErrorMTTWithSmartCASoapIn" />
+      <wsdl:output message="tns:SendInvErrorMTTWithSmartCASoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendInvNoticeErrorsWidthToken">
       <wsdl:input message="tns:SendInvNoticeErrorsWidthTokenSoapIn" />
       <wsdl:output message="tns:SendInvNoticeErrorsWidthTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTTWithToken">
+      <wsdl:input message="tns:SendInvErrorMTTWithTokenSoapIn" />
+      <wsdl:output message="tns:SendInvErrorMTTWithTokenSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="HandleInvoiceErrors">
       <wsdl:input message="tns:HandleInvoiceErrorsSoapIn" />
@@ -2106,6 +2833,10 @@
       <wsdl:input message="tns:CancelPublishInvoiceSoapIn" />
       <wsdl:output message="tns:CancelPublishInvoiceSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="RemovePublishInvoice">
+      <wsdl:input message="tns:RemovePublishInvoiceSoapIn" />
+      <wsdl:output message="tns:RemovePublishInvoiceSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetTransactionItems">
       <wsdl:input message="tns:GetTransactionItemsSoapIn" />
       <wsdl:output message="tns:GetTransactionItemsSoapOut" />
@@ -2117,6 +2848,70 @@
     <wsdl:operation name="GetStepDetail">
       <wsdl:input message="tns:GetStepDetailSoapIn" />
       <wsdl:output message="tns:GetStepDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultsTransaction">
+      <wsdl:input message="tns:GetResultsTransactionSoapIn" />
+      <wsdl:output message="tns:GetResultsTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportInvByPatternCTT">
+      <wsdl:input message="tns:ImportInvByPatternCTTSoapIn" />
+      <wsdl:output message="tns:ImportInvByPatternCTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishCTT">
+      <wsdl:input message="tns:ImportAndPublishCTTSoapIn" />
+      <wsdl:output message="tns:ImportAndPublishCTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashCTTSmartCA">
+      <wsdl:input message="tns:GetHashCTTSmartCASoapIn" />
+      <wsdl:output message="tns:GetHashCTTSmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishCTTSmartCA">
+      <wsdl:input message="tns:PublishCTTSmartCASoapIn" />
+      <wsdl:output message="tns:PublishCTTSmartCASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHashCTTWithToken">
+      <wsdl:input message="tns:getHashCTTWithTokenSoapIn" />
+      <wsdl:output message="tns:getHashCTTWithTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="publishCTTWithToken">
+      <wsdl:input message="tns:publishCTTWithTokenSoapIn" />
+      <wsdl:output message="tns:publishCTTWithTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterPublishCTT">
+      <wsdl:input message="tns:RegisterPublishCTTSoapIn" />
+      <wsdl:output message="tns:RegisterPublishCTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishInvMTT">
+      <wsdl:input message="tns:ImportAndPublishInvMTTSoapIn" />
+      <wsdl:output message="tns:ImportAndPublishInvMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportInvByPatternMTT">
+      <wsdl:input message="tns:ImportInvByPatternMTTSoapIn" />
+      <wsdl:output message="tns:ImportInvByPatternMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHashInvWithTokenMTT">
+      <wsdl:input message="tns:getHashInvWithTokenMTTSoapIn" />
+      <wsdl:output message="tns:getHashInvWithTokenMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="publishInvWithTokenMTT">
+      <wsdl:input message="tns:publishInvWithTokenMTTSoapIn" />
+      <wsdl:output message="tns:publishInvWithTokenMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvSmartCAMTT">
+      <wsdl:input message="tns:GetHashInvSmartCAMTTSoapIn" />
+      <wsdl:output message="tns:GetHashInvSmartCAMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishInvSmartCAMTT">
+      <wsdl:input message="tns:PublishInvSmartCAMTTSoapIn" />
+      <wsdl:output message="tns:PublishInvSmartCAMTTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSummaryReport">
+      <wsdl:input message="tns:GetListSummaryReportSoapIn" />
+      <wsdl:output message="tns:GetListSummaryReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryReportDetail">
+      <wsdl:input message="tns:GetSummaryReportDetailSoapIn" />
+      <wsdl:output message="tns:GetSummaryReportDetailSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="PublishServiceSoap" type="tns:PublishServiceSoap">
@@ -2130,8 +2925,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishInvMTT32">
+      <soap:operation soapAction="http://tempuri.org/ImportAndPublishInvMTT32" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ImportAndPublishAssignedNo">
       <soap:operation soapAction="http://tempuri.org/ImportAndPublishAssignedNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishAssignedNoMTT">
+      <soap:operation soapAction="http://tempuri.org/ImportAndPublishAssignedNoMTT" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2193,6 +3006,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PrintNoticeInvError">
+      <soap:operation soapAction="http://tempuri.org/PrintNoticeInvError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintNoticeInvErrorCQT">
+      <soap:operation soapAction="http://tempuri.org/PrintNoticeInvErrorCQT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PublishInvFkey">
       <soap:operation soapAction="http://tempuri.org/PublishInvFkey" style="document" />
       <wsdl:input>
@@ -2222,15 +3053,6 @@
     </wsdl:operation>
     <wsdl:operation name="setCusCert">
       <soap:operation soapAction="http://tempuri.org/setCusCert" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ImportFromXml">
-      <soap:operation soapAction="http://tempuri.org/ImportFromXml" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2598,6 +3420,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMCCQThueFromNoToNo">
+      <soap:operation soapAction="http://tempuri.org/GetMCCQThueFromNoToNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendInvToCQTByFkeys">
       <soap:operation soapAction="http://tempuri.org/SendInvToCQTByFkeys" style="document" />
       <wsdl:input>
@@ -2625,8 +3456,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTT">
+      <soap:operation soapAction="http://tempuri.org/SendInvErrorMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHashInvNoticeErrors">
       <soap:operation soapAction="http://tempuri.org/GetHashInvNoticeErrors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvErrorMTTWithToken">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvErrorMTTWithToken" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2643,6 +3492,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetHashInvErrorMTTWithSmartCA">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvErrorMTTWithSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendInvNoticeErrorsWithSmartCA">
       <soap:operation soapAction="http://tempuri.org/SendInvNoticeErrorsWithSmartCA" style="document" />
       <wsdl:input>
@@ -2652,8 +3510,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTTWithSmartCA">
+      <soap:operation soapAction="http://tempuri.org/SendInvErrorMTTWithSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendInvNoticeErrorsWidthToken">
       <soap:operation soapAction="http://tempuri.org/SendInvNoticeErrorsWidthToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTTWithToken">
+      <soap:operation soapAction="http://tempuri.org/SendInvErrorMTTWithToken" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2760,6 +3636,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RemovePublishInvoice">
+      <soap:operation soapAction="http://tempuri.org/RemovePublishInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTransactionItems">
       <soap:operation soapAction="http://tempuri.org/GetTransactionItems" style="document" />
       <wsdl:input>
@@ -2787,6 +3672,150 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetResultsTransaction">
+      <soap:operation soapAction="http://tempuri.org/GetResultsTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInvByPatternCTT">
+      <soap:operation soapAction="http://tempuri.org/ImportInvByPatternCTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishCTT">
+      <soap:operation soapAction="http://tempuri.org/ImportAndPublishCTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashCTTSmartCA">
+      <soap:operation soapAction="http://tempuri.org/GetHashCTTSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishCTTSmartCA">
+      <soap:operation soapAction="http://tempuri.org/PublishCTTSmartCA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHashCTTWithToken">
+      <soap:operation soapAction="http://tempuri.org/getHashCTTWithToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="publishCTTWithToken">
+      <soap:operation soapAction="http://tempuri.org/publishCTTWithToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterPublishCTT">
+      <soap:operation soapAction="http://tempuri.org/RegisterPublishCTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishInvMTT">
+      <soap:operation soapAction="http://tempuri.org/ImportAndPublishInvMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInvByPatternMTT">
+      <soap:operation soapAction="http://tempuri.org/ImportInvByPatternMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHashInvWithTokenMTT">
+      <soap:operation soapAction="http://tempuri.org/getHashInvWithTokenMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="publishInvWithTokenMTT">
+      <soap:operation soapAction="http://tempuri.org/publishInvWithTokenMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvSmartCAMTT">
+      <soap:operation soapAction="http://tempuri.org/GetHashInvSmartCAMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishInvSmartCAMTT">
+      <soap:operation soapAction="http://tempuri.org/PublishInvSmartCAMTT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSummaryReport">
+      <soap:operation soapAction="http://tempuri.org/GetListSummaryReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryReportDetail">
+      <soap:operation soapAction="http://tempuri.org/GetSummaryReportDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="PublishServiceSoap12" type="tns:PublishServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2799,8 +3828,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishInvMTT32">
+      <soap12:operation soapAction="http://tempuri.org/ImportAndPublishInvMTT32" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ImportAndPublishAssignedNo">
       <soap12:operation soapAction="http://tempuri.org/ImportAndPublishAssignedNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishAssignedNoMTT">
+      <soap12:operation soapAction="http://tempuri.org/ImportAndPublishAssignedNoMTT" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2862,6 +3909,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PrintNoticeInvError">
+      <soap12:operation soapAction="http://tempuri.org/PrintNoticeInvError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintNoticeInvErrorCQT">
+      <soap12:operation soapAction="http://tempuri.org/PrintNoticeInvErrorCQT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PublishInvFkey">
       <soap12:operation soapAction="http://tempuri.org/PublishInvFkey" style="document" />
       <wsdl:input>
@@ -2891,15 +3956,6 @@
     </wsdl:operation>
     <wsdl:operation name="setCusCert">
       <soap12:operation soapAction="http://tempuri.org/setCusCert" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ImportFromXml">
-      <soap12:operation soapAction="http://tempuri.org/ImportFromXml" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3267,6 +4323,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMCCQThueFromNoToNo">
+      <soap12:operation soapAction="http://tempuri.org/GetMCCQThueFromNoToNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendInvToCQTByFkeys">
       <soap12:operation soapAction="http://tempuri.org/SendInvToCQTByFkeys" style="document" />
       <wsdl:input>
@@ -3294,8 +4359,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTT">
+      <soap12:operation soapAction="http://tempuri.org/SendInvErrorMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHashInvNoticeErrors">
       <soap12:operation soapAction="http://tempuri.org/GetHashInvNoticeErrors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvErrorMTTWithToken">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvErrorMTTWithToken" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3312,6 +4395,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetHashInvErrorMTTWithSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvErrorMTTWithSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendInvNoticeErrorsWithSmartCA">
       <soap12:operation soapAction="http://tempuri.org/SendInvNoticeErrorsWithSmartCA" style="document" />
       <wsdl:input>
@@ -3321,8 +4413,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTTWithSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/SendInvErrorMTTWithSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendInvNoticeErrorsWidthToken">
       <soap12:operation soapAction="http://tempuri.org/SendInvNoticeErrorsWidthToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvErrorMTTWithToken">
+      <soap12:operation soapAction="http://tempuri.org/SendInvErrorMTTWithToken" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3429,6 +4539,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RemovePublishInvoice">
+      <soap12:operation soapAction="http://tempuri.org/RemovePublishInvoice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTransactionItems">
       <soap12:operation soapAction="http://tempuri.org/GetTransactionItems" style="document" />
       <wsdl:input>
@@ -3449,6 +4568,150 @@
     </wsdl:operation>
     <wsdl:operation name="GetStepDetail">
       <soap12:operation soapAction="http://tempuri.org/GetStepDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultsTransaction">
+      <soap12:operation soapAction="http://tempuri.org/GetResultsTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInvByPatternCTT">
+      <soap12:operation soapAction="http://tempuri.org/ImportInvByPatternCTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishCTT">
+      <soap12:operation soapAction="http://tempuri.org/ImportAndPublishCTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashCTTSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/GetHashCTTSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishCTTSmartCA">
+      <soap12:operation soapAction="http://tempuri.org/PublishCTTSmartCA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHashCTTWithToken">
+      <soap12:operation soapAction="http://tempuri.org/getHashCTTWithToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="publishCTTWithToken">
+      <soap12:operation soapAction="http://tempuri.org/publishCTTWithToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterPublishCTT">
+      <soap12:operation soapAction="http://tempuri.org/RegisterPublishCTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAndPublishInvMTT">
+      <soap12:operation soapAction="http://tempuri.org/ImportAndPublishInvMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInvByPatternMTT">
+      <soap12:operation soapAction="http://tempuri.org/ImportInvByPatternMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHashInvWithTokenMTT">
+      <soap12:operation soapAction="http://tempuri.org/getHashInvWithTokenMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="publishInvWithTokenMTT">
+      <soap12:operation soapAction="http://tempuri.org/publishInvWithTokenMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashInvSmartCAMTT">
+      <soap12:operation soapAction="http://tempuri.org/GetHashInvSmartCAMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishInvSmartCAMTT">
+      <soap12:operation soapAction="http://tempuri.org/PublishInvSmartCAMTT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSummaryReport">
+      <soap12:operation soapAction="http://tempuri.org/GetListSummaryReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryReportDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetSummaryReportDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
