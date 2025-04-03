@@ -711,7 +711,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>aSU56uSEpmHWM8/u5ssXh+RTb7OXH0WKo+Kdsegr4U8=</dsig:DigestValue>
+        <dsig:DigestValue>BFe882ERuQ/ZaRnt5RAYy1xVbFGijk7MEsQMvfnviu4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -760,7 +760,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>U8D2+9DpzRF4gsEe9nSgHGMJq6ge275FQsgJIbrIdao=</dsig:DigestValue>
+      <dsig:DigestValue>fuYrPaRHvPVaC8g1maCsxroMTXWfur+bMeaI2g6FjbA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="QLCongNo.pdb" size="9577984">
@@ -769,7 +769,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>yQqjrVmz7L+82zyMlBSvX+RPbpp6u5F+qienr6CEZLM=</dsig:DigestValue>
+      <dsig:DigestValue>7LrhyjRF7hArc4JXTJs519L23cP4Dvdvv9wVvJ51d6w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Images\app.ico" size="16958">
