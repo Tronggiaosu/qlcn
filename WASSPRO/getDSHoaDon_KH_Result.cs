@@ -14,6 +14,7 @@ namespace QLCongNo
     public partial class getDSHoaDon_KH_Result
     {
         public decimal ID_HD { get; set; }
+        public string DANHBO { get; set; }
         public string hoten { get; set; }
         public string kyghi { get; set; }
         public Nullable<int> nam { get; set; }

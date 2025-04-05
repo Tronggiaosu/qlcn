@@ -704,14 +704,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLCongNo.exe" size="17282560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLCongNo.exe" size="17286656">
       <assemblyIdentity name="QLCongNo" version="1.0.0.133" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BFe882ERuQ/ZaRnt5RAYy1xVbFGijk7MEsQMvfnviu4=</dsig:DigestValue>
+        <dsig:DigestValue>VV0gWsxtx9mLbEcW6Q56+wvcGhHZe1atICR2jIVFvdk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -763,13 +763,13 @@
       <dsig:DigestValue>fuYrPaRHvPVaC8g1maCsxroMTXWfur+bMeaI2g6FjbA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="QLCongNo.pdb" size="9577984">
+  <file name="QLCongNo.pdb" size="9586176">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>7LrhyjRF7hArc4JXTJs519L23cP4Dvdvv9wVvJ51d6w=</dsig:DigestValue>
+      <dsig:DigestValue>v5oBLQx1I8zIOlG6f6zzdd7Wufnp10sS2Enkkq4QyaU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Images\app.ico" size="16958">

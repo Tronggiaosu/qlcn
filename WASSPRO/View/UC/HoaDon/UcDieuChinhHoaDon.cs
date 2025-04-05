@@ -226,7 +226,7 @@ namespace QLCongNo.View.UC.HoaDon
                             else
                                 fkeycu = hoadonDC.keys.ToString();
                             result = bs.AdjustInvoiceAction("capnuocthuducadmin", acc.pass_admin, xml, "capnuocthuducservice", "Einv@oi@vn#pt20", fkeycu, "", 0, mauHD1, kyhieu).ToString();
-                            MessageBox.Show(result);
+
                             //var result = "OK:01GTKT3/001;AA/12E;12121_2";
                             if (result.Substring(0, 2) == "OK")
                             {

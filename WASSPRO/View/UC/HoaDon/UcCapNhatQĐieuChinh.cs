@@ -30,9 +30,61 @@ namespace QLCongNo.View.UC.HoaDon
             txtPhiNT_DC.KeyDown += txtPhiNT_DC_KeyDown;
             txtThueNT_DC.KeyDown += txtThueNT_DC_KeyDown;
             txttongcong_DC.KeyDown += txttongcong_DC_KeyDown;
+
+            txtm3DC.PreviewKeyDown += Txtm3DC_PreviewKeyDown;
+            txttiennuocDC.PreviewKeyDown += TxttiennuocDC_PreviewKeyDown;
+            txtvatDC.PreviewKeyDown += TxtvatDC_PreviewKeyDown;
+            txtBVMT_DC.PreviewKeyDown += TxtBVMT_DC_PreviewKeyDown;
+            txtPhiNT_DC.PreviewKeyDown += TxtPhiNT_DC_PreviewKeyDown;
+            txtThueNT_DC.PreviewKeyDown += TxtThueNT_DC_PreviewKeyDown;
+            txttongcong_DC.PreviewKeyDown += Txttongcong_DC_PreviewKeyDown;
+
             btnUpdate.Click += btnUpdate_Click;
             btnThoat.Click += btnThoat_Click;
             btnTim.Click += btnTim_Click;
+        }
+
+        private void Txttongcong_DC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void TxtThueNT_DC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void TxtPhiNT_DC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void TxtBVMT_DC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void TxtvatDC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void TxttiennuocDC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void Txtm3DC_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            TextBox_PreviewKeyDown(sender, e);
+        }
+
+        private void TextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.IsInputKey = true; // Ngăn chặn nhảy focus
+            }
         }
 
         void txtThueNT_DC_KeyDown(object sender, KeyEventArgs e)
@@ -211,12 +263,20 @@ namespace QLCongNo.View.UC.HoaDon
                 yeucauDC.tongtien_PT = ptienBVMT + ptiennuoc + ptienthue + ptienthuenuocthai + ptiennuocthai;
                 yeucauDC.m3PT = m3;
                 db.SaveChanges();
-                MessageBox.Show("Cập nhật thành công!");
+                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
             //catch
             //{
 
             //}
+        }
+
+        private void Textbox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.IsInputKey = true; // Ngăn chặn nhảy focus
+            }
         }
 
         void txttongcong_DC_KeyDown(object sender, KeyEventArgs e)
@@ -275,89 +335,92 @@ namespace QLCongNo.View.UC.HoaDon
         }
         public void getSumInvoice()
         {
-            if (cboDC.Text == "Điều chỉnh giảm")
+            try
             {
-                // m3
-                int m3BD = int.Parse(txtm3BD.Text.Trim().Replace(",", "").Replace(".", ""));
-                int m3DC = int.Parse(txtm3DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtm3DC.Text.Replace(",", "").Replace(".", ""));
-                m3PT = m3BD - m3DC;
-                // tien nuoc
-                decimal tiennuocBD = decimal.Parse(txttiennuocBD.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal tiennuocDC = decimal.Parse(txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", ""));
-                tiennuocPT = tiennuocBD - tiennuocDC;
-                // tien thue
-                decimal tienVATBD = decimal.Parse(txttienvatBD.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal tienVATDC = decimal.Parse(txtvatDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtvatDC.Text.Replace(",", "").Replace(".", ""));
-                tienVATPT = tienVATBD - tienVATDC ;
-                // phi BVMT
-                decimal tienBVMTDB = decimal.Parse(txtBVMT_BD.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal tienBVMTDC = decimal.Parse(txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                tienBVMTPT = tienBVMTDB - tienBVMTDC;
-                // phi xu ly nuoc thai 20%
-                decimal phiNT = decimal.Parse(txtPhiNT.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal phiNTTDC = decimal.Parse(txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                phiNTPT = phiNT - phiNTTDC;
-                // thue 10% phi xu ly nuoc thai
-                decimal thueNT = decimal.Parse(txtThueNT.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal thueNTDC = decimal.Parse(txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                thuePhiNTPT = thueNT - thueNTDC;
-                // tong tien
-                decimal tongtienBD = decimal.Parse(txttongcong_BD.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal tongtienDC = tienBVMTDC + tiennuocDC + tienVATDC + phiNTTDC + thueNTDC;
-                tongtienPT = tongtienBD - tongtienDC;
-                // show text
-                txtm3PT.Text = string.Format("{0:n0}", m3PT);
-                txttiennuocPT.Text = string.Format("{0:n0}", tiennuocPT);
-                txttienvatPT.Text = string.Format("{0:n0}", tienVATPT);
-                txtBVMT_PT.Text = string.Format("{0:n0}", tienBVMTPT);
-                txtPhiNT_PT.Text = string.Format("{0:n0}", phiNTPT);
-                txtThueNT_PT.Text = string.Format("{0:n0}", thuePhiNTPT);
-                txttongcongPT.Text = string.Format("{0:n0}", tongtienPT);
-                txttongcong_DC.Text = string.Format("{0:n0}", tongtienDC);
-                txtBangchu.Text = db.getSotienbangchu(tongtienPT).FirstOrDefault().ToString();
+                if (cboDC.Text == "Điều chỉnh giảm")
+                {
+                    // m3
+                    int m3BD = int.Parse(txtm3BD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    int m3DC = int.Parse(txtm3DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtm3DC.Text.Replace(",", "").Replace(".", ""));
+                    m3PT = m3BD - m3DC;
+                    // tien nuoc
+                    decimal tiennuocBD = decimal.Parse(txttiennuocBD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tiennuocDC = decimal.Parse(txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    tiennuocPT = tiennuocBD - tiennuocDC;
+                    // tien thue
+                    decimal tienVATBD = decimal.Parse(txttienvatBD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tienVATDC = decimal.Parse(txtvatDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtvatDC.Text.Replace(",", "").Replace(".", ""));
+                    tienVATPT = tienVATBD - tienVATDC;
+                    // phi BVMT
+                    decimal tienBVMTDB = decimal.Parse(txtBVMT_BD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tienBVMTDC = decimal.Parse(txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    tienBVMTPT = tienBVMTDB - tienBVMTDC;
+                    // phi xu ly nuoc thai 20%
+                    decimal phiNT = decimal.Parse(txtPhiNT.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal phiNTTDC = decimal.Parse(txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    phiNTPT = phiNT - phiNTTDC;
+                    // thue 10% phi xu ly nuoc thai
+                    decimal thueNT = decimal.Parse(txtThueNT.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal thueNTDC = decimal.Parse(txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    thuePhiNTPT = thueNT - thueNTDC;
+                    // tong tien
+                    decimal tongtienBD = decimal.Parse(txttongcong_BD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tongtienDC = tienBVMTDC + tiennuocDC + tienVATDC + phiNTTDC + thueNTDC;
+                    tongtienPT = tongtienBD - tongtienDC;
+                    // show text
+                    txtm3PT.Text = string.Format("{0:n0}", m3PT);
+                    txttiennuocPT.Text = string.Format("{0:n0}", tiennuocPT);
+                    txttienvatPT.Text = string.Format("{0:n0}", tienVATPT);
+                    txtBVMT_PT.Text = string.Format("{0:n0}", tienBVMTPT);
+                    txtPhiNT_PT.Text = string.Format("{0:n0}", phiNTPT);
+                    txtThueNT_PT.Text = string.Format("{0:n0}", thuePhiNTPT);
+                    txttongcongPT.Text = string.Format("{0:n0}", tongtienPT);
+                    txttongcong_DC.Text = string.Format("{0:n0}", tongtienDC);
+                    txtBangchu.Text = db.getSotienbangchu(tongtienPT).FirstOrDefault().ToString();
+                }
+                else
+                {
+                    // m3
+                    int m3BD = int.Parse(txtm3BD.Text.Trim().Replace(",", "").Replace(",", "").Replace(".", ""));
+                    int m3DC = int.Parse(txtm3DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    m3PT = m3BD + m3DC;
+                    // tien nuoc
+                    decimal tiennuocBD = decimal.Parse(txttiennuocBD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tiennuocDC = decimal.Parse(txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    tiennuocPT = tiennuocBD + tiennuocDC;
+                    // tien thue
+                    decimal tienVATBD = decimal.Parse(txttienvatBD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tienVATDC = decimal.Parse(txtvatDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtvatDC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    tienVATPT = tienVATBD + tienVATDC;
+                    // tien bvmt cu
+                    decimal tienBVMTDB = decimal.Parse(txtBVMT_BD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tienBVMTDC = decimal.Parse(txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    tienBVMTPT = tienBVMTDB + tienBVMTDC;
+                    // phi xu ly nuoc thai
+                    decimal phiNT = decimal.Parse(txtPhiNT.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal phiNTTDC = decimal.Parse(txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    phiNTPT = phiNT + phiNTTDC;
+                    // thue 15% phi xu ly nuoc thai
+                    decimal thueNT = decimal.Parse(txtThueNT.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal thueNTDC = decimal.Parse(txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
+                    thuePhiNTPT = thueNT + thueNTDC;
+                    // tong tien
+                    decimal tongtienBD = decimal.Parse(txttongcong_BD.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal tongtienDC = tienBVMTDC + tiennuocDC + tienVATDC + phiNTTDC + thueNTDC; ;
+                    tongtienPT = tongtienBD + tongtienDC;
+                    // show text
+                    txtm3PT.Text = string.Format("{0:n0}", m3PT);
+                    txttiennuocPT.Text = string.Format("{0:n0}", tiennuocPT);
+                    txttienvatPT.Text = string.Format("{0:n0}", tienVATPT);
+                    txtBVMT_PT.Text = string.Format("{0:n0}", tienBVMTPT);
+                    txtPhiNT_PT.Text = string.Format("{0:n0}", phiNTPT);
+                    txtThueNT_PT.Text = string.Format("{0:n0}", thuePhiNTPT);
+                    txttongcongPT.Text = string.Format("{0:n0}", tongtienPT);
+                    txttongcong_DC.Text = string.Format("{0:n0}", tongtienDC);
+                    txtBangchu.Text = db.getSotienbangchu(tongtienPT).FirstOrDefault().ToString();
+                }
             }
-            else
-            {
-                // m3
-                int m3BD = int.Parse(txtm3BD.Text.Trim().Replace(",", "").Replace(",", "").Replace(".", ""));
-                int m3DC = int.Parse(txtm3DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                m3PT = m3BD + m3DC ;
-                // tien nuoc
-                decimal tiennuocBD = decimal.Parse(txttiennuocBD.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal tiennuocDC = decimal.Parse(txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txttiennuocDC.Text.Trim().Replace(",", "").Replace(".", ""));
-                tiennuocPT = tiennuocBD + tiennuocDC ;
-                // tien thue
-                decimal tienVATBD = decimal.Parse(txttienvatBD.Text.Trim().Replace(",", "").Replace(".", ""));
-                decimal tienVATDC = decimal.Parse(txtvatDC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtvatDC.Text.Trim().Replace(",", "").Replace(".", ""));
-                 tienVATPT = tienVATBD + tienVATDC ;
-                // tien bvmt cu
-                 decimal tienBVMTDB = decimal.Parse(txtBVMT_BD.Text.Trim().Replace(",", "").Replace(".", ""));
-                 decimal tienBVMTDC = decimal.Parse(txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                 tienBVMTPT = tienBVMTDB + tienBVMTDC ;
-                 // phi xu ly nuoc thai
-                 decimal phiNT = decimal.Parse(txtPhiNT.Text.Trim().Replace(",", "").Replace(".", ""));
-                 decimal phiNTTDC = decimal.Parse(txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                 phiNTPT = phiNT+ phiNTTDC;
-                 // thue 15% phi xu ly nuoc thai
-                 decimal thueNT = decimal.Parse(txtThueNT.Text.Trim().Replace(",", "").Replace(".", ""));
-                 decimal thueNTDC = decimal.Parse(txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
-                 thuePhiNTPT = thueNT + thueNTDC;
-                // tong tien
-                 decimal tongtienBD = decimal.Parse(txttongcong_BD.Text.Trim().Replace(",", "").Replace(".", ""));
-                 decimal tongtienDC = tienBVMTDC + tiennuocDC + tienVATDC + phiNTTDC + thueNTDC; ;
-                 tongtienPT = tongtienBD + tongtienDC ;
-                // show text
-                txtm3PT.Text = string.Format("{0:n0}", m3PT);
-                txttiennuocPT.Text = string.Format("{0:n0}", tiennuocPT);
-                txttienvatPT.Text = string.Format("{0:n0}", tienVATPT);
-                txtBVMT_PT.Text = string.Format("{0:n0}", tienBVMTPT);
-                txtPhiNT_PT.Text = string.Format("{0:n0}", phiNTPT);
-                txtThueNT_PT.Text = string.Format("{0:n0}", thuePhiNTPT);
-                txttongcongPT.Text = string.Format("{0:n0}", tongtienPT);
-                txttongcong_DC.Text = string.Format("{0:n0}", tongtienDC);
-                txtBangchu.Text = db.getSotienbangchu(tongtienPT).FirstOrDefault().ToString();
-            }
-
+            catch { }
         }
 
         private void frCapNhatQĐieuChinh_Load(object sender, EventArgs e)

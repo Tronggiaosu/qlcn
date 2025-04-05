@@ -58,8 +58,6 @@
             this.dateTimePicker1 = new QLCongNo.View.Core.NovDateTimePicker();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblsoluong = new System.Windows.Forms.Label();
             this.ngaytaoColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.danhboColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.maltColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -74,6 +72,8 @@
             this.KyHieuHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.mauhdColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblsoluong = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -194,9 +194,9 @@
             this.label3.Location = new System.Drawing.Point(447, 26);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 23);
+            this.label3.Size = new System.Drawing.Size(170, 29);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Tìm kiếm theo mã danh bộ";
+            this.label3.Text = "Tìm mã danh bộ";
             // 
             // dateTimePicker2
             // 
@@ -309,26 +309,8 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1407, 523);
+            this.dataGridView1.Size = new System.Drawing.Size(1407, 544);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblsoluong);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 688);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1445, 64);
-            this.panel1.TabIndex = 29;
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.AutoSize = true;
-            this.lblsoluong.Location = new System.Drawing.Point(16, 4);
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(75, 23);
-            this.lblsoluong.TabIndex = 0;
-            this.lblsoluong.Text = "Tổng số:";
             // 
             // ngaytaoColumn
             // 
@@ -499,6 +481,24 @@
             this.IDHDColumn.ReadOnly = true;
             this.IDHDColumn.Visible = false;
             this.IDHDColumn.Width = 79;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblsoluong);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 709);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1445, 43);
+            this.panel1.TabIndex = 29;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Location = new System.Drawing.Point(16, 4);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(75, 23);
+            this.lblsoluong.TabIndex = 0;
+            this.lblsoluong.Text = "Tổng số:";
             // 
             // UcThongKeDieuChinhThongTin
             // 

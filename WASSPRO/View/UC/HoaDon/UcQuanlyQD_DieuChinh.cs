@@ -195,8 +195,9 @@ namespace QLCongNo.View.UC.HoaDon
                                                     db.SaveChanges();
                                                 }
                                             }
-                                            catch
+                                            catch (Exception ex)
                                             {
+
                                             }
 
                                             MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -547,16 +548,18 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
-                new FrmDialog().ShowDialog(new UcCapNhatQĐieuChinh
+                var dialog = new FrmDialog();
+                dialog.Text = "Cập nhật quyết định điều chỉnh hóa đơn";
+                dialog.ClientSize = new System.Drawing.Size(1424, 638);
+                dialog.FormBorderStyle = FormBorderStyle.FixedSingle;
+                dialog.ShowDialog(new UcCapNhatQĐieuChinh
                 {
                     QDID = QDID
                 });
             }
-            catch (Exception)
-            {
-            }
+            catch (Exception) { }
         }
-
+        
         private void seachButton_Click(object sender, EventArgs e)
         {
             try
@@ -572,10 +575,11 @@ namespace QLCongNo.View.UC.HoaDon
                 var tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd");
                 var denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd") + " 23:59:59"; ;
                 var dataSource = db.getDanhSachQuyetDinhDieuChinh(trangthai, tungay, denngay, txtTim.Text.Replace(" ", String.Empty)).ToList();
-                if (Common.NVID != 820 && Common.NVID != 812 && Common.NVID != 813 && Common.NVID != 833)
+                if (Common.NVID != 820 && Common.NVID != 812 && Common.NVID != 813 && Common.NVID != 833 && Common.NVID != 839)
                     dataSource = dataSource.Where(x => x.user_create == Common.NVID).ToList();
-                if(dataSource.Count > 0)
+                if (dataSource.Count > 0)
                 {
+                    dataSource = dataSource.OrderByDescending(x => x.date_create).ToList();
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 }    
                 dataGridView1.DataSource = dataSource.ToList();
