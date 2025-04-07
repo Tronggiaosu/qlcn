@@ -268,7 +268,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox1.Location = new System.Drawing.Point(0, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1413, 129);
+            this.groupBox1.Size = new System.Drawing.Size(1413, 135);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -295,7 +295,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1401, 94);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1401, 100);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // label3
@@ -314,12 +314,13 @@
             // txtTim
             // 
             this.txtTim.BackColor = System.Drawing.Color.White;
+            this.txtTim.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTim.ForeColor = System.Drawing.Color.Black;
-            this.txtTim.Location = new System.Drawing.Point(585, 49);
+            this.txtTim.Location = new System.Drawing.Point(585, 52);
             this.txtTim.Margin = new System.Windows.Forms.Padding(12, 2, 12, 14);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(297, 32);
+            this.txtTim.Size = new System.Drawing.Size(804, 32);
             this.txtTim.TabIndex = 7;
             this.txtTim.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtTim_PreviewKeyDown);
             // 
@@ -345,7 +346,7 @@
             this.cboTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTT.ForeColor = System.Drawing.Color.Black;
             this.cboTT.FormattingEnabled = true;
-            this.cboTT.Location = new System.Drawing.Point(394, 49);
+            this.cboTT.Location = new System.Drawing.Point(394, 52);
             this.cboTT.Margin = new System.Windows.Forms.Padding(12, 2, 12, 14);
             this.cboTT.Name = "cboTT";
             this.cboTT.Size = new System.Drawing.Size(167, 33);
@@ -357,7 +358,7 @@
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 52);
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 55);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(167, 30);
@@ -382,7 +383,7 @@
             this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(203, 52);
+            this.dateTimePicker2.Location = new System.Drawing.Point(203, 55);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(167, 30);
@@ -464,14 +465,14 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1413, 315);
+            this.dataGridView1.Size = new System.Drawing.Size(1413, 317);
             this.dataGridView1.TabIndex = 2;
             // 
             // ngaytaoColumn
             // 
             this.ngaytaoColumn.DataPropertyName = "date_create";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy hh:mm tt";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
             dataGridViewCellStyle3.NullValue = null;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.ngaytaoColumn.DefaultCellStyle = dataGridViewCellStyle3;
@@ -697,16 +698,16 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 174);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1413, 315);
+            this.panel1.Size = new System.Drawing.Size(1413, 317);
             this.panel1.TabIndex = 28;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblsoluong);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 495);
+            this.panel2.Location = new System.Drawing.Point(0, 497);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1413, 75);
+            this.panel2.Size = new System.Drawing.Size(1413, 73);
             this.panel2.TabIndex = 3;
             // 
             // lblsoluong

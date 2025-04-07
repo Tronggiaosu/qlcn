@@ -264,6 +264,11 @@ namespace QLCongNo.View.UC.HoaDon
             cboDot.DataSource = dataDot.ToList();
             cboDot.ValueMember = "DOT_ID";
             cboDot.DisplayMember = "TENDOT";
+
+            // trang thai
+            cboTT.DropDownStyle = ComboBoxStyle.DropDownList;
+            string[] trangthai = { "Chưa đồng bộ", "Đã đồng bộ" };
+            cboTT.DataSource = trangthai;
         }
 
         private void chkTT_CheckedChanged(object sender, EventArgs e)

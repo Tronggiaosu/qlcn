@@ -1394,7 +1394,7 @@ namespace QLCongNo
             var iDKHParameter = iDKH.HasValue ?
                 new ObjectParameter("IDKH", iDKH) :
                 new ObjectParameter("IDKH", typeof(decimal));
-
+    
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSHoaDon_KH_Result>("getDSHoaDon_KH", iDKHParameter);
         }
     

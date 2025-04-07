@@ -40,14 +40,18 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void excelButton_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.RowCount == 0)
+            try
             {
-                MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }    
-            else
-            {
-                Common.ExportExcel(dataGridView1);
-            }             
+                if (dataGridView1.RowCount == 0)
+                {
+                    MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    Common.ExportExcel(dataGridView1);
+                }
+            }
+            catch { }        
         }
 
         private void btnIn_Click(object sender, EventArgs e)
@@ -82,40 +86,42 @@ namespace QLCongNo.View.UC.HoaDon
                 else
                     MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         private void seachButton_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            string maDanhBo = txtTim.Text.Trim();
-            int nam = int.Parse(cboNam.SelectedValue.ToString());
-            string thang = cboThang.SelectedValue.ToString();
-            string ky = (nam + 2000).ToString() + thang;
-            int trangthai = 2;
-            if (chktrangthai.Checked == true)
+            try
             {
-                if (cboTT.Text == "Chưa in")
-                    trangthai = 0;
-                else
-                    trangthai = 1;
-            }
+                this.Cursor = Cursors.WaitCursor;
+                string maDanhBo = txtTim.Text.Trim();
+                int nam = int.Parse(cboNam.SelectedValue.ToString());
+                string thang = cboThang.SelectedValue.ToString();
+                string ky = (nam + 2000).ToString() + thang;
+                int trangthai = 2;
+                if (chktrangthai.Checked == true)
+                {
+                    if (cboTT.Text == "Chưa in")
+                        trangthai = 0;
+                    else
+                        trangthai = 1;
+                }
 
-            string maquan = cboQuan.SelectedValue.ToString();
-            string maphuong = cboPhuong.SelectedValue.ToString();
-            var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
-            if (data.Count > 0)
-            {
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }    
-            dataGridView1.DataSource = data.ToList();
-            for (int i = 0; i < dataGridView1.RowCount; i++)
-            {
-                dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
-            }                   
-            this.Cursor = Cursors.Default;
+                string maquan = cboQuan.SelectedValue.ToString();
+                string maphuong = cboPhuong.SelectedValue.ToString();
+                var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
+                if (data.Count > 0)
+                {
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+                dataGridView1.DataSource = data.ToList();
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
+                }
+                this.Cursor = Cursors.Default;
+            }
+            catch { }
         }
 
         private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)

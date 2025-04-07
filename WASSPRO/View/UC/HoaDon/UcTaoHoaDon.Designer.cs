@@ -68,8 +68,6 @@
             this.txtLNTT = new QLCongNo.View.Core.NovTextBox();
             this.txttiennuoc = new QLCongNo.View.Core.NovTextBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTongtien = new System.Windows.Forms.Label();
             this.danhboColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.hotenColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.maltColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -78,6 +76,8 @@
             this.tienthueColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.tienBVMT = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.tongtienColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTongtien = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -169,7 +169,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1480, 111);
+            this.groupBox1.Size = new System.Drawing.Size(1480, 132);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -214,7 +214,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1466, 88);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1466, 109);
             this.tableLayoutPanel1.TabIndex = 27;
             // 
             // label9
@@ -251,7 +251,7 @@
             this.txtPhiNT25.Enabled = false;
             this.txtPhiNT25.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhiNT25.ForeColor = System.Drawing.Color.Black;
-            this.txtPhiNT25.Location = new System.Drawing.Point(1064, 49);
+            this.txtPhiNT25.Location = new System.Drawing.Point(1064, 59);
             this.txtPhiNT25.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtPhiNT25.Name = "txtPhiNT25";
             this.txtPhiNT25.Size = new System.Drawing.Size(151, 32);
@@ -291,7 +291,7 @@
             this.txtTongTien.Enabled = false;
             this.txtTongTien.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongTien.ForeColor = System.Drawing.Color.Black;
-            this.txtTongTien.Location = new System.Drawing.Point(1239, 49);
+            this.txtTongTien.Location = new System.Drawing.Point(1239, 59);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(215, 32);
@@ -316,7 +316,7 @@
             this.cboNam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNam.ForeColor = System.Drawing.Color.Black;
             this.cboNam.FormattingEnabled = true;
-            this.cboNam.Location = new System.Drawing.Point(12, 49);
+            this.cboNam.Location = new System.Drawing.Point(12, 59);
             this.cboNam.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNam.Name = "cboNam";
             this.cboNam.Size = new System.Drawing.Size(93, 33);
@@ -342,7 +342,7 @@
             this.cboKy.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboKy.ForeColor = System.Drawing.Color.Black;
             this.cboKy.FormattingEnabled = true;
-            this.cboKy.Location = new System.Drawing.Point(129, 49);
+            this.cboKy.Location = new System.Drawing.Point(129, 59);
             this.cboKy.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboKy.Name = "cboKy";
             this.cboKy.Size = new System.Drawing.Size(93, 33);
@@ -355,7 +355,7 @@
             this.cboDot.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDot.ForeColor = System.Drawing.Color.Black;
             this.cboDot.FormattingEnabled = true;
-            this.cboDot.Location = new System.Drawing.Point(246, 49);
+            this.cboDot.Location = new System.Drawing.Point(246, 59);
             this.cboDot.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboDot.Name = "cboDot";
             this.cboDot.Size = new System.Drawing.Size(93, 33);
@@ -369,7 +369,7 @@
             this.txtTienBVMT.Enabled = false;
             this.txtTienBVMT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTienBVMT.ForeColor = System.Drawing.Color.Black;
-            this.txtTienBVMT.Location = new System.Drawing.Point(889, 49);
+            this.txtTienBVMT.Location = new System.Drawing.Point(889, 59);
             this.txtTienBVMT.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtTienBVMT.Name = "txtTienBVMT";
             this.txtTienBVMT.Size = new System.Drawing.Size(151, 32);
@@ -384,7 +384,7 @@
             this.label5.Location = new System.Drawing.Point(363, 14);
             this.label5.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 25);
+            this.label5.Size = new System.Drawing.Size(83, 35);
             this.label5.TabIndex = 6;
             this.label5.Text = "Số lượng HĐ";
             // 
@@ -396,7 +396,7 @@
             this.txtsoHD.Enabled = false;
             this.txtsoHD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtsoHD.ForeColor = System.Drawing.Color.Black;
-            this.txtsoHD.Location = new System.Drawing.Point(363, 49);
+            this.txtsoHD.Location = new System.Drawing.Point(363, 59);
             this.txtsoHD.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtsoHD.Name = "txtsoHD";
             this.txtsoHD.Size = new System.Drawing.Size(93, 32);
@@ -449,7 +449,7 @@
             this.txtThueGTGT.Enabled = false;
             this.txtThueGTGT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThueGTGT.ForeColor = System.Drawing.Color.Black;
-            this.txtThueGTGT.Location = new System.Drawing.Point(714, 49);
+            this.txtThueGTGT.Location = new System.Drawing.Point(714, 59);
             this.txtThueGTGT.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtThueGTGT.Name = "txtThueGTGT";
             this.txtThueGTGT.Size = new System.Drawing.Size(151, 32);
@@ -463,7 +463,7 @@
             this.txtLNTT.Enabled = false;
             this.txtLNTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLNTT.ForeColor = System.Drawing.Color.Black;
-            this.txtLNTT.Location = new System.Drawing.Point(480, 49);
+            this.txtLNTT.Location = new System.Drawing.Point(480, 59);
             this.txtLNTT.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtLNTT.Name = "txtLNTT";
             this.txtLNTT.Size = new System.Drawing.Size(93, 32);
@@ -477,7 +477,7 @@
             this.txttiennuoc.Enabled = false;
             this.txttiennuoc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttiennuoc.ForeColor = System.Drawing.Color.Black;
-            this.txttiennuoc.Location = new System.Drawing.Point(597, 49);
+            this.txttiennuoc.Location = new System.Drawing.Point(597, 59);
             this.txttiennuoc.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txttiennuoc.Name = "txttiennuoc";
             this.txttiennuoc.Size = new System.Drawing.Size(93, 32);
@@ -527,7 +527,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 159);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 180);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -539,26 +539,8 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1442, 681);
+            this.dataGridView1.Size = new System.Drawing.Size(1442, 663);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblTongtien);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 848);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1480, 56);
-            this.panel1.TabIndex = 27;
-            // 
-            // lblTongtien
-            // 
-            this.lblTongtien.AutoSize = true;
-            this.lblTongtien.Location = new System.Drawing.Point(13, 2);
-            this.lblTongtien.Name = "lblTongtien";
-            this.lblTongtien.Size = new System.Drawing.Size(75, 23);
-            this.lblTongtien.TabIndex = 0;
-            this.lblTongtien.Text = "Tổng số:";
             // 
             // danhboColumn
             // 
@@ -663,6 +645,24 @@
             this.tongtienColumn.Name = "tongtienColumn";
             this.tongtienColumn.ReadOnly = true;
             this.tongtienColumn.Width = 111;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblTongtien);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 864);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1480, 40);
+            this.panel1.TabIndex = 27;
+            // 
+            // lblTongtien
+            // 
+            this.lblTongtien.AutoSize = true;
+            this.lblTongtien.Location = new System.Drawing.Point(13, 2);
+            this.lblTongtien.Name = "lblTongtien";
+            this.lblTongtien.Size = new System.Drawing.Size(75, 23);
+            this.lblTongtien.TabIndex = 0;
+            this.lblTongtien.Text = "Tổng số:";
             // 
             // UcTaoHoaDon
             // 

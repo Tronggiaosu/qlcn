@@ -194,7 +194,7 @@
             this.label3.Location = new System.Drawing.Point(447, 26);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 29);
+            this.label3.Size = new System.Drawing.Size(136, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tìm mã danh bộ";
             // 
@@ -309,7 +309,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1407, 544);
+            this.dataGridView1.Size = new System.Drawing.Size(1407, 546);
             this.dataGridView1.TabIndex = 2;
             // 
             // ngaytaoColumn
@@ -486,9 +486,9 @@
             // 
             this.panel1.Controls.Add(this.lblsoluong);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 709);
+            this.panel1.Location = new System.Drawing.Point(0, 711);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1445, 43);
+            this.panel1.Size = new System.Drawing.Size(1445, 41);
             this.panel1.TabIndex = 29;
             // 
             // lblsoluong

@@ -195,9 +195,8 @@ namespace QLCongNo.View.UC.HoaDon
                                                     db.SaveChanges();
                                                 }
                                             }
-                                            catch (Exception ex)
+                                            catch
                                             {
-
                                             }
 
                                             MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -559,7 +558,7 @@ namespace QLCongNo.View.UC.HoaDon
             }
             catch (Exception) { }
         }
-        
+
         private void seachButton_Click(object sender, EventArgs e)
         {
             try
@@ -577,7 +576,7 @@ namespace QLCongNo.View.UC.HoaDon
                 var dataSource = db.getDanhSachQuyetDinhDieuChinh(trangthai, tungay, denngay, txtTim.Text.Replace(" ", String.Empty)).ToList();
                 if (Common.NVID != 820 && Common.NVID != 812 && Common.NVID != 813 && Common.NVID != 833 && Common.NVID != 839)
                     dataSource = dataSource.Where(x => x.user_create == Common.NVID).ToList();
-                if (dataSource.Count > 0)
+                if(dataSource.Count > 0)
                 {
                     dataSource = dataSource.OrderByDescending(x => x.date_create).ToList();
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

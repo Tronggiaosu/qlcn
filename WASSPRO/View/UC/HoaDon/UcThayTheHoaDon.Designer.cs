@@ -62,29 +62,29 @@
             this.label4 = new QLCongNo.View.Core.NovLabel();
             this.txtdcld = new QLCongNo.View.Core.NovTextBox();
             this.label5 = new QLCongNo.View.Core.NovLabel();
-            this.txtcsmoi = new QLCongNo.View.Core.NovTextBox();
-            this.label9 = new QLCongNo.View.Core.NovLabel();
+            this.label10 = new QLCongNo.View.Core.NovLabel();
+            this.txtmst = new QLCongNo.View.Core.NovTextBox();
+            this.txthoten = new QLCongNo.View.Core.NovTextBox();
+            this.label15 = new QLCongNo.View.Core.NovLabel();
+            this.txtm3 = new QLCongNo.View.Core.NovTextBox();
             this.txtcscu = new QLCongNo.View.Core.NovTextBox();
             this.label12 = new QLCongNo.View.Core.NovLabel();
-            this.txtsohopdong = new QLCongNo.View.Core.NovTextBox();
-            this.label10 = new QLCongNo.View.Core.NovLabel();
-            this.label13 = new QLCongNo.View.Core.NovLabel();
-            this.txtmst = new QLCongNo.View.Core.NovTextBox();
-            this.txtmlt = new QLCongNo.View.Core.NovTextBox();
-            this.label8 = new QLCongNo.View.Core.NovLabel();
-            this.txtMGB = new QLCongNo.View.Core.NovTextBox();
-            this.label11 = new QLCongNo.View.Core.NovLabel();
-            this.label14 = new QLCongNo.View.Core.NovLabel();
-            this.txtdmkh = new QLCongNo.View.Core.NovTextBox();
-            this.txthoten = new QLCongNo.View.Core.NovTextBox();
             this.txtdiachi = new QLCongNo.View.Core.NovTextBox();
+            this.txtcsmoi = new QLCongNo.View.Core.NovTextBox();
+            this.label9 = new QLCongNo.View.Core.NovLabel();
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.txtdanhbo = new QLCongNo.View.Core.NovTextBox();
             this.label7 = new QLCongNo.View.Core.NovLabel();
             this.txtMTT = new QLCongNo.View.Core.NovTextBox();
             this.label16 = new QLCongNo.View.Core.NovLabel();
-            this.txtm3 = new QLCongNo.View.Core.NovTextBox();
-            this.label15 = new QLCongNo.View.Core.NovLabel();
+            this.txtdmkh = new QLCongNo.View.Core.NovTextBox();
+            this.label14 = new QLCongNo.View.Core.NovLabel();
+            this.txtMGB = new QLCongNo.View.Core.NovTextBox();
+            this.label11 = new QLCongNo.View.Core.NovLabel();
+            this.txtmlt = new QLCongNo.View.Core.NovTextBox();
+            this.label8 = new QLCongNo.View.Core.NovLabel();
+            this.txtsohopdong = new QLCongNo.View.Core.NovTextBox();
+            this.label13 = new QLCongNo.View.Core.NovLabel();
             this.groupLNTT = new QLCongNo.View.Core.NovGroupBox();
             this.dgvTienNuoc = new QLCongNo.View.Core.NovDataGridView();
             this.LNTTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -348,7 +348,7 @@
             // 
             // txttongcong
             // 
-            this.txttongcong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txttongcong.BackColor = System.Drawing.Color.White;
             this.txttongcong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tableLayoutPanel2.SetColumnSpan(this.txttongcong, 2);
             this.txttongcong.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -434,39 +434,38 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.05263F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.78947F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.78947F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.78947F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.78947F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.78947F));
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtdcld, 0, 5);
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.tableLayoutPanel1.Controls.Add(this.label4, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtdcld, 4, 5);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtcsmoi, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtcscu, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtsohopdong, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtmst, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtmlt, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtMGB, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtdmkh, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.txthoten, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtm3, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtcscu, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtdiachi, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtcsmoi, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtdanhbo, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtMTT, 5, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtm3, 5, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 5, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtMTT, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label16, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtdmkh, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtMGB, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtmlt, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtsohopdong, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -485,10 +484,10 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label4.Location = new System.Drawing.Point(12, 178);
-            this.label4.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label4.Location = new System.Drawing.Point(524, 174);
+            this.label4.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 22);
+            this.label4.Size = new System.Drawing.Size(53, 23);
             this.label4.TabIndex = 24;
             this.label4.Text = "ĐCLĐ";
             // 
@@ -496,14 +495,13 @@
             // 
             this.txtdcld.BackColor = System.Drawing.Color.White;
             this.txtdcld.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtdcld, 3);
             this.txtdcld.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtdcld.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdcld.ForeColor = System.Drawing.Color.Black;
-            this.txtdcld.Location = new System.Drawing.Point(12, 210);
+            this.txtdcld.Location = new System.Drawing.Point(524, 210);
             this.txtdcld.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtdcld.Name = "txtdcld";
-            this.txtdcld.Size = new System.Drawing.Size(370, 32);
+            this.txtdcld.Size = new System.Drawing.Size(217, 32);
             this.txtdcld.TabIndex = 25;
             // 
             // label5
@@ -512,77 +510,12 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label5.Location = new System.Drawing.Point(12, 14);
-            this.label5.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label5.Location = new System.Drawing.Point(12, 10);
+            this.label5.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 22);
+            this.label5.Size = new System.Drawing.Size(101, 23);
             this.label5.TabIndex = 0;
             this.label5.Text = "Khách hàng";
-            // 
-            // txtcsmoi
-            // 
-            this.txtcsmoi.BackColor = System.Drawing.Color.White;
-            this.txtcsmoi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcsmoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtcsmoi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcsmoi.ForeColor = System.Drawing.Color.Black;
-            this.txtcsmoi.Location = new System.Drawing.Point(406, 210);
-            this.txtcsmoi.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtcsmoi.Name = "txtcsmoi";
-            this.txtcsmoi.Size = new System.Drawing.Size(94, 32);
-            this.txtcsmoi.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label9.Location = new System.Drawing.Point(406, 178);
-            this.label9.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 22);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Chỉ số mới";
-            // 
-            // txtcscu
-            // 
-            this.txtcscu.BackColor = System.Drawing.Color.White;
-            this.txtcscu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcscu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtcscu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcscu.ForeColor = System.Drawing.Color.Black;
-            this.txtcscu.Location = new System.Drawing.Point(524, 210);
-            this.txtcscu.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtcscu.Name = "txtcscu";
-            this.txtcscu.Size = new System.Drawing.Size(94, 32);
-            this.txtcscu.TabIndex = 21;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label12.Location = new System.Drawing.Point(524, 178);
-            this.label12.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 22);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Chỉ số cũ";
-            // 
-            // txtsohopdong
-            // 
-            this.txtsohopdong.BackColor = System.Drawing.Color.White;
-            this.txtsohopdong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtsohopdong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtsohopdong.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsohopdong.ForeColor = System.Drawing.Color.Black;
-            this.txtsohopdong.Location = new System.Drawing.Point(170, 128);
-            this.txtsohopdong.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtsohopdong.Name = "txtsohopdong";
-            this.txtsohopdong.Size = new System.Drawing.Size(94, 32);
-            this.txtsohopdong.TabIndex = 9;
             // 
             // label10
             // 
@@ -590,25 +523,12 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label10.Location = new System.Drawing.Point(12, 96);
-            this.label10.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label10.Location = new System.Drawing.Point(12, 92);
+            this.label10.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 22);
+            this.label10.Size = new System.Drawing.Size(96, 23);
             this.label10.TabIndex = 6;
             this.label10.Text = "Mã số thuế";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label13.Location = new System.Drawing.Point(170, 96);
-            this.label13.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 22);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Số hợp đồng";
             // 
             // txtmst
             // 
@@ -620,86 +540,8 @@
             this.txtmst.Location = new System.Drawing.Point(12, 128);
             this.txtmst.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtmst.Name = "txtmst";
-            this.txtmst.Size = new System.Drawing.Size(134, 32);
+            this.txtmst.Size = new System.Drawing.Size(104, 32);
             this.txtmst.TabIndex = 7;
-            // 
-            // txtmlt
-            // 
-            this.txtmlt.BackColor = System.Drawing.Color.White;
-            this.txtmlt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtmlt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtmlt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmlt.ForeColor = System.Drawing.Color.Black;
-            this.txtmlt.Location = new System.Drawing.Point(288, 128);
-            this.txtmlt.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtmlt.Name = "txtmlt";
-            this.txtmlt.Size = new System.Drawing.Size(94, 32);
-            this.txtmlt.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label8.Location = new System.Drawing.Point(288, 96);
-            this.label8.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 22);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Mã lộ trình";
-            // 
-            // txtMGB
-            // 
-            this.txtMGB.BackColor = System.Drawing.Color.White;
-            this.txtMGB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMGB.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMGB.ForeColor = System.Drawing.Color.Black;
-            this.txtMGB.Location = new System.Drawing.Point(406, 128);
-            this.txtMGB.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtMGB.Name = "txtMGB";
-            this.txtMGB.Size = new System.Drawing.Size(94, 32);
-            this.txtMGB.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label11.Location = new System.Drawing.Point(406, 96);
-            this.label11.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 22);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "MGB";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label14.Location = new System.Drawing.Point(524, 96);
-            this.label14.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 22);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "ĐMTH";
-            // 
-            // txtdmkh
-            // 
-            this.txtdmkh.BackColor = System.Drawing.Color.White;
-            this.txtdmkh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtdmkh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtdmkh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdmkh.ForeColor = System.Drawing.Color.Black;
-            this.txtdmkh.Location = new System.Drawing.Point(524, 128);
-            this.txtdmkh.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtdmkh.Name = "txtdmkh";
-            this.txtdmkh.Size = new System.Drawing.Size(94, 32);
-            this.txtdmkh.TabIndex = 15;
             // 
             // txthoten
             // 
@@ -712,22 +554,100 @@
             this.txthoten.Location = new System.Drawing.Point(12, 46);
             this.txthoten.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txthoten.Name = "txthoten";
-            this.txthoten.Size = new System.Drawing.Size(252, 32);
+            this.txthoten.Size = new System.Drawing.Size(232, 32);
             this.txthoten.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label15.Location = new System.Drawing.Point(396, 174);
+            this.label15.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(78, 26);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Tiêu thụ (m3)";
+            // 
+            // txtm3
+            // 
+            this.txtm3.BackColor = System.Drawing.Color.White;
+            this.txtm3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtm3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtm3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtm3.ForeColor = System.Drawing.Color.Black;
+            this.txtm3.Location = new System.Drawing.Point(396, 210);
+            this.txtm3.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtm3.Name = "txtm3";
+            this.txtm3.Size = new System.Drawing.Size(104, 32);
+            this.txtm3.TabIndex = 23;
+            // 
+            // txtcscu
+            // 
+            this.txtcscu.BackColor = System.Drawing.Color.White;
+            this.txtcscu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcscu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtcscu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcscu.ForeColor = System.Drawing.Color.Black;
+            this.txtcscu.Location = new System.Drawing.Point(268, 210);
+            this.txtcscu.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtcscu.Name = "txtcscu";
+            this.txtcscu.Size = new System.Drawing.Size(104, 32);
+            this.txtcscu.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label12.Location = new System.Drawing.Point(268, 174);
+            this.label12.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 23);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Chỉ số cũ";
             // 
             // txtdiachi
             // 
             this.txtdiachi.BackColor = System.Drawing.Color.White;
             this.txtdiachi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtdiachi, 3);
+            this.tableLayoutPanel1.SetColumnSpan(this.txtdiachi, 2);
             this.txtdiachi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtdiachi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdiachi.ForeColor = System.Drawing.Color.Black;
-            this.txtdiachi.Location = new System.Drawing.Point(406, 46);
+            this.txtdiachi.Location = new System.Drawing.Point(396, 46);
             this.txtdiachi.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtdiachi.Name = "txtdiachi";
-            this.txtdiachi.Size = new System.Drawing.Size(335, 32);
+            this.txtdiachi.Size = new System.Drawing.Size(345, 32);
             this.txtdiachi.TabIndex = 3;
+            // 
+            // txtcsmoi
+            // 
+            this.txtcsmoi.BackColor = System.Drawing.Color.White;
+            this.txtcsmoi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcsmoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtcsmoi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcsmoi.ForeColor = System.Drawing.Color.Black;
+            this.txtcsmoi.Location = new System.Drawing.Point(140, 210);
+            this.txtcsmoi.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtcsmoi.Name = "txtcsmoi";
+            this.txtcsmoi.Size = new System.Drawing.Size(104, 32);
+            this.txtcsmoi.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label9.Location = new System.Drawing.Point(140, 174);
+            this.label9.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 23);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Chỉ số mới";
             // 
             // label6
             // 
@@ -735,10 +655,10 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(406, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label6.Location = new System.Drawing.Point(396, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 22);
+            this.label6.Size = new System.Drawing.Size(62, 23);
             this.label6.TabIndex = 2;
             this.label6.Text = "Địa chỉ";
             // 
@@ -749,10 +669,10 @@
             this.txtdanhbo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtdanhbo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdanhbo.ForeColor = System.Drawing.Color.Black;
-            this.txtdanhbo.Location = new System.Drawing.Point(288, 46);
+            this.txtdanhbo.Location = new System.Drawing.Point(268, 46);
             this.txtdanhbo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtdanhbo.Name = "txtdanhbo";
-            this.txtdanhbo.Size = new System.Drawing.Size(94, 32);
+            this.txtdanhbo.Size = new System.Drawing.Size(104, 32);
             this.txtdanhbo.TabIndex = 5;
             // 
             // label7
@@ -761,10 +681,10 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label7.Location = new System.Drawing.Point(288, 14);
-            this.label7.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label7.Location = new System.Drawing.Point(268, 10);
+            this.label7.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 22);
+            this.label7.Size = new System.Drawing.Size(98, 23);
             this.label7.TabIndex = 4;
             this.label7.Text = "Số danh bộ";
             // 
@@ -775,10 +695,10 @@
             this.txtMTT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMTT.ForeColor = System.Drawing.Color.Black;
-            this.txtMTT.Location = new System.Drawing.Point(642, 128);
+            this.txtMTT.Location = new System.Drawing.Point(12, 210);
             this.txtMTT.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtMTT.Name = "txtMTT";
-            this.txtMTT.Size = new System.Drawing.Size(99, 32);
+            this.txtMTT.Size = new System.Drawing.Size(104, 32);
             this.txtMTT.TabIndex = 17;
             // 
             // label16
@@ -787,38 +707,116 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label16.Location = new System.Drawing.Point(642, 96);
-            this.label16.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label16.Location = new System.Drawing.Point(12, 174);
+            this.label16.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 22);
+            this.label16.Size = new System.Drawing.Size(43, 23);
             this.label16.TabIndex = 16;
             this.label16.Text = "MTT";
             // 
-            // txtm3
+            // txtdmkh
             // 
-            this.txtm3.BackColor = System.Drawing.Color.White;
-            this.txtm3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtm3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtm3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtm3.ForeColor = System.Drawing.Color.Black;
-            this.txtm3.Location = new System.Drawing.Point(642, 210);
-            this.txtm3.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtm3.Name = "txtm3";
-            this.txtm3.Size = new System.Drawing.Size(99, 32);
-            this.txtm3.TabIndex = 23;
+            this.txtdmkh.BackColor = System.Drawing.Color.White;
+            this.txtdmkh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtdmkh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtdmkh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdmkh.ForeColor = System.Drawing.Color.Black;
+            this.txtdmkh.Location = new System.Drawing.Point(524, 128);
+            this.txtdmkh.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtdmkh.Name = "txtdmkh";
+            this.txtdmkh.Size = new System.Drawing.Size(217, 32);
+            this.txtdmkh.TabIndex = 15;
             // 
-            // label15
+            // label14
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label15.Location = new System.Drawing.Point(642, 178);
-            this.label15.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(78, 22);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "Tiêu thụ (m3)";
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label14.Location = new System.Drawing.Point(524, 92);
+            this.label14.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 23);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "ĐMTH";
+            // 
+            // txtMGB
+            // 
+            this.txtMGB.BackColor = System.Drawing.Color.White;
+            this.txtMGB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMGB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMGB.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMGB.ForeColor = System.Drawing.Color.Black;
+            this.txtMGB.Location = new System.Drawing.Point(396, 128);
+            this.txtMGB.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtMGB.Name = "txtMGB";
+            this.txtMGB.Size = new System.Drawing.Size(104, 32);
+            this.txtMGB.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label11.Location = new System.Drawing.Point(396, 92);
+            this.label11.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 23);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "MGB";
+            // 
+            // txtmlt
+            // 
+            this.txtmlt.BackColor = System.Drawing.Color.White;
+            this.txtmlt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtmlt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtmlt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmlt.ForeColor = System.Drawing.Color.Black;
+            this.txtmlt.Location = new System.Drawing.Point(268, 128);
+            this.txtmlt.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtmlt.Name = "txtmlt";
+            this.txtmlt.Size = new System.Drawing.Size(104, 32);
+            this.txtmlt.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label8.Location = new System.Drawing.Point(268, 92);
+            this.label8.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 23);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Mã lộ trình";
+            // 
+            // txtsohopdong
+            // 
+            this.txtsohopdong.BackColor = System.Drawing.Color.White;
+            this.txtsohopdong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtsohopdong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtsohopdong.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsohopdong.ForeColor = System.Drawing.Color.Black;
+            this.txtsohopdong.Location = new System.Drawing.Point(140, 128);
+            this.txtsohopdong.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtsohopdong.Name = "txtsohopdong";
+            this.txtsohopdong.Size = new System.Drawing.Size(104, 32);
+            this.txtsohopdong.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label13.Location = new System.Drawing.Point(140, 92);
+            this.label13.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 26);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Số hợp đồng";
             // 
             // groupLNTT
             // 

@@ -276,15 +276,34 @@ namespace QLCongNo.View.UC.HoaDon
             cboDot.ValueMember = "DOT_ID";
             cboDot.DisplayMember = "TENDOT";
             // dm mau so, ky hieu hoa don
-            cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            //cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            //List<MAU_HD> dsMau = new List<MAU_HD>();
+            //dsMau.Add(new MAU_HD { mau_HD1 = "Tất cả", ky_hieu_HD = "Tất cả" });
+            //var dataMauHD = db.MAU_HD.ToList();
+            //dsMau.AddRange(dataMauHD);
+            //cboMauHD.DataSource = dsMau.ToList();
+            //cboMauHD.ValueMember = "mau_HD1";
+            //cboKH.DataSource = dsMau.ToList();
+            //cboKH.ValueMember = "ky_hieu_HD";
+
+            // dm mau HD
             List<MAU_HD> dsMau = new List<MAU_HD>();
-            dsMau.Add(new MAU_HD { mau_HD1 = "Tất cả", ky_hieu_HD = "Tất cả" });
-            var dataMauHD = db.MAU_HD.ToList();
-            dsMau.AddRange(dataMauHD);
-            cboMauHD.DataSource = dsMau.ToList();
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/004", ky_hieu_HD = "K25TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
+            cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboMauHD.DataSource = dsMau;
             cboMauHD.ValueMember = "mau_HD1";
-            cboKH.DataSource = dsMau.ToList();
+            // dm ky hieu
+            cboKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboKH.DataSource = dsMau;
             cboKH.ValueMember = "ky_hieu_HD";
+            cboKH.DisplayMember = "ky_hieu_HD";
+
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -293,12 +312,17 @@ namespace QLCongNo.View.UC.HoaDon
             cboNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<NHANVIEN> nhanvien = new List<NHANVIEN>();
             nhanvien.Add(new NHANVIEN() { NV_ID = 0, hoten = "Tất cả" });
+            //var dsNhanvien = db.NHANVIEN_LNV
+            //    .Where(x => x.ID_LoaiNV == 3)
+            //    .Select(x => x.NHANVIEN)
+            //    .GroupBy(nv => nv.hoten)  
+            //    .Select(g => g.FirstOrDefault())  
+            //    .OrderBy(nv => nv.hoten) 
+            //    .ToList();
             var dsNhanvien = db.NHANVIEN_LNV
                 .Where(x => x.ID_LoaiNV == 3)
                 .Select(x => x.NHANVIEN)
-                .GroupBy(nv => nv.hoten)  
-                .Select(g => g.FirstOrDefault())  
-                .OrderBy(nv => nv.hoten) 
+                .OrderBy(x => x.hoten)
                 .ToList();
             nhanvien.AddRange(dsNhanvien);
             cboNV.DataSource = nhanvien.ToList();

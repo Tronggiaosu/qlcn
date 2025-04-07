@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using QLCongNo.View.UC.GachNo;
 
 namespace QLCongNo.View.UC.HoaDon
@@ -419,13 +420,31 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void frThayTheHoaDon_Load(object sender, EventArgs e)
         {
+            //// dm mau HD
+            //cboMauSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            //cboMauSo.DataSource = db.MAU_HD.OrderBy(x => x.ky_hieu_HD).ToList();
+            //cboMauSo.ValueMember = "mau_HD1";
+            //// dm ky hieu
+            //cboKyHieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            //cboKyHieu.DataSource = db.MAU_HD.OrderBy(x => x.ky_hieu_HD).ToList();
+            //cboKyHieu.ValueMember = "ky_hieu_HD";
+            //cboKyHieu.DisplayMember = "ky_hieu_HD";
+
             // dm mau HD
+            List<MAU_HD> dsMau = new List<MAU_HD>();
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/004", ky_hieu_HD = "K25TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
             cboMauSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboMauSo.DataSource = db.MAU_HD.OrderBy(x => x.ky_hieu_HD).ToList();
+            cboMauSo.DataSource = dsMau;
             cboMauSo.ValueMember = "mau_HD1";
             // dm ky hieu
             cboKyHieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboKyHieu.DataSource = db.MAU_HD.OrderBy(x => x.ky_hieu_HD).ToList();
+            cboKyHieu.DataSource = dsMau;
             cboKyHieu.ValueMember = "ky_hieu_HD";
             cboKyHieu.DisplayMember = "ky_hieu_HD";
             btnThaythe.Enabled = false;

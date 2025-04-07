@@ -88,7 +88,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.groupBox1.Location = new System.Drawing.Point(0, 39);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1297, 149);
+            this.groupBox1.Size = new System.Drawing.Size(1297, 156);
             this.groupBox1.TabIndex = 26;
             // 
             // tableLayoutPanel1
@@ -117,11 +117,11 @@ namespace QLCongNo.View.UC.HoaDon
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.56643F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.37063F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.47682F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.77483F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.06294F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1273, 144);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1273, 151);
             this.tableLayoutPanel1.TabIndex = 32;
             // 
             // label4
@@ -131,10 +131,10 @@ namespace QLCongNo.View.UC.HoaDon
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label4.Location = new System.Drawing.Point(262, 14);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 14, 5, 5);
+            this.label4.Location = new System.Drawing.Point(262, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(8, 8, 5, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(241, 29);
+            this.label4.Size = new System.Drawing.Size(241, 30);
             this.label4.TabIndex = 28;
             this.label4.Text = "Tháng";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,7 +146,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.cboThang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThang.ForeColor = System.Drawing.Color.Black;
             this.cboThang.FormattingEnabled = true;
-            this.cboThang.Location = new System.Drawing.Point(262, 53);
+            this.cboThang.Location = new System.Drawing.Point(262, 48);
             this.cboThang.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
             this.cboThang.Name = "cboThang";
             this.cboThang.Size = new System.Drawing.Size(238, 33);
@@ -159,10 +159,10 @@ namespace QLCongNo.View.UC.HoaDon
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(770, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 14, 5, 5);
+            this.label1.Location = new System.Drawing.Point(770, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 8, 5, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 29);
+            this.label1.Size = new System.Drawing.Size(241, 30);
             this.label1.TabIndex = 20;
             this.label1.Text = "Quận";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,10 +174,10 @@ namespace QLCongNo.View.UC.HoaDon
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(1024, 14);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 14, 5, 5);
+            this.label2.Location = new System.Drawing.Point(1024, 8);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 8, 5, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(244, 29);
+            this.label2.Size = new System.Drawing.Size(244, 30);
             this.label2.TabIndex = 21;
             this.label2.Text = "Phường";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -189,7 +189,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.cboPhuong.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPhuong.ForeColor = System.Drawing.Color.Black;
             this.cboPhuong.FormattingEnabled = true;
-            this.cboPhuong.Location = new System.Drawing.Point(1024, 53);
+            this.cboPhuong.Location = new System.Drawing.Point(1024, 48);
             this.cboPhuong.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
             this.cboPhuong.Name = "cboPhuong";
             this.cboPhuong.Size = new System.Drawing.Size(241, 33);
@@ -202,7 +202,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.cboTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTT.ForeColor = System.Drawing.Color.Black;
             this.cboTT.FormattingEnabled = true;
-            this.cboTT.Location = new System.Drawing.Point(516, 53);
+            this.cboTT.Location = new System.Drawing.Point(516, 48);
             this.cboTT.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
             this.cboTT.Name = "cboTT";
             this.cboTT.Size = new System.Drawing.Size(238, 33);
@@ -215,7 +215,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.cboQuan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboQuan.ForeColor = System.Drawing.Color.Black;
             this.cboQuan.FormattingEnabled = true;
-            this.cboQuan.Location = new System.Drawing.Point(770, 53);
+            this.cboQuan.Location = new System.Drawing.Point(770, 48);
             this.cboQuan.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
             this.cboQuan.Name = "cboQuan";
             this.cboQuan.Size = new System.Drawing.Size(238, 33);
@@ -228,7 +228,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.cboNam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNam.ForeColor = System.Drawing.Color.Black;
             this.cboNam.FormattingEnabled = true;
-            this.cboNam.Location = new System.Drawing.Point(8, 53);
+            this.cboNam.Location = new System.Drawing.Point(8, 48);
             this.cboNam.Margin = new System.Windows.Forms.Padding(8, 5, 8, 14);
             this.cboNam.Name = "cboNam";
             this.cboNam.Size = new System.Drawing.Size(238, 33);
@@ -241,10 +241,10 @@ namespace QLCongNo.View.UC.HoaDon
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(8, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 14, 5, 5);
+            this.label3.Location = new System.Drawing.Point(8, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 8, 5, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(241, 29);
+            this.label3.Size = new System.Drawing.Size(241, 30);
             this.label3.TabIndex = 29;
             this.label3.Text = "Năm";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -255,10 +255,10 @@ namespace QLCongNo.View.UC.HoaDon
             this.chktrangthai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chktrangthai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chktrangthai.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chktrangthai.Location = new System.Drawing.Point(516, 14);
-            this.chktrangthai.Margin = new System.Windows.Forms.Padding(8, 14, 5, 5);
+            this.chktrangthai.Location = new System.Drawing.Point(516, 8);
+            this.chktrangthai.Margin = new System.Windows.Forms.Padding(8, 8, 5, 5);
             this.chktrangthai.Name = "chktrangthai";
-            this.chktrangthai.Size = new System.Drawing.Size(241, 29);
+            this.chktrangthai.Size = new System.Drawing.Size(241, 30);
             this.chktrangthai.TabIndex = 25;
             this.chktrangthai.Text = "Trạng thái";
             this.chktrangthai.UseVisualStyleBackColor = true;
@@ -271,7 +271,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.txtTim.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTim.ForeColor = System.Drawing.Color.Black;
-            this.txtTim.Location = new System.Drawing.Point(262, 98);
+            this.txtTim.Location = new System.Drawing.Point(262, 102);
             this.txtTim.Margin = new System.Windows.Forms.Padding(8, 8, 8, 14);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(1003, 32);
@@ -285,12 +285,12 @@ namespace QLCongNo.View.UC.HoaDon
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(0, 98);
+            this.label6.Location = new System.Drawing.Point(0, 102);
             this.label6.Margin = new System.Windows.Forms.Padding(0, 8, 8, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(246, 26);
+            this.label6.Size = new System.Drawing.Size(246, 29);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Tìm kiếm theo mã danh bộ";
+            this.label6.Text = "Tìm mã danh bộ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dataGridView1
@@ -338,7 +338,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 188);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 195);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -350,7 +350,7 @@ namespace QLCongNo.View.UC.HoaDon
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1297, 407);
+            this.dataGridView1.Size = new System.Drawing.Size(1297, 400);
             this.dataGridView1.TabIndex = 27;
             // 
             // STTColumn

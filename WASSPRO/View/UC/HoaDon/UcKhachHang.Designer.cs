@@ -61,15 +61,6 @@
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.panel1 = new QLCongNo.View.Core.NovPanel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.lblsoluong = new QLCongNo.View.Core.NovToolStripLabel();
-            this.toolStrip2 = new QLCongNo.View.Core.NovToolStrip();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.chkNV = new QLCongNo.View.Core.NovPanel();
-            this.PnlHeader = new QLCongNo.View.Core.NovPanel();
-            this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
-            this.seachButton = new QLCongNo.View.Core.NovToolStripButton();
-            this.excelButton = new QLCongNo.View.Core.NovToolStripButton();
-            this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.trangthaiColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ngaycapnhat = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.nguoitaoColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -85,6 +76,15 @@
             this.phuongColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.quanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ID_KHColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.lblsoluong = new QLCongNo.View.Core.NovToolStripLabel();
+            this.toolStrip2 = new QLCongNo.View.Core.NovToolStrip();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkNV = new QLCongNo.View.Core.NovPanel();
+            this.PnlHeader = new QLCongNo.View.Core.NovPanel();
+            this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
+            this.seachButton = new QLCongNo.View.Core.NovToolStripButton();
+            this.excelButton = new QLCongNo.View.Core.NovToolStripButton();
+            this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip2.SuspendLayout();
@@ -112,8 +112,8 @@
             this.chkSDT.BackColor = System.Drawing.Color.Transparent;
             this.chkSDT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSDT.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkSDT.Location = new System.Drawing.Point(598, 14);
-            this.chkSDT.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkSDT.Location = new System.Drawing.Point(598, 10);
+            this.chkSDT.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chkSDT.Name = "chkSDT";
             this.chkSDT.Size = new System.Drawing.Size(104, 27);
             this.chkSDT.TabIndex = 6;
@@ -190,8 +190,8 @@
             this.chkPhuong.BackColor = System.Drawing.Color.Transparent;
             this.chkPhuong.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPhuong.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkPhuong.Location = new System.Drawing.Point(927, 14);
-            this.chkPhuong.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkPhuong.Location = new System.Drawing.Point(927, 10);
+            this.chkPhuong.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chkPhuong.Name = "chkPhuong";
             this.chkPhuong.Size = new System.Drawing.Size(92, 27);
             this.chkPhuong.TabIndex = 9;
@@ -204,8 +204,8 @@
             this.chkQuan.BackColor = System.Drawing.Color.Transparent;
             this.chkQuan.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkQuan.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkQuan.Location = new System.Drawing.Point(727, 14);
-            this.chkQuan.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkQuan.Location = new System.Drawing.Point(727, 10);
+            this.chkQuan.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chkQuan.Name = "chkQuan";
             this.chkQuan.Size = new System.Drawing.Size(74, 27);
             this.chkQuan.TabIndex = 7;
@@ -218,8 +218,8 @@
             this.chkNgay.BackColor = System.Drawing.Color.Transparent;
             this.chkNgay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNgay.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNgay.Location = new System.Drawing.Point(12, 14);
-            this.chkNgay.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkNgay.Location = new System.Drawing.Point(12, 10);
+            this.chkNgay.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chkNgay.Name = "chkNgay";
             this.chkNgay.Size = new System.Drawing.Size(93, 27);
             this.chkNgay.TabIndex = 0;
@@ -232,8 +232,8 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(216, 14);
-            this.label2.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label2.Location = new System.Drawing.Point(216, 10);
+            this.label2.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 23);
             this.label2.TabIndex = 2;
@@ -245,8 +245,8 @@
             this.chktrangthai.BackColor = System.Drawing.Color.Transparent;
             this.chktrangthai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chktrangthai.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chktrangthai.Location = new System.Drawing.Point(443, 14);
-            this.chktrangthai.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chktrangthai.Location = new System.Drawing.Point(443, 10);
+            this.chktrangthai.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chktrangthai.Name = "chktrangthai";
             this.chktrangthai.Size = new System.Drawing.Size(109, 27);
             this.chktrangthai.TabIndex = 4;
@@ -259,12 +259,12 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(1130, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label6.Location = new System.Drawing.Point(1130, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 23);
+            this.label6.Size = new System.Drawing.Size(136, 23);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Tìm kiếm theo mã danh bộ";
+            this.label6.Text = "Tìm mã danh bộ";
             // 
             // panel1
             // 
@@ -346,153 +346,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1367, 379);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.BackColor = System.Drawing.Color.White;
-            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsoluong.ForeColor = System.Drawing.Color.Blue;
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(0, 22);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.toolStrip2.BorderColor = System.Drawing.Color.Empty;
-            this.toolStrip2.BorderThickness = 0;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.IsMainMenu = true;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblsoluong});
-            this.toolStrip2.Location = new System.Drawing.Point(5, 486);
-            this.toolStrip2.MenuItemHeight = 26;
-            this.toolStrip2.MenuItemTextColor = System.Drawing.Color.White;
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip2.Size = new System.Drawing.Size(1145, 25);
-            this.toolStrip2.TabIndex = 26;
-            this.toolStrip2.Text = "toolStrip2";
-            this.toolStrip2.Visible = false;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 7;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.95947F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.65438F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.34856F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.506264F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.6647F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.88578F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.3493F));
-            this.tableLayoutPanel1.Controls.Add(this.label6, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtTim, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboPhuong, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkPhuong, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chkNgay, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chkSDT, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkQuan, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboTT, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chktrangthai, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboQuan, 4, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 11);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.42268F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.57732F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1371, 97);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // chkNV
-            // 
-            this.chkNV.BackColor = System.Drawing.Color.Transparent;
-            this.chkNV.Controls.Add(this.tableLayoutPanel1);
-            this.chkNV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.chkNV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkNV.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNV.Location = new System.Drawing.Point(5, 55);
-            this.chkNV.Name = "chkNV";
-            this.chkNV.Size = new System.Drawing.Size(1401, 121);
-            this.chkNV.TabIndex = 1;
-            // 
-            // PnlHeader
-            // 
-            this.PnlHeader.BackColor = System.Drawing.Color.White;
-            this.PnlHeader.Controls.Add(this.toolStrip1);
-            this.PnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlHeader.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PnlHeader.ForeColor = System.Drawing.Color.MediumBlue;
-            this.PnlHeader.Location = new System.Drawing.Point(5, 0);
-            this.PnlHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PnlHeader.Name = "PnlHeader";
-            this.PnlHeader.Size = new System.Drawing.Size(1401, 55);
-            this.PnlHeader.TabIndex = 29;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.BorderColor = System.Drawing.Color.Empty;
-            this.toolStrip1.BorderThickness = 0;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
-            this.toolStrip1.IsMainMenu = true;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seachButton,
-            this.excelButton,
-            this.quitButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.MenuItemHeight = 26;
-            this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip1.Size = new System.Drawing.Size(1401, 39);
-            this.toolStrip1.TabIndex = 29;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // seachButton
-            // 
-            this.seachButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seachButton.Image = global::QLCongNo.Properties.Resources.lay_danh_sach;
-            this.seachButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.seachButton.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.seachButton.Name = "seachButton";
-            this.seachButton.Padding = new System.Windows.Forms.Padding(5);
-            this.seachButton.Size = new System.Drawing.Size(170, 39);
-            this.seachButton.Text = "Lấy danh sách";
-            // 
-            // excelButton
-            // 
-            this.excelButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.excelButton.Image = global::QLCongNo.Properties.Resources.excel2019;
-            this.excelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.excelButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.excelButton.Name = "excelButton";
-            this.excelButton.Padding = new System.Windows.Forms.Padding(5);
-            this.excelButton.Size = new System.Drawing.Size(137, 39);
-            this.excelButton.Text = "Xuất Excel";
-            // 
-            // quitButton
-            // 
-            this.quitButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitButton.Image = global::QLCongNo.Properties.Resources.thoat;
-            this.quitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.quitButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.quitButton.Name = "quitButton";
-            this.quitButton.Padding = new System.Windows.Forms.Padding(5);
-            this.quitButton.Size = new System.Drawing.Size(99, 39);
-            this.quitButton.Text = "Thoát";
-            this.quitButton.Visible = false;
             // 
             // trangthaiColumn
             // 
@@ -684,6 +537,153 @@
             this.ID_KHColumn.ReadOnly = true;
             this.ID_KHColumn.Visible = false;
             this.ID_KHColumn.Width = 84;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.BackColor = System.Drawing.Color.White;
+            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsoluong.ForeColor = System.Drawing.Color.Blue;
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(0, 22);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolStrip2.BorderColor = System.Drawing.Color.Empty;
+            this.toolStrip2.BorderThickness = 0;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.IsMainMenu = true;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblsoluong});
+            this.toolStrip2.Location = new System.Drawing.Point(5, 486);
+            this.toolStrip2.MenuItemHeight = 26;
+            this.toolStrip2.MenuItemTextColor = System.Drawing.Color.White;
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.toolStrip2.Size = new System.Drawing.Size(1145, 25);
+            this.toolStrip2.TabIndex = 26;
+            this.toolStrip2.Text = "toolStrip2";
+            this.toolStrip2.Visible = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.95947F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.65438F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.34856F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.506264F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.6647F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.88578F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.3493F));
+            this.tableLayoutPanel1.Controls.Add(this.label6, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtTim, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboPhuong, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkPhuong, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chkNgay, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chkSDT, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkQuan, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboTT, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chktrangthai, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboQuan, 4, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 11);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.42268F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.57732F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1371, 97);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // chkNV
+            // 
+            this.chkNV.BackColor = System.Drawing.Color.Transparent;
+            this.chkNV.Controls.Add(this.tableLayoutPanel1);
+            this.chkNV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chkNV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNV.ForeColor = System.Drawing.Color.MediumBlue;
+            this.chkNV.Location = new System.Drawing.Point(5, 55);
+            this.chkNV.Name = "chkNV";
+            this.chkNV.Size = new System.Drawing.Size(1401, 121);
+            this.chkNV.TabIndex = 1;
+            // 
+            // PnlHeader
+            // 
+            this.PnlHeader.BackColor = System.Drawing.Color.White;
+            this.PnlHeader.Controls.Add(this.toolStrip1);
+            this.PnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlHeader.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PnlHeader.ForeColor = System.Drawing.Color.MediumBlue;
+            this.PnlHeader.Location = new System.Drawing.Point(5, 0);
+            this.PnlHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PnlHeader.Name = "PnlHeader";
+            this.PnlHeader.Size = new System.Drawing.Size(1401, 55);
+            this.PnlHeader.TabIndex = 29;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.BorderColor = System.Drawing.Color.Empty;
+            this.toolStrip1.BorderThickness = 0;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
+            this.toolStrip1.IsMainMenu = true;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.seachButton,
+            this.excelButton,
+            this.quitButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.MenuItemHeight = 26;
+            this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.toolStrip1.Size = new System.Drawing.Size(1401, 39);
+            this.toolStrip1.TabIndex = 29;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // seachButton
+            // 
+            this.seachButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seachButton.Image = global::QLCongNo.Properties.Resources.lay_danh_sach;
+            this.seachButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.seachButton.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.seachButton.Name = "seachButton";
+            this.seachButton.Padding = new System.Windows.Forms.Padding(5);
+            this.seachButton.Size = new System.Drawing.Size(170, 39);
+            this.seachButton.Text = "Lấy danh sách";
+            // 
+            // excelButton
+            // 
+            this.excelButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.excelButton.Image = global::QLCongNo.Properties.Resources.excel2019;
+            this.excelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.excelButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.excelButton.Name = "excelButton";
+            this.excelButton.Padding = new System.Windows.Forms.Padding(5);
+            this.excelButton.Size = new System.Drawing.Size(137, 39);
+            this.excelButton.Text = "Xuất Excel";
+            // 
+            // quitButton
+            // 
+            this.quitButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Image = global::QLCongNo.Properties.Resources.thoat;
+            this.quitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.quitButton.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Padding = new System.Windows.Forms.Padding(5);
+            this.quitButton.Size = new System.Drawing.Size(99, 39);
+            this.quitButton.Text = "Thoát";
+            this.quitButton.Visible = false;
             // 
             // UcKhachHang
             // 

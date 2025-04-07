@@ -166,13 +166,18 @@ namespace QLCongNo.View.UC.HoaDon
                 {
                     string SOHD = decimal.Parse(txtSoHD.Text).ToString("0000000");
                     var hoadon = db.HOADONs.Where(x => x.SO_HD == SOHD && x.MAU_HD == cboMauSo.Text && x.KY_HIEU_HD == cboKyHieu.Text && x.trangthai_id != 0).FirstOrDefault();
-                    if (hoadon is null)
+                    
+                    if (hoadon != null)
                     {
-                        MessageBox.Show("Không tìm thấy số hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    };
-                    var data = db.getDSHoaDon_KH(hoadon.ID_KH).Where(x => x.ID_HD == hoadon.ID_HD).ToList();
-                    dataGridView1.DataSource = data.ToList();
+                        var data = db.getDSHoaDon_KH(hoadon.ID_KH).Where(x => x.ID_HD == hoadon.ID_HD).ToList();
+                        dataGridView1.DataSource = data.ToList();
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy thông tin hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        dataGridView1.DataSource = null;
+                    }
                 }
                 else
                 {
@@ -191,16 +196,9 @@ namespace QLCongNo.View.UC.HoaDon
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoGenerateColumns = false;
 
-            //cboMauSo.DropDownStyle = ComboBoxStyle.DropDownList;
-            //cboMauSo.DataSource = db.MAU_HD.OrderBy(x => x.ky_hieu_HD).ToList();
-            //cboMauSo.ValueMember = "mau_HD1";
-            //// dm ky hieu
-            //cboKyHieu.DropDownStyle = ComboBoxStyle.DropDownList;
-            //string[] kyghieu = { "TD/19E", "TD/20E", "TD/21E" };
-            //cboKyHieu.DataSource = kyghieu;
-
             // dm mau HD
             List<MAU_HD> dsMau = new List<MAU_HD>();
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/004", ky_hieu_HD = "K25TTD" });
             dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
             dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
             dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });

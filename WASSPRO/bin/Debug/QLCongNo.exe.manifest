@@ -704,14 +704,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLCongNo.exe" size="17286656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLCongNo.exe" size="17287680">
       <assemblyIdentity name="QLCongNo" version="1.0.0.133" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VV0gWsxtx9mLbEcW6Q56+wvcGhHZe1atICR2jIVFvdk=</dsig:DigestValue>
+        <dsig:DigestValue>VyaDfCjlZoAPTDMkzLm9AGvuCsuG2Mo1LdrhUFH58LQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -754,22 +754,22 @@
       <dsig:DigestValue>R7wfM9zO9e+3DBF2OzoY4IYfCRjJ9BuGtRs3yL7thJE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="QLCongNo.exe.config" size="7049">
+  <file name="QLCongNo.exe.config" size="8470">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>fuYrPaRHvPVaC8g1maCsxroMTXWfur+bMeaI2g6FjbA=</dsig:DigestValue>
+      <dsig:DigestValue>MeK/o69rB+5kZZcXdYIfohTMm+zs7vlQVkjVI1n0GDw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="QLCongNo.pdb" size="9586176">
+  <file name="QLCongNo.pdb" size="9588224">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>v5oBLQx1I8zIOlG6f6zzdd7Wufnp10sS2Enkkq4QyaU=</dsig:DigestValue>
+      <dsig:DigestValue>Mfqd2jrAp5kAYwUpIPCcFZrCEhNsFJh52T1xDv5VDUk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Images\app.ico" size="16958">

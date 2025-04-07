@@ -390,12 +390,30 @@ namespace QLCongNo.View.UC.HoaDon
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoGenerateColumns = false;
-            // dm mau so, ky hieu hoa don
-            var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
-            cboMauHD.DataSource = dataMauHD.ToList();
+            //// dm mau so, ky hieu hoa don
+            //var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
+            //cboMauHD.DataSource = dataMauHD.ToList();
+            //cboMauHD.ValueMember = "mau_HD1";
+            //cboKH.DataSource = dataMauHD.ToList();
+            //cboKH.ValueMember = "ky_hieu_HD";
+
+            // dm mau HD
+            List<MAU_HD> dsMau = new List<MAU_HD>();
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
+            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
+            cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboMauHD.DataSource = dsMau;
             cboMauHD.ValueMember = "mau_HD1";
-            cboKH.DataSource = dataMauHD.ToList();
+            // dm ky hieu
+            cboKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboKH.DataSource = dsMau;
             cboKH.ValueMember = "ky_hieu_HD";
+            cboKH.DisplayMember = "ky_hieu_HD";
+
             cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
             for (int i = 1; i <= 12; i++)

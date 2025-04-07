@@ -179,8 +179,8 @@ namespace QLCongNo.View.UC.HoaDon
 
         void btnUpdate_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 getSumInvoice();
                 var yeucauDC = db.YEUCAU_DIEUCHINH.Where(x => x.QD_ID == QDID).FirstOrDefault();
                 var hoadon = db.HOADONs.Where(x => x.ID_HD == yeucauDC.IDHD).FirstOrDefault();
@@ -264,19 +264,8 @@ namespace QLCongNo.View.UC.HoaDon
                 yeucauDC.m3PT = m3;
                 db.SaveChanges();
                 MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //catch
-            //{
-
-            //}
-        }
-
-        private void Textbox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.IsInputKey = true; // Ngăn chặn nhảy focus
             }
+            catch { }
         }
 
         void txttongcong_DC_KeyDown(object sender, KeyEventArgs e)
@@ -327,6 +316,7 @@ namespace QLCongNo.View.UC.HoaDon
         {
             if (txtm3DC.Text != "")
             {
+                Console.WriteLine(e.KeyCode);
                 if (e.KeyCode == Keys.Enter)
                 {
                     getSumInvoice();
@@ -335,8 +325,7 @@ namespace QLCongNo.View.UC.HoaDon
         }
         public void getSumInvoice()
         {
-            try
-            {
+            try {
                 if (cboDC.Text == "Điều chỉnh giảm")
                 {
                     // m3
@@ -397,11 +386,11 @@ namespace QLCongNo.View.UC.HoaDon
                     decimal tienBVMTDC = decimal.Parse(txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtBVMT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
                     tienBVMTPT = tienBVMTDB + tienBVMTDC;
                     // phi xu ly nuoc thai
-                    decimal phiNT = decimal.Parse(txtPhiNT.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal phiNT = decimal.Parse(txtPhiNT.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtPhiNT.Text.Trim().Replace(",", "").Replace(".", ""));
                     decimal phiNTTDC = decimal.Parse(txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtPhiNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
                     phiNTPT = phiNT + phiNTTDC;
                     // thue 15% phi xu ly nuoc thai
-                    decimal thueNT = decimal.Parse(txtThueNT.Text.Trim().Replace(",", "").Replace(".", ""));
+                    decimal thueNT = decimal.Parse(txtThueNT.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtThueNT.Text.Trim().Replace(",", "").Replace(".", ""));
                     decimal thueNTDC = decimal.Parse(txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", "") == "" ? "0" : txtThueNT_DC.Text.Trim().Replace(",", "").Replace(".", ""));
                     thuePhiNTPT = thueNT + thueNTDC;
                     // tong tien
@@ -419,8 +408,8 @@ namespace QLCongNo.View.UC.HoaDon
                     txttongcong_DC.Text = string.Format("{0:n0}", tongtienDC);
                     txtBangchu.Text = db.getSotienbangchu(tongtienPT).FirstOrDefault().ToString();
                 }
-            }
-            catch { }
+
+            } catch { }
         }
 
         private void frCapNhatQĐieuChinh_Load(object sender, EventArgs e)

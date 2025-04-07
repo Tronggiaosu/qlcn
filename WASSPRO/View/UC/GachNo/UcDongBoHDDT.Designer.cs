@@ -208,12 +208,12 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label6, 2);
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(957, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label6.Location = new System.Drawing.Point(957, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 23);
+            this.label6.Size = new System.Drawing.Size(136, 23);
             this.label6.TabIndex = 38;
-            this.label6.Text = "Tìm kiếm theo mã danh bộ";
+            this.label6.Text = "Tìm mã danh bộ";
             // 
             // label8
             // 
@@ -221,8 +221,8 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label8.Location = new System.Drawing.Point(12, 14);
-            this.label8.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label8.Location = new System.Drawing.Point(12, 10);
+            this.label8.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 23);
             this.label8.TabIndex = 48;
@@ -256,8 +256,8 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label9.Location = new System.Drawing.Point(274, 14);
-            this.label9.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label9.Location = new System.Drawing.Point(274, 10);
+            this.label9.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 23);
             this.label9.TabIndex = 46;
@@ -269,10 +269,10 @@
             this.chktrangthai.BackColor = System.Drawing.Color.Transparent;
             this.chktrangthai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chktrangthai.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chktrangthai.Location = new System.Drawing.Point(537, 14);
-            this.chktrangthai.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chktrangthai.Location = new System.Drawing.Point(537, 10);
+            this.chktrangthai.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chktrangthai.Name = "chktrangthai";
-            this.chktrangthai.Size = new System.Drawing.Size(109, 24);
+            this.chktrangthai.Size = new System.Drawing.Size(109, 27);
             this.chktrangthai.TabIndex = 37;
             this.chktrangthai.Text = "Trạng thái";
             this.chktrangthai.UseVisualStyleBackColor = true;
@@ -309,10 +309,10 @@
             this.chkmaDT.BackColor = System.Drawing.Color.Transparent;
             this.chkmaDT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkmaDT.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkmaDT.Location = new System.Drawing.Point(747, 14);
-            this.chkmaDT.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkmaDT.Location = new System.Drawing.Point(747, 10);
+            this.chkmaDT.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.chkmaDT.Name = "chkmaDT";
-            this.chkmaDT.Size = new System.Drawing.Size(109, 24);
+            this.chkmaDT.Size = new System.Drawing.Size(109, 27);
             this.chkmaDT.TabIndex = 51;
             this.chkmaDT.Text = "Đối tượng";
             this.chkmaDT.UseVisualStyleBackColor = true;
@@ -320,6 +320,7 @@
             // txtTim
             // 
             this.txtTim.BackColor = System.Drawing.Color.White;
+            this.txtTim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tableLayoutPanel1.SetColumnSpan(this.txtTim, 2);
             this.txtTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTim.ForeColor = System.Drawing.Color.Black;
@@ -385,7 +386,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1289, 329);
+            this.dataGridView1.Size = new System.Drawing.Size(1289, 366);
             this.dataGridView1.TabIndex = 29;
             // 
             // chkColum
@@ -485,9 +486,9 @@
             // 
             this.panel1.Controls.Add(this.lblsoluong);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 530);
+            this.panel1.Location = new System.Drawing.Point(0, 550);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1327, 60);
+            this.panel1.Size = new System.Drawing.Size(1327, 40);
             this.panel1.TabIndex = 30;
             // 
             // lblsoluong

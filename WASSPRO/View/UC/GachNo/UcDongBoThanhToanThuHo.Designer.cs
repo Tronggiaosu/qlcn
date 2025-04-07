@@ -199,9 +199,9 @@
             this.label6.Location = new System.Drawing.Point(340, 14);
             this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 23);
+            this.label6.Size = new System.Drawing.Size(136, 23);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Tìm kiếm theo mã danh bộ";
+            this.label6.Text = "Tìm mã danh bộ";
             // 
             // label8
             // 
