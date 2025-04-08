@@ -1389,15 +1389,6 @@ namespace QLCongNo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSGuiSMS_Result>("getDSGuiSMS", trangthaiParameter, tungayParameter, denngayParameter, tudotParameter, dendotParameter);
         }
     
-        public virtual ObjectResult<getDSHoaDon_KH_Result> getDSHoaDon_KH(Nullable<decimal> iDKH)
-        {
-            var iDKHParameter = iDKH.HasValue ?
-                new ObjectParameter("IDKH", iDKH) :
-                new ObjectParameter("IDKH", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSHoaDon_KH_Result>("getDSHoaDon_KH", iDKHParameter);
-        }
-    
         public virtual ObjectResult<getDSHoaDonChuaChiaTNV_Result> getDSHoaDonChuaChiaTNV(Nullable<int> nam, string kyHD, Nullable<int> dotID, Nullable<int> tOID, Nullable<decimal> nVID)
         {
             var namParameter = nam.HasValue ?
@@ -3767,6 +3758,15 @@ namespace QLCongNo
                 new ObjectParameter("IDCT", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("XuLyDangNganbyIDCT", iDCTParameter);
+        }
+    
+        public virtual ObjectResult<getDSHoaDon_KH_Result> getDSHoaDon_KH(Nullable<decimal> iDKH)
+        {
+            var iDKHParameter = iDKH.HasValue ?
+                new ObjectParameter("IDKH", iDKH) :
+                new ObjectParameter("IDKH", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSHoaDon_KH_Result>("getDSHoaDon_KH", iDKHParameter);
         }
     }
 }

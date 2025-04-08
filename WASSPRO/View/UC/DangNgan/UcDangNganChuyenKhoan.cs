@@ -12,8 +12,9 @@ namespace QLCongNo.View.UC.DangNgan
     public partial class UcDangNganChuyenKhoan : View.Core.NovUserControl
     {
         private CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
-        public string _maloai;
+        public string maloai;
         private DataTable table;
+        private static string _staticMaloai;
 
         public UcDangNganChuyenKhoan()
         {
@@ -34,9 +35,10 @@ namespace QLCongNo.View.UC.DangNgan
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
 
-        public UcDangNganChuyenKhoan(string maloai) : this()
+        public UcDangNganChuyenKhoan(string maloai) 
         {
-            this._maloai = maloai;
+            this.maloai = maloai;
+            _staticMaloai = maloai;
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -110,9 +112,9 @@ namespace QLCongNo.View.UC.DangNgan
             int TOID = -1;
             if (Common.ChucvuID != 1 && Common.ChucvuID != 4)
                 NVLap = 0;
-            if (_maloai == "TT")
+            if (_staticMaloai == "TT")
                 TOID = int.Parse(cboTO.SelectedValue.ToString());
-            var dataSource = db.getDangNganTheoNgayEX(NHID, 0, tungay, denngay, _maloai, "0", isdangngan, NVLap, TOID).ToList();
+            var dataSource = db.getDangNganTheoNgayEX(NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
             if (textBox1.Text != "")
                 dataSource = dataSource.Where(x => x.timkiem.Contains(textBox1.Text.ToUpper().Replace(" ", String.Empty))).ToList();
             SaveFileDialog save = new SaveFileDialog();
@@ -199,9 +201,9 @@ namespace QLCongNo.View.UC.DangNgan
                 decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
                 decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
                 int TOID = -1;
-                if (_maloai == "TT")
+                if (_staticMaloai == "TT")
                     TOID = int.Parse(cboTO.SelectedValue.ToString());
-                var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _maloai, "", false, NVLap, TOID);
+                var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "", false, NVLap, TOID);
                 btnTim.PerformClick();
                 MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -243,7 +245,7 @@ namespace QLCongNo.View.UC.DangNgan
                 if (Common.ChucvuID != 1 && Common.ChucvuID != 4)
                     NVLap = 0;
                 int TOID = -1;
-                if (_maloai == "TT")
+                if (_staticMaloai == "TT")
                     TOID = int.Parse(cboTO.SelectedValue.ToString());
                 var frm = new UcTongHopDangNgan
                 {
@@ -251,7 +253,7 @@ namespace QLCongNo.View.UC.DangNgan
                     denngay = denngay,
                     NVID = NHID,
                     NVLap = NVLap,
-                    maloai = _maloai,
+                    maloai = _staticMaloai,
                     TOID = TOID,
                 };
                 new FrmDialog().ShowDialog(frm);
@@ -343,11 +345,11 @@ namespace QLCongNo.View.UC.DangNgan
                             decimal IDHD = decimal.Parse(dataGridView1[IDHDColumn.Name, r.Index].Value.ToString());
                             var chungtuHD = db.CHUNGTU_HOADON.Where(x => x.ID_HD == IDHD).FirstOrDefault();
                             int NVThu = int.Parse(chungtuHD.NVID_CREATE.ToString());
-                            if (_maloai == "TT" && chungtuHD != null)
+                            if (_staticMaloai == "TT" && chungtuHD != null)
                             {
                                 HuyThanhToanVNPTAPP(chungtuHD.ID_KH, chungtuHD.ID_CT).ToString();
                             }
-                            else if (chungtuHD != null && _maloai != "TT")
+                            else if (chungtuHD != null && _staticMaloai != "TT")
                             {
                                 var dsChungtu = db.CHUNGTU_HOADON.Where(x => x.GHICHU == chungtuHD.GHICHU && x.ID_CT == chungtuHD.ID_CT).ToList();
                                 var gachno = db.GACHNOes.Where(x => x.ID_HD == IDHD && x.PRODUCTS != null).ToList();
@@ -465,7 +467,7 @@ namespace QLCongNo.View.UC.DangNgan
             var dsChungtuHD = db.CHUNGTU_HOADON.Where(x => x.ID_KH == IDKH && x.ID_CT == IDCT).ToList();
             if (dsChungtuHD.Count > 0)
             {
-                if (_maloai == "TT")
+                if (_staticMaloai == "TT")
                 {
                     foreach (var item in dsChungtuHD)
                     {
@@ -473,7 +475,7 @@ namespace QLCongNo.View.UC.DangNgan
                     }
                     MessageBox.Show("Hủy đăng ngân thành công, vui lòng vào đăng ngân của nhân viên để hủy thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (_maloai == "KH")
+                else if (_staticMaloai == "KH")
                 {
                 }
             }
@@ -497,9 +499,9 @@ namespace QLCongNo.View.UC.DangNgan
             int TOID = -1;
             if (Common.ChucvuID != 1 && Common.ChucvuID != 4)
                 NVLap = 0;
-            if (_maloai == "TT")
+            if (_staticMaloai == "TT")
                 TOID = int.Parse(cboTO.SelectedValue.ToString());
-            var dataSource = db.getDangNganTheoNgay(NHID, 0, tungay.ToString("yyyy-MM-dd"), denngay.ToString("yyyy-MM-dd"), _maloai, "0", isdangngan, NVLap, TOID).ToList();
+            var dataSource = db.getDangNganTheoNgay(NHID, 0, tungay.ToString("yyyy-MM-dd"), denngay.ToString("yyyy-MM-dd"), _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
             if (textBox1.Text != "")
                 dataSource = dataSource.Where(x => x.timkiem.Contains(textBox1.Text.ToUpper().Replace(" ", String.Empty))).ToList();
             table = ExcelExportHelper.ListToDataTable(dataSource);
@@ -540,7 +542,7 @@ namespace QLCongNo.View.UC.DangNgan
             btnDN.Enabled = false;
             chkHuyTT.Visible = Common.isxoa;
             dataGridView1.Columns[ngayBKColumn.Name].Visible = true;
-            if (_maloai == "KH" || _maloai == "TC" || _maloai == "GT")
+            if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
                 label1.Text = "Nhân viên thu";
                 List<NHANVIEN> dsNhanvien = new List<NHANVIEN>();
@@ -558,7 +560,7 @@ namespace QLCongNo.View.UC.DangNgan
                 chkIn.Visible = true;
                 dataGridView1.Columns[ngayBKColumn.Name].Visible = false;
             }
-            else if (_maloai == "TT")
+            else if (_staticMaloai == "TT")
             {
                 label1.Text = "Nhân viên thu";
                 decimal? TOID = Common.TOID;

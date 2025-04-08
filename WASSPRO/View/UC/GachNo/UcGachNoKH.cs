@@ -7,13 +7,13 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using QLCongNo.View.UC.ReportViewer.BaoCao;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace QLCongNo.View.UC.GachNo
 {
     public partial class UcGachNoKH : View.Core.NovUserControl
     {
         private CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
-        private List<getDanhSachKhachHang_Result> dataHoaDon = new List<getDanhSachKhachHang_Result>();
         private int TotalPage = 0;
         private int CurrentPageIndex = 1;
         private int PgSize = 100;
@@ -21,13 +21,15 @@ namespace QLCongNo.View.UC.GachNo
         public int _trangthai;
         private decimal IDKH;
 
-        public UcGachNoKH(string maloai, long trangthai) : this()
+        private static string _staticMaloai;
+
+        public UcGachNoKH(string maloai, long trangthai)
         {
             this._maloai = maloai;
+            _staticMaloai = maloai;
             this._trangthai = (int)trangthai;
         }
-
-        public UcGachNoKH(string maloai) : this()
+        public UcGachNoKH(string maloai)
         {
             this._maloai = maloai;
         }
@@ -94,7 +96,7 @@ namespace QLCongNo.View.UC.GachNo
                     {
                         this.Cursor = Cursors.WaitCursor;
                         decimal IDHD = decimal.Parse(dgvHoadon.Rows[e.RowIndex].Cells[ID_HDColumn2.Name].Value.ToString());
-                        if (e.ColumnIndex == 11)
+                        if (e.ColumnIndex == 12)
                         {
                             Portal.PortalService portal = new Portal.PortalService();
                             var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
@@ -197,13 +199,13 @@ namespace QLCongNo.View.UC.GachNo
 
         private void dgvHoadon_SelectionChanged(object sender, EventArgs e)
         {
-            txttong_HD.Text = string.Format("{0:n0}", dgvHoadon.SelectedRows.Count);
-            decimal tongtienthu = 0;
-            for (int i = 0; i < dgvHoadon.SelectedRows.Count; i++)
-            {
-                tongtienthu += decimal.Parse(dgvHoadon.SelectedRows[i].Cells[tongtien_dgv2.Name].Value.ToString());
-            }
-            txtTongthu.Text = string.Format("{0:n0}", tongtienthu);
+            //txttong_HD.Text = string.Format("{0:n0}", dgvHoadon.SelectedRows.Count);
+            //decimal tongtienthu = 0;
+            //for (int i = 0; i < dgvHoadon.SelectedRows.Count; i++)
+            //{
+            //    tongtienthu += decimal.Parse(dgvHoadon.SelectedRows[i].Cells[tongtien_dgv2.Name].Value.ToString());
+            //}
+            //txtTongthu.Text = string.Format("{0:n0}", tongtienthu);
         }
 
         private void dgvKhachhang_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -213,97 +215,14 @@ namespace QLCongNo.View.UC.GachNo
                 if (dgvKhachhang.RowCount > 0)
                 {
                     IDKH = decimal.Parse(dgvKhachhang[IDKHColumn.Name, e.RowIndex].Value.ToString());
-                    var dsHoadon = (from a in db.HOADONs
-                                    join ky in db.DM_KYGHI on a.kyghi equals ky.ID_kyghi
-                                    join pb in db.PublishedInvoices on a.ID_HD equals pb.IDHD into pbJoin
-                                    from pb in pbJoin.DefaultIfEmpty()
-                                    join kh in db.KHACHHANGs on a.ID_KH equals kh.ID_KH into khJoin
-                                    from kh in khJoin.DefaultIfEmpty()
-                                    join tt in db.DM_TRANGTHAI_KH on kh.trangthai equals tt.maTT into ttJoin
-                                    from tt in ttJoin.DefaultIfEmpty()
-                                    join c in db.GACHNOes on a.ID_HD equals c.ID_HD into cJoin
-                                    from c in cJoin.DefaultIfEmpty()
-                                    join nh in db.DM_NGANHANG on c.NV_ID_NOP equals nh.NGANHANG_ID into nhJoin
-                                    from nh in nhJoin.DefaultIfEmpty()
-                                    join nvtq in db.NHANVIENs on c.USER_CREATE equals nvtq.NV_ID into nvJoin
-                                    from nvtq in nvJoin.DefaultIfEmpty()
-                                    join dn in db.DANGNGANs on a.ID_HD equals dn.ID_HD into dnJoin
-                                    from dn in dnJoin.DefaultIfEmpty()
-                                    join cthd in db.CHUNGTU_HOADON on a.ID_HD equals cthd.ID_HD into cthdJoin
-                                    from cthd in cthdJoin.DefaultIfEmpty()
-                                    join ct in db.CHUNGTUs on cthd.ID_CT equals ct.ID_CT into ctJoin
-                                    from ct in ctJoin.DefaultIfEmpty()
-                                    where a.ID_KH == IDKH && a.trangthai_id != 0 && a.trangthai_id != 9 && a.IsInHD == true
-                                    orderby ky.ngaytao descending
-                                    select new HoaDonDTO
-                                    {
-                                        ID_HD = a.ID_HD,
-                                        hoten = a.hoten,
-                                        kyghi = ky.ten_kyghi,
-                                        nam = a.nam,
-                                        ID_KH = a.ID_KH,
-                                        DOT_ID = a.DOT_ID,
-                                        thanhtoan = (pb.GACH_NO == "0" || pb.GACH_NO == null) ? "Chưa thu" : "Đã thu",
-                                        hotenNV = (pb.GACH_NO != "0" && pb.GACH_NO != null)
-                                            ? (pb.NVThu ?? (c.ID_HD != null && (nh.LOAI != null || c.MALOAI == "CK")
-                                                ? nh.TENNGANHANG
-                                                : (c.MALOAI == "KH" || c.MALOAI == "TC" || c.MALOAI == "GT"
-                                                    ? nvtq.hoten
-                                                    : null)))
-                                            : null,
-                                        SO_HD = a.SO_HD,
-                                        KY_HIEU_HD = a.KY_HIEU_HD,
-                                        tentrangthai = db.DM_TRANGTHAIHOADON.FirstOrDefault(tthd => tthd.trangthai_id == a.trangthai_id).Trangthai,
-                                        chitiet = "Chi tiết",
-                                        ngaythanhtoan = (pb.GACH_NO != "0" && pb.GACH_NO != null)
-                                            ? (pb.Ngaythutienapp ?? c.NGAYTHANHTOAN ?? a.ngaythanhtoan)
-                                            : null,
-                                        tongtien = a.tongtien,
-                                        trangthai_id = a.trangthai_id,
-                                        seri = a.KY_HIEU_HD + " " + a.SO_HD,
-                                        MaLT = a.MaLT,
-                                        ghichu = (pb.GACH_NO != "0" && pb.GACH_NO != null) ? (ct.GHICHU) : null,
-                                        trangthaiKH = ((pb.GACH_NO == "0" || pb.GACH_NO == null) && a.trangthai_id != 2) ? tt.tenTT : "",
-                                        dieuchinh = a.ghichu,
-                                        ngaytao = ky.ngaytao,
-                                        NgaycapnhatKH = a.NgaycapnhatKH,
-                                        ngayBK = (pb.GACH_NO != "0" && pb.GACH_NO != null)
-                                            ? (ct.NGAYLAP < new DateTime(2019, 12, 19)
-                                                ? (c.ID_HD != null && c.PRODUCTS != null
-                                                    ? c.NGAYTHANHTOAN
-                                                    : ct.NGAYCT)
-                                                : ct.NGAYCT)
-                                            : null,
-                                        NGAYDANGNGAN_NV = (pb.GACH_NO != "0" && pb.GACH_NO != null && dn.IsDangNgan == true)
-                                            ? dn.NGAYDANGNGAN_NV
-                                            : null,
-                                        NVID_CREATE_HOTEN = (pb.GACH_NO != "0" && pb.GACH_NO != null) ? nvtq.hoten : null,
-                                        maloai = (pb.GACH_NO != "0" && pb.GACH_NO != null)
-                                            ? (c.MALOAI == "Ngân hàng" || c.MALOAI == "CK"
-                                                ? "Chuyển khoản"
-                                                : (c.MALOAI == "Pay Service"
-                                                    ? "Thu hộ"
-                                                    : "Tại quầy"))
-                                            : null,
-                                    }).ToList();
-
-                    foreach (var item in dsHoadon)
-                    {
-                        item.ngaythanhtoanFormatted = item.ngaythanhtoan?.ToString("dd/MM/yyyy");
-                        item.ngayBKFormatted = item.ngayBK?.ToString("dd/MM/yyyy");
-                        item.NGAYDANGNGAN_NVFormatted = item.NGAYDANGNGAN_NV?.ToString("dd/MM/yyyy");
-                    }
-
-                    lbltongno.Text = "Tổng số tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Select(x => x.tongtien).Sum());
-                    lbltongsokyno.Text = "Tổng số kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Count().ToString();
-
+                    var dsHoadon = db.getDSHoaDon_KH(IDKH).ToList();
+                    MessageBox.Show(dsHoadon[0].TenNganHang);
+                    lbltongno.Text = "Tổng tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Select(x => x.tongtien).Sum());
+                    lbltongsokyno.Text = "Tổng kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Count().ToString();
                     if (dsHoadon.Count() > 0)
-                    {
                         dgvHoadon.DataSource = dsHoadon.ToList();
-                    }      
                     else
                         dgvHoadon.DataSource = null;
-
                     for (int i = 0; i < dgvHoadon.RowCount; i++)
                     {
                         if (dgvHoadon.Rows[i].Cells[trangthaiColumn.Name].Value.ToString() == "Đã thu" || dgvHoadon.Rows[i].Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy")
@@ -312,18 +231,16 @@ namespace QLCongNo.View.UC.GachNo
                             dgvHoadon.Rows[i].Cells[checksColumn.Name].Value = false;
                         }
                     }
-
                     btnConfirm.Text = "Lấy dữ liệu";
                     chkAll.Checked = false;
                 }
                 else
-                {
                     dgvHoadon.DataSource = null;
-                }
+
             }
             catch
             {
-                // Handle exceptions if necessary
+                //}
             }
         }
 
@@ -343,108 +260,6 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //if (dgvHoadon.RowCount > 0)
-            //{
-            //    if (btnConfirm.Text == "Lấy dữ liệu")
-            //    {
-            //        decimal? tongtienthu = 0;
-            //        int tongso = 0;
-            //        foreach (DataGridViewRow r in dgvHoadon.Rows)
-            //        {
-            //            if (r.Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
-            //            {
-            //                DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[checksColumn.Name];
-            //                var thu = checks.Value;
-            //                if (Convert.ToBoolean(thu) == true)
-            //                {
-            //                    var IDHD = decimal.Parse(dgvHoadon[ID_HDColumn2.Name, r.Index].Value.ToString());
-            //                    var hoadon = db.PublishedInvoices.Where(x => x.IDHD == IDHD).FirstOrDefault();
-            //                    if (hoadon != null)
-            //                    {
-            //                        tongtienthu += hoadon.TONGCONG;
-            //                        tongso += 1;
-            //                    }
-            //                }
-            //            }
-            //            txtTongthu.Text = string.Format("{0:n0}", tongtienthu);
-            //            txttong_HD.Text = tongso.ToString();
-            //            if (tongso > 0)
-            //                btnConfirm.Text = "Xác nhận thanh toán";
-            //        }
-            //    }
-            //    else if (btnConfirm.Text == "Xác nhận thanh toán" && txttong_HD.Text != "0")
-            //    {
-            //        try
-            //        {
-            //            DialogResult rs = MessageBox.Show("Có xác nhận thanh toán hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            //            if (rs == DialogResult.OK)
-            //            {
-            //                this.Cursor = Cursors.WaitCursor;
-            //                var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-
-            //                foreach(DataGridViewRow row in dgvHoadon.Rows)
-            //                {
-            //                    DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)row.Cells[checksColumn.Name];
-            //                    var thu = checks.Value;
-            //                    if (Convert.ToBoolean(thu) == true)
-            //                    {
-            //                        decimal IDHD = decimal.Parse(dgvHoadon[ID_HDColumn2.Name, row.Index].Value.ToString());
-            //                        var record = db.HOADON_KHODOI.FirstOrDefault(hdkd => hdkd.ID_HD == IDHD && hdkd.TRANGTHAI == false);
-            //                        if (record != null)
-            //                        {
-            //                            record.TRANGTHAI = true;
-            //                            record.NGUOITHANHTOAN = NVLap.NHANVIEN.hoten;
-            //                            record.NGAYTHANHTOAN = DateTime.Now;
-            //                            record.NGUOIXOANO = (int)NVLap.nv_id;
-            //                            record.NGAYXOANO = DateTime.Now;
-            //                        }
-
-            //                        var publishedInvoice = db.PublishedInvoices.FirstOrDefault(pub => pub.IDHD == IDHD);
-            //                        if(publishedInvoice != null)
-            //                        {
-            //                            publishedInvoice.GACH_NO = "1";
-            //                        }
-
-            //                        var hoaDon = db.HOADONs.FirstOrDefault(hd => hd.ID_HD == IDHD);
-            //                        if(hoaDon != null)
-            //                        {
-            //                            hoaDon.trangthai_id = 10;
-            //                            hoaDon.trangthaiKH = 12;
-            //                        }    
-            //                    }    
-            //                }
-
-            //                db.SaveChanges();
-
-            //                txtghichu.Text = "";
-            //                txtTongthu.Text = "0";
-            //                txttong_HD.Text = "0";
-            //                MessageBox.Show("Xác nhận thanh toán thành công!");
-            //                this.Cursor = Cursors.Default;
-
-            //                //reload lại danh sách hoá đơn của khách hàng đó
-            //                if (dgvKhachhang.SelectedRows.Count > 0)
-            //                {
-            //                    int rowIndex = dgvKhachhang.SelectedRows[0].Index;
-            //                    var eRowEvent = new DataGridViewCellEventArgs(0, rowIndex);
-            //                    dgvKhachhang_RowEnter(sender, eRowEvent);
-            //                }
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            this.Cursor = Cursors.Default;
-            //            Exception innerEx = ex.InnerException;
-            //            while (innerEx != null)
-            //            {
-            //                MessageBox.Show($"Inner Exception: {innerEx.Message}");
-            //                innerEx = innerEx.InnerException;
-            //            }
-            //            MessageBox.Show($"Error: {ex.Message}");
-            //        }
-            //    }
-            //}
-
             if (dgvHoadon.RowCount > 0)
             {
                 if (btnConfirm.Text == "Lấy dữ liệu")
@@ -492,12 +307,12 @@ namespace QLCongNo.View.UC.GachNo
                             CHUNGTU chungtu = new CHUNGTU();
                             chungtu.ID_KYGHI = kyghi.ID_kyghi;
                             chungtu.NAM_ID = kyghi.nam;
-                            chungtu.MALOAI = _maloai;
+                            chungtu.MALOAI = _staticMaloai;
                             chungtu.NGAYLAP = DateTime.Now;
                             chungtu.NGAYCT = dtpNgaythu.Value;
                             chungtu.NV_ID_LAP = NVLap.nv_id;
                             chungtu.NV_ID_NOP = IDKH;
-                            if (_maloai == "CK")
+                            if (_staticMaloai == "CK")
                                 chungtu.NV_ID_NOP = NganHangID;
                             chungtu.GHICHU = txtghichu.Text;
                             chungtu.TRANGTHAI = false;
@@ -506,7 +321,7 @@ namespace QLCongNo.View.UC.GachNo
                             db.CHUNGTUs.Add(chungtu);
                             db.SaveChanges();
                             // add gach no
-                            string tennganhang = _maloai == "CK" ? cboNganhang.Text : "";
+                            string tennganhang = _staticMaloai == "CK" ? cboNganhang.Text : "";
                             List<GACHNO> dsGachno = new List<GACHNO>();
                             List<CHUNGTU_HOADON> DSchungtuHD = new List<CHUNGTU_HOADON>();
                             foreach (DataGridViewRow r in dgvHoadon.Rows)
@@ -525,7 +340,7 @@ namespace QLCongNo.View.UC.GachNo
                                         madanhbo = hoadon.DANHBO;
                                         tongtienCT += hoadon.tongtien;
                                         decimal? IDNV = hoadon.ID_KH;
-                                        if (_maloai == "CK")
+                                        if (_staticMaloai == "CK")
                                             IDNV = NganHangID;
                                         // add ds gach no
 
@@ -536,7 +351,7 @@ namespace QLCongNo.View.UC.GachNo
                                             DOT_ID = hoadon.DOT_ID,
                                             ID_KYGHI = hoadon.kyghi,
                                             KYHIEU = hoadon.KY_HIEU_HD,
-                                            MALOAI = _maloai,
+                                            MALOAI = _staticMaloai,
                                             MALT = hoadon.MaLT,
                                             MAUSO = hoadon.MAU_HD,
                                             NGAYTHANHTOAN = dtpNgaythu.Value,
@@ -589,14 +404,14 @@ namespace QLCongNo.View.UC.GachNo
                             db.CHUNGTU_HOADON.AddRange(DSchungtuHD);
                             db.SaveChanges();
                             var chungtuGachNo = db.CHUNGTUs.Where(x => x.ID_CT == chungtu.ID_CT).FirstOrDefault();
-                            chungtuGachNo.NV_ID_NOP = _maloai == "KH" ? IDKH : NganHangID;
+                            chungtuGachNo.NV_ID_NOP = _staticMaloai == "KH" ? IDKH : NganHangID;
                             chungtuGachNo.TONGTIEN = tongtienCT;
                             db.SaveChanges();
                             var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.ID_KH).Distinct().ToList();
                             string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
                             ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
                             string LOAI = "TAIQUAY";
-                            if (_maloai == "CK")
+                            if (_staticMaloai == "CK")
                                 LOAI = "CHUYENKHOAN";
                             int NVIDLap = int.Parse(NVLap.nv_id.ToString());
                             foreach (var item in chungtuGN)
@@ -607,14 +422,14 @@ namespace QLCongNo.View.UC.GachNo
                                 db.SaveChanges();
                             }
                             db.UpdateThanhToan(chungtu.ID_CT);
-                            if (_maloai != "KD")
+                            if (_staticMaloai != "KD")
                                 db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
                             dgvHoadon.DataSource = null;
                             txtghichu.Text = "";
                             txtTongthu.Text = "0";
                             txttong_HD.Text = "0";
                             MessageBox.Show("Xác nhận thanh toán thành công!");
-                            if (_maloai != "CK")
+                            if (_staticMaloai != "CK")
                             {
                                 UcPhieuThuKH uc = new UcPhieuThuKH();
                                 uc.pIDCT = chungtu.ID_CT;
@@ -635,40 +450,45 @@ namespace QLCongNo.View.UC.GachNo
         private void btnTim_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-
-            string quan = cboQuan.SelectedValue != null && cboQuan.SelectedValue.ToString() != "Tất cả"
-                          ? cboQuan.SelectedValue.ToString() : "";
-            string phuong = cboPhuong.SelectedValue != null && cboPhuong.SelectedValue.ToString() != "Tất cả"
-                            ? cboPhuong.SelectedValue.ToString() : "";
-            string doituong = cboDoiTuong.SelectedValue != null && cboDoiTuong.SelectedValue.ToString() != "Tất cả"
-                              ? cboDoiTuong.SelectedValue.ToString() : "";
-            string search = txtTim.Text.Trim();
-
-            var khachhang = db.getDanhSachKhachHang(2, phuong, quan, doituong, (search.Replace(" ", String.Empty)).ToUpper())
-                              .Distinct()
-                              .ToList();  
-
-            if (quan != "0")
+            if (txtTim.Text != "")
             {
-                khachhang = khachhang.Where(x => x.maquan == quan).ToList();
+                string maQuan = cboQuan.SelectedValue.ToString();
+                string maPhuong = cboPhuong.SelectedValue.ToString();
+                string maDT = cboDoiTuong.SelectedValue.ToString();
+                string tenQuan = "";
+                string tenPhuong = "";
+                string strSearch = txtTim.Text;
+
+                if (cboQuan.SelectedItem is DM_QUAN selectedQuan)
+                {
+                    tenQuan = selectedQuan.tenQuan;
+                }
+                if (cboPhuong.SelectedItem is DM_PHUONG selectedPhuong)
+                {
+                    tenPhuong = selectedPhuong.tenPhuong;
+                }
+                
+                var khachhang = db.getDanhSachKhachHang(2, maQuan, maPhuong, maDT, (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
+
+                if (tenQuan != "Tất cả")
+                {
+                    khachhang = khachhang.Where(x => x.tenQuan == tenQuan).ToList();
+                }
+
+                if (tenPhuong != "Tất cả")
+                {
+                    khachhang = khachhang.Where(x => x.tenPhuong == tenPhuong).ToList();
+                }
+                if (khachhang.Count() > 0)
+                {
+                    dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+                dgvKhachhang.DataSource = khachhang.ToList();
+                if (khachhang.Count() == 0)
+                    dgvHoadon.DataSource = null;
             }
-
-            if (phuong != "0")
-            {
-                khachhang = khachhang.Where(x => x.maphuong == phuong).ToList();
-            }
-
-            if (doituong != "0")
-            {
-                khachhang = khachhang.Where(x => x.maDT == doituong).ToList();
-            }
-
-            if(khachhang.Count > 0)
-            {
-                dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }    
-             dgvKhachhang.DataSource = khachhang.ToList();
-
+            else
+                MessageBox.Show("Chưa nhập thông tin tìm kiếm!");
             this.Cursor = Cursors.Default;
         }
 
@@ -691,6 +511,8 @@ namespace QLCongNo.View.UC.GachNo
 
         private void frGachNoKH_Load(object sender, EventArgs e)
         {
+            txttong_HD.Text = "0";
+            txtTongthu.Text = "0";
             dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // dm doi tuong
             cboDoiTuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -736,7 +558,7 @@ namespace QLCongNo.View.UC.GachNo
             cboNganhang.DisplayMember = "TENNGANHANG";
             lblnganhang.Enabled = false;
             cboNganhang.Enabled = false;
-            if (_maloai == "CK")
+            if (_staticMaloai == "CK")
             {
                 lblnganhang.Enabled = true;
                 cboNganhang.Enabled = true;
@@ -752,7 +574,7 @@ namespace QLCongNo.View.UC.GachNo
             string filtered = Regex.Replace(maxid, "[A-Za-z]", "");
             long id = Convert.ToInt32(filtered);
             id = id + 1;
-            string strid = id.ToString("00000") + _maloai;
+            string strid = id.ToString("00000") + _staticMaloai;
             return strid;
         }
 

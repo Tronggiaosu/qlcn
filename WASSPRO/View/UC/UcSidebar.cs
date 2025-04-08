@@ -150,27 +150,46 @@ namespace QLCongNo.View.UC
                 {
                     string namespaceName = typeof(UcSidebar).Namespace;
                     string controlName = $"{namespaceName}.{itemInfo.Action}";
+                    //MessageBox.Show(controlName);
                     object[] constructorArgs = Array.Empty<object>();
-                    if (!string.IsNullOrEmpty(itemInfo.AdditionParam))
+                    if(controlName == "QLCongNo.View.UC.GachNo.UcGachNoKH")
                     {
-                        // JSON string containing the parameters
-                        string json = "{\"maloai\":\"TC\",\"trangthai\":6}";
+                        if (!string.IsNullOrEmpty(itemInfo.AdditionParam))
+                        {
+                            // JSON string containing the parameters
+                            //string json = "{\"maloai\":\"TC\",\"trangthai\":6}";
 
-                        // Deserialize the JSON into a dictionary
-                        Dictionary<string, object> parameters = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                            // Deserialize the JSON into a dictionary
+                            //Dictionary<string, object> parameters = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                            Dictionary<string, object> parameters = JsonConvert.DeserializeObject<Dictionary<string, object>>(itemInfo.AdditionParam);
 
-                        // Convert the values of the dictionary into an object array for CreateInstance
-                        object[] constructorArgs2 = new object[parameters.Values.Count];
-                        parameters.Values.CopyTo(constructorArgs2, 0);
+                            // Convert the values of the dictionary into an object array for CreateInstance
+                            object[] constructorArgs2 = new object[parameters.Values.Count];
+                            parameters.Values.CopyTo(constructorArgs2, 0);
 
-                        // Get the type of the class
-                        Type type = typeof(UcGachNoKH);
+                            // Get the type of the class
+                            Type type = typeof(UcGachNoKH);
 
-                        // Create an instance of the class, passing the parameters as an array
-                        object instance = Activator.CreateInstance(type, constructorArgs2);
-                    }
+                            // Create an instance of the class, passing the parameters as an array
+                            object instance = Activator.CreateInstance(type, constructorArgs2);
+                        }
+                        ShowForm(controlName, menuItem.Text, constructorArgs);
+                    }    
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(itemInfo.AdditionParam))
+                        {
+                            Dictionary<string, object> parameters = JsonConvert.DeserializeObject<Dictionary<string, object>>(itemInfo.AdditionParam);
 
-                    ShowForm(controlName, menuItem.Text, constructorArgs);
+                            object[] constructorArgs2 = new object[parameters.Values.Count];
+                            parameters.Values.CopyTo(constructorArgs2, 0);
+
+                            Type type = typeof(UcDangNganChuyenKhoan);
+
+                            object instance = Activator.CreateInstance(type, constructorArgs2);
+                        }
+                        ShowForm(controlName, menuItem.Text, constructorArgs);
+                    }    
                 }
             }
         }

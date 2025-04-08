@@ -158,9 +158,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             dgvDSKhachHangNo.DataSource = dataList;
             for (int i = 0; i < dgvDSKhachHangNo.RowCount; i++)
                 dgvDSKhachHangNo.Rows[i].Cells[STTColumn.Name].Value = i + 1;
-            lblsoluong.Text = "Số lượng khách hàng: "
-                + string.Format("{0:n0}", dataList.Count)
-                + " | Số lượng hóa đơn: " + string.Format("{0:n0}", dataList.Sum(x => x.soluong))
+            lblsoluong.Text = "Số lượng khách hàng: " + string.Format("{0:n0}", dataList.Count()) + "  |  Số lượng hóa đơn: " + string.Format("{0:n0}", dataList.Sum(x => x.soluong))
                 + "  |  Tổng tiền: " + string.Format("{0:n0}", dataList.Sum(x => x.tongtien));
 
             this.Cursor = Cursors.Default;
