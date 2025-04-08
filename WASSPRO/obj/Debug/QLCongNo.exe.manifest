@@ -68,14 +68,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EnvDTE.dll" size="245760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EnvDTE.dll" size="256040">
       <assemblyIdentity name="EnvDTE" version="8.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>K4GhDEQZtOdWhnb/BpHVACzUI/yCLpdoIA8+h6N/hrY=</dsig:DigestValue>
+        <dsig:DigestValue>7qdNwiKU3ZoMZr3UU2ddTiqmLVpQj3lQNUqUO2d6/cQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -112,18 +112,6 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>Oz5UFoLkjz/Shy+FoGJ42i8+eHfulW2om5DXMqHqoL0=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.MSXML.dll" size="69632">
-      <assemblyIdentity name="Microsoft.MSXML" version="8.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>c0WLR6MzKxF4UQzynPn4aQsIizhL2oZ0MILRErCP0ec=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -704,26 +692,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLCongNo.exe" size="17282560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLCongNo.exe" size="17249280">
       <assemblyIdentity name="QLCongNo" version="1.0.0.133" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BFe882ERuQ/ZaRnt5RAYy1xVbFGijk7MEsQMvfnviu4=</dsig:DigestValue>
+        <dsig:DigestValue>W7CtGSq6P8qxgp9Hd6ItkbmS6sxaoji1hQVbx0dVdUI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="stdole.dll" size="25592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="stdole.dll" size="16384">
       <assemblyIdentity name="stdole" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ijj0G0vkNssmmpH6rOlSVh8hpqkLH8j+cLfEyQNUE0I=</dsig:DigestValue>
+        <dsig:DigestValue>1s35YcbScS/hlYgV5Rowlg15//Hpd4i3dBYn26ly6Pc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -763,13 +751,13 @@
       <dsig:DigestValue>fuYrPaRHvPVaC8g1maCsxroMTXWfur+bMeaI2g6FjbA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="QLCongNo.pdb" size="9577984">
+  <file name="QLCongNo.pdb" size="9596416">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>7LrhyjRF7hArc4JXTJs519L23cP4Dvdvv9wVvJ51d6w=</dsig:DigestValue>
+      <dsig:DigestValue>CXvCk7VfIE8yYXeTBZNYIokPmQioexiFirhETP/bUB8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Images\app.ico" size="16958">

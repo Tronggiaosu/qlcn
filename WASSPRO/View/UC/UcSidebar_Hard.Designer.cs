@@ -95,7 +95,7 @@
             this.iconButton40 = new FontAwesome.Sharp.IconButton();
             this.iconButton41 = new FontAwesome.Sharp.IconButton();
             this.iconButton42 = new FontAwesome.Sharp.IconButton();
-            this.iconButton43 = new FontAwesome.Sharp.IconButton();
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem = new FontAwesome.Sharp.IconButton();
             this.iconButton44 = new FontAwesome.Sharp.IconButton();
             this.iconButton45 = new FontAwesome.Sharp.IconButton();
             this.iconButton46 = new FontAwesome.Sharp.IconButton();
@@ -1282,7 +1282,7 @@
             this.PnlQuanLyNo.Controls.Add(this.iconButton40);
             this.PnlQuanLyNo.Controls.Add(this.iconButton41);
             this.PnlQuanLyNo.Controls.Add(this.iconButton42);
-            this.PnlQuanLyNo.Controls.Add(this.iconButton43);
+            this.PnlQuanLyNo.Controls.Add(this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem);
             this.PnlQuanLyNo.Controls.Add(this.iconButton44);
             this.PnlQuanLyNo.Controls.Add(this.iconButton45);
             this.PnlQuanLyNo.Controls.Add(this.iconButton46);
@@ -1571,30 +1571,31 @@
             this.iconButton42.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton42.UseVisualStyleBackColor = false;
             // 
-            // iconButton43
+            // tổngHợpĐăngNgânTheoNgàyToolStripMenuItem
             // 
-            this.iconButton43.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton43.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton43.FlatAppearance.BorderSize = 0;
-            this.iconButton43.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(119)))), ((int)(((byte)(235)))));
-            this.iconButton43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton43.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton43.ForeColor = System.Drawing.Color.White;
-            this.iconButton43.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton43.IconColor = System.Drawing.Color.White;
-            this.iconButton43.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton43.IconSize = 16;
-            this.iconButton43.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton43.Location = new System.Drawing.Point(0, 500);
-            this.iconButton43.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton43.Name = "iconButton43";
-            this.iconButton43.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.iconButton43.Size = new System.Drawing.Size(540, 50);
-            this.iconButton43.TabIndex = 13;
-            this.iconButton43.Text = "Tổng hợp đăng ngân thu tại quầy";
-            this.iconButton43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton43.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton43.UseVisualStyleBackColor = false;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.FlatAppearance.BorderSize = 0;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(119)))), ((int)(((byte)(235)))));
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.IconColor = System.Drawing.Color.White;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.IconSize = 16;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Location = new System.Drawing.Point(0, 500);
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0);
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Name = "tổngHợpĐăngNgânTheoNgàyToolStripMenuItem";
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Size = new System.Drawing.Size(540, 50);
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.TabIndex = 13;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Text = "Tổng hợp đăng ngân thu tại quầy";
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.UseVisualStyleBackColor = false;
+            this.tổngHợpĐăngNgânTheoNgàyToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // iconButton44
             // 
@@ -2291,7 +2292,7 @@
         private FontAwesome.Sharp.IconButton iconButton40;
         private FontAwesome.Sharp.IconButton iconButton41;
         private FontAwesome.Sharp.IconButton iconButton42;
-        private FontAwesome.Sharp.IconButton iconButton43;
+        private FontAwesome.Sharp.IconButton tổngHợpĐăngNgânTheoNgàyToolStripMenuItem;
         private FontAwesome.Sharp.IconButton iconButton44;
         private FontAwesome.Sharp.IconButton iconButton45;
         private FontAwesome.Sharp.IconButton iconButton46;

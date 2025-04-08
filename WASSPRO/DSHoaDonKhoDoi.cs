@@ -33,8 +33,8 @@ namespace QLCongNo
         public string kyghi { get; set; }
         public Nullable<int> nam { get; set; }
         public Nullable<System.DateTime> ngaythanhtoan { get; set; }
-        //public Nullable<decimal> NV_ID_THU { get; set; }
-        //public Nullable<decimal> nganhang_id { get; set; }
+        public Nullable<decimal> NV_ID_THU { get; set; }
+        public Nullable<decimal> nganhang_id { get; set; }
         public decimal ID_HD { get; set; }
         public string hotenNV { get; set; }
         public string MGB { get; set; }

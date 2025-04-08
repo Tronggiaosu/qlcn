@@ -547,9 +547,9 @@
             this.label3.Location = new System.Drawing.Point(8, 108);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 23);
+            this.label3.Size = new System.Drawing.Size(136, 23);
             this.label3.TabIndex = 136;
-            this.label3.Text = "Tìm theo Mã Danh Bộ";
+            this.label3.Text = "Tìm mã danh bộ";
             // 
             // label1
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcQLHoaDonKhoDoi));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,12 +45,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcQLHoaDonKhoDoi));
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnConfirm = new QLCongNo.View.Core.NovToolStripButton();
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
+            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.chkNgaychuyen = new QLCongNo.View.Core.NovCheckBox();
             this.label5 = new QLCongNo.View.Core.NovLabel();
@@ -81,14 +82,13 @@
             this.lbltongno = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.chkAll = new QLCongNo.View.Core.NovCheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -169,6 +169,20 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // ptbSendSMS
+            // 
+            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
+            this.ptbSendSMS.Location = new System.Drawing.Point(1317, 40);
+            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
+            this.ptbSendSMS.Name = "ptbSendSMS";
+            this.ptbSendSMS.Size = new System.Drawing.Size(55, 53);
+            this.ptbSendSMS.TabIndex = 26;
+            this.ptbSendSMS.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -206,9 +220,9 @@
             this.label5.Location = new System.Drawing.Point(15, 30);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(204, 23);
+            this.label5.Size = new System.Drawing.Size(164, 23);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Tra cứu theo mã danh bộ";
+            this.label5.Text = "Tra cứu mã danh bộ";
             // 
             // txtghichu
             // 
@@ -593,20 +607,6 @@
             this.panel1.Size = new System.Drawing.Size(1389, 26);
             this.panel1.TabIndex = 3;
             // 
-            // ptbSendSMS
-            // 
-            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
-            this.ptbSendSMS.Location = new System.Drawing.Point(1317, 40);
-            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
-            this.ptbSendSMS.Name = "ptbSendSMS";
-            this.ptbSendSMS.Size = new System.Drawing.Size(55, 53);
-            this.ptbSendSMS.TabIndex = 26;
-            this.ptbSendSMS.TabStop = false;
-            // 
             // UcQLHoaDonKhoDoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -624,6 +624,7 @@
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -631,7 +632,6 @@
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

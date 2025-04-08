@@ -225,9 +225,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 26);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.22951F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.06557F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.88525F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.2459F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.78688F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.78688F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1290, 122);
             this.tableLayoutPanel1.TabIndex = 4;
@@ -238,10 +238,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 4);
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(222, 81);
+            this.textBox1.Location = new System.Drawing.Point(222, 86);
             this.textBox1.Margin = new System.Windows.Forms.Padding(7, 5, 12, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1069, 40);
+            this.textBox1.Size = new System.Drawing.Size(855, 32);
             this.textBox1.TabIndex = 12;
             this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
             // 
@@ -253,7 +253,7 @@
             this.chkHTT.ForeColor = System.Drawing.Color.MediumBlue;
             this.chkHTT.Location = new System.Drawing.Point(875, 3);
             this.chkHTT.Name = "chkHTT";
-            this.chkHTT.Size = new System.Drawing.Size(138, 26);
+            this.chkHTT.Size = new System.Drawing.Size(138, 27);
             this.chkHTT.TabIndex = 8;
             this.chkHTT.Text = "Hình thức thu";
             this.chkHTT.UseVisualStyleBackColor = true;
@@ -266,7 +266,7 @@
             this.cboHTTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHTTT.ForeColor = System.Drawing.Color.Black;
             this.cboHTTT.FormattingEnabled = true;
-            this.cboHTTT.Location = new System.Drawing.Point(875, 37);
+            this.cboHTTT.Location = new System.Drawing.Point(875, 47);
             this.cboHTTT.Margin = new System.Windows.Forms.Padding(3, 5, 12, 14);
             this.cboHTTT.Name = "cboHTTT";
             this.cboHTTT.Size = new System.Drawing.Size(202, 33);
@@ -280,7 +280,7 @@
             this.chkisdangngan.ForeColor = System.Drawing.Color.MediumBlue;
             this.chkisdangngan.Location = new System.Drawing.Point(1092, 3);
             this.chkisdangngan.Name = "chkisdangngan";
-            this.chkisdangngan.Size = new System.Drawing.Size(141, 26);
+            this.chkisdangngan.Size = new System.Drawing.Size(141, 27);
             this.chkisdangngan.TabIndex = 10;
             this.chkisdangngan.Text = "Đã đăng ngân";
             this.chkisdangngan.UseVisualStyleBackColor = true;
@@ -291,7 +291,7 @@
             this.dtpTungay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpTungay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTungay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTungay.Location = new System.Drawing.Point(9, 37);
+            this.dtpTungay.Location = new System.Drawing.Point(9, 47);
             this.dtpTungay.Margin = new System.Windows.Forms.Padding(9, 5, 12, 14);
             this.dtpTungay.Name = "dtpTungay";
             this.dtpTungay.Size = new System.Drawing.Size(194, 30);
@@ -305,7 +305,7 @@
             this.chkTN.ForeColor = System.Drawing.Color.MediumBlue;
             this.chkTN.Location = new System.Drawing.Point(452, 3);
             this.chkTN.Name = "chkTN";
-            this.chkTN.Size = new System.Drawing.Size(105, 26);
+            this.chkTN.Size = new System.Drawing.Size(105, 27);
             this.chkTN.TabIndex = 4;
             this.chkTN.Text = "Thu ngân";
             this.chkTN.UseVisualStyleBackColor = true;
@@ -318,7 +318,7 @@
             this.cboThuNgan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThuNgan.ForeColor = System.Drawing.Color.Black;
             this.cboThuNgan.FormattingEnabled = true;
-            this.cboThuNgan.Location = new System.Drawing.Point(452, 37);
+            this.cboThuNgan.Location = new System.Drawing.Point(452, 47);
             this.cboThuNgan.Margin = new System.Windows.Forms.Padding(3, 5, 12, 14);
             this.cboThuNgan.Name = "cboThuNgan";
             this.cboThuNgan.Size = new System.Drawing.Size(193, 33);
@@ -332,7 +332,7 @@
             this.chkNH.ForeColor = System.Drawing.Color.MediumBlue;
             this.chkNH.Location = new System.Drawing.Point(660, 3);
             this.chkNH.Name = "chkNH";
-            this.chkNH.Size = new System.Drawing.Size(118, 26);
+            this.chkNH.Size = new System.Drawing.Size(118, 27);
             this.chkNH.TabIndex = 6;
             this.chkNH.Text = "Ngân hàng";
             this.chkNH.UseVisualStyleBackColor = true;
@@ -343,7 +343,7 @@
             this.dtpDenngay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDenngay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDenngay.Location = new System.Drawing.Point(222, 37);
+            this.dtpDenngay.Location = new System.Drawing.Point(222, 47);
             this.dtpDenngay.Margin = new System.Windows.Forms.Padding(7, 5, 12, 14);
             this.dtpDenngay.Name = "dtpDenngay";
             this.dtpDenngay.Size = new System.Drawing.Size(215, 30);
@@ -357,7 +357,7 @@
             this.cboNganhang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNganhang.ForeColor = System.Drawing.Color.Black;
             this.cboNganhang.FormattingEnabled = true;
-            this.cboNganhang.Location = new System.Drawing.Point(660, 37);
+            this.cboNganhang.Location = new System.Drawing.Point(660, 47);
             this.cboNganhang.Margin = new System.Windows.Forms.Padding(3, 5, 12, 14);
             this.cboNganhang.Name = "cboNganhang";
             this.cboNganhang.Size = new System.Drawing.Size(200, 33);
@@ -382,10 +382,10 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(39, 76);
+            this.label3.Location = new System.Drawing.Point(39, 81);
             this.label3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 41);
+            this.label3.Size = new System.Drawing.Size(176, 36);
             this.label3.TabIndex = 11;
             this.label3.Text = "Tìm theo mã danh bộ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using QLCongNo.View.UC.DangNgan;
 using QLCongNo.View.UC.GachNo;
 using QLCongNo.View.UC.HoaDon;
 
@@ -250,5 +251,17 @@ namespace QLCongNo.View.UC
         }
 
         #endregion Hoa Don
+
+        private void iconButton43_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tổngHợpĐăngNgânTheoNgàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1");
+            UcDangNganChuyenKhoan frm = new UcDangNganChuyenKhoan();
+            frm.maloai = "KH";
+        }
     }
 }

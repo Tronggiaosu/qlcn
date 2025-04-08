@@ -4740,9 +4740,6 @@
       <Parameter Name="tudot" Mode="In" Type="Int32" />
       <Parameter Name="dendot" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="getDSHoaDon_KH" ReturnType="Collection(Model.getDSHoaDon_KH_Result)">
-      <Parameter Name="IDKH" Mode="In" Type="Decimal" />
-    </FunctionImport>
     <FunctionImport Name="getDSHoaDonChuaChiaTNV" ReturnType="Collection(Model.getDSHoaDonChuaChiaTNV_Result)">
       <Parameter Name="nam" Mode="In" Type="Int32" />
       <Parameter Name="kyHD" Mode="In" Type="String" />
@@ -5438,6 +5435,9 @@
     <EntitySet Name="DM_GIABIEU" EntityType="Model.DM_GIABIEU" />
     <EntitySet Name="GACHNO_TEST" EntityType="Model.GACHNO_TEST" />
     <EntitySet Name="Menus" EntityType="Model.Menu" />
+    <FunctionImport Name="getDSHoaDon_KH" ReturnType="Collection(Model.getDSHoaDon_KH_Result)">
+      <Parameter Name="IDKH" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -6357,6 +6357,10 @@
     <Property Type="DateTime" Name="NgaycapnhatKH" Nullable="true" Precision="23" />
     <Property Type="String" Name="NhanviencapnhatKH" Nullable="true" MaxLength="10" />
     <Property Type="String" Name="trangthaiKHHD" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayBangKe" Nullable="true" />
+    <Property Type="String" Name="NhanVienGiaiTrach" Nullable="true" />
+    <Property Type="String" Name="TenNganHang" Nullable="true" />
+    <Property Type="String" Name="HinhThucThanhToan" Nullable="true" />
   </ComplexType>
   <ComplexType Name="getDSHoaDonChuaChiaTNV_Result">
     <Property Type="String" Name="malt" Nullable="false" MaxLength="100" />

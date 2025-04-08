@@ -42,5 +42,9 @@ namespace QLCongNo
         public Nullable<System.DateTime> NgaycapnhatKH { get; set; }
         public string NhanviencapnhatKH { get; set; }
         public string trangthaiKHHD { get; set; }
+        public Nullable<System.DateTime> NgayBangKe { get; set; }
+        public string NhanVienGiaiTrach { get; set; }
+        public string TenNganHang { get; set; }
+        public string HinhThucThanhToan { get; set; }
     }
 }

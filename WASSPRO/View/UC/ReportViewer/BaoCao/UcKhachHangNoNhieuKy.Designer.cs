@@ -68,8 +68,6 @@
             this.txtTimKiem = new QLCongNo.View.Core.NovTextBox();
             this.chksoky = new QLCongNo.View.Core.NovCheckBox();
             this.novLabel1 = new QLCongNo.View.Core.NovLabel();
-            this.toolStrip2 = new QLCongNo.View.Core.NovToolStrip();
-            this.lblsoluong = new System.Windows.Forms.ToolStripLabel();
             this.dgvDSKhachHangNo = new QLCongNo.View.Core.NovDataGridView();
             this.STTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.SO_HD = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -84,11 +82,15 @@
             this.phuongColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.quanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.hoten = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblsoluong = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachHangNo)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -178,7 +180,7 @@
             // 
             // cboQuan
             // 
-            this.cboQuan.BackColor = System.Drawing.Color.White;
+            this.cboQuan.BackColor = System.Drawing.Color.LemonChiffon;
             this.cboQuan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboQuan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboQuan.ForeColor = System.Drawing.Color.Black;
@@ -429,33 +431,6 @@
             this.novLabel1.TabIndex = 36;
             this.novLabel1.Text = "Quận";
             // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip2.BorderColor = System.Drawing.Color.Empty;
-            this.toolStrip2.BorderThickness = 0;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.IsMainMenu = true;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblsoluong});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 656);
-            this.toolStrip2.MenuItemHeight = 26;
-            this.toolStrip2.MenuItemTextColor = System.Drawing.Color.White;
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip2.Size = new System.Drawing.Size(1359, 25);
-            this.toolStrip2.TabIndex = 27;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(0, 22);
-            // 
             // dgvDSKhachHangNo
             // 
             this.dgvDSKhachHangNo.AllowDrop = true;
@@ -506,7 +481,7 @@
             this.dgvDSKhachHangNo.EnableHeadersVisualStyles = false;
             this.dgvDSKhachHangNo.GridColor = System.Drawing.SystemColors.Control;
             this.dgvDSKhachHangNo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvDSKhachHangNo.Location = new System.Drawing.Point(0, 304);
+            this.dgvDSKhachHangNo.Location = new System.Drawing.Point(0, 0);
             this.dgvDSKhachHangNo.Margin = new System.Windows.Forms.Padding(5);
             this.dgvDSKhachHangNo.Name = "dgvDSKhachHangNo";
             this.dgvDSKhachHangNo.ReadOnly = true;
@@ -518,7 +493,7 @@
             this.dgvDSKhachHangNo.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDSKhachHangNo.RowTemplate.Height = 32;
             this.dgvDSKhachHangNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDSKhachHangNo.Size = new System.Drawing.Size(1359, 352);
+            this.dgvDSKhachHangNo.Size = new System.Drawing.Size(1359, 322);
             this.dgvDSKhachHangNo.TabIndex = 28;
             this.dgvDSKhachHangNo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSKhachHangNo_CellClick);
             // 
@@ -681,12 +656,39 @@
             this.hoten.ReadOnly = true;
             this.hoten.Width = 147;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblsoluong);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 626);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1359, 55);
+            this.panel2.TabIndex = 29;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Location = new System.Drawing.Point(9, 15);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(151, 23);
+            this.lblsoluong.TabIndex = 0;
+            this.lblsoluong.Text = "Số lượng hóa đơn:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvDSKhachHangNo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 304);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1359, 322);
+            this.panel3.TabIndex = 30;
+            // 
             // UcKhachHangNoNhieuKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgvDSKhachHangNo);
-            this.Controls.Add(this.toolStrip2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -698,9 +700,10 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachHangNo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,12 +721,10 @@
         private View.Core.NovLabel label4;
         private View.Core.NovTextBox txtsoky;
         private System.Windows.Forms.Panel panel1;
-        private View.Core.NovToolStrip toolStrip2;
         private View.Core.NovLabel label6;
         private View.Core.NovComboBox  cboDenKy;
         private View.Core.NovComboBox  CboTuKy;
         private View.Core.NovDataGridView dgvDSKhachHangNo;
-        private System.Windows.Forms.ToolStripLabel lblsoluong;
         private View.Core.NovLabel label2;
         private View.Core.NovTextBox txtTimKiem;
         private View.Core.NovCheckBox chksoky;
@@ -748,5 +749,8 @@
         private Core.NovDataGridViewTextBoxColumn phuongColumn;
         private Core.NovDataGridViewTextBoxColumn quanColumn;
         private Core.NovDataGridViewTextBoxColumn hoten;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblsoluong;
     }
 }

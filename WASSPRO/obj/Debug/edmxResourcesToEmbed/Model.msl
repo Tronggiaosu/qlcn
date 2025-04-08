@@ -3958,41 +3958,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="getDSHoaDon_KH" FunctionName="Model.Store.getDSHoaDon_KH">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="Model.getDSHoaDon_KH_Result">
-          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
-          <ScalarProperty Name="hoten" ColumnName="hoten" />
-          <ScalarProperty Name="kyghi" ColumnName="kyghi" />
-          <ScalarProperty Name="nam" ColumnName="nam" />
-          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
-          <ScalarProperty Name="DOT_ID" ColumnName="DOT_ID" />
-          <ScalarProperty Name="quan" ColumnName="quan" />
-          <ScalarProperty Name="phuong" ColumnName="phuong" />
-          <ScalarProperty Name="hotenNV" ColumnName="hotenNV" />
-          <ScalarProperty Name="SO_HD" ColumnName="SO_HD" />
-          <ScalarProperty Name="KY_HIEU_HD" ColumnName="KY_HIEU_HD" />
-          <ScalarProperty Name="tentrangthai" ColumnName="tentrangthai" />
-          <ScalarProperty Name="chitiet" ColumnName="chitiet" />
-          <ScalarProperty Name="chuyendoi" ColumnName="chuyendoi" />
-          <ScalarProperty Name="dongbo" ColumnName="dongbo" />
-          <ScalarProperty Name="thanhtoan" ColumnName="thanhtoan" />
-          <ScalarProperty Name="ngaythanhtoan" ColumnName="ngaythanhtoan" />
-          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
-          <ScalarProperty Name="trangthai_id" ColumnName="trangthai_id" />
-          <ScalarProperty Name="seri" ColumnName="seri" />
-          <ScalarProperty Name="MaLT" ColumnName="MaLT" />
-          <ScalarProperty Name="NGAYDANGNGAN_NV" ColumnName="NGAYDANGNGAN_NV" />
-          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
-          <ScalarProperty Name="trangthaiKH" ColumnName="trangthaiKH" />
-          <ScalarProperty Name="dieuchinh" ColumnName="dieuchinh" />
-          <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
-          <ScalarProperty Name="NgaycapnhatKH" ColumnName="NgaycapnhatKH" />
-          <ScalarProperty Name="NhanviencapnhatKH" ColumnName="NhanviencapnhatKH" />
-          <ScalarProperty Name="trangthaiKHHD" ColumnName="trangthaiKHHD" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="getDSHoaDonChuaChiaTNV" FunctionName="Model.Store.getDSHoaDonChuaChiaTNV">
       <ResultMapping>
         <ComplexTypeMapping TypeName="Model.getDSHoaDonChuaChiaTNV_Result">
@@ -5130,5 +5095,40 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getDSHoaDon_KH" FunctionName="Model.Store.getDSHoaDon_KH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.getDSHoaDon_KH_Result">
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="kyghi" ColumnName="kyghi" />
+          <ScalarProperty Name="nam" ColumnName="nam" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="DOT_ID" ColumnName="DOT_ID" />
+          <ScalarProperty Name="quan" ColumnName="quan" />
+          <ScalarProperty Name="phuong" ColumnName="phuong" />
+          <ScalarProperty Name="hotenNV" ColumnName="hotenNV" />
+          <ScalarProperty Name="SO_HD" ColumnName="SO_HD" />
+          <ScalarProperty Name="KY_HIEU_HD" ColumnName="KY_HIEU_HD" />
+          <ScalarProperty Name="tentrangthai" ColumnName="tentrangthai" />
+          <ScalarProperty Name="chitiet" ColumnName="chitiet" />
+          <ScalarProperty Name="chuyendoi" ColumnName="chuyendoi" />
+          <ScalarProperty Name="dongbo" ColumnName="dongbo" />
+          <ScalarProperty Name="thanhtoan" ColumnName="thanhtoan" />
+          <ScalarProperty Name="ngaythanhtoan" ColumnName="ngaythanhtoan" />
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+          <ScalarProperty Name="trangthai_id" ColumnName="trangthai_id" />
+          <ScalarProperty Name="seri" ColumnName="seri" />
+          <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+          <ScalarProperty Name="NGAYDANGNGAN_NV" ColumnName="NGAYDANGNGAN_NV" />
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="trangthaiKH" ColumnName="trangthaiKH" />
+          <ScalarProperty Name="dieuchinh" ColumnName="dieuchinh" />
+          <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+          <ScalarProperty Name="NgaycapnhatKH" ColumnName="NgaycapnhatKH" />
+          <ScalarProperty Name="NhanviencapnhatKH" ColumnName="NhanviencapnhatKH" />
+          <ScalarProperty Name="trangthaiKHHD" ColumnName="trangthaiKHHD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

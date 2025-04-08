@@ -765,3 +765,4 @@ D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.csproj.Up2Dat
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.exe
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.pdb
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.Core.FrmSMS.resources
+C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.View.Core.FrmSMS.resources

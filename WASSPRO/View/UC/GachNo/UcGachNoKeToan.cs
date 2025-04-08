@@ -81,6 +81,7 @@ namespace QLCongNo.View.UC.GachNo
             string denngay = "";
             int TOID = int.Parse(cboTO.SelectedValue.ToString());
             int NVID = int.Parse(cboNV.SelectedValue.ToString());
+            MessageBox.Show(NVID.ToString());
             int danop = 2;
             string trangthai = cboTrangThai.Text;
             int NVID_confirm = 0;
@@ -91,6 +92,7 @@ namespace QLCongNo.View.UC.GachNo
                 else
                     danop = 0;
             }
+            MessageBox.Show(danop.ToString());
             if (chkNgay.Checked == true)
             {
                 tungay = dateTimePicker1.Value.ToString("yyyy/MM/dd");
@@ -98,6 +100,7 @@ namespace QLCongNo.View.UC.GachNo
             }
             if (chkNVConfirm.Checked == true)
                 NVID_confirm = int.Parse(cboNVConfirm.SelectedValue.ToString());
+            MessageBox.Show(NVID_confirm.ToString());
             var dataSource = db.getDSBIENNHAN(tungay, denngay, danop, NVID, NVID_confirm, TOID, "").Where(x => x.MALOAI == "TT").ToList();
             if (dataSource.Count > 0) 
             {

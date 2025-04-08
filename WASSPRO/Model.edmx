@@ -11220,9 +11220,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
             <Parameter Name="tudot" Mode="In" Type="Int32" />
             <Parameter Name="dendot" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="getDSHoaDon_KH" ReturnType="Collection(Model.getDSHoaDon_KH_Result)">
-          <Parameter Name="IDKH" Mode="In" Type="Decimal" />
-          </FunctionImport>
           <FunctionImport Name="getDSHoaDonChuaChiaTNV" ReturnType="Collection(Model.getDSHoaDonChuaChiaTNV_Result)">
             <Parameter Name="nam" Mode="In" Type="Int32" />
             <Parameter Name="kyHD" Mode="In" Type="String" />
@@ -11918,6 +11915,9 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <EntitySet Name="DM_GIABIEU" EntityType="Model.DM_GIABIEU" />
           <EntitySet Name="GACHNO_TEST" EntityType="Model.GACHNO_TEST" />
           <EntitySet Name="Menus" EntityType="Model.Menu" />
+          <FunctionImport Name="getDSHoaDon_KH" ReturnType="Collection(Model.getDSHoaDon_KH_Result)">
+            <Parameter Name="IDKH" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -12837,6 +12837,10 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Type="DateTime" Name="NgaycapnhatKH" Nullable="true" Precision="23" />
           <Property Type="String" Name="NhanviencapnhatKH" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="trangthaiKHHD" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayBangKe" Nullable="true" />
+          <Property Type="String" Name="NhanVienGiaiTrach" Nullable="true" />
+          <Property Type="String" Name="TenNganHang" Nullable="true" />
+          <Property Type="String" Name="HinhThucThanhToan" Nullable="true" />
         </ComplexType>
         <ComplexType Name="getDSHoaDonChuaChiaTNV_Result">
           <Property Type="String" Name="malt" Nullable="false" MaxLength="100" />
@@ -17634,41 +17638,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="getDSHoaDon_KH" FunctionName="Model.Store.getDSHoaDon_KH">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Model.getDSHoaDon_KH_Result">
-                <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
-                <ScalarProperty Name="hoten" ColumnName="hoten" />
-                <ScalarProperty Name="kyghi" ColumnName="kyghi" />
-                <ScalarProperty Name="nam" ColumnName="nam" />
-                <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
-                <ScalarProperty Name="DOT_ID" ColumnName="DOT_ID" />
-                <ScalarProperty Name="quan" ColumnName="quan" />
-                <ScalarProperty Name="phuong" ColumnName="phuong" />
-                <ScalarProperty Name="hotenNV" ColumnName="hotenNV" />
-                <ScalarProperty Name="SO_HD" ColumnName="SO_HD" />
-                <ScalarProperty Name="KY_HIEU_HD" ColumnName="KY_HIEU_HD" />
-                <ScalarProperty Name="tentrangthai" ColumnName="tentrangthai" />
-                <ScalarProperty Name="chitiet" ColumnName="chitiet" />
-                <ScalarProperty Name="chuyendoi" ColumnName="chuyendoi" />
-                <ScalarProperty Name="dongbo" ColumnName="dongbo" />
-                <ScalarProperty Name="thanhtoan" ColumnName="thanhtoan" />
-                <ScalarProperty Name="ngaythanhtoan" ColumnName="ngaythanhtoan" />
-                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
-                <ScalarProperty Name="trangthai_id" ColumnName="trangthai_id" />
-                <ScalarProperty Name="seri" ColumnName="seri" />
-                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
-                <ScalarProperty Name="NGAYDANGNGAN_NV" ColumnName="NGAYDANGNGAN_NV" />
-                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
-                <ScalarProperty Name="trangthaiKH" ColumnName="trangthaiKH" />
-                <ScalarProperty Name="dieuchinh" ColumnName="dieuchinh" />
-                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
-                <ScalarProperty Name="NgaycapnhatKH" ColumnName="NgaycapnhatKH" />
-                <ScalarProperty Name="NhanviencapnhatKH" ColumnName="NhanviencapnhatKH" />
-                <ScalarProperty Name="trangthaiKHHD" ColumnName="trangthaiKHHD" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="getDSHoaDonChuaChiaTNV" FunctionName="Model.Store.getDSHoaDonChuaChiaTNV">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Model.getDSHoaDonChuaChiaTNV_Result">
@@ -18806,6 +18775,41 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getDSHoaDon_KH" FunctionName="Model.Store.getDSHoaDon_KH">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSHoaDon_KH_Result">
+                <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="kyghi" ColumnName="kyghi" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+                <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+                <ScalarProperty Name="DOT_ID" ColumnName="DOT_ID" />
+                <ScalarProperty Name="quan" ColumnName="quan" />
+                <ScalarProperty Name="phuong" ColumnName="phuong" />
+                <ScalarProperty Name="hotenNV" ColumnName="hotenNV" />
+                <ScalarProperty Name="SO_HD" ColumnName="SO_HD" />
+                <ScalarProperty Name="KY_HIEU_HD" ColumnName="KY_HIEU_HD" />
+                <ScalarProperty Name="tentrangthai" ColumnName="tentrangthai" />
+                <ScalarProperty Name="chitiet" ColumnName="chitiet" />
+                <ScalarProperty Name="chuyendoi" ColumnName="chuyendoi" />
+                <ScalarProperty Name="dongbo" ColumnName="dongbo" />
+                <ScalarProperty Name="thanhtoan" ColumnName="thanhtoan" />
+                <ScalarProperty Name="ngaythanhtoan" ColumnName="ngaythanhtoan" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="trangthai_id" ColumnName="trangthai_id" />
+                <ScalarProperty Name="seri" ColumnName="seri" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="NGAYDANGNGAN_NV" ColumnName="NGAYDANGNGAN_NV" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="trangthaiKH" ColumnName="trangthaiKH" />
+                <ScalarProperty Name="dieuchinh" ColumnName="dieuchinh" />
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="NgaycapnhatKH" ColumnName="NgaycapnhatKH" />
+                <ScalarProperty Name="NhanviencapnhatKH" ColumnName="NhanviencapnhatKH" />
+                <ScalarProperty Name="trangthaiKHHD" ColumnName="trangthaiKHHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
