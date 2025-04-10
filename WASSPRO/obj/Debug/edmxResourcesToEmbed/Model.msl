@@ -2986,6 +2986,7 @@
           <ScalarProperty Name="soHD0D" ColumnName="soHD0D" />
           <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
           <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+          <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

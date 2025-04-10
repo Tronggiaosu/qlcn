@@ -11981,6 +11981,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Type="Int32" Name="soHD0D" Nullable="true" />
           <Property Type="Decimal" Name="TO_ID" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="getBaocaoHoadonton_Result">
           <Property Type="Int64" Name="TT" Nullable="true" />
@@ -16666,6 +16667,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
                 <ScalarProperty Name="soHD0D" ColumnName="soHD0D" />
                 <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
                 <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

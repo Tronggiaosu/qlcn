@@ -48,6 +48,7 @@
             this.Label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.chbSavePass = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -125,6 +126,7 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.chbSavePass);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.btnLogin);
@@ -173,7 +175,6 @@
             this.txtPassword.Size = new System.Drawing.Size(288, 43);
             this.txtPassword.TabIndex = 39;
             this.txtPassword.Tag = "";
-            this.txtPassword.Text = "123456";
             // 
             // panel8
             // 
@@ -225,7 +226,6 @@
             this.txtUsername.Size = new System.Drawing.Size(284, 43);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Tag = "";
-            this.txtUsername.Text = "nhutvnm2";
             // 
             // btnLogin
             // 
@@ -233,7 +233,7 @@
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(52, 287);
+            this.btnLogin.Location = new System.Drawing.Point(52, 327);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(338, 54);
             this.btnLogin.TabIndex = 3;
@@ -246,7 +246,7 @@
             this.LblMsg.BackColor = System.Drawing.Color.Transparent;
             this.LblMsg.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMsg.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblMsg.Location = new System.Drawing.Point(52, 263);
+            this.LblMsg.Location = new System.Drawing.Point(52, 258);
             this.LblMsg.Name = "LblMsg";
             this.LblMsg.Size = new System.Drawing.Size(81, 23);
             this.LblMsg.TabIndex = 29;
@@ -290,6 +290,18 @@
             this.label2.TabIndex = 30;
             this.label2.Text = "ỨNG DỤNG";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbSavePass
+            // 
+            this.chbSavePass.AutoSize = true;
+            this.chbSavePass.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbSavePass.ForeColor = System.Drawing.Color.Black;
+            this.chbSavePass.Location = new System.Drawing.Point(56, 291);
+            this.chbSavePass.Name = "chbSavePass";
+            this.chbSavePass.Size = new System.Drawing.Size(170, 31);
+            this.chbSavePass.TabIndex = 41;
+            this.chbSavePass.Text = "Lưu mật khẩu";
+            this.chbSavePass.UseVisualStyleBackColor = true;
             // 
             // UcLogin
             // 
@@ -337,5 +349,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         internal System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.CheckBox chbSavePass;
     }
 }

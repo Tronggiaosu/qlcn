@@ -38,9 +38,9 @@
             this.BtnMaximize = new FontAwesome.Sharp.IconButton();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.PnlMain = new System.Windows.Forms.Panel();
-            this.ucLogin1 = new QLCongNo.UcLogin();
             this.PnlContainer = new System.Windows.Forms.SplitContainer();
             this.ucSidebar = new QLCongNo.View.UC.UcSidebar();
+            this.ucLogin1 = new QLCongNo.UcLogin();
             this.DDMHeThong = new QLCongNo.View.BaseControl.NovDropdownMenu(this.components);
             this.invoicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,20 +170,6 @@
             this.PnlMain.Size = new System.Drawing.Size(538, 530);
             this.PnlMain.TabIndex = 7;
             // 
-            // ucLogin1
-            // 
-            this.ucLogin1.BackColor = System.Drawing.Color.White;
-            this.ucLogin1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucLogin1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLogin1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.ucLogin1.Location = new System.Drawing.Point(0, 5);
-            this.ucLogin1.Margin = new System.Windows.Forms.Padding(0);
-            this.ucLogin1.Name = "ucLogin1";
-            this.ucLogin1.Owner = null;
-            this.ucLogin1.PnlParrent = null;
-            this.ucLogin1.Size = new System.Drawing.Size(538, 525);
-            this.ucLogin1.TabIndex = 0;
-            // 
             // PnlContainer
             // 
             this.PnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -223,6 +209,20 @@
             this.ucSidebar.TabIndex = 0;
             this.ucSidebar.Title = null;
             // 
+            // ucLogin1
+            // 
+            this.ucLogin1.BackColor = System.Drawing.Color.White;
+            this.ucLogin1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucLogin1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucLogin1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.ucLogin1.Location = new System.Drawing.Point(0, 5);
+            this.ucLogin1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucLogin1.Name = "ucLogin1";
+            this.ucLogin1.Owner = null;
+            this.ucLogin1.PnlParrent = null;
+            this.ucLogin1.Size = new System.Drawing.Size(538, 525);
+            this.ucLogin1.TabIndex = 0;
+            // 
             // DDMHeThong
             // 
             this.DDMHeThong.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -236,26 +236,26 @@
             this.DDMHeThong.MenuItemTextColor = System.Drawing.Color.Empty;
             this.DDMHeThong.Name = "noviDropdownMenu1";
             this.DDMHeThong.PrimaryColor = System.Drawing.Color.Empty;
-            this.DDMHeThong.Size = new System.Drawing.Size(205, 100);
+            this.DDMHeThong.Size = new System.Drawing.Size(169, 102);
             // 
             // invoicesToolStripMenuItem
             // 
             this.invoicesToolStripMenuItem.Name = "invoicesToolStripMenuItem";
-            this.invoicesToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.invoicesToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.invoicesToolStripMenuItem.Text = "Thay Đổi Mật Khẩu";
             this.invoicesToolStripMenuItem.Click += new System.EventHandler(this.invoicesToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Visible = false;
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
@@ -263,7 +263,7 @@
             // đồngBộDữLiệuToolStripMenuItem
             // 
             this.đồngBộDữLiệuToolStripMenuItem.Name = "đồngBộDữLiệuToolStripMenuItem";
-            this.đồngBộDữLiệuToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.đồngBộDữLiệuToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.đồngBộDữLiệuToolStripMenuItem.Text = "Đồng Bộ Dữ Liệu";
             this.đồngBộDữLiệuToolStripMenuItem.Click += new System.EventHandler(this.đồngBộDữLiệuToolStripMenuItem_Click);
             // 

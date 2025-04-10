@@ -19,17 +19,54 @@ namespace QLCongNo.View.UC.GachNo
             btnTim.Click += btnTim_Click;
             btnConfirm.Click += btnConfirm_Click;
             btnThoat.Click += btnThoat_Click;
-            //chkAll.CheckedChanged += chkAll_CheckedChanged;
+            chkAll.CheckedChanged += chkAll_CheckedChanged;
             txtTim.KeyDown += txtTim_KeyDown;
             //dgvDSHD.RowEnter += dgvDSHD_RowEnter;
             btnGachNo.Click += btnGachNo_Click;
             btnXoaGachNo.Click += btnXoaGachNo_Click;
-            //checkAll_dgv2.CheckedChanged += checkAll_dgv2_CheckedChanged;
+            checkAll_dgv2.CheckedChanged += checkAll_dgv2_CheckedChanged;
             btnCapnhat.Click += btnCapnhat_Click;
             chkHuyTT.CheckedChanged += chkHuyTT_CheckedChanged;
             this.dgvDSHD.DataError += dgvDSHD_DataError;
             this.dgvDSHD.CellFormatting += dgvDSHD_CellFormatting;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+
         }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "kyColumn_dgv2")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn_dgv2")
+            {
+                if (e.Value != null)
+                {
+                    string kyghiFull = e.Value.ToString();
+                    if (kyghiFull.Length >= 2)
+                    {
+                        e.Value = kyghiFull.Substring(3, 4);
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
         private void dgvDSHD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvDSHD.Columns[e.ColumnIndex].Name == "thangColumn")
@@ -127,24 +164,12 @@ namespace QLCongNo.View.UC.GachNo
 
         private void checkAll_dgv2_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkAll.Checked == true)
+            this.Cursor = Cursors.WaitCursor;
+            foreach (DataGridViewRow r in this.dataGridView1.Rows)
             {
-                this.Cursor = Cursors.WaitCursor;
-                foreach (DataGridViewRow r in dgvDSHD.Rows)
-                {
-                    r.Cells[checkColumn.Name].Value = true;
-                }
-                this.Cursor = Cursors.Default;
+                r.Cells["checkColumn_dgv2"].Value = checkAll_dgv2.Checked;
             }
-            else
-            {
-                this.Cursor = Cursors.WaitCursor;
-                foreach (DataGridViewRow r in dgvDSHD.Rows)
-                {
-                    r.Cells[checkColumn.Name].Value = false;
-                }
-                this.Cursor = Cursors.Default;
-            }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnXoaGachNo_Click(object sender, EventArgs e)
@@ -180,6 +205,8 @@ namespace QLCongNo.View.UC.GachNo
                 dgvDSHD.DataSource = dsDaDongTien.ToList();
                 txtsoHD.Text = dsGachNo.Count().ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
+
+                if (this.dataGridView1.Rows.Count == 0) this.btnConfirm.Enabled = false;
             }
             catch
             {
@@ -219,6 +246,8 @@ namespace QLCongNo.View.UC.GachNo
                 dgvDSHD.DataSource = dsDaDongTien.ToList();
                 txtsoHD.Text = dsGachNo.Count().ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
+
+                if (this.dataGridView1.Rows.Count > 0) this.btnConfirm.Enabled = true;
             }
             catch
             {
@@ -245,24 +274,12 @@ namespace QLCongNo.View.UC.GachNo
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkAll.Checked == true)
+            this.Cursor = Cursors.WaitCursor;
+            foreach (DataGridViewRow r in this.dgvDSHD.Rows)
             {
-                this.Cursor = Cursors.WaitCursor;
-                foreach (DataGridViewRow r in dgvDSHD.Rows)
-                {
-                    r.Cells[checkColumn.Name].Value = true;
-                }
-                this.Cursor = Cursors.Default;
+                r.Cells["checkColumn"].Value = chkAll.Checked;
             }
-            else
-            {
-                this.Cursor = Cursors.WaitCursor;
-                foreach (DataGridViewRow r in dgvDSHD.Rows)
-                {
-                    r.Cells[checkColumn.Name].Value = false;
-                }
-                this.Cursor = Cursors.Default;
-            }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -364,30 +381,33 @@ namespace QLCongNo.View.UC.GachNo
             dgvDSHD.DataSource = dataSource.ToList();
             txtsoHD.Text = dataSource.Count().ToString();
             txttongthanhtoan.Text = string.Format("{0:n0}", dataSource.Sum(z => z.tongtien));
+
             this.Cursor = Cursors.Default;
         }
 
         private void frGachNo_ThuHo_Load(object sender, EventArgs e)
         {
             dgvDSHD.AutoGenerateColumns = false;
+            dataGridView1.AutoGenerateColumns = false;
             cboNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             var dmNganhang = db.DM_NGANHANG.OrderBy(x => x.TENNGANHANG).ToList();
             cboNV.DataSource = dmNganhang.ToList();
             cboNV.ValueMember = "NGANHANG_ID";
             cboNV.DisplayMember = "TENNGANHANG";
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy 00:00:01";
             dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker2.CustomFormat = "dd/MM/yyyy 23:59:59";
             var dataKyHD = db.DM_KYGHI.OrderByDescending(x => x.ID_kyghi).ToList();
             cboKy.DataSource = dataKyHD.ToList();
             cboKy.ValueMember = "Id_kyghi";
             cboKy.DisplayMember = "ten_kyghi";
             btnCapnhat.Visible = Common.isxoa;
             dtpBK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dtpBK.CustomFormat = "dd/MM/yyyy";
+            dtpBK.CustomFormat = "dd/MM/yyyy HH:mm:ss";
 
             btnConfirm.Enabled = false;
+            
         }
 
         public string CreateSO_CT()

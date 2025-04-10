@@ -421,7 +421,6 @@
             this.danhboColumn.MinimumWidth = 6;
             this.danhboColumn.Name = "danhboColumn";
             this.danhboColumn.ReadOnly = true;
-            this.danhboColumn.Visible = false;
             this.danhboColumn.Width = 104;
             // 
             // maLTColumn
@@ -548,6 +547,10 @@
         private View.Core.NovDataGridView dataGridView1;
         private View.Core.NovTextBox txtSoHD;
         private View.Core.NovLabel label3;
+        private System.Windows.Forms.ComboBox cboKyHieu;
+        private System.Windows.Forms.ComboBox cboMauSo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private Core.NovDataGridViewTextBoxColumn trangthaiColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seriColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namColumn;
@@ -562,9 +565,5 @@
         private Core.NovDataGridViewTextBoxColumn thanhtoanColumn;
         private Core.NovDataGridViewTextBoxColumn ngaythuColumn;
         private Core.NovDataGridViewTextBoxColumn IDHDColumn;
-        private System.Windows.Forms.ComboBox cboKyHieu;
-        private System.Windows.Forms.ComboBox cboMauSo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
     }
 }

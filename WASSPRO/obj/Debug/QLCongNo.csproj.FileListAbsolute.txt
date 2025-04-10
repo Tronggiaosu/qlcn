@@ -571,6 +571,7 @@ C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.exe
 C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.pdb
 C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.View.UC.ReportViewer.BaoCao.UcBaoCaoTongHopDangNganTheoNganHang.resources
 C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.View.UC.ReportViewer.BaoCao.UcBaoCaoTongHopDangNganTheoNhanVienGiaiTrach.resources
+C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.View.Core.FrmSMS.resources
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\bin\Debug\View\UC\ReportViewer\ReportView\RPBaoCaoTongHop.rdlc
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\bin\Debug\QLCongNo.exe.config
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\bin\Debug\QLCongNo.exe.manifest
@@ -643,6 +644,7 @@ D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.csproj.Sugges
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.exe.config
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.GachNo.frPhanQuyenNhanVienThu.resources
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.BaseView.FrmBase.resources
+D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.Core.FrmSMS.resources
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.BaseControl.NovDropdownMenu.resources
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.FrmDialog.resources
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.FrmMain.resources
@@ -764,5 +766,3 @@ D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.application
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.csproj.Up2Date
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.exe
 D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.pdb
-D:\Working\TrangDev\Source\Main\WinQLCN\WASSPRO\obj\Debug\QLCongNo.View.Core.FrmSMS.resources
-C:\Users\DELL\source\repos\qlcn-v3\tdw_qlcn_v2\WASSPRO\obj\Debug\QLCongNo.View.Core.FrmSMS.resources

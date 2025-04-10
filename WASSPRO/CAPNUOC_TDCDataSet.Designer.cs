@@ -4968,6 +4968,8 @@ namespace QLCongNo {
             
             private global::System.Data.DataColumn columnTienThueNT;
             
+            private global::System.Data.DataColumn columnNV_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public getBaoCaoChuanThuKyDataTable() {
@@ -5075,6 +5077,14 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NV_IDColumn {
+                get {
+                    return this.columnNV_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5110,7 +5120,7 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public getBaoCaoChuanThuKyRow AddgetBaoCaoChuanThuKyRow(int soluongHD, decimal tiennuoc, decimal tienthue, decimal tienBVMT, decimal tongtien, string hoten, int soHD0D, decimal TO_ID, decimal TienThueNT) {
+            public getBaoCaoChuanThuKyRow AddgetBaoCaoChuanThuKyRow(int soluongHD, decimal tiennuoc, decimal tienthue, decimal tienBVMT, decimal tongtien, string hoten, int soHD0D, decimal TO_ID, decimal TienThueNT, decimal NV_ID) {
                 getBaoCaoChuanThuKyRow rowgetBaoCaoChuanThuKyRow = ((getBaoCaoChuanThuKyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         soluongHD,
@@ -5121,7 +5131,8 @@ namespace QLCongNo {
                         hoten,
                         soHD0D,
                         TO_ID,
-                        TienThueNT};
+                        TienThueNT,
+                        NV_ID};
                 rowgetBaoCaoChuanThuKyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetBaoCaoChuanThuKyRow);
                 return rowgetBaoCaoChuanThuKyRow;
@@ -5153,6 +5164,7 @@ namespace QLCongNo {
                 this.columnsoHD0D = base.Columns["soHD0D"];
                 this.columnTO_ID = base.Columns["TO_ID"];
                 this.columnTienThueNT = base.Columns["TienThueNT"];
+                this.columnNV_ID = base.Columns["NV_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5176,6 +5188,8 @@ namespace QLCongNo {
                 base.Columns.Add(this.columnTO_ID);
                 this.columnTienThueNT = new global::System.Data.DataColumn("TienThueNT", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTienThueNT);
+                this.columnNV_ID = new global::System.Data.DataColumn("NV_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNV_ID);
                 this.columnsoluongHD.ReadOnly = true;
                 this.columntiennuoc.ReadOnly = true;
                 this.columntienthue.ReadOnly = true;
@@ -5186,6 +5200,7 @@ namespace QLCongNo {
                 this.columnsoHD0D.ReadOnly = true;
                 this.columnTO_ID.ReadOnly = true;
                 this.columnTienThueNT.ReadOnly = true;
+                this.columnNV_ID.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -51430,6 +51445,22 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NV_ID {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetBaoCaoChuanThuKy.NV_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NV_ID\' in table \'getBaoCaoChuanThuKy\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetBaoCaoChuanThuKy.NV_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IssoluongHDNull() {
                 return this.IsNull(this.tablegetBaoCaoChuanThuKy.soluongHDColumn);
             }
@@ -51534,6 +51565,18 @@ namespace QLCongNo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTienThueNTNull() {
                 this[this.tablegetBaoCaoChuanThuKy.TienThueNTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNV_IDNull() {
+                return this.IsNull(this.tablegetBaoCaoChuanThuKy.NV_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNV_IDNull() {
+                this[this.tablegetBaoCaoChuanThuKy.NV_IDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -93630,6 +93673,7 @@ namespace QLCongNo.CAPNUOC_TDCDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("soHD0D", "soHD0D");
             tableMapping.ColumnMappings.Add("TO_ID", "TO_ID");
             tableMapping.ColumnMappings.Add("TienThueNT", "TienThueNT");
+            tableMapping.ColumnMappings.Add("NV_ID", "NV_ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

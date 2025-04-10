@@ -17,9 +17,11 @@ namespace QLCongNo.View.UC
     /// </summary>
     public partial class UcSidebar : View.Core.NovUserControl
     {
-        private const int _expandedWidth = 450;
+        private int _expandedWidth = 350;
         private const int _collapsedWidth = 60;
         private const int _menuItemHeight = 33;
+        private bool _isResized = false;
+        private int _resizedWidth = 0;
 
         /// <summary>
         /// DB context for the application.
@@ -48,6 +50,15 @@ namespace QLCongNo.View.UC
             PnlMenu.AutoScroll = true;
             PnlMenu.VerticalScroll.Visible = false;
             PnlMenu.HorizontalScroll.Visible = false;
+            this.Resize += UcSidebar_Resize;
+        }
+
+        private void UcSidebar_Resize(object sender, EventArgs e)
+        {
+            var item = sender as UserControl;
+            var width = item.Width;
+            if (width != _expandedWidth && width != _collapsedWidth && width != 280)
+                _expandedWidth = width;
         }
 
         /// <summary>

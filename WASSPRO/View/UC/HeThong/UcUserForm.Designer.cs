@@ -60,15 +60,15 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new QLCongNo.View.Core.NovPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtSerial = new QLCongNo.View.Core.NovTextBox();
-            this.txtMAC = new QLCongNo.View.Core.NovTextBox();
             this.nhomcheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.label14 = new QLCongNo.View.Core.NovLabel();
             this.chkLock = new QLCongNo.View.Core.NovCheckBox();
+            this.txtSerial = new QLCongNo.View.Core.NovTextBox();
             this.usernametextBox = new QLCongNo.View.Core.NovTextBox();
             this.label13 = new QLCongNo.View.Core.NovLabel();
             this.label15 = new QLCongNo.View.Core.NovLabel();
             this.maNVtextBox = new QLCongNo.View.Core.NovTextBox();
+            this.txtMAC = new QLCongNo.View.Core.NovTextBox();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.label4 = new QLCongNo.View.Core.NovLabel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
@@ -488,34 +488,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1449, 326);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // txtSerial
-            // 
-            this.txtSerial.BackColor = System.Drawing.Color.White;
-            this.txtSerial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtSerial, 2);
-            this.txtSerial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSerial.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerial.ForeColor = System.Drawing.Color.Black;
-            this.txtSerial.Location = new System.Drawing.Point(630, 285);
-            this.txtSerial.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtSerial.Name = "txtSerial";
-            this.txtSerial.Size = new System.Drawing.Size(362, 32);
-            this.txtSerial.TabIndex = 26;
-            // 
-            // txtMAC
-            // 
-            this.txtMAC.BackColor = System.Drawing.Color.White;
-            this.txtMAC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtMAC, 2);
-            this.txtMAC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMAC.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMAC.ForeColor = System.Drawing.Color.Black;
-            this.txtMAC.Location = new System.Drawing.Point(244, 285);
-            this.txtMAC.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtMAC.Name = "txtMAC";
-            this.txtMAC.Size = new System.Drawing.Size(362, 32);
-            this.txtMAC.TabIndex = 24;
-            // 
             // nhomcheckedListBox
             // 
             this.nhomcheckedListBox.CheckOnClick = true;
@@ -558,6 +530,20 @@
             this.chkLock.TabIndex = 28;
             this.chkLock.Text = "Khóa";
             this.chkLock.UseVisualStyleBackColor = true;
+            // 
+            // txtSerial
+            // 
+            this.txtSerial.BackColor = System.Drawing.Color.White;
+            this.txtSerial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.txtSerial, 2);
+            this.txtSerial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSerial.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerial.ForeColor = System.Drawing.Color.Black;
+            this.txtSerial.Location = new System.Drawing.Point(630, 285);
+            this.txtSerial.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtSerial.Name = "txtSerial";
+            this.txtSerial.Size = new System.Drawing.Size(362, 32);
+            this.txtSerial.TabIndex = 26;
             // 
             // usernametextBox
             // 
@@ -611,6 +597,20 @@
             this.maNVtextBox.Size = new System.Drawing.Size(169, 32);
             this.maNVtextBox.TabIndex = 7;
             this.maNVtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maNVtextBox_KeyPress);
+            // 
+            // txtMAC
+            // 
+            this.txtMAC.BackColor = System.Drawing.Color.White;
+            this.txtMAC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.txtMAC, 2);
+            this.txtMAC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMAC.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAC.ForeColor = System.Drawing.Color.Black;
+            this.txtMAC.Location = new System.Drawing.Point(244, 285);
+            this.txtMAC.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtMAC.Name = "txtMAC";
+            this.txtMAC.Size = new System.Drawing.Size(362, 32);
+            this.txtMAC.TabIndex = 24;
             // 
             // label1
             // 

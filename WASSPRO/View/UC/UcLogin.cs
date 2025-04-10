@@ -35,6 +35,7 @@ namespace QLCongNo
         /// <param name="e">An EventArgs that contains the event data.</param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            LoadRegistry();
             // Insert password
             var doc = XDocument.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             var connectionStringElement = doc.Descendants("connectionStrings")
@@ -53,7 +54,7 @@ namespace QLCongNo
                         Password = _pass
                     };
 
-                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.4";
+                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.5";
                     entityBuilder.ProviderConnectionString = sqlBuilder.ToString();
                     Common.strConn = entityBuilder.ToString();
                 }
@@ -99,6 +100,7 @@ namespace QLCongNo
                         acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == txtUsername.Text);
                     }
 
+                    SaveRegistry();
                     // user is valid or is admin
                     if (acc != null || txtUsername.Text == "Vnptcto")
                     {
@@ -138,6 +140,33 @@ namespace QLCongNo
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void LoadRegistry()
+        {
+            if ((string)Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\QLCN", "Check", "Yes") == "Yes")
+            {
+                chbSavePass.Checked = true;
+                txtUsername.Text = (string)Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\QLCN", "UserName", null);
+                txtPassword.Text = (string)Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\QLCN", "Password", null);
+            }
+        }
+
+        private void SaveRegistry()
+        {
+            string exeName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+            if (chbSavePass.Checked)
+            {
+                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\QLCN", "Check", "Yes");
+                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\QLCN", "UserName", txtUsername.Text);
+                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\QLCN", "Password", txtPassword.Text);
+            }
+            else
+            {
+                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\QLCN", "Check", "No");
+                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\QLCN", "UserName", "");
+                Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\QLCN", "Password", "");
             }
         }
 
