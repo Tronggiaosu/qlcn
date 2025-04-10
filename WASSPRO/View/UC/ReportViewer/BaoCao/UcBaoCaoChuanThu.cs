@@ -20,7 +20,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
         }
 
         private void btnTim_Click(object sender, EventArgs e)
-        {
+        { 
             this.Cursor = Cursors.WaitCursor;
             var root = "ReportViewer\\ReportView\\RPTongHopHoaDon.rdlc";
             string basePath = Directory.GetCurrentDirectory();
@@ -31,19 +31,31 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 MessageBox.Show("File report không tồn tại: " + reportPath, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             this.reportViewer1.LocalReport.ReportPath = reportPath;
             string nam = comboBoxNam.Text;
-            string thang = cboThang.Text;
+            string thang = cboThang.SelectedValue.ToString();
             string result = nam + thang;
-            int TOID = 0;
+            string title = "";
+            int TOID = 1;
+
             if (checkBox1.Checked == true)
                 TOID = int.Parse(cboTo.SelectedValue.ToString());
+
+            if (thang == "00")
+                title = $"CHUẨN THU NĂM {nam}";
+            else
+                title = $"CHUẨN THU THÁNG {thang}/{nam}";
+
+            db.Database.CommandTimeout = 300;
+
             var dataSource = db.getBaoCaoChuanThuKy(0, result, TOID).ToList();
+
             List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>();
-            param.Add(new WinFormsReport.ReportParameter("thang", thang));
-            param.Add(new WinFormsReport.ReportParameter("nam", nam));
+            param.Add(new WinFormsReport.ReportParameter("nam", title));
             param.Add(new WinFormsReport.ReportParameter("tento", cboTo.Text));
-            this.getBaoCaoChuanThuKyBindingSource.DataSource = dataSource.ToList();
+
+            this.getBaoCaoChuanThuKyBindingSource.DataSource = dataSource;
             this.reportViewer1.LocalReport.SetParameters(param);
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;
@@ -58,6 +70,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
         {
             cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
+            dmKyghi.Add(new DM_KYGHI() { ID_kyghi = "00", ten_kyghi = "Tất cả" });
             for (int i = 1; i <= 12; i++)
             {
                 dmKyghi.Add(new DM_KYGHI()

@@ -76,7 +76,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>23.43753cm</Width>
+                  <Width>30.50719cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -94,30 +94,6 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>CHUẨN THU THÁNG  </Value>
-                                      <Style>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>14pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                    <TextRun>
-                                      <Value>=Parameters!thang.Value</Value>
-                                      <Style>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>14pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                    <TextRun>
-                                      <Value>/</Value>
-                                      <Style>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>14pt</FontSize>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                    <TextRun>
                                       <Value>=Parameters!nam.Value</Value>
                                       <Style>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -133,7 +109,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox16</rd:DefaultName>
                               <Top>0.37042cm</Top>
-                              <Left>4.92125cm</Left>
+                              <Left>7.46125cm</Left>
                               <Height>0.7905cm</Height>
                               <Width>11.83979cm</Width>
                               <Style>
@@ -160,25 +136,25 @@
                                     <Width>1.84383cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.43961cm</Width>
+                                    <Width>2.68844cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.5442cm</Width>
+                                    <Width>2.89887cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.60316cm</Width>
+                                    <Width>3.51333cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.33794cm</Width>
+                                    <Width>3.24811cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.3282cm</Width>
+                                    <Width>3.95803cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.20896cm</Width>
+                                    <Width>2.99213cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>3.34336cm</Width>
+                                    <Width>3.74553cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -228,7 +204,6 @@
                                             </Style>
                                           </Textbox>
                                           <ColSpan>10</ColSpan>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
@@ -1324,7 +1299,7 @@
                               <Top>1.905cm</Top>
                               <Left>0.29104cm</Left>
                               <Height>2.4cm</Height>
-                              <Width>22.49032cm</Width>
+                              <Width>29.72932cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -1415,7 +1390,7 @@
             <Top>0.28787cm</Top>
             <Left>0.10265cm</Left>
             <Height>4.56875cm</Height>
-            <Width>23.43753cm</Width>
+            <Width>30.50719cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1426,7 +1401,7 @@
         <Height>5.47687cm</Height>
         <Style />
       </Body>
-      <Width>23.54018cm</Width>
+      <Width>30.60984cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
@@ -1444,10 +1419,6 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="thang">
-      <DataType>String</DataType>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
     <ReportParameter Name="nam">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
@@ -1462,11 +1433,6 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>tento</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>thang</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
