@@ -12065,6 +12065,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Type="Decimal" Name="tongtiennhan" Nullable="true" Precision="38" Scale="0" />
           <Property Type="Int32" Name="soHDnhan" Nullable="true" />
           <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
         </ComplexType>
         <ComplexType Name="getBaoCaoTongHop_Result">
           <Property Type="Int32" Name="soluong" Nullable="true" />
@@ -12089,6 +12090,8 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Type="String" Name="somay" Nullable="true" MaxLength="10" />
           <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
           <Property Type="String" Name="tenloaiHD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="hovaten" Nullable="false" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="getBaoCaoTongHopTheoLoai_Result">
           <Property Type="Int32" Name="soluong" Nullable="true" />
@@ -12981,6 +12984,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Type="String" Name="tenQuan" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="malt" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="tenTT" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="true" Precision="18" Scale="0" />
         </ComplexType>
         <ComplexType Name="getDSKhoangLoTrinhChiaTNV_Result">
           <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
@@ -16767,6 +16771,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
                 <ScalarProperty Name="tongtiennhan" ColumnName="tongtiennhan" />
                 <ScalarProperty Name="soHDnhan" ColumnName="soHDnhan" />
                 <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -16799,6 +16804,8 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
                 <ScalarProperty Name="somay" ColumnName="somay" />
                 <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
                 <ScalarProperty Name="tenloaiHD" ColumnName="tenloaiHD" />
+                <ScalarProperty Name="hovaten" ColumnName="hovaten" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -17816,6 +17823,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
                 <ScalarProperty Name="tenQuan" ColumnName="tenQuan" />
                 <ScalarProperty Name="malt" ColumnName="malt" />
                 <ScalarProperty Name="tenTT" ColumnName="tenTT" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

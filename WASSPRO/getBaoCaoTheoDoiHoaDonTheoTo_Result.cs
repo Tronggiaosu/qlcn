@@ -22,5 +22,6 @@ namespace QLCongNo
         public Nullable<decimal> tongtiennhan { get; set; }
         public Nullable<int> soHDnhan { get; set; }
         public Nullable<decimal> TO_ID { get; set; }
+        public decimal NV_ID { get; set; }
     }
 }

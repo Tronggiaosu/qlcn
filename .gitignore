@@ -362,3 +362,16 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /src/BookShop/BookShop.Web/wwwroot/images/product
+
+bin/
+obj/
+*.user
+*.suo
+
+*.vspscc
+*.vssscc
+
+*.application
+*.manifest
+*.exe
+*.cache

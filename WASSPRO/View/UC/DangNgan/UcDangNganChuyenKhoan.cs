@@ -487,9 +487,10 @@ namespace QLCongNo.View.UC.DangNgan
         {
             this.Cursor = Cursors.WaitCursor;
             var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-            var tungay = dtpTungay.Value;
-            var denngay = dtpDenngay.Value;
-
+            //var tungay = dtpTungay.Value;
+            //var denngay = dtpDenngay.Value;
+            var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+            var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
 
             decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
             decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
@@ -501,7 +502,7 @@ namespace QLCongNo.View.UC.DangNgan
                 NVLap = 0;
             if (_staticMaloai == "TT")
                 TOID = int.Parse(cboTO.SelectedValue.ToString());
-            var dataSource = db.getDangNganTheoNgay(NHID, 0, tungay.ToString("yyyy-MM-dd"), denngay.ToString("yyyy-MM-dd"), _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
+            var dataSource = db.getDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
             if (textBox1.Text != "")
                 dataSource = dataSource.Where(x => x.timkiem.Contains(textBox1.Text.ToUpper().Replace(" ", String.Empty))).ToList();
             table = ExcelExportHelper.ListToDataTable(dataSource);

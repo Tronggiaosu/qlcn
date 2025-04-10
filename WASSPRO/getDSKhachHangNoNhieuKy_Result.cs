@@ -25,5 +25,6 @@ namespace QLCongNo
         public string tenQuan { get; set; }
         public string malt { get; set; }
         public string tenTT { get; set; }
+        public Nullable<decimal> NV_ID { get; set; }
     }
 }

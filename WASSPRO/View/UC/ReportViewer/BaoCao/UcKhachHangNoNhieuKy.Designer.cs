@@ -214,9 +214,9 @@
             this.label4.Location = new System.Drawing.Point(614, 92);
             this.label4.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(204, 23);
+            this.label4.Size = new System.Drawing.Size(164, 23);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Tra cứu theo mã danh bộ";
+            this.label4.Text = "Tra cứu mã danh bộ";
             // 
             // txtsoky
             // 
@@ -436,7 +436,6 @@
             this.dgvDSKhachHangNo.AllowDrop = true;
             this.dgvDSKhachHangNo.AllowUserToAddRows = false;
             this.dgvDSKhachHangNo.AllowUserToDeleteRows = false;
-            this.dgvDSKhachHangNo.AllowUserToOrderColumns = true;
             this.dgvDSKhachHangNo.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -465,7 +465,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1413, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(1413, 340);
             this.dataGridView1.TabIndex = 2;
             // 
             // ngaytaoColumn
@@ -698,16 +698,16 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 174);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1413, 317);
+            this.panel1.Size = new System.Drawing.Size(1413, 340);
             this.panel1.TabIndex = 28;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lblsoluong);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 497);
+            this.panel2.Location = new System.Drawing.Point(0, 520);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1413, 73);
+            this.panel2.Size = new System.Drawing.Size(1413, 50);
             this.panel2.TabIndex = 3;
             // 
             // lblsoluong

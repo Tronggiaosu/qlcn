@@ -35,6 +35,7 @@
             this.lblServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chbSavePass = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.Label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.chbSavePass = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,7 +63,7 @@
             this.PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox1.Image")));
-            this.PictureBox1.Location = new System.Drawing.Point(910, 18);
+            this.PictureBox1.Location = new System.Drawing.Point(700, 18);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(116, 71);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -77,7 +77,7 @@
             this.Label1.BackColor = System.Drawing.Color.White;
             this.Label1.Font = new System.Drawing.Font("Verdana", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.Firebrick;
-            this.Label1.Location = new System.Drawing.Point(222, 82);
+            this.Label1.Location = new System.Drawing.Point(117, 15);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(593, 65);
             this.Label1.TabIndex = 7;
@@ -91,7 +91,7 @@
             this.label4.Font = new System.Drawing.Font("Cambria", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1048, 2);
+            this.label4.Size = new System.Drawing.Size(838, 3);
             this.label4.TabIndex = 27;
             // 
             // lblServer
@@ -101,7 +101,7 @@
             this.lblServer.BackColor = System.Drawing.Color.Transparent;
             this.lblServer.Font = new System.Drawing.Font("Cambria", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServer.ForeColor = System.Drawing.Color.White;
-            this.lblServer.Location = new System.Drawing.Point(19, 636);
+            this.lblServer.Location = new System.Drawing.Point(19, 502);
             this.lblServer.Name = "lblServer";
             this.lblServer.Size = new System.Drawing.Size(62, 21);
             this.lblServer.TabIndex = 28;
@@ -119,7 +119,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1048, 670);
+            this.panel1.Size = new System.Drawing.Size(838, 536);
             this.panel1.TabIndex = 30;
             // 
             // panel2
@@ -133,10 +133,22 @@
             this.panel2.Controls.Add(this.LblMsg);
             this.panel2.Controls.Add(this.Label5);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(263, 197);
+            this.panel2.Location = new System.Drawing.Point(158, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(435, 412);
             this.panel2.TabIndex = 31;
+            // 
+            // chbSavePass
+            // 
+            this.chbSavePass.AutoSize = true;
+            this.chbSavePass.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbSavePass.ForeColor = System.Drawing.Color.Black;
+            this.chbSavePass.Location = new System.Drawing.Point(56, 291);
+            this.chbSavePass.Name = "chbSavePass";
+            this.chbSavePass.Size = new System.Drawing.Size(150, 27);
+            this.chbSavePass.TabIndex = 41;
+            this.chbSavePass.Text = "Lưu mật khẩu";
+            this.chbSavePass.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -152,12 +164,12 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox3.Location = new System.Drawing.Point(288, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(46, 50);
+            this.pictureBox3.Size = new System.Drawing.Size(46, 43);
             this.pictureBox3.TabIndex = 40;
             this.pictureBox3.TabStop = false;
             // 
@@ -197,12 +209,12 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox2.Location = new System.Drawing.Point(284, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(50, 43);
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
             // 
@@ -231,7 +243,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(39)))), ((int)(((byte)(131)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(52, 327);
             this.btnLogin.Name = "btnLogin";
@@ -284,24 +296,12 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Verdana", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(344, 5);
+            this.label2.Location = new System.Drawing.Point(239, -62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(354, 65);
             this.label2.TabIndex = 30;
             this.label2.Text = "ỨNG DỤNG";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chbSavePass
-            // 
-            this.chbSavePass.AutoSize = true;
-            this.chbSavePass.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbSavePass.ForeColor = System.Drawing.Color.Black;
-            this.chbSavePass.Location = new System.Drawing.Point(56, 291);
-            this.chbSavePass.Name = "chbSavePass";
-            this.chbSavePass.Size = new System.Drawing.Size(170, 31);
-            this.chbSavePass.TabIndex = 41;
-            this.chbSavePass.Text = "Lưu mật khẩu";
-            this.chbSavePass.UseVisualStyleBackColor = true;
             // 
             // UcLogin
             // 
@@ -311,7 +311,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcLogin";
-            this.Size = new System.Drawing.Size(1048, 670);
+            this.Size = new System.Drawing.Size(838, 536);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

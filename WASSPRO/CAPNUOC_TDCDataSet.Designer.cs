@@ -7830,6 +7830,10 @@ namespace QLCongNo {
             
             private global::System.Data.DataColumn columntenloaiHD;
             
+            private global::System.Data.DataColumn columnNV_ID;
+            
+            private global::System.Data.DataColumn columnhovaten;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public getBaoCaoTongHopDangNganTheoNgayDataTable() {
@@ -7921,6 +7925,22 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NV_IDColumn {
+                get {
+                    return this.columnNV_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn hovatenColumn {
+                get {
+                    return this.columnhovaten;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7956,7 +7976,7 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public getBaoCaoTongHopDangNganTheoNgayRow AddgetBaoCaoTongHopDangNganTheoNgayRow(int soluongHD, decimal LoaiHD_ID, int NGAYDANGNGAN, string hoten, string somay, decimal TO_ID, string tenloaiHD) {
+            public getBaoCaoTongHopDangNganTheoNgayRow AddgetBaoCaoTongHopDangNganTheoNgayRow(int soluongHD, decimal LoaiHD_ID, int NGAYDANGNGAN, string hoten, string somay, decimal TO_ID, string tenloaiHD, string hovaten) {
                 getBaoCaoTongHopDangNganTheoNgayRow rowgetBaoCaoTongHopDangNganTheoNgayRow = ((getBaoCaoTongHopDangNganTheoNgayRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         soluongHD,
@@ -7965,10 +7985,19 @@ namespace QLCongNo {
                         hoten,
                         somay,
                         TO_ID,
-                        tenloaiHD};
+                        tenloaiHD,
+                        null,
+                        hovaten};
                 rowgetBaoCaoTongHopDangNganTheoNgayRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetBaoCaoTongHopDangNganTheoNgayRow);
                 return rowgetBaoCaoTongHopDangNganTheoNgayRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public getBaoCaoTongHopDangNganTheoNgayRow FindByNV_ID(decimal NV_ID) {
+                return ((getBaoCaoTongHopDangNganTheoNgayRow)(this.Rows.Find(new object[] {
+                            NV_ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7995,6 +8024,8 @@ namespace QLCongNo {
                 this.columnsomay = base.Columns["somay"];
                 this.columnTO_ID = base.Columns["TO_ID"];
                 this.columntenloaiHD = base.Columns["tenloaiHD"];
+                this.columnNV_ID = base.Columns["NV_ID"];
+                this.columnhovaten = base.Columns["hovaten"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8014,12 +8045,26 @@ namespace QLCongNo {
                 base.Columns.Add(this.columnTO_ID);
                 this.columntenloaiHD = new global::System.Data.DataColumn("tenloaiHD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntenloaiHD);
+                this.columnNV_ID = new global::System.Data.DataColumn("NV_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNV_ID);
+                this.columnhovaten = new global::System.Data.DataColumn("hovaten", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhovaten);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnNV_ID}, true));
                 this.columnsoluongHD.ReadOnly = true;
                 this.columnNGAYDANGNGAN.ReadOnly = true;
                 this.columnhoten.ReadOnly = true;
                 this.columnhoten.MaxLength = 61;
                 this.columnsomay.MaxLength = 10;
                 this.columntenloaiHD.MaxLength = 50;
+                this.columnNV_ID.AutoIncrement = true;
+                this.columnNV_ID.AutoIncrementSeed = -1;
+                this.columnNV_ID.AutoIncrementStep = -1;
+                this.columnNV_ID.AllowDBNull = false;
+                this.columnNV_ID.ReadOnly = true;
+                this.columnNV_ID.Unique = true;
+                this.columnhovaten.AllowDBNull = false;
+                this.columnhovaten.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8556,6 +8601,8 @@ namespace QLCongNo {
             
             private global::System.Data.DataColumn columnTO_ID;
             
+            private global::System.Data.DataColumn columnNV_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public getBaoCaoTheoDoiHoaDonTheoToDataTable() {
@@ -8663,6 +8710,14 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NV_IDColumn {
+                get {
+                    return this.columnNV_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8709,10 +8764,18 @@ namespace QLCongNo {
                         tongtienDN,
                         tongtiennhan,
                         soHDnhan,
-                        TO_ID};
+                        TO_ID,
+                        null};
                 rowgetBaoCaoTheoDoiHoaDonTheoToRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetBaoCaoTheoDoiHoaDonTheoToRow);
                 return rowgetBaoCaoTheoDoiHoaDonTheoToRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public getBaoCaoTheoDoiHoaDonTheoToRow FindByNV_ID(decimal NV_ID) {
+                return ((getBaoCaoTheoDoiHoaDonTheoToRow)(this.Rows.Find(new object[] {
+                            NV_ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8741,6 +8804,7 @@ namespace QLCongNo {
                 this.columntongtiennhan = base.Columns["tongtiennhan"];
                 this.columnsoHDnhan = base.Columns["soHDnhan"];
                 this.columnTO_ID = base.Columns["TO_ID"];
+                this.columnNV_ID = base.Columns["NV_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8764,6 +8828,10 @@ namespace QLCongNo {
                 base.Columns.Add(this.columnsoHDnhan);
                 this.columnTO_ID = new global::System.Data.DataColumn("TO_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTO_ID);
+                this.columnNV_ID = new global::System.Data.DataColumn("NV_ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNV_ID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnNV_ID}, true));
                 this.columnsoluongton.ReadOnly = true;
                 this.columntongtienton.ReadOnly = true;
                 this.columnHD_TON.ReadOnly = true;
@@ -8774,6 +8842,12 @@ namespace QLCongNo {
                 this.columntongtienDN.ReadOnly = true;
                 this.columntongtiennhan.ReadOnly = true;
                 this.columnsoHDnhan.ReadOnly = true;
+                this.columnNV_ID.AutoIncrement = true;
+                this.columnNV_ID.AutoIncrementSeed = -1;
+                this.columnNV_ID.AutoIncrementStep = -1;
+                this.columnNV_ID.AllowDBNull = false;
+                this.columnNV_ID.ReadOnly = true;
+                this.columnNV_ID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -54102,6 +54176,28 @@ namespace QLCongNo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NV_ID {
+                get {
+                    return ((decimal)(this[this.tablegetBaoCaoTongHopDangNganTheoNgay.NV_IDColumn]));
+                }
+                set {
+                    this[this.tablegetBaoCaoTongHopDangNganTheoNgay.NV_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string hovaten {
+                get {
+                    return ((string)(this[this.tablegetBaoCaoTongHopDangNganTheoNgay.hovatenColumn]));
+                }
+                set {
+                    this[this.tablegetBaoCaoTongHopDangNganTheoNgay.hovatenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IssoluongHDNull() {
                 return this.IsNull(this.tablegetBaoCaoTongHopDangNganTheoNgay.soluongHDColumn);
             }
@@ -54636,6 +54732,17 @@ namespace QLCongNo {
                 }
                 set {
                     this[this.tablegetBaoCaoTheoDoiHoaDonTheoTo.TO_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NV_ID {
+                get {
+                    return ((decimal)(this[this.tablegetBaoCaoTheoDoiHoaDonTheoTo.NV_IDColumn]));
+                }
+                set {
+                    this[this.tablegetBaoCaoTheoDoiHoaDonTheoTo.NV_IDColumn] = value;
                 }
             }
             
@@ -94975,6 +95082,8 @@ namespace QLCongNo.CAPNUOC_TDCDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("somay", "somay");
             tableMapping.ColumnMappings.Add("TO_ID", "TO_ID");
             tableMapping.ColumnMappings.Add("tenloaiHD", "tenloaiHD");
+            tableMapping.ColumnMappings.Add("NV_ID", "NV_ID");
+            tableMapping.ColumnMappings.Add("hovaten", "hovaten");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -95445,6 +95554,7 @@ namespace QLCongNo.CAPNUOC_TDCDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("tongtiennhan", "tongtiennhan");
             tableMapping.ColumnMappings.Add("soHDnhan", "soHDnhan");
             tableMapping.ColumnMappings.Add("TO_ID", "TO_ID");
+            tableMapping.ColumnMappings.Add("NV_ID", "NV_ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
