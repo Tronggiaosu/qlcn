@@ -14,7 +14,7 @@ namespace QLCongNo
     public partial class getDSGuiSMS_Result
     {
         public string sdt { get; set; }
-        public string soky { get; set; }
+        public Nullable<int> soky { get; set; }
         public string DANHBO { get; set; }
         public string sotien { get; set; }
         public string tonggiam { get; set; }

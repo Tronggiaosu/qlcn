@@ -201,6 +201,13 @@ namespace QLCongNo.View.UC.HoaDon
                 MessageBox.Show("Xuất dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private void CapNhatSTT()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells["stt"].Value = i + 1;
+            }
+        }
 
         void btnTim_Click(object sender, EventArgs e)
         {
@@ -220,6 +227,13 @@ namespace QLCongNo.View.UC.HoaDon
             }    
             table = ExcelExportHelper.ListToDataTable(data.OrderByDescending(x => x.ngaytao).ToList());
             dataGridView1.DataSource = table;
+            CapNhatSTT();
+            int tongHoaDon = data.Count;
+            decimal tongTien = data.Sum(x => {
+                decimal val;
+                return decimal.TryParse(x.TONGTIEN?.ToString(), out val) ? val : 0;
+            });
+            lbltong.Text = $"Tổng số hoá đơn: {tongHoaDon:N0}  |  Tổng tiền: {tongTien:N0}";
             this.Cursor = Cursors.Default;
         }
 

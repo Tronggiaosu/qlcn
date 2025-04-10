@@ -28,10 +28,6 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
         private void btnTim_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            //string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            //string projectRootPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
-            //string reportPath = Path.Combine(projectRootPath, "WASSPRO", "ReportViewer", "ReportView", "RPBaoCaoTongHop.rdlc");
-
             var root = "ReportViewer\\ReportView\\RPBaoCaoTongHop.rdlc";
             string basePath = Directory.GetCurrentDirectory();
             var reportPath = $"{basePath}\\{root}";
@@ -55,17 +51,16 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             string ptungay = dtpTungay.Value.ToString("dd/MM/yyyy");
             string pdengay = dtpDenngay.Value.ToString("dd/MM/yyyy");
             string pNgayThang = "Từ ngày " + ptungay + " đến ngày " + pdengay;
-            //List<ReportParameter> param = new List<ReportParameter>();
             List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>();
-            //param.Add(new ReportParameter("pTenDT", bophan));
             param.Add(new WinFormsReport.ReportParameter("pTenDT", bophan));
-            //param.Add(new ReportParameter("pNgayThang", pNgayThang));
             param.Add(new WinFormsReport.ReportParameter("pNgayThang", pNgayThang));
             this.reportViewer1.LocalReport.SetParameters(param);
             var dataSource = db.getBaoCaoTongHop(tungay, dengay, "", loaiHD).ToList();
 
             int? nVID = chkDT.Checked ? (int?)loaiHD : null;
-            var hdkd = db.getDSChuyenNoKhoDoi(tungay, dengay, nVID:null).ToList();
+            string tungay1 = dtpTungay.Value.ToString("yyyy-MM-dd");
+            string dengay1 = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
+            var hdkd = db.getDSChuyenNoKhoDoi(tungay1, dengay1, nVID:null).ToList();
 
             var groupedData = hdkd
             .GroupBy(x => x.DANHBO)
