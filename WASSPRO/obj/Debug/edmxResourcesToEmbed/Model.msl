@@ -3855,6 +3855,7 @@
           <ScalarProperty Name="tienBVMT" ColumnName="tienBVMT" />
           <ScalarProperty Name="PhiNT" ColumnName="PhiNT" />
           <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+          <ScalarProperty Name="dieuchinhthongtin" ColumnName="dieuchinhthongtin" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

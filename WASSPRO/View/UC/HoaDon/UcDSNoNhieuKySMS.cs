@@ -35,6 +35,7 @@ namespace QLCongNo.View.UC.HoaDon
                 int dendot = int.Parse(cbodendot.SelectedValue.ToString());
                 string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd");
                 string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                string soky = txtsoky.Text.TrimEnd();
                 if (chkTT.Checked == false)
                     trangthai = -1;
                 if (chkDot.Checked == false)
@@ -43,7 +44,7 @@ namespace QLCongNo.View.UC.HoaDon
                     tungay = "";
                 var data = db.getDSGuiSMS(trangthai, tungay, denngay, tudot, dendot).ToList();
                 if (chksoky.Checked == true)
-                    data = data.Where(x => x.soky == txtsoky.Text.TrimEnd()).ToList();
+                    data = data.Where(x => x.soky == int.Parse(soky)).ToList();
                 dgvDSKhachHangNo.DataSource = data.ToList();
                 this.Cursor = Cursors.Default;
             //}
@@ -85,6 +86,7 @@ namespace QLCongNo.View.UC.HoaDon
                     int dendot = int.Parse(cbodendot.SelectedValue.ToString());
                     string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd");
                     string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                    string soky = txtsoky.Text.TrimEnd();
                     if (chkTT.Checked == false)
                         trangthai = -1;
                     if (chkDot.Checked == false)
@@ -93,7 +95,7 @@ namespace QLCongNo.View.UC.HoaDon
                         tungay = "";
                     var data = db.getDSGuiSMS(trangthai, tungay, denngay, tudot, dendot).ToList();
                     if (chksoky.Checked == true)
-                        data = data.Where(x => x.soky == txtsoky.Text.TrimEnd()).ToList();
+                        data = data.Where(x => x.soky == int.Parse(soky)).ToList();
                     string[] columns = { "sdt",  "DANHBO", "sotien", "tonggiam" };
 
                     var result = ExportExcel(ExcelExportHelper.ListToDataTable( data.ToList()), false, columns);

@@ -6247,6 +6247,7 @@
     <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="19" Scale="0" />
     <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="dieuchinhthongtin" Nullable="true" />
   </ComplexType>
   <ComplexType Name="getDSDangNgan_Result">
     <Property Type="String" Name="so_hd" Nullable="true" MaxLength="250" />
@@ -6323,7 +6324,7 @@
   </ComplexType>
   <ComplexType Name="getDSGuiSMS_Result">
     <Property Type="String" Name="sdt" Nullable="true" MaxLength="102" />
-    <Property Type="String" Name="soky" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="soky" Nullable="true" />
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
     <Property Type="String" Name="sotien" Nullable="true" MaxLength="8000" />
     <Property Type="String" Name="tonggiam" Nullable="false" MaxLength="1" />

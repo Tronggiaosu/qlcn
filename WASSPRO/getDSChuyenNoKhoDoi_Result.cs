@@ -32,5 +32,6 @@ namespace QLCongNo
         public Nullable<decimal> tienBVMT { get; set; }
         public Nullable<decimal> PhiNT { get; set; }
         public Nullable<decimal> TienThueNT { get; set; }
+        public string dieuchinhthongtin { get; set; }
     }
 }
