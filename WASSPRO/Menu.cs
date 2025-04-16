@@ -18,10 +18,10 @@ namespace QLCongNo
         public string Name { get; set; }
         public string Text { get; set; }
         public string Action { get; set; }
-        public Nullable<int> Status { get; set; }
-        public Nullable<int> ParentId { get; set; }
-        public Nullable<int> Sort { get; set; }
         public string Icon { get; set; }
+        public Nullable<int> Status { get; set; }
+        public Nullable<int> Sort { get; set; }
+        public Nullable<int> ParentId { get; set; }
         public string AdditionParam { get; set; }
     }
 }

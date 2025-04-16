@@ -5,9 +5,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+using QLCongNo.View.UC.HoaDon;
 using QLCongNo.View.UC.ReportViewer.BaoCao;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace QLCongNo.View.UC.GachNo
 {
@@ -223,6 +222,8 @@ namespace QLCongNo.View.UC.GachNo
                         dgvHoadon.DataSource = dsHoadon.ToList();
                     else
                         dgvHoadon.DataSource = null;
+
+                    this.lblDSHoaDon.Text = $"Danh sách hóa đơn ({dsHoadon.ToList().Count})";
                     for (int i = 0; i < dgvHoadon.RowCount; i++)
                     {
                         if (dgvHoadon.Rows[i].Cells[trangthaiColumn.Name].Value.ToString() == "Đã thu" || dgvHoadon.Rows[i].Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy")
@@ -235,13 +236,12 @@ namespace QLCongNo.View.UC.GachNo
                     chkAll.Checked = false;
                 }
                 else
+                {
                     dgvHoadon.DataSource = null;
-
+                    this.lblDSHoaDon.Text = $"Danh sách hóa đơn (0)";
+                }     
             }
-            catch
-            {
-                //}
-            }
+            catch { }
         }
 
         private void txtTim_KeyDown(object sender, KeyEventArgs e)
@@ -479,16 +479,23 @@ namespace QLCongNo.View.UC.GachNo
                 {
                     khachhang = khachhang.Where(x => x.tenPhuong == tenPhuong).ToList();
                 }
-                if (khachhang.Count() > 0)
-                {
-                    dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                }
+
                 dgvKhachhang.DataSource = khachhang.ToList();
                 if (khachhang.Count() == 0)
+                {
                     dgvHoadon.DataSource = null;
+                    this.lblDSHoaDon.Text = $"Danh sách hóa đơn (0)";
+                }
+                    
+
+                this.lblDSKhachHang.Text = $"Danh sách khách hàng ({khachhang.ToList().Count})";
             }
             else
-                MessageBox.Show("Chưa nhập thông tin tìm kiếm!");
+            {
+                this.lblDSKhachHang.Text = $"Danh sách khách hàng (0)";
+                MessageBox.Show("Chưa nhập thông tin tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }    
+                
             this.Cursor = Cursors.Default;
         }
 

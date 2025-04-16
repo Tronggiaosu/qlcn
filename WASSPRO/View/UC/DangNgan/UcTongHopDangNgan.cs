@@ -24,7 +24,7 @@ namespace QLCongNo.View.UC.DangNgan
         {
             this.reportViewer1.LocalReport.ReportPath = "ReportViewer//ReportView//RPDangNgan.rdlc";
             bool isdangngan = true;
-            var dataSource = db.getDangNganTheoNgay(NVID, loaiHD, tungay, denngay, maloai, maDT, true, NVLap, TOID).ToList();
+            var dataSource = db.getDangNganTheoNgay_Newest(String.Empty, NVID, loaiHD, tungay, denngay, maloai, maDT, true, NVLap, TOID).ToList();
             this.getDangNganTheoNgayBindingSource.DataSource = dataSource.ToList();
             string tenbaocao = "";
             if (maloai == "KH")

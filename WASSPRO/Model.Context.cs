@@ -150,7 +150,6 @@ namespace QLCongNo
         public virtual DbSet<VIEWDANHSACHLOTRINHTHU> VIEWDANHSACHLOTRINHTHUs { get; set; }
         public virtual DbSet<VIEWDANHSACHTHU_APP> VIEWDANHSACHTHU_APP { get; set; }
         public virtual DbSet<VIEWTHONGTINHOADON> VIEWTHONGTINHOADONs { get; set; }
-        public virtual DbSet<MenuItem> MenuItems { get; set; }
         public virtual DbSet<TB_TRANSACTIONS_LOG> TB_TRANSACTIONS_LOG { get; set; }
         public virtual DbSet<DM_GIABIEU> DM_GIABIEU { get; set; }
         public virtual DbSet<GACHNO_TEST> GACHNO_TEST { get; set; }
@@ -3767,6 +3766,60 @@ namespace QLCongNo
                 new ObjectParameter("IDKH", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSHoaDon_KH_Result>("getDSHoaDon_KH", iDKHParameter);
+        }
+    
+        public virtual ObjectResult<GetDangNganTheoNganHang_Result> GetDangNganTheoNganHang(string ngayDangNgan)
+        {
+            var ngayDangNganParameter = ngayDangNgan != null ?
+                new ObjectParameter("NgayDangNgan", ngayDangNgan) :
+                new ObjectParameter("NgayDangNgan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDangNganTheoNganHang_Result>("GetDangNganTheoNganHang", ngayDangNganParameter);
+        }
+    
+        public virtual ObjectResult<getDangNganTheoNgay_Newest_Result> getDangNganTheoNgay_Newest(string dANHBO, Nullable<decimal> nVID, Nullable<int> loaiHD, string tungay, string denngay, string maloai, string maDT, Nullable<bool> isdangngan, Nullable<decimal> nVLap, Nullable<int> tOID)
+        {
+            var dANHBOParameter = dANHBO != null ?
+                new ObjectParameter("DANHBO", dANHBO) :
+                new ObjectParameter("DANHBO", typeof(string));
+    
+            var nVIDParameter = nVID.HasValue ?
+                new ObjectParameter("NVID", nVID) :
+                new ObjectParameter("NVID", typeof(decimal));
+    
+            var loaiHDParameter = loaiHD.HasValue ?
+                new ObjectParameter("loaiHD", loaiHD) :
+                new ObjectParameter("loaiHD", typeof(int));
+    
+            var tungayParameter = tungay != null ?
+                new ObjectParameter("tungay", tungay) :
+                new ObjectParameter("tungay", typeof(string));
+    
+            var denngayParameter = denngay != null ?
+                new ObjectParameter("denngay", denngay) :
+                new ObjectParameter("denngay", typeof(string));
+    
+            var maloaiParameter = maloai != null ?
+                new ObjectParameter("maloai", maloai) :
+                new ObjectParameter("maloai", typeof(string));
+    
+            var maDTParameter = maDT != null ?
+                new ObjectParameter("maDT", maDT) :
+                new ObjectParameter("maDT", typeof(string));
+    
+            var isdangnganParameter = isdangngan.HasValue ?
+                new ObjectParameter("isdangngan", isdangngan) :
+                new ObjectParameter("isdangngan", typeof(bool));
+    
+            var nVLapParameter = nVLap.HasValue ?
+                new ObjectParameter("NVLap", nVLap) :
+                new ObjectParameter("NVLap", typeof(decimal));
+    
+            var tOIDParameter = tOID.HasValue ?
+                new ObjectParameter("TOID", tOID) :
+                new ObjectParameter("TOID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDangNganTheoNgay_Newest_Result>("getDangNganTheoNgay_Newest", dANHBOParameter, nVIDParameter, loaiHDParameter, tungayParameter, denngayParameter, maloaiParameter, maDTParameter, isdangnganParameter, nVLapParameter, tOIDParameter);
         }
     }
 }

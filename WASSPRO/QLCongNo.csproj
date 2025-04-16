@@ -447,7 +447,13 @@
     <Compile Include="getDangNganBilling_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetDangNganTheoNganHang_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDangNganTheoNgayEX_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDangNganTheoNgay_Newest_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDangNganTheoNgay_Result.cs">
@@ -666,9 +672,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MenuItem.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">
@@ -2110,10 +2113,14 @@
     <Content Include="Resources\Images\cntd.png" />
     <Content Include="Resources\Images\logomoi.png" />
     <Content Include="Resources\Images\pass.png" />
+    <Content Include="Resources\Images\pass42px.png" />
+    <Content Include="Resources\Images\pass48px.png" />
     <Content Include="Resources\Images\sms24px.png" />
     <Content Include="Resources\Images\sms32px.png" />
     <Content Include="Resources\Images\sms48px.png" />
     <Content Include="Resources\Images\user.png" />
+    <Content Include="Resources\Images\user42px.png" />
+    <Content Include="Resources\Images\user48px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\SqlServerSpatial110.dll" />
     <Content Include="SqlServerTypes\x86\SqlServerSpatial110.dll" />

@@ -203,7 +203,6 @@
         <AssociationConnector Association="Model.FK_NHANVIEN_HOADON_NHANVIEN1" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_NHANVIEN_HOADON_NHANVIEN2" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_NHANVIEN_LNV_NHANVIEN" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.MenuItem" Width="1.5" PointX="37.375" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TB_TRANSACTIONS_LOG" Width="1.5" PointX="37.375" PointY="14.75" />
         <EntityTypeShape EntityType="Model.DM_GIABIEU" Width="1.5" PointX="37.375" PointY="18.75" />
         <EntityTypeShape EntityType="Model.GACHNO_TEST" Width="1.5" PointX="37.375" PointY="22.75" />

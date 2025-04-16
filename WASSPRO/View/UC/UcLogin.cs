@@ -54,7 +54,7 @@ namespace QLCongNo
                         Password = _pass
                     };
 
-                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.6";
+                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.8";
                     entityBuilder.ProviderConnectionString = sqlBuilder.ToString();
                     Common.strConn = entityBuilder.ToString();
                 }

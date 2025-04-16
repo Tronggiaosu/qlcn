@@ -97125,6 +97125,7 @@ namespace QLCongNo.CAPNUOC_TDCDataSetTableAdapters {
             this._commandCollection[0].CommandText = "dbo.getDangNganTheoNgay";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DANHBO", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NVID", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loaiHD", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tungay", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -97140,61 +97141,67 @@ namespace QLCongNo.CAPNUOC_TDCDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CAPNUOC_TDCDataSet.getDangNganTheoNgayDataTable dataTable, global::System.Nullable<decimal> NVID, global::System.Nullable<int> loaiHD, string tungay, string denngay, string maloai, string maDT, global::System.Nullable<bool> isdangngan, global::System.Nullable<decimal> NVLap, global::System.Nullable<int> TOID) {
+        public virtual int Fill(CAPNUOC_TDCDataSet.getDangNganTheoNgayDataTable dataTable, string DANHBO, global::System.Nullable<decimal> NVID, global::System.Nullable<int> loaiHD, string tungay, string denngay, string maloai, string maDT, global::System.Nullable<bool> isdangngan, global::System.Nullable<decimal> NVLap, global::System.Nullable<int> TOID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((NVID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(NVID.Value));
-            }
-            else {
+            if ((DANHBO == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((loaiHD.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(loaiHD.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DANHBO));
+            }
+            if ((NVID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(NVID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((tungay == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((loaiHD.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(loaiHD.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(tungay));
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((denngay == null)) {
+            if ((tungay == null)) {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(denngay));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(tungay));
             }
-            if ((maloai == null)) {
+            if ((denngay == null)) {
                 this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(maloai));
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(denngay));
             }
-            if ((maDT == null)) {
+            if ((maloai == null)) {
                 this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(maDT));
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(maloai));
             }
-            if ((isdangngan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[7].Value = ((bool)(isdangngan.Value));
-            }
-            else {
+            if ((maDT == null)) {
                 this.Adapter.SelectCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((NVLap.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[8].Value = ((decimal)(NVLap.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[7].Value = ((string)(maDT));
+            }
+            if ((isdangngan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[8].Value = ((bool)(isdangngan.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((TOID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[9].Value = ((int)(TOID.Value));
+            if ((NVLap.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[9].Value = ((decimal)(NVLap.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((TOID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[10].Value = ((int)(TOID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -97207,61 +97214,67 @@ namespace QLCongNo.CAPNUOC_TDCDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CAPNUOC_TDCDataSet.getDangNganTheoNgayDataTable GetData(global::System.Nullable<decimal> NVID, global::System.Nullable<int> loaiHD, string tungay, string denngay, string maloai, string maDT, global::System.Nullable<bool> isdangngan, global::System.Nullable<decimal> NVLap, global::System.Nullable<int> TOID) {
+        public virtual CAPNUOC_TDCDataSet.getDangNganTheoNgayDataTable GetData(string DANHBO, global::System.Nullable<decimal> NVID, global::System.Nullable<int> loaiHD, string tungay, string denngay, string maloai, string maDT, global::System.Nullable<bool> isdangngan, global::System.Nullable<decimal> NVLap, global::System.Nullable<int> TOID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((NVID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(NVID.Value));
-            }
-            else {
+            if ((DANHBO == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((loaiHD.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(loaiHD.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DANHBO));
+            }
+            if ((NVID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((decimal)(NVID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((tungay == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((loaiHD.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(loaiHD.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(tungay));
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((denngay == null)) {
+            if ((tungay == null)) {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(denngay));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(tungay));
             }
-            if ((maloai == null)) {
+            if ((denngay == null)) {
                 this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(maloai));
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(denngay));
             }
-            if ((maDT == null)) {
+            if ((maloai == null)) {
                 this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(maDT));
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(maloai));
             }
-            if ((isdangngan.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[7].Value = ((bool)(isdangngan.Value));
-            }
-            else {
+            if ((maDT == null)) {
                 this.Adapter.SelectCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((NVLap.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[8].Value = ((decimal)(NVLap.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[7].Value = ((string)(maDT));
+            }
+            if ((isdangngan.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[8].Value = ((bool)(isdangngan.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((TOID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[9].Value = ((int)(TOID.Value));
+            if ((NVLap.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[9].Value = ((decimal)(NVLap.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((TOID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[10].Value = ((int)(TOID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             CAPNUOC_TDCDataSet.getDangNganTheoNgayDataTable dataTable = new CAPNUOC_TDCDataSet.getDangNganTheoNgayDataTable();
             this.Adapter.Fill(dataTable);

@@ -473,8 +473,8 @@ namespace QLCongNo.View.UC.HoaDon
                 }
                 else
                 {
-                    lblphinuocthai.Text = "Phí thoát nước (25%)";
-                    lbltienphiBVMT.Text = "Phí thoát nước (20%)";
+                    lblphinuocthai.Text = "Phí thoát nước (30%)";
+                    lbltienphiBVMT.Text = "Phí thoát nước (25%)";
                 }
                 txtThueNT.Enabled = true;
                 txtThueNT_DC.Enabled = true;

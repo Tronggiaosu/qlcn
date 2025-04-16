@@ -37,28 +37,28 @@
             this.btnConfirm = new QLCongNo.View.Core.NovToolStripButton();
             this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
-            this.label6 = new QLCongNo.View.Core.NovLabel();
-            this.dateTimePicker2 = new QLCongNo.View.Core.NovDateTimePicker();
-            this.label4 = new QLCongNo.View.Core.NovLabel();
-            this.dateTimePicker1 = new QLCongNo.View.Core.NovDateTimePicker();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cboHTTT = new QLCongNo.View.Core.NovComboBox();
+            this.dateTimePicker2 = new QLCongNo.View.Core.NovDateTimePicker();
             this.label3 = new QLCongNo.View.Core.NovLabel();
+            this.label6 = new QLCongNo.View.Core.NovLabel();
             this.cboloaiHD = new QLCongNo.View.Core.NovComboBox();
-            this.cboDTSD = new QLCongNo.View.Core.NovComboBox();
             this.label1 = new QLCongNo.View.Core.NovLabel();
+            this.label5 = new QLCongNo.View.Core.NovLabel();
+            this.cboDTSD = new QLCongNo.View.Core.NovComboBox();
             this.cboTNV = new QLCongNo.View.Core.NovComboBox();
             this.label2 = new QLCongNo.View.Core.NovLabel();
-            this.label5 = new QLCongNo.View.Core.NovLabel();
+            this.dateTimePicker1 = new QLCongNo.View.Core.NovDateTimePicker();
+            this.label4 = new QLCongNo.View.Core.NovLabel();
             this.panel1 = new QLCongNo.View.Core.NovPanel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.getDangNganTheoNgayTableAdapter = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.getDangNganTheoNgayTableAdapter();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.getDangNganTheoNgayBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cAPNUOC_TDCDataSet)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // getDangNganTheoNgayBindingSource1
@@ -143,55 +143,36 @@
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             // 
-            // label6
+            // tableLayoutPanel1
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(404, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 23);
-            this.label6.TabIndex = 91;
-            this.label6.Text = "Đến ngày";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(404, 51);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(172, 30);
-            this.dateTimePicker2.TabIndex = 90;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label4.Location = new System.Drawing.Point(208, 14);
-            this.label4.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 23);
-            this.label4.TabIndex = 89;
-            this.label4.Text = "Từ ngày";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(208, 51);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(172, 30);
-            this.dateTimePicker1.TabIndex = 88;
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.cboHTTT, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker2, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboloaiHD, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboDTSD, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboTNV, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 25);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1178, 92);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // cboHTTT
             // 
@@ -206,6 +187,18 @@
             this.cboHTTT.Size = new System.Drawing.Size(174, 33);
             this.cboHTTT.TabIndex = 87;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(404, 51);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(172, 30);
+            this.dateTimePicker2.TabIndex = 90;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -218,6 +211,19 @@
             this.label3.Size = new System.Drawing.Size(108, 23);
             this.label3.TabIndex = 86;
             this.label3.Text = "Hình thức TT";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label6.Location = new System.Drawing.Point(404, 14);
+            this.label6.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 23);
+            this.label6.TabIndex = 91;
+            this.label6.Text = "Đến ngày";
             // 
             // cboloaiHD
             // 
@@ -232,19 +238,6 @@
             this.cboloaiHD.Size = new System.Drawing.Size(172, 33);
             this.cboloaiHD.TabIndex = 85;
             // 
-            // cboDTSD
-            // 
-            this.cboDTSD.BackColor = System.Drawing.Color.White;
-            this.cboDTSD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboDTSD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDTSD.ForeColor = System.Drawing.Color.Black;
-            this.cboDTSD.FormattingEnabled = true;
-            this.cboDTSD.Location = new System.Drawing.Point(600, 51);
-            this.cboDTSD.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.cboDTSD.Name = "cboDTSD";
-            this.cboDTSD.Size = new System.Drawing.Size(172, 33);
-            this.cboDTSD.TabIndex = 84;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -257,6 +250,32 @@
             this.label1.Size = new System.Drawing.Size(119, 23);
             this.label1.TabIndex = 80;
             this.label1.Text = "Thu ngân viên";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label5.Location = new System.Drawing.Point(796, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 23);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Loại hóa đơn";
+            // 
+            // cboDTSD
+            // 
+            this.cboDTSD.BackColor = System.Drawing.Color.White;
+            this.cboDTSD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboDTSD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDTSD.ForeColor = System.Drawing.Color.Black;
+            this.cboDTSD.FormattingEnabled = true;
+            this.cboDTSD.Location = new System.Drawing.Point(600, 51);
+            this.cboDTSD.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.cboDTSD.Name = "cboDTSD";
+            this.cboDTSD.Size = new System.Drawing.Size(172, 33);
+            this.cboDTSD.TabIndex = 84;
             // 
             // cboTNV
             // 
@@ -284,18 +303,30 @@
             this.label2.TabIndex = 81;
             this.label2.Text = "Đối tượng sử dụng";
             // 
-            // label5
+            // dateTimePicker1
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label5.Location = new System.Drawing.Point(796, 14);
-            this.label5.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 23);
-            this.label5.TabIndex = 82;
-            this.label5.Text = "Loại hóa đơn";
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(208, 51);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(172, 30);
+            this.dateTimePicker1.TabIndex = 88;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label4.Location = new System.Drawing.Point(208, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 23);
+            this.label4.TabIndex = 89;
+            this.label4.Text = "Từ ngày";
             // 
             // panel1
             // 
@@ -328,37 +359,6 @@
             // 
             this.getDangNganTheoNgayTableAdapter.ClearBeforeFill = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.cboHTTT, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboloaiHD, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboDTSD, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboTNV, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 25);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1178, 92);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
             // UcDangNgan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -375,9 +375,9 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -5430,14 +5430,28 @@
     <FunctionImport Name="XuLyDangNganbyIDCT">
       <Parameter Name="IDCT" Mode="In" Type="Decimal" />
     </FunctionImport>
-    <EntitySet Name="MenuItems" EntityType="Model.MenuItem" />
     <EntitySet Name="TB_TRANSACTIONS_LOG" EntityType="Model.TB_TRANSACTIONS_LOG" />
     <EntitySet Name="DM_GIABIEU" EntityType="Model.DM_GIABIEU" />
     <EntitySet Name="GACHNO_TEST" EntityType="Model.GACHNO_TEST" />
-    <EntitySet Name="Menus" EntityType="Model.Menu" />
     <FunctionImport Name="getDSHoaDon_KH" ReturnType="Collection(Model.getDSHoaDon_KH_Result)">
       <Parameter Name="IDKH" Mode="In" Type="Decimal" />
     </FunctionImport>
+    <FunctionImport Name="GetDangNganTheoNganHang" ReturnType="Collection(Model.GetDangNganTheoNganHang_Result)">
+      <Parameter Name="NgayDangNgan" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getDangNganTheoNgay_Newest" ReturnType="Collection(Model.getDangNganTheoNgay_Newest_Result)">
+      <Parameter Name="DANHBO" Mode="In" Type="String" />
+      <Parameter Name="NVID" Mode="In" Type="Decimal" />
+      <Parameter Name="loaiHD" Mode="In" Type="Int32" />
+      <Parameter Name="tungay" Mode="In" Type="String" />
+      <Parameter Name="denngay" Mode="In" Type="String" />
+      <Parameter Name="maloai" Mode="In" Type="String" />
+      <Parameter Name="maDT" Mode="In" Type="String" />
+      <Parameter Name="isdangngan" Mode="In" Type="Boolean" />
+      <Parameter Name="NVLap" Mode="In" Type="Decimal" />
+      <Parameter Name="TOID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Menus" EntityType="Model.Menu" />
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -5585,6 +5599,7 @@
     <Property Type="Decimal" Name="tongtiennhan" Nullable="true" Precision="38" Scale="0" />
     <Property Type="Int32" Name="soHDnhan" Nullable="true" />
     <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
   </ComplexType>
   <ComplexType Name="getBaoCaoTongHop_Result">
     <Property Type="Int32" Name="soluong" Nullable="true" />
@@ -5609,6 +5624,8 @@
     <Property Type="String" Name="somay" Nullable="true" MaxLength="10" />
     <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
     <Property Type="String" Name="tenloaiHD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="hovaten" Nullable="false" />
+    <Property Type="Decimal" Name="NV_ID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="getBaoCaoTongHopTheoLoai_Result">
     <Property Type="Int32" Name="soluong" Nullable="true" />
@@ -6502,6 +6519,7 @@
     <Property Type="String" Name="tenQuan" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="malt" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="tenTT" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="NV_ID" Nullable="true" Precision="18" Scale="0" />
   </ComplexType>
   <ComplexType Name="getDSKhoangLoTrinhChiaTNV_Result">
     <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
@@ -7115,17 +7133,6 @@
     <Property Type="String" Name="NVThu" Nullable="true" MaxLength="150" />
     <Property Type="DateTime" Name="Ngaythutienapp" Nullable="true" />
   </ComplexType>
-  <EntityType Name="MenuItem">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Status" Type="Int32" />
-    <Property Name="ParentId" Type="Int32" />
-  </EntityType>
   <EntityType Name="TB_TRANSACTIONS_LOG">
     <Key>
       <PropertyRef Name="PID" />
@@ -7183,6 +7190,53 @@
     <Property Name="STATUS" Type="Boolean" />
     <Property Name="TAG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="GetDangNganTheoNganHang_Result">
+    <Property Type="String" Name="TENNGANHANG" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="SoLuong" Nullable="true" />
+    <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="38" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="getDangNganTheoNgay_Newest_Result">
+    <Property Type="String" Name="so_hd" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="KY_HIEU_HD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SOPHATHANH" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="nam" Nullable="true" />
+    <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+    <Property Type="Decimal" Name="tongtien0VAT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienvat" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienuoc_dc" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienthue_dc" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienphi_dc" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PhiNT_dc" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TienThueNT_dc" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="ngayBK" Nullable="true" />
+    <Property Type="DateTime" Name="ngaydangngan" Nullable="true" Precision="23" />
+    <Property Type="String" Name="hoten_KH" Nullable="true" />
+    <Property Type="String" Name="MaLT" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="MGB" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MALOAI" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="LoaiHD_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="m3tieuthu" Nullable="true" />
+    <Property Type="String" Name="NVNop" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="lechtongtien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="lechtiennuoc" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="lechtienvat" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="lechtienBVMT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="lechm3" Nullable="true" />
+    <Property Type="String" Name="timkiem" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="GHICHU" Nullable="true" />
+    <Property Type="String" Name="ten_kyghi" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="IsDangNgan" Nullable="true" />
+    <Property Type="Decimal" Name="NV_ID_LAP" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="NGAYDANGNGAN_NV" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NGANHANG_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="NV_ID_NOP" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
   <EntityType Name="Menu">
     <Key>
       <PropertyRef Name="Id" />
@@ -7191,10 +7245,10 @@
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Status" Type="Int32" />
-    <Property Name="ParentId" Type="Int32" />
-    <Property Name="Sort" Type="Int32" />
     <Property Name="Icon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="ParentId" Type="Int32" />
     <Property Name="AdditionParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

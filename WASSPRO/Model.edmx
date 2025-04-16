@@ -369,7 +369,7 @@
           <Property Name="maloai_yc" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DM_GIABIEU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DM_GIABIEU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DM_GIABIEU">
           <Key>
             <PropertyRef Name="MA" />
@@ -572,7 +572,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DM_GIABIEU' does not have a primar
           <Property Name="imeiNumber" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.dm_phieu_thu20190110' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.dm_phieu_thu20190110' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="dm_phieu_thu20190110">
           <Key>
             <PropertyRef Name="GUID" />
@@ -833,7 +833,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.dm_phieu_thu20190110' does not hav
           <Property Name="ID_KYGHI_MOI" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.GACHNO_TEST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.GACHNO_TEST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GACHNO_TEST">
           <Key>
             <PropertyRef Name="GACHNO_ID" />
@@ -894,7 +894,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.GACHNO_TEST' does not have a prima
           <Property Name="IDCT" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.GACHNOLOI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.GACHNOLOI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GACHNOLOI">
           <Key>
             <PropertyRef Name="GACHNOLOI_ID" />
@@ -1045,7 +1045,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.GACHNOLOI' does not have a primary
           <Property Name="tylephi" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.HOADON_CHUATHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.HOADON_CHUATHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HOADON_CHUATHU">
           <Key>
             <PropertyRef Name="ID_HD" />
@@ -1106,7 +1106,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.HOADON_CHUATHU' does not have a pr
           <Property Name="ngaychuyenno" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.HOADON_DATHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.HOADON_DATHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HOADON_DATHU">
           <Key>
             <PropertyRef Name="ID_HD" />
@@ -1564,7 +1564,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.HOADON_DATHU' does not have a prim
           <Property Name="date_create" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.Menu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.Menu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="Id" />
@@ -1578,17 +1578,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.Menu' does not have a primary key 
           <Property Name="Sort" Type="int" />
           <Property Name="ParentId" Type="int" />
           <Property Name="AdditionParam" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="MenuItems">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="255" />
-          <Property Name="Text" Type="nvarchar" MaxLength="255" />
-          <Property Name="Action" Type="nvarchar" MaxLength="255" />
-          <Property Name="Status" Type="int" />
-          <Property Name="ParentId" Type="int" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -1667,7 +1656,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.Menu' does not have a primary key 
           <Property Name="ID_LoaiNV" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.phieuthu_kh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.phieuthu_kh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="phieuthu_kh">
           <Key>
             <PropertyRef Name="GUID" />
@@ -1793,7 +1782,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.phieuthu_kh' does not have a prima
           <Property Name="TAG" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.PublishedInvoices_bk20220803' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.PublishedInvoices_bk20220803' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PublishedInvoices_bk20220803">
           <Key>
             <PropertyRef Name="STT" />
@@ -1860,7 +1849,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.PublishedInvoices_bk20220803' does
           <Property Name="Ngaythutienapp" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.PublishedInvoices2024' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.PublishedInvoices2024' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PublishedInvoices2024">
           <Key>
             <PropertyRef Name="STT" />
@@ -2322,7 +2311,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.PublishedInvoices2024' does not ha
           <Property Name="trangthai" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID_KH" />
@@ -2396,7 +2385,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.Customer' does not have a primary 
           <Property Name="BCT" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DOANHTHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DOANHTHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DOANHTHU">
           <Key>
             <PropertyRef Name="tenLT" />
@@ -2422,7 +2411,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DOANHTHU' does not have a primary 
           <Property Name="STT" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSBienNhan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSBienNhan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSBienNhan">
           <Key>
             <PropertyRef Name="NGAYCT" />
@@ -2460,7 +2449,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSBienNhan' does not have a primar
           <Property Name="xacnhan" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSBIENNHANH_APP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSBIENNHANH_APP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSBIENNHANH_APP">
           <Key>
             <PropertyRef Name="tongtien" />
@@ -2493,7 +2482,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSBIENNHANH_APP' does not have a p
           <Property Name="Active" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSCHUNGTU_APP_INVOICE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSCHUNGTU_APP_INVOICE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSCHUNGTU_APP_INVOICE">
           <Key>
             <PropertyRef Name="ID_CT" />
@@ -2512,7 +2501,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSCHUNGTU_APP_INVOICE' does not ha
           <Property Name="slhoadon" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSGACHNO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSGACHNO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSGACHNO">
           <Key>
             <PropertyRef Name="trangthai" />
@@ -2524,7 +2513,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSGACHNO' does not have a primary 
           <Property Name="NV_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHD_PhieuThu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSHD_PhieuThu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSHD_PhieuThu">
           <Key>
             <PropertyRef Name="ID_HD" />
@@ -2555,7 +2544,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHD_PhieuThu' does not have a pri
           <Property Name="tenQuan" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSHOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSHOADON">
           <Key>
             <PropertyRef Name="ID_HD" />
@@ -2620,7 +2609,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHOADON' does not have a primary 
           <Property Name="tenloaiHD" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHoaDonKhoDoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSHoaDonKhoDoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSHoaDonKhoDoi">
           <Key>
             <PropertyRef Name="ID_KH" />
@@ -2658,7 +2647,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHoaDonKhoDoi' does not have a pr
           <Property Name="chitiet" Type="nvarchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHoaDonThu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSHoaDonThu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSHoaDonThu">
           <Key>
             <PropertyRef Name="ten_kyghi" />
@@ -2680,7 +2669,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSHoaDonThu' does not have a prima
           <Property Name="NV_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSPHIEUTHU_APP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.DSPHIEUTHU_APP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DSPHIEUTHU_APP">
           <Key>
             <PropertyRef Name="madanhbo" />
@@ -2716,7 +2705,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.DSPHIEUTHU_APP' does not have a pr
           <Property Name="id_chisonuoc" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.KyGuiSMS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.KyGuiSMS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="KyGuiSMS">
           <Key>
             <PropertyRef Name="IDKH" />
@@ -2725,7 +2714,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.KyGuiSMS' does not have a primary 
           <Property Name="IDKH" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.Thongkedoanhthu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.Thongkedoanhthu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Thongkedoanhthu">
           <Key>
             <PropertyRef Name="maLT" />
@@ -2752,7 +2741,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.Thongkedoanhthu' does not have a p
           <Property Name="sl" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.TONEXXCEL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.TONEXXCEL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TONEXXCEL">
           <Key>
             <PropertyRef Name="id_hd" />
@@ -2761,7 +2750,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.TONEXXCEL' does not have a primary
           <Property Name="TongtienPT" Type="numeric" Precision="24" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEW_DSKHACHHANG_HOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEW_DSKHACHHANG_HOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEW_DSKHACHHANG_HOADON">
           <Key>
             <PropertyRef Name="MaLT" />
@@ -2788,7 +2777,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEW_DSKHACHHANG_HOADON' does not 
           <Property Name="tenQuan" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEW_LOGTHUTIENNUOC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEW_LOGTHUTIENNUOC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEW_LOGTHUTIENNUOC">
           <Key>
             <PropertyRef Name="nhanvien" />
@@ -2815,7 +2804,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEW_LOGTHUTIENNUOC' does not have
           <Property Name="tongtien" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEW_NHANVIENTHU_HOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEW_NHANVIENTHU_HOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEW_NHANVIENTHU_HOADON">
           <Key>
             <PropertyRef Name="NV_ID" />
@@ -2866,7 +2855,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEW_NHANVIENTHU_HOADON' does not 
           <Property Name="CUON_GCS" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWCHUADANGNGAN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWCHUADANGNGAN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWCHUADANGNGAN">
           <Key>
             <PropertyRef Name="ID_CT" />
@@ -2874,7 +2863,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWCHUADANGNGAN' does not have a 
           <Property Name="ID_CT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANGNGANTHEONGAY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWDANGNGANTHEONGAY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWDANGNGANTHEONGAY">
           <Key>
             <PropertyRef Name="MaLT" />
@@ -2918,7 +2907,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANGNGANTHEONGAY' does not hav
           <Property Name="NV_ID_NOP" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANHSACHKHACHHANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWDANHSACHKHACHHANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWDANHSACHKHACHHANG">
           <Key>
             <PropertyRef Name="ID_KH" />
@@ -2953,7 +2942,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANHSACHKHACHHANG' does not ha
           <Property Name="trangthaiKH" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANHSACHLOTRINHTHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWDANHSACHLOTRINHTHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWDANHSACHLOTRINHTHU">
           <Key>
             <PropertyRef Name="NV_ID" />
@@ -3001,7 +2990,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANHSACHLOTRINHTHU' does not h
           <Property Name="CUON_GCS" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANHSACHTHU_APP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWDANHSACHTHU_APP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWDANHSACHTHU_APP">
           <Key>
             <PropertyRef Name="NV_ID" />
@@ -3019,7 +3008,7 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWDANHSACHTHU_APP' does not have
           <Property Name="TO_ID" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWTHONGTINHOADON">
           <Key>
             <PropertyRef Name="ID_HD" />
@@ -4204,7 +4193,22 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Parameter Name="ngaythu" Type="varchar" Mode="In" />
           <Parameter Name="loaiHD" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetDangNganTheoNganHang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NgayDangNgan" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="getDangNganTheoNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NVID" Type="numeric" Mode="In" />
+          <Parameter Name="loaiHD" Type="int" Mode="In" />
+          <Parameter Name="tungay" Type="varchar" Mode="In" />
+          <Parameter Name="denngay" Type="varchar" Mode="In" />
+          <Parameter Name="maloai" Type="varchar" Mode="In" />
+          <Parameter Name="maDT" Type="varchar" Mode="In" />
+          <Parameter Name="isdangngan" Type="bit" Mode="In" />
+          <Parameter Name="NVLap" Type="numeric" Mode="In" />
+          <Parameter Name="TOID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getDangNganTheoNgay_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DANHBO" Type="varchar" Mode="In" />
           <Parameter Name="NVID" Type="numeric" Mode="In" />
           <Parameter Name="loaiHD" Type="int" Mode="In" />
           <Parameter Name="tungay" Type="varchar" Mode="In" />
@@ -5185,7 +5189,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <EntitySet Name="LOTRINH_GHI" EntityType="Self.LOTRINH_GHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOTRINH_THU" EntityType="Self.LOTRINH_THU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAU_HD" EntityType="Self.MAU_HD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MenuItems" EntityType="Self.MenuItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOIDUNG_QUYEN" EntityType="Self.NGUOIDUNG_QUYEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
@@ -11910,14 +11913,28 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <FunctionImport Name="XuLyDangNganbyIDCT">
           <Parameter Name="IDCT" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="MenuItems" EntityType="Model.MenuItem" />
           <EntitySet Name="TB_TRANSACTIONS_LOG" EntityType="Model.TB_TRANSACTIONS_LOG" />
           <EntitySet Name="DM_GIABIEU" EntityType="Model.DM_GIABIEU" />
           <EntitySet Name="GACHNO_TEST" EntityType="Model.GACHNO_TEST" />
-          <EntitySet Name="Menus" EntityType="Model.Menu" />
           <FunctionImport Name="getDSHoaDon_KH" ReturnType="Collection(Model.getDSHoaDon_KH_Result)">
-            <Parameter Name="IDKH" Mode="In" Type="Decimal" />
+          <Parameter Name="IDKH" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="GetDangNganTheoNganHang" ReturnType="Collection(Model.GetDangNganTheoNganHang_Result)">
+          <Parameter Name="NgayDangNgan" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getDangNganTheoNgay_Newest" ReturnType="Collection(Model.getDangNganTheoNgay_Newest_Result)">
+            <Parameter Name="DANHBO" Mode="In" Type="String" />
+            <Parameter Name="NVID" Mode="In" Type="Decimal" />
+            <Parameter Name="loaiHD" Mode="In" Type="Int32" />
+            <Parameter Name="tungay" Mode="In" Type="String" />
+            <Parameter Name="denngay" Mode="In" Type="String" />
+            <Parameter Name="maloai" Mode="In" Type="String" />
+            <Parameter Name="maDT" Mode="In" Type="String" />
+            <Parameter Name="isdangngan" Mode="In" Type="Boolean" />
+            <Parameter Name="NVLap" Mode="In" Type="Decimal" />
+            <Parameter Name="TOID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Menus" EntityType="Model.Menu" />
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -13599,17 +13616,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Type="String" Name="NVThu" Nullable="true" MaxLength="150" />
           <Property Type="DateTime" Name="Ngaythutienapp" Nullable="true" />
         </ComplexType>
-        <EntityType Name="MenuItem">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="ParentId" Type="Int32" />
-        </EntityType>
         <EntityType Name="TB_TRANSACTIONS_LOG">
           <Key>
             <PropertyRef Name="PID" />
@@ -13667,6 +13673,53 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Name="STATUS" Type="Boolean" />
           <Property Name="TAG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="GetDangNganTheoNganHang_Result">
+          <Property Type="String" Name="TENNGANHANG" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="SoLuong" Nullable="true" />
+          <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getDangNganTheoNgay_Newest_Result">
+          <Property Type="String" Name="so_hd" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="KY_HIEU_HD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SOPHATHANH" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="nam" Nullable="true" />
+          <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+          <Property Type="Decimal" Name="tongtien0VAT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienvat" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienuoc_dc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienthue_dc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienphi_dc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PhiNT_dc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TienThueNT_dc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="ngayBK" Nullable="true" />
+          <Property Type="DateTime" Name="ngaydangngan" Nullable="true" Precision="23" />
+          <Property Type="String" Name="hoten_KH" Nullable="true" />
+          <Property Type="String" Name="MaLT" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="MGB" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MALOAI" Nullable="false" MaxLength="10" />
+          <Property Type="Decimal" Name="LoaiHD_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="m3tieuthu" Nullable="true" />
+          <Property Type="String" Name="NVNop" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="lechtongtien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="lechtiennuoc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="lechtienvat" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="lechtienBVMT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="lechm3" Nullable="true" />
+          <Property Type="String" Name="timkiem" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="GHICHU" Nullable="true" />
+          <Property Type="String" Name="ten_kyghi" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="IsDangNgan" Nullable="true" />
+          <Property Type="Decimal" Name="NV_ID_LAP" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="NGAYDANGNGAN_NV" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NGANHANG_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="NV_ID_NOP" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="Id" />
@@ -13675,10 +13728,10 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="Sort" Type="Int32" />
           <Property Name="Icon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" />
           <Property Name="AdditionParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
@@ -18702,18 +18755,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
           <FunctionImportMapping FunctionImportName="XoaNothuHo" FunctionName="Model.Store.XoaNothuHo" />
           <FunctionImportMapping FunctionImportName="XuLyDangNgan" FunctionName="Model.Store.XuLyDangNgan" />
           <FunctionImportMapping FunctionImportName="XuLyDangNganbyIDCT" FunctionName="Model.Store.XuLyDangNganbyIDCT" />
-          <EntitySetMapping Name="MenuItems">
-            <EntityTypeMapping TypeName="Model.MenuItem">
-              <MappingFragment StoreEntitySet="MenuItems">
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TB_TRANSACTIONS_LOG">
             <EntityTypeMapping TypeName="Model.TB_TRANSACTIONS_LOG">
               <MappingFragment StoreEntitySet="TB_TRANSACTIONS_LOG">
@@ -18772,21 +18813,6 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Menus">
-            <EntityTypeMapping TypeName="Model.Menu">
-              <MappingFragment StoreEntitySet="Menu">
-                <ScalarProperty Name="AdditionParam" ColumnName="AdditionParam" />
-                <ScalarProperty Name="Icon" ColumnName="Icon" />
-                <ScalarProperty Name="Sort" ColumnName="Sort" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="getDSHoaDon_KH" FunctionName="Model.Store.getDSHoaDon_KH">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Model.getDSHoaDon_KH_Result">
@@ -18822,6 +18848,76 @@ warning 6002: The table/view 'CAPNUOC_TDC.dbo.VIEWTHONGTINHOADON' does not have 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDangNganTheoNganHang" FunctionName="Model.Store.GetDangNganTheoNganHang">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetDangNganTheoNganHang_Result">
+                <ScalarProperty Name="TENNGANHANG" ColumnName="TENNGANHANG" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDangNganTheoNgay_Newest" FunctionName="Model.Store.getDangNganTheoNgay_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDangNganTheoNgay_Newest_Result">
+                <ScalarProperty Name="so_hd" ColumnName="so_hd" />
+                <ScalarProperty Name="KY_HIEU_HD" ColumnName="KY_HIEU_HD" />
+                <ScalarProperty Name="SOPHATHANH" ColumnName="SOPHATHANH" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+                <ScalarProperty Name="DANHBO" ColumnName="DANHBO" />
+                <ScalarProperty Name="tongtien0VAT" ColumnName="tongtien0VAT" />
+                <ScalarProperty Name="tienvat" ColumnName="tienvat" />
+                <ScalarProperty Name="tienBVMT" ColumnName="tienBVMT" />
+                <ScalarProperty Name="PhiNT" ColumnName="PhiNT" />
+                <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="tienuoc_dc" ColumnName="tienuoc_dc" />
+                <ScalarProperty Name="tienthue_dc" ColumnName="tienthue_dc" />
+                <ScalarProperty Name="tienphi_dc" ColumnName="tienphi_dc" />
+                <ScalarProperty Name="PhiNT_dc" ColumnName="PhiNT_dc" />
+                <ScalarProperty Name="TienThueNT_dc" ColumnName="TienThueNT_dc" />
+                <ScalarProperty Name="ngayBK" ColumnName="ngayBK" />
+                <ScalarProperty Name="ngaydangngan" ColumnName="ngaydangngan" />
+                <ScalarProperty Name="hoten_KH" ColumnName="hoten_KH" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MGB" ColumnName="MGB" />
+                <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+                <ScalarProperty Name="LoaiHD_ID" ColumnName="LoaiHD_ID" />
+                <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+                <ScalarProperty Name="m3tieuthu" ColumnName="m3tieuthu" />
+                <ScalarProperty Name="NVNop" ColumnName="NVNop" />
+                <ScalarProperty Name="lechtongtien" ColumnName="lechtongtien" />
+                <ScalarProperty Name="lechtiennuoc" ColumnName="lechtiennuoc" />
+                <ScalarProperty Name="lechtienvat" ColumnName="lechtienvat" />
+                <ScalarProperty Name="lechtienBVMT" ColumnName="lechtienBVMT" />
+                <ScalarProperty Name="lechm3" ColumnName="lechm3" />
+                <ScalarProperty Name="timkiem" ColumnName="timkiem" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="ten_kyghi" ColumnName="ten_kyghi" />
+                <ScalarProperty Name="IsDangNgan" ColumnName="IsDangNgan" />
+                <ScalarProperty Name="NV_ID_LAP" ColumnName="NV_ID_LAP" />
+                <ScalarProperty Name="NGAYDANGNGAN_NV" ColumnName="NGAYDANGNGAN_NV" />
+                <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
+                <ScalarProperty Name="NGANHANG_ID" ColumnName="NGANHANG_ID" />
+                <ScalarProperty Name="NV_ID_NOP" ColumnName="NV_ID_NOP" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="AdditionParam" ColumnName="AdditionParam" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

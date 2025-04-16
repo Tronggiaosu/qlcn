@@ -59,7 +59,7 @@
             this.dtpTungay = new QLCongNo.View.Core.NovDateTimePicker();
             this.dtpDenngay = new QLCongNo.View.Core.NovDateTimePicker();
             this.label6 = new QLCongNo.View.Core.NovLabel();
-            this.textBox1 = new QLCongNo.View.Core.NovTextBox();
+            this.txtTimDanhBo = new QLCongNo.View.Core.NovTextBox();
             this.label3 = new QLCongNo.View.Core.NovLabel();
             this.chkHuyTT = new QLCongNo.View.Core.NovCheckBox();
             this.txtlydo = new QLCongNo.View.Core.NovTextBox();
@@ -256,7 +256,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dtpTungay, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dtpDenngay, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtTimDanhBo, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkHuyTT, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtlydo, 4, 3);
@@ -305,7 +305,7 @@
             // 
             // dtpDenngay
             // 
-            this.dtpDenngay.CustomFormat = "dd/MM/yyyy";
+            this.dtpDenngay.CustomFormat = "dd/MM/yyyy 23:59:59";
             this.dtpDenngay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDenngay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -329,18 +329,18 @@
             this.label6.Text = "Đến ngày";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox1
+            // txtTimDanhBo
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(492, 43);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(273, 32);
-            this.textBox1.TabIndex = 101;
-            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
+            this.txtTimDanhBo.BackColor = System.Drawing.Color.White;
+            this.txtTimDanhBo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTimDanhBo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimDanhBo.ForeColor = System.Drawing.Color.Black;
+            this.txtTimDanhBo.Location = new System.Drawing.Point(492, 43);
+            this.txtTimDanhBo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtTimDanhBo.Name = "txtTimDanhBo";
+            this.txtTimDanhBo.Size = new System.Drawing.Size(273, 32);
+            this.txtTimDanhBo.TabIndex = 101;
+            this.txtTimDanhBo.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
             // 
             // label3
             // 
@@ -561,7 +561,7 @@
             dataGridViewCellStyle14.ForeColor = System.Drawing.Color.MediumBlue;
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -653,7 +653,7 @@
             this.ngaythuColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ngaythuColumn.DataPropertyName = "ngaydangngan";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle7.Format = "dd/MM/yyyy HH:mm";
             dataGridViewCellStyle7.NullValue = null;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.ngaythuColumn.DefaultCellStyle = dataGridViewCellStyle7;
@@ -866,7 +866,7 @@
         private View.Core.NovGroupBox groupBox1;
         private View.Core.NovComboBox cboNganhang;
         private View.Core.NovLabel label1;
-        private View.Core.NovTextBox textBox1;
+        private View.Core.NovTextBox txtTimDanhBo;
         private View.Core.NovLabel label3;
         private View.Core.NovLabel label6;
         private View.Core.NovDateTimePicker dtpDenngay;
@@ -889,6 +889,15 @@
         private View.Core.NovCheckBox chkAllList;
         private View.Core.NovToolStripButton btnXuLy;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter sp_ChangePasswordTableAdapter1;
+        private CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter sp_ChangePasswordTableAdapter2;
+        private Core.NovToolStripStatusLabel lblsoluong;
+        private Core.NovToolStripStatusLabel lbltongtien;
+        private Core.NovToolStripStatusLabel lbltong;
+        private Core.NovStatusStrip statusStrip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
         private Core.NovDataGridViewCheckBoxColumn chkColumn;
         private Core.NovDataGridViewTextBoxColumn seriColumn;
         private Core.NovDataGridViewTextBoxColumn namColumn;
@@ -903,14 +912,5 @@
         private Core.NovDataGridViewTextBoxColumn maLTColumn;
         private Core.NovDataGridViewTextBoxColumn ghichuColumn;
         private Core.NovDataGridViewTextBoxColumn IDHDColumn;
-        private CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter sp_ChangePasswordTableAdapter1;
-        private CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter sp_ChangePasswordTableAdapter2;
-        private Core.NovToolStripStatusLabel lblsoluong;
-        private Core.NovToolStripStatusLabel lbltongtien;
-        private Core.NovToolStripStatusLabel lbltong;
-        private Core.NovStatusStrip statusStrip1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -35,7 +35,7 @@ namespace QLCongNo.View.UC.GachNo
                 bool isdangngan = false;
                 if (maloai == "0")
                     isdangngan = true;
-                var dataSource = db.getDangNganTheoNgay(NVID, loaiHD, tungay, denngay, maloai, maDT, isdangngan, 0, 0).ToList();
+                var dataSource = db.getDangNganTheoNgay_Newest(String.Empty, NVID, loaiHD, tungay, denngay, maloai, maDT, isdangngan, 0, 0).ToList();
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Dat files (*.dat)|*.dat";
                 saveFileDialog.DefaultExt = "dat";
@@ -85,7 +85,7 @@ namespace QLCongNo.View.UC.GachNo
             bool isdangngan = false;
             if (maloai == "0")
                 isdangngan = true;
-            var dataSource = db.getDangNganTheoNgay(NVID, loaiHD, tungay, denngay, maloai, maDT, isdangngan, 0, 0).ToList();
+            var dataSource = db.getDangNganTheoNgay_Newest(String.Empty, NVID, loaiHD, tungay, denngay, maloai, maDT, isdangngan, 0, 0).ToList();
             this.getDangNganTheoNgayBindingSource1.DataSource = dataSource.ToList();
             string tenbaocao = "";
             if (maloai == "KH")

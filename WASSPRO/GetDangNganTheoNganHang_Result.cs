@@ -10,15 +10,11 @@
 namespace QLCongNo
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class MenuItem
+    public partial class GetDangNganTheoNganHang_Result
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Text { get; set; }
-        public string Action { get; set; }
-        public Nullable<int> Status { get; set; }
-        public Nullable<int> ParentId { get; set; }
+        public string TENNGANHANG { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
     }
 }

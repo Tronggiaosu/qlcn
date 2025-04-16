@@ -30,7 +30,7 @@ namespace QLCongNo.View.UC.DangNgan
             btnExcel.Click += btnExcel_Click;
             chkAll.CheckedChanged += chkAll_CheckedChanged;
             //btnIn.Click += btnIn_Click;
-            textBox1.KeyDown += textBox1_KeyDown;
+            txtTimDanhBo.KeyDown += textBox1_KeyDown;
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
@@ -115,8 +115,8 @@ namespace QLCongNo.View.UC.DangNgan
             if (_staticMaloai == "TT")
                 TOID = int.Parse(cboTO.SelectedValue.ToString());
             var dataSource = db.getDangNganTheoNgayEX(NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
-            if (textBox1.Text != "")
-                dataSource = dataSource.Where(x => x.timkiem.Contains(textBox1.Text.ToUpper().Replace(" ", String.Empty))).ToList();
+            if (txtTimDanhBo.Text != "")
+                dataSource = dataSource.Where(x => x.timkiem.Contains(txtTimDanhBo.Text.ToUpper().Replace(" ", String.Empty))).ToList();
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Excel file|.xlsx";
             if (save.ShowDialog() == DialogResult.OK)
@@ -487,10 +487,9 @@ namespace QLCongNo.View.UC.DangNgan
         {
             this.Cursor = Cursors.WaitCursor;
             var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-            //var tungay = dtpTungay.Value;
-            //var denngay = dtpDenngay.Value;
             var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
             var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
+            var danhbo = txtTimDanhBo.Text;
 
             decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
             decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
@@ -502,13 +501,14 @@ namespace QLCongNo.View.UC.DangNgan
                 NVLap = 0;
             if (_staticMaloai == "TT")
                 TOID = int.Parse(cboTO.SelectedValue.ToString());
-            var dataSource = db.getDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
-            if (textBox1.Text != "")
-                dataSource = dataSource.Where(x => x.timkiem.Contains(textBox1.Text.ToUpper().Replace(" ", String.Empty))).ToList();
+            var dataSource = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
+            
             table = ExcelExportHelper.ListToDataTable(dataSource);
             if (dataSource.Count() > 0)
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView1.Columns[10].Width = 270;
                 btnDN.Enabled = true;
             }
             dataGridView1.DataSource = dataSource;
@@ -523,7 +523,7 @@ namespace QLCongNo.View.UC.DangNgan
             dataGridView1.AutoGenerateColumns = false;
             dtpDenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dtpTungay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dtpDenngay.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dtpDenngay.CustomFormat = "dd/MM/yyyy 23:59:59";
             dtpTungay.CustomFormat = "dd/MM/yyyy";
             // dm ngan hang
             cboNganhang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -633,7 +633,7 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            string text = textBox1.Text;
+            string text = txtTimDanhBo.Text;
             if (text != "")
             {
                 if (e.KeyCode == Keys.Enter)
