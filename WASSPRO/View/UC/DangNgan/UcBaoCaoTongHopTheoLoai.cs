@@ -71,6 +71,11 @@ namespace QLCongNo.View.UC.DangNgan
             this.getBaoCaoTongHopTheoLoaiBindingSource.DataSource = data;
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;
+
+            if (data.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)

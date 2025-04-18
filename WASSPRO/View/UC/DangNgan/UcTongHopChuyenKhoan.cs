@@ -60,6 +60,11 @@ namespace QLCongNo.View.UC.DangNgan
                 this.getThongKeDangNganChuyenKhoanTheoNgayBindingSource.DataSource = data;
                 this.reportViewer1.RefreshReport();
                 this.Cursor = Cursors.Default;
+
+                if (data.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {

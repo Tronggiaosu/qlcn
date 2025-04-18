@@ -1842,6 +1842,7 @@
     <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.resx">
       <DependentUpon>UcPhieuNgungNuoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNganHang.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNhanVienGiaiTrach.rdlc" />
     <EmbeddedResource Include="View\UC\UcLogin.resx">
       <DependentUpon>UcLogin.cs</DependentUpon>

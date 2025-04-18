@@ -20,7 +20,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
         }
 
         private void btnTim_Click(object sender, EventArgs e)
-        { 
+        {
             this.Cursor = Cursors.WaitCursor;
             var root = "ReportViewer\\ReportView\\RPTongHopHoaDon.rdlc";
             string basePath = Directory.GetCurrentDirectory();

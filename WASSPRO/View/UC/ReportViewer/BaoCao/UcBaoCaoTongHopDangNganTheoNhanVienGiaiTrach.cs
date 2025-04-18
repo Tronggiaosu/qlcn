@@ -92,6 +92,11 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
                 this.reportViewer1.RefreshReport();
                 this.Cursor = Cursors.Default;
+
+                if (dataDangNgans.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {

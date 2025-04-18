@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Data.SqlTypes;
 
 namespace QLCongNo.View.UC.ReportViewer.BaoCao
 {
@@ -37,6 +38,8 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 MessageBox.Show("File report không tồn tại: " + reportPath, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.ReportPath = reportPath;
 
             string tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
@@ -60,7 +63,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             int? nVID = chkDT.Checked ? (int?)loaiHD : null;
             string tungay1 = dtpTungay.Value.ToString("yyyy-MM-dd");
             string dengay1 = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
-            var hdkd = db.getDSChuyenNoKhoDoi(tungay1, dengay1, nVID:null).ToList();
+            var hdkd = db.getDSChuyenNoKhoDoi(tungay1, dengay1, nVID: null).ToList();
 
             var groupedData = hdkd
             .GroupBy(x => x.DANHBO)
@@ -104,7 +107,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
             var culture = new CultureInfo("vi-VN");
             foreach (var item in groupedData)
-            {              
+            {
                 reportData.Rows.Add(
                     item.HĐ,
                     item.hoten,
@@ -113,7 +116,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                     item.nhanvien,
                     item.NGUOITHANHTOAN,
                     item.SOPHATHANH,
-                    item.TONGTIEN ?? 0, 
+                    item.TONGTIEN ?? 0,
                     item.tongtien0VAT ?? 0,
                     item.tienvat ?? 0,
                     item.tienBVMT ?? 0,
@@ -126,17 +129,23 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
             var bindingSourceMain = new BindingSource();
             bindingSourceMain.DataSource = dataSource;
-            //ReportDataSource mainDataSource = new ReportDataSource("DataSource", bindingSourceMain);
             WinFormsReport.ReportDataSource mainDataSource = new WinFormsReport.ReportDataSource("DataSource", bindingSourceMain);
             this.reportViewer1.LocalReport.DataSources.Add(mainDataSource);
             this.reportViewer1.RefreshReport();
 
             var bindingSourceHDKD = new BindingSource();
-            bindingSourceHDKD.DataSource = reportData;  
+            bindingSourceHDKD.DataSource = reportData;
             WinFormsReport.ReportDataSource hdkdDataSource = new WinFormsReport.ReportDataSource("DataSource1", bindingSourceHDKD);
+
+            var count = bindingSourceHDKD.Count;
             this.reportViewer1.LocalReport.DataSources.Add(hdkdDataSource);
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;
+
+            if (dataSource.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
