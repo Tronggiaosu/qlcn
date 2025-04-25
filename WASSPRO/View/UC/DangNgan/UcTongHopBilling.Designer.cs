@@ -57,7 +57,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new QLCongNo.View.Core.NovToolStrip();
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
-            this.btnExport = new QLCongNo.View.Core.NovToolStripButton();
+            this.btnExportDSHDTT = new QLCongNo.View.Core.NovToolStripButton();
             this.btnTT = new QLCongNo.View.Core.NovToolStripButton();
             this.btnCN = new QLCongNo.View.Core.NovToolStripButton();
             this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
@@ -102,6 +102,7 @@
             this.statusStrip2 = new QLCongNo.View.Core.NovStatusStrip();
             this.lblCN = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnExportDSHDCN = new QLCongNo.View.Core.NovToolStripButton();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -132,7 +133,8 @@
             this.toolStrip2.IsMainMenu = true;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnTim,
-            this.btnExport,
+            this.btnExportDSHDTT,
+            this.btnExportDSHDCN,
             this.btnTT,
             this.btnCN,
             this.quitButton});
@@ -156,16 +158,16 @@
             this.btnTim.Size = new System.Drawing.Size(77, 39);
             this.btnTim.Text = "Tìm";
             // 
-            // btnExport
+            // btnExportDSHDTT
             // 
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Image = global::QLCongNo.Properties.Resources.export_file;
-            this.btnExport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExport.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExport.Size = new System.Drawing.Size(157, 39);
-            this.btnExport.Text = "Xuất file data";
+            this.btnExportDSHDTT.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportDSHDTT.Image = global::QLCongNo.Properties.Resources.export_file;
+            this.btnExportDSHDTT.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportDSHDTT.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnExportDSHDTT.Name = "btnExportDSHDTT";
+            this.btnExportDSHDTT.Padding = new System.Windows.Forms.Padding(5);
+            this.btnExportDSHDTT.Size = new System.Drawing.Size(282, 39);
+            this.btnExportDSHDTT.Text = "Xuất file data DS thanh toán";
             // 
             // btnTT
             // 
@@ -270,9 +272,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.groupBox2.Size = new System.Drawing.Size(631, 477);
             this.groupBox2.TabIndex = 82;
             this.groupBox2.TabStop = false;
@@ -282,10 +284,10 @@
             // 
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 33);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.panel3.Location = new System.Drawing.Point(3, 38);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(625, 376);
+            this.panel3.Size = new System.Drawing.Size(625, 402);
             this.panel3.TabIndex = 85;
             // 
             // dataGridView1
@@ -297,9 +299,6 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -330,11 +329,12 @@
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 44);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 18, 4, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -345,7 +345,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(587, 310);
+            this.dataGridView1.Size = new System.Drawing.Size(625, 402);
             this.dataGridView1.TabIndex = 83;
             // 
             // ngaythuColumn
@@ -450,10 +450,10 @@
             // 
             this.panel1.Controls.Add(this.statusStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 409);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.panel1.Location = new System.Drawing.Point(3, 440);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(625, 58);
+            this.panel1.Size = new System.Drawing.Size(625, 22);
             this.panel1.TabIndex = 84;
             // 
             // statusStrip1
@@ -466,7 +466,7 @@
             this.lblsoluong,
             this.lbltongtien,
             this.lbltong});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 36);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
             this.statusStrip1.Size = new System.Drawing.Size(625, 22);
@@ -506,9 +506,9 @@
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.groupBox3.Size = new System.Drawing.Size(628, 477);
             this.groupBox3.TabIndex = 83;
             this.groupBox3.TabStop = false;
@@ -518,10 +518,10 @@
             // 
             this.panel4.Controls.Add(this.dataGridView2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 33);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.panel4.Location = new System.Drawing.Point(3, 38);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(622, 376);
+            this.panel4.Size = new System.Drawing.Size(622, 402);
             this.panel4.TabIndex = 88;
             // 
             // dataGridView2
@@ -533,9 +533,6 @@
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
             this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -571,11 +568,12 @@
             dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle25;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView2.Location = new System.Drawing.Point(18, 44);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 18, 4, 18);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
@@ -586,7 +584,7 @@
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridView2.RowTemplate.Height = 32;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(590, 310);
+            this.dataGridView2.Size = new System.Drawing.Size(622, 402);
             this.dataGridView2.TabIndex = 86;
             // 
             // dataGridViewTextBoxColumn1
@@ -754,10 +752,10 @@
             // 
             this.panel2.Controls.Add(this.statusStrip2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 409);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.panel2.Location = new System.Drawing.Point(3, 440);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(622, 58);
+            this.panel2.Size = new System.Drawing.Size(622, 22);
             this.panel2.TabIndex = 87;
             // 
             // statusStrip2
@@ -768,7 +766,7 @@
             this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblCN});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 36);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 0);
             this.statusStrip2.Name = "statusStrip2";
             this.statusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
             this.statusStrip2.Size = new System.Drawing.Size(622, 22);
@@ -801,6 +799,17 @@
             this.splitContainer1.Size = new System.Drawing.Size(1263, 477);
             this.splitContainer1.SplitterDistance = 631;
             this.splitContainer1.TabIndex = 84;
+            // 
+            // btnExportDSHDCN
+            // 
+            this.btnExportDSHDCN.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportDSHDCN.Image = global::QLCongNo.Properties.Resources.export_file;
+            this.btnExportDSHDCN.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportDSHDCN.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnExportDSHDCN.Name = "btnExportDSHDCN";
+            this.btnExportDSHDCN.Padding = new System.Windows.Forms.Padding(5);
+            this.btnExportDSHDCN.Size = new System.Drawing.Size(278, 39);
+            this.btnExportDSHDCN.Text = "Xuất file data DS chuyển nợ";
             // 
             // UcTongHopBilling
             // 
@@ -845,7 +854,7 @@
 
         private View.Core.NovToolStrip toolStrip2;
         private View.Core.NovToolStripButton btnTim;
-        private View.Core.NovToolStripButton btnExport;
+        private View.Core.NovToolStripButton btnExportDSHDTT;
         private View.Core.NovToolStripButton quitButton;
         private View.Core.NovGroupBox groupBox1;
         private View.Core.NovLabel label6;
@@ -890,5 +899,6 @@
         private Core.NovDataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private Core.NovDataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private Core.NovDataGridViewTextBoxColumn IDHD2Column;
+        private Core.NovToolStripButton btnExportDSHDCN;
     }
 }

@@ -32,9 +32,6 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
         private void btnTim_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            //string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            //string projectRootPath = Path.GetFullPath(Path.Combine(basePath, @"..\..\..\"));
-            //string reportPath = Path.Combine(projectRootPath, "WASSPRO", "ReportViewer", "ReportView", "RPTheoDoiHoaDon.rdlc");
 
             var root = "ReportViewer\\ReportView\\RPTheoDoiHoaDon.rdlc";
             string basePath = Directory.GetCurrentDirectory();
