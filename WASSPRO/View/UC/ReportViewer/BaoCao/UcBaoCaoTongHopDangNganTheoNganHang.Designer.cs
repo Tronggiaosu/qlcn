@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
-            this.dateTimePicker1 = new QLCongNo.View.Core.NovDateTimePicker();
-            this.label2 = new QLCongNo.View.Core.NovLabel();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
+            this.dtPickerTu = new QLCongNo.View.Core.NovDateTimePicker();
+            this.dtPickerDen = new QLCongNo.View.Core.NovDateTimePicker();
+            this.novLabel1 = new QLCongNo.View.Core.NovLabel();
+            this.novLabel2 = new QLCongNo.View.Core.NovLabel();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,8 +93,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.novLabel2);
+            this.groupBox1.Controls.Add(this.dtPickerTu);
+            this.groupBox1.Controls.Add(this.novLabel1);
+            this.groupBox1.Controls.Add(this.dtPickerDen);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.MediumBlue;
@@ -104,37 +108,13 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(192, 33);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(221, 30);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(22, 36);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Chọn ngày tra cứu:";
-            // 
             // reportViewer2
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer2.DocumentMapWidth = 59;
-            reportDataSource1.Name = "DataSource";
-            reportDataSource1.Value = null;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "DataSource";
+            reportDataSource3.Value = null;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "QLCongNo.ReportViewer.ReportView.RPTongHopDangNganTheoNgay.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(0, 141);
             this.reportViewer2.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
@@ -151,6 +131,54 @@
             this.iconDropDownButton1.Name = "iconDropDownButton1";
             this.iconDropDownButton1.Size = new System.Drawing.Size(23, 23);
             this.iconDropDownButton1.Text = "iconDropDownButton1";
+            // 
+            // dtPickerTu
+            // 
+            this.dtPickerTu.CustomFormat = "dd/MM/yyyy";
+            this.dtPickerTu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPickerTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerTu.Location = new System.Drawing.Point(114, 39);
+            this.dtPickerTu.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.dtPickerTu.Name = "dtPickerTu";
+            this.dtPickerTu.Size = new System.Drawing.Size(144, 30);
+            this.dtPickerTu.TabIndex = 2;
+            // 
+            // dtPickerDen
+            // 
+            this.dtPickerDen.CustomFormat = "dd/MM/yyyy";
+            this.dtPickerDen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPickerDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerDen.Location = new System.Drawing.Point(402, 39);
+            this.dtPickerDen.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.dtPickerDen.Name = "dtPickerDen";
+            this.dtPickerDen.Size = new System.Drawing.Size(144, 30);
+            this.dtPickerDen.TabIndex = 3;
+            // 
+            // novLabel1
+            // 
+            this.novLabel1.AutoSize = true;
+            this.novLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.novLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novLabel1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.novLabel1.Location = new System.Drawing.Point(27, 42);
+            this.novLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.novLabel1.Name = "novLabel1";
+            this.novLabel1.Size = new System.Drawing.Size(75, 23);
+            this.novLabel1.TabIndex = 4;
+            this.novLabel1.Text = "Từ ngày:";
+            // 
+            // novLabel2
+            // 
+            this.novLabel2.AutoSize = true;
+            this.novLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.novLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novLabel2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.novLabel2.Location = new System.Drawing.Point(307, 42);
+            this.novLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.novLabel2.Name = "novLabel2";
+            this.novLabel2.Size = new System.Drawing.Size(87, 23);
+            this.novLabel2.TabIndex = 5;
+            this.novLabel2.Text = "Đến ngày:";
             // 
             // UcBaoCaoTongHopDangNganTheoNganHang
             // 
@@ -178,9 +206,11 @@
         private Core.NovToolStripButton btnTim;
         private Core.NovToolStripButton btnThoat;
         private Core.NovGroupBox groupBox1;
-        private Core.NovDateTimePicker dateTimePicker1;
-        private Core.NovLabel label2;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
         private FontAwesome.Sharp.IconDropDownButton iconDropDownButton1;
+        private Core.NovLabel novLabel2;
+        private Core.NovDateTimePicker dtPickerTu;
+        private Core.NovLabel novLabel1;
+        private Core.NovDateTimePicker dtPickerDen;
     }
 }

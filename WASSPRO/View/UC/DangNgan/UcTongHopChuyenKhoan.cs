@@ -6,6 +6,7 @@ using System.Linq;
 using WinFormsReport = Microsoft.Reporting.WinForms;
 using System.Windows.Forms;
 using QLCongNo.View.UC.HoaDon;
+using System.Text.RegularExpressions;
 
 namespace QLCongNo.View.UC.DangNgan
 {
@@ -56,6 +57,37 @@ namespace QLCongNo.View.UC.DangNgan
                 param.Add(new WinFormsReport.ReportParameter("tenDT", bophan));
                 param.Add(new WinFormsReport.ReportParameter("pNgaythang", pNgayThang));
                 var data = db.getThongKeDangNganChuyenKhoanTheoNgay(loaiHD, tungay, dengay).ToList();
+
+                //var copyData = data;
+                //var pattern = @"(\d{1,2}/\d{1,2}/\d{2}).*?:\s*(\d{1,3}\.\d{3})";
+                //foreach (var item in data)
+                //    copyData.Add(item);
+     
+                //foreach (var item in data)
+                //{
+                //    var ghichu = item.ghichu;
+                //    var matches = Regex.Matches(ghichu, pattern);
+
+                //    foreach (Match rowData in matches)
+                //    {
+                //        var date = rowData.Groups[1].Value;
+                //        var amount = rowData.Groups[2].Value;
+
+                //        var parsedDate = DateTime.ParseExact(date, "d/M/yy", null);
+                //        var formattedDate = parsedDate.ToString("dd/MM/yyyy");
+                //        var formattedAmount = decimal.Parse(amount.Replace(".", ""));
+                //        copyData.Add(new getThongKeDangNganChuyenKhoanTheoNgay_Result
+                //        {
+                //            soluong = 1,
+                //            ngay = formattedDate,
+                //            tiennuoc = 0,
+                //            tienBVMT = 0,
+                //            tongtien = formattedAmount,
+                //            ghichu = String.Empty
+                //        });
+                //    }
+                //}
+
                 this.reportViewer1.LocalReport.SetParameters(param);
                 this.getThongKeDangNganChuyenKhoanTheoNgayBindingSource.DataSource = data;
                 this.reportViewer1.RefreshReport();

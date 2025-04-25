@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace QLCongNo.View.UC.HeThong
@@ -20,23 +21,37 @@ namespace QLCongNo.View.UC.HeThong
 
         private void PhanQuyenForm_Load(object sender, EventArgs e)
         {
-            LoadMenu();
+            var usercontrol = sender as UcPhanQuyenForm;
+            var frm = usercontrol.Owner as FrmMain;
+            var menu = frm.DSMenu;
+            LoadMenu(menu);
             treeView1.ExpandAll();
             LoadGroup();
             groupListBox.SetItemChecked(0, true);
             CheckMenu();
         }
 
-        private void LoadMenu()
+        private void LoadMenu(List<MenuInfo> menu)
         {
-            //MenuStrip menu = (MenuStrip)this.MdiParent.Controls["menuStrip"];
-            //foreach (ToolStripMenuItem tsmi in menu.Items)
-            //{
-            //    TreeNode tn = new TreeNode(tsmi.Text);
-            //    treeView1.Nodes.Add(tn);
-            //    if (tsmi.HasDropDownItems)
-            //        LoadMenuItem(tsmi, tn);
-            //}
+            if (menu != null && menu.Count > 0)
+            {
+                var parentNodes = new Dictionary<int?, TreeNode>();
+
+                foreach (var menuItem in menu)
+                {
+                    TreeNode newNode = new TreeNode(menuItem.Text);
+                    if (menuItem.ParentId == null)
+                    {
+                        treeView1.Nodes.Add(newNode);
+                        parentNodes[((Menu)menuItem.Item).Id] = newNode;
+                    }
+                    else if (parentNodes.ContainsKey(menuItem.ParentId))
+                    {
+                        parentNodes[menuItem.ParentId].Nodes.Add(newNode);
+                        parentNodes[((Menu)menuItem.Item).Id] = newNode;
+                    }
+                }
+            }
         }
 
         private void LoadMenuItem(ToolStripMenuItem tsmi, TreeNode tn)

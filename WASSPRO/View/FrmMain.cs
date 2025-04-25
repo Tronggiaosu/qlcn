@@ -1,7 +1,9 @@
 ﻿using QLCongNo.View.Core;
+using QLCongNo.View.UC;
 using QLCongNo.View.UC.HeThong;
 using QLCongNo.View.UC.HoaDon;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -20,7 +22,7 @@ namespace QLCongNo.View
 
         protected const int BORDER_SIZE = 2;
         private Size _formSize; // Keep form size when it is minimized and restored.
-
+        public List<MenuInfo> DSMenu {  get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmMain"/> class.
         /// </summary>
@@ -76,6 +78,7 @@ namespace QLCongNo.View
             ucSidebar.Owner = this;
             BtnUser.Text = Common.username;
             BtnUser.Visible = true;
+            DSMenu = ucSidebar.TotalMenu;
             ResumeLayout();
         }
 

@@ -4127,6 +4127,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="kyghi" Type="varchar" Mode="In" />
           <Parameter Name="ToID" Type="int" Mode="In" />
         </Function>
+        
         <Function Name="getBaocaoHoadonton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tuky" Type="nvarchar" Mode="In" />
           <Parameter Name="denky" Type="nvarchar" Mode="In" />
@@ -4326,6 +4327,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="phuong" Type="varchar" Mode="In" />
           <Parameter Name="search" Type="varchar(max)" Mode="In" />
         </Function>
+        
         <Function Name="getDataThuHo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDNV" Type="int" Mode="In" />
           <Parameter Name="tungay" Type="varchar" Mode="In" />
@@ -4455,6 +4457,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="phuong" Type="varchar" Mode="In" />
           <Parameter Name="search" Type="varchar(max)" Mode="In" />
         </Function>
+        
         <Function Name="getDSKhachHangChuaThanhToan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="maquan" Type="varchar" Mode="In" />
           <Parameter Name="maphuong" Type="varchar" Mode="In" />

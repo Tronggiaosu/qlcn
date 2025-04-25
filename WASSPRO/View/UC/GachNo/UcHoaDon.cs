@@ -186,63 +186,98 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtPath.Text != "")
+            try
             {
-                decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-                decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-                string kyghi = cboKy.SelectedValue.ToString();
-                string result = namid + kyghi;
-                var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid && x.nam == namid && x.kyghi == result).ToList();
-                if (btnLuu.Text == "Tải dữ liệu")
+                if (txtPath.Text != "")
                 {
-                    this.Cursor = Cursors.WaitCursor;
-                    if (hoadon.Count != 0)
-                        MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
+                    decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+                    decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
+                    string kyghi = cboKy.SelectedValue.ToString();
+                    string result = namid + kyghi;
+                    var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid && x.nam == namid && x.kyghi == result).ToList();
+                    if (btnLuu.Text == "Tải dữ liệu")
                     {
-                        dataGridView1.DataSource = GetDataTabletFromCSVFile(@"" + txtPath.Text + "");
-                        var nam = dataGridView1.SelectedRows[0].Cells[NAMColumn.Name].Value.ToString();
-                        var ky = dataGridView1.SelectedRows[0].Cells[KyColumn.Name].Value.ToString();
-                        var dot = dataGridView1.SelectedRows[0].Cells[dotcolumn.Name].Value.ToString();
-                        string kybilling = (int.Parse(nam) + 2000).ToString() + ky;
-                        if (kybilling != result || dot != dot.ToString())
-                            MessageBox.Show("Dữ liệu trong file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Cursor = Cursors.WaitCursor;
+                        if (hoadon.Count != 0)
+                            MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
-                            btnLuu.Text = "Lưu dữ liệu";
-
-                        lbltongso.Text = "Số lượng hóa đơn " + string.Format("{0:n0}", dataGridView1.RowCount);
-                    }
-                    this.Cursor = Cursors.Default;
-                }
-                else if (btnLuu.Text == "Lưu dữ liệu")
-                {
-                    if (hoadon.Count == 0)
-                    {
-                        DialogResult rs = MessageBox.Show("Bạn có muốn lưu dữ liệu?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                        if (rs == DialogResult.OK)
                         {
-                            this.Cursor = Cursors.WaitCursor;
-                            DataTable source = GetDataTabletFromCSVFile(@"" + txtPath.Text + "");
-                            // insert TDC_HOADON
-                            InsertDataIntoSQLServerUsingSQLBulkCopy(source);
-                            // insert hoadon
-                            var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-                            SqlParameter prkyghi = new SqlParameter("@kyghi", result);
-                            SqlParameter prdotid = new SqlParameter("@dotid", dotid);
-                            SqlParameter prnam = new SqlParameter("@nam", namid);
-                            SqlParameter prNVID = new SqlParameter("@user_create", NVLap.nv_id);
-                            db.Database.ExecuteSqlCommand("exec ImportHoaDon @user_create, @kyghi, @dotid, @nam", prNVID, prkyghi, prdotid, prnam);
-                            btnLuu.Enabled = false;
-                            MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtPath.Text = "";
-                            btnLuu.Text = "Lưu dữ liệu";
-                            this.Cursor = Cursors.Default;
+                            dataGridView1.DataSource = GetDataTabletFromCSVFile(@"" + txtPath.Text + "");
+                            var nam = dataGridView1.SelectedRows[0].Cells[NAMColumn.Name].Value.ToString();
+                            var ky = dataGridView1.SelectedRows[0].Cells[KyColumn.Name].Value.ToString();
+                            var dot = dataGridView1.SelectedRows[0].Cells[dotcolumn.Name].Value.ToString();
+                            string kybilling = (int.Parse(nam) + 2000).ToString() + ky;
+                            if (kybilling != result || dot != dot.ToString())
+                                MessageBox.Show("Dữ liệu trong file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
+                                btnLuu.Text = "Lưu dữ liệu";
+
+                            lbltongso.Text = "Số lượng hóa đơn " + string.Format("{0:n0}", dataGridView1.RowCount);
                         }
+
+                        foreach (DataGridViewColumn column in dataGridView1.Columns)
+                        {
+                            var index = column.Index;
+                            if (index == 0 || (index >= 3 && index <= 6) || index == 61)
+                            {
+                                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            }
+
+                            switch (index)
+                            {
+                                case 7:
+                                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                                    column.Width = 250;
+                                    break;
+                                case 8:
+                                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                                    column.Width = 120;
+                                    break;
+                                case 9:
+                                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                                    column.Width = 180;
+                                    break;
+                                case 60:
+                                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                                    column.Width = 180;
+                                    break;
+                            }
+                        }
+
+                        this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        this.Cursor = Cursors.Default;
                     }
-                    else
-                        MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (btnLuu.Text == "Lưu dữ liệu")
+                    {
+                        if (hoadon.Count == 0)
+                        {
+                            DialogResult rs = MessageBox.Show("Bạn có muốn lưu dữ liệu?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                            if (rs == DialogResult.OK)
+                            {
+                                this.Cursor = Cursors.WaitCursor;
+                                DataTable source = GetDataTabletFromCSVFile(@"" + txtPath.Text + "");
+                                // insert TDC_HOADON
+                                InsertDataIntoSQLServerUsingSQLBulkCopy(source);
+                                // insert hoadon
+                                var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                                SqlParameter prkyghi = new SqlParameter("@kyghi", result);
+                                SqlParameter prdotid = new SqlParameter("@dotid", dotid);
+                                SqlParameter prnam = new SqlParameter("@nam", namid);
+                                SqlParameter prNVID = new SqlParameter("@user_create", NVLap.nv_id);
+                                db.Database.ExecuteSqlCommand("exec ImportHoaDon @user_create, @kyghi, @dotid, @nam", prNVID, prkyghi, prdotid, prnam);
+                                btnLuu.Enabled = false;
+                                MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtPath.Text = "";
+                                btnLuu.Text = "Lưu dữ liệu";
+                                this.Cursor = Cursors.Default;
+                            }
+                        }
+                        else
+                            MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+            catch { }
         }
 
         private static DataTable GetDataTabletFromCSVFile(string csv_file_path)

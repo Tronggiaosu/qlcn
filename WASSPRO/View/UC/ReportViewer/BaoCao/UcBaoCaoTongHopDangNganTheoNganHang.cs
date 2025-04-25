@@ -28,8 +28,9 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                var tungay = dateTimePicker1.Value.Date;
-                string tenbaocao = tungay.ToString("dd/MM/yyyy");
+                var startDate = this.dtPickerTu.Value.Date;
+                var endDate = this.dtPickerDen.Value.Date;
+                string tenbaocao = $"{startDate.ToString("dd/MM/yyyy")}_{endDate.ToString("dd/MM/yyyy")}";
                 var root = "ReportViewer\\ReportView\\RPTongHopDangNganTheoNganHang.rdlc";
                 string basePath = Directory.GetCurrentDirectory();
                 var reportPath = $"{basePath}\\{root}";
@@ -41,8 +42,6 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 }
                 this.reportViewer2.LocalReport.ReportPath = reportPath;
 
-                var startDate = dateTimePicker1.Value.Date;
-                var endDate = startDate.AddDays(1);
                 var result = (from dn in db.DANGNGANs
                               where
                                     dn.NGAYDANGNGAN_NV >= startDate
@@ -94,8 +93,11 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
         private void UcBaoCaoTongHopDangNganTheoNganHang_Load(object sender, EventArgs e)
         {
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dtPickerTu.Format = DateTimePickerFormat.Custom;
+            dtPickerTu.CustomFormat = "dd/MM/yyyy";
+
+            dtPickerDen.Format = DateTimePickerFormat.Custom;
+            dtPickerDen.CustomFormat = "dd/MM/yyyy";
         }
     }
 }

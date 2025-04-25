@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using QLCongNo.View.Core;
 using QLCongNo.View.UC.DangNgan;
 using QLCongNo.View.UC.GachNo;
+using System.Data.Entity;
 
 namespace QLCongNo.View.UC
 {
@@ -22,6 +23,7 @@ namespace QLCongNo.View.UC
         private const int _menuItemHeight = 33;
         private bool _isResized = false;
         private int _resizedWidth = 0;
+        private List<Menu> dsMenu = new List<Menu>();
 
         /// <summary>
         /// DB context for the application.
@@ -30,6 +32,7 @@ namespace QLCongNo.View.UC
 
         public Panel ContainerPanel { get; set; }
         public Label Title { get; set; }
+        public List<MenuInfo> TotalMenu { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UcSidebar"/> class.
@@ -50,6 +53,7 @@ namespace QLCongNo.View.UC
             PnlMenu.AutoScroll = true;
             PnlMenu.VerticalScroll.Visible = false;
             PnlMenu.HorizontalScroll.Visible = false;
+            TotalMenu = new List<MenuInfo>();
             this.Resize += UcSidebar_Resize;
         }
 
@@ -257,23 +261,112 @@ namespace QLCongNo.View.UC
             ResumeLayout();
         }
 
-        public void LoadMenu()
+        public bool UserRight()
         {
-            // load menu table from db  where Status = 1 and ParentId is null
+            IQueryable<string> menuList = null;
+
             var menuLv1 = db.Menus.Where(x => x.Status == 1 && x.ParentId == null)
                 .OrderBy(s => s.Sort).ToList();
 
-            // loop on lv1 menu, then add panel with a button inside it. then load menu lv2 then add a button inside the panel.
-            foreach (var itemLv1 in menuLv1)
+            if (Common.username != "vnptcto")
+            {
+                var quyen = from a in db.NGUOIDUNGs
+                            from b in db.NGUOIDUNG_QUYEN
+                            where a.ma_nd == Common.username
+                            where a.nguoidung_id == b.nguoidung_id
+                            select b.quyen_id;
+                var count = quyen.Count();
+                if (count == 0)
+                {
+                    menuLv1 = db.Menus.Where(x => x.Status == 1 && x.ParentId == null)
+                        .OrderBy(s => s.Sort).ToList();
+
+                    this.dsMenu = menuLv1;
+                    return true;
+                }
+
+                foreach (decimal nd_q in quyen.ToList())
+                {
+                    menuList = from m in db.QUYEN_MENU where m.quyen_id == nd_q select m.ten_menu;
+                }
+
+                if (menuList.Count() == 0)
+                {
+                    this.dsMenu = menuLv1;
+                    return true;
+                }     
+            }
+
+            var menuById = db.Menus.Where(x => x.Status == 1).ToDictionary(m => m.Id);
+            var menuByText = db.Menus.Where(x => x.Status == 1).ToDictionary(m => m.Text);
+            var resultMenuTree = new List<Menu>();
+            var resultById = new Dictionary<int, Menu>();
+
+            foreach (var text in menuList)
+            {
+                if (!menuByText.TryGetValue(text, out var menu))
+                    continue;
+
+                if (menu.ParentId == null)
+                {
+                    if (!resultById.ContainsKey(menu.Id))
+                    {
+                        resultMenuTree.Add(menu);
+                        resultById[menu.Id] = menu;
+                    }
+                }
+                else
+                {
+                    if (menuById.TryGetValue(menu.ParentId.Value, out var parent))
+                    {
+                        if (!resultById.ContainsKey(parent.Id))
+                        {
+                            parent.Children = new List<Menu>();
+                            resultMenuTree.Add(parent);
+                            resultById[parent.Id] = parent;
+                        }
+
+                        if (parent.Children == null)
+                            parent.Children = new List<Menu>();
+
+                        if (!parent.Children.Any(x => x.Id == menu.Id))
+                            parent.Children.Add(menu);
+                    }
+                }
+            }
+
+            foreach (var m in resultMenuTree)
+            {
+                m.Children = m.Children?.OrderBy(x => x.Sort).ToList();
+            }
+            resultMenuTree = resultMenuTree.OrderBy(x => x.Sort).ToList();
+            this.dsMenu = resultMenuTree;
+            return false;
+        }
+
+        public void LoadMenu()
+        {
+            var isAuthenticationOrNot = UserRight();
+            var menuLv2 = new List<Menu>();
+
+            foreach (var itemLv1 in this.dsMenu)
             {
                 var pnl = CreatePnlMenuItem();
-
                 var btn = CreateMenuItem(1, itemLv1);
                 pnl.Controls.Add(btn);
                 PnlMenu.Controls.Add(pnl);
+                TotalMenu.Add(new MenuInfo { Text = itemLv1.Text, Level = 1, ParentId = null, Item = itemLv1 });
 
-                var menuLv2 = db.Menus.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
+                if (!isAuthenticationOrNot)
+                {
+                    menuLv2 = itemLv1.Children.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
                     .OrderBy(s => s.Sort).ToList();
+                }
+                else
+                {
+                    menuLv2 = db.Menus.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
+                        .OrderBy(s => s.Sort).ToList();
+                }
 
                 if (menuLv2.Count > 0)
                     btn.Font = new Font(btn.Font, FontStyle.Bold);
@@ -281,6 +374,7 @@ namespace QLCongNo.View.UC
                 {
                     var btnLv2 = CreateMenuItem(2, itemLv2);
                     pnl.Controls.Add(btnLv2);
+                    TotalMenu.Add(new MenuInfo { Text = itemLv2.Text, Level = 2, ParentId = itemLv1.Id, Item = itemLv2 });
                 }
             }
             CollapseAll(PnlMenu);
@@ -332,5 +426,13 @@ namespace QLCongNo.View.UC
                 btn.IconSize = 19;
             }
         }
+    }
+
+    public class MenuInfo
+    {
+        public string Text { get; set; }
+        public int Level { get; set; }
+        public int? ParentId { get; set; }
+        public Menu Item { get; set; }
     }
 }
