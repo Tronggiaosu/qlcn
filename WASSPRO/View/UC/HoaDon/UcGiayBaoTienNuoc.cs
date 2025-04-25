@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using QLCongNo.ReportViewer.DataSource;
+using QLCongNo.View.UC.ReportViewer.DataSource;
+using OfficeOpenXml;
 
 namespace QLCongNo.View.UC.HoaDon
 {
     public partial class UcGiayBaoTienNuoc : View.Core.NovUserControl
     {
         private CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
+        private string chuoiDanhBo = "";
 
         public UcGiayBaoTienNuoc()
         {
@@ -60,6 +63,7 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 int nam = int.Parse(cboNam.SelectedValue.ToString());
                 string kyghi = cboThang.SelectedValue.ToString();
+                string madanhbo = txtTim.Text;
                 int trangthai = 2;
                 if (chktrangthai.Checked == true)
                 {
@@ -72,15 +76,20 @@ namespace QLCongNo.View.UC.HoaDon
                 string maphuong = cboPhuong.SelectedValue.ToString();
                 if (dataGridView1.RowCount > 0)
                 {
-                    var frm = new QLCongNo.ReportViewer.DataSource.UcGiayBaoTienNuoc
+                    GiayBaoTienNuoc frm = new GiayBaoTienNuoc();
+                    frm.nam = nam;
+                    frm.kyghi = kyghi;
+                    frm.trangthai = trangthai;
+                    frm.maquan = maquan;
+                    frm.maphuong = maphuong;
+                    if(madanhbo != "")
                     {
-                        nam = nam,
-                        kyghi = kyghi,
-                        trangthai = trangthai,
-                        maquan = maquan,
-                        maphuong = maphuong,
-                        search = txtTim.Text
-                    };
+                        frm.search = madanhbo;
+                    }    
+                    else
+                    {
+                        frm.search = chuoiDanhBo;
+                    }    
                     new FrmDialog().ShowDialog(frm);
                 }
                 else
@@ -109,15 +118,31 @@ namespace QLCongNo.View.UC.HoaDon
 
                 string maquan = cboQuan.SelectedValue.ToString();
                 string maphuong = cboPhuong.SelectedValue.ToString();
-                var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
-                if (data.Count > 0)
+                if (maDanhBo != "")
                 {
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
+                    if (data.Count > 0)
+                    {
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    }
+                    dataGridView1.DataSource = data;
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
+                    }
                 }
-                dataGridView1.DataSource = data.ToList();
-                for (int i = 0; i < dataGridView1.RowCount; i++)
+                else
                 {
-                    dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
+                    var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, chuoiDanhBo).ToList();
+                    if (data.Count > 0)
+                    {
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    }
+                    dataGridView1.DataSource = data;
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
+                    }
                 }
                 this.Cursor = Cursors.Default;
             }
@@ -218,6 +243,40 @@ namespace QLCongNo.View.UC.HoaDon
         private void excelButton_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtTim.Text = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtTenFile.Text = openFileDialog.FileName;
+                try
+                {
+                    using (var package = new ExcelPackage(new FileInfo(openFileDialog.FileName)))
+                    {
+                        var worksheet = package.Workbook.Worksheets[1];
+                        int rowCount = worksheet.Dimension.End.Row;
+
+                        List<string> danhBoList = new List<string>();
+
+                        for (int row = 2; row <= rowCount; row++)
+                        {
+                            var cellValue = worksheet.Cells[row, 1].Text.Trim();
+                            if (!string.IsNullOrEmpty(cellValue))
+                                danhBoList.Add(cellValue);
+                        }
+
+                        chuoiDanhBo = string.Join(",", danhBoList);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi đọc file Excel: " + ex.Message);
+                }
+            }
         }
     }
 }

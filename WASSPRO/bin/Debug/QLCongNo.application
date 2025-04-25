@@ -14,14 +14,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="QLCongNo.exe.manifest" size="58421">
+    <dependentAssembly dependencyType="install" codebase="QLCongNo.exe.manifest" size="57739">
       <assemblyIdentity name="QLCongNo.exe" version="1.0.0.371" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FoDj9eE04q7aZeFXgQytzMMwpQ/QSQ12y1VhXI6cj5U=</dsig:DigestValue>
+        <dsig:DigestValue>Ki6RjVAP14hatXDl7c1o7meYU43c+njkNM+XNc9QJYA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -44,7 +44,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             if (checkBox1.Checked == true)
                 TOID = int.Parse(cboTo.SelectedValue.ToString());
             var dataSource = db.getBaoCaoChuanThuKhongDong(namid, result, TOID).ToList();
-            this.getBaoCaoChuanThuKhongDongBindingSource.DataSource = dataSource.ToList();
+            this.getBaoCaoChuanThuKhongDongBindingSource.DataSource = dataSource;
             List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>();
             param.Add(new WinFormsReport.ReportParameter("thang", thang));
             param.Add(new WinFormsReport.ReportParameter("nam", nam));

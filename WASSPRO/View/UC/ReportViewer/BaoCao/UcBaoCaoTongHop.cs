@@ -126,7 +126,6 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
             var bindingSourceMain = new BindingSource();
             bindingSourceMain.DataSource = dataSource;
-            //ReportDataSource mainDataSource = new ReportDataSource("DataSource", bindingSourceMain);
             WinFormsReport.ReportDataSource mainDataSource = new WinFormsReport.ReportDataSource("DataSource", bindingSourceMain);
             this.reportViewer1.LocalReport.DataSources.Add(mainDataSource);
             this.reportViewer1.RefreshReport();

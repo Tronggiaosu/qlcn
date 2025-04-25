@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource8 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource9 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.getBaoCaoChuanThuKyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cAPNUOC_TDCDataSet = new QLCongNo.CAPNUOC_TDCDataSet();
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.cboNam = new QLCongNo.View.Core.NovGroupBox();
+            this.comboBoxNam = new QLCongNo.View.Core.NovComboBox();
+            this.novLabel1 = new QLCongNo.View.Core.NovLabel();
             this.cboThang = new QLCongNo.View.Core.NovComboBox();
             this.cboTo = new QLCongNo.View.Core.NovComboBox();
             this.checkBox1 = new QLCongNo.View.Core.NovCheckBox();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.getBaoCaoChuanThuKyTableAdapter = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.getBaoCaoChuanThuKyTableAdapter();
-            this.comboBoxNam = new QLCongNo.View.Core.NovComboBox();
-            this.novLabel1 = new QLCongNo.View.Core.NovLabel();
+            this.novLabel2 = new QLCongNo.View.Core.NovLabel();
             ((System.ComponentModel.ISupportInitialize)(this.getBaoCaoChuanThuKyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cAPNUOC_TDCDataSet)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -110,6 +111,7 @@
             // cboNam
             // 
             this.cboNam.BackColor = System.Drawing.Color.Transparent;
+            this.cboNam.Controls.Add(this.novLabel2);
             this.cboNam.Controls.Add(this.comboBoxNam);
             this.cboNam.Controls.Add(this.novLabel1);
             this.cboNam.Controls.Add(this.cboThang);
@@ -124,78 +126,6 @@
             this.cboNam.Size = new System.Drawing.Size(1019, 81);
             this.cboNam.TabIndex = 6;
             this.cboNam.TabStop = false;
-            // 
-            // cboThang
-            // 
-            this.cboThang.BackColor = System.Drawing.Color.White;
-            this.cboThang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboThang.ForeColor = System.Drawing.Color.Black;
-            this.cboThang.FormattingEnabled = true;
-            this.cboThang.Location = new System.Drawing.Point(331, 26);
-            this.cboThang.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.cboThang.Name = "cboThang";
-            this.cboThang.Size = new System.Drawing.Size(144, 33);
-            this.cboThang.TabIndex = 3;
-            // 
-            // cboTo
-            // 
-            this.cboTo.BackColor = System.Drawing.Color.White;
-            this.cboTo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTo.ForeColor = System.Drawing.Color.Black;
-            this.cboTo.FormattingEnabled = true;
-            this.cboTo.Location = new System.Drawing.Point(594, 27);
-            this.cboTo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.cboTo.Name = "cboTo";
-            this.cboTo.Size = new System.Drawing.Size(144, 33);
-            this.cboTo.TabIndex = 2;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox1.Location = new System.Drawing.Point(537, 29);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(51, 27);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Tổ";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(260, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tháng";
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSource";
-            reportDataSource1.Value = this.getBaoCaoChuanThuKyBindingSource;
-            reportDataSource2.Name = "DataSourceHDTheoDot";
-            reportDataSource2.Value = null;
-            reportDataSource3.Name = "DataSourceDHKhongDong";
-            reportDataSource3.Value = null;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QLCongNo.ReportViewer.ReportView.RPTongHopHoaDon.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 120);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1019, 412);
-            this.reportViewer1.TabIndex = 7;
-            // 
-            // getBaoCaoChuanThuKyTableAdapter
-            // 
-            this.getBaoCaoChuanThuKyTableAdapter.ClearBeforeFill = true;
             // 
             // comboBoxNam
             // 
@@ -220,6 +150,91 @@
             this.novLabel1.Size = new System.Drawing.Size(47, 23);
             this.novLabel1.TabIndex = 4;
             this.novLabel1.Text = "Năm";
+            // 
+            // cboThang
+            // 
+            this.cboThang.BackColor = System.Drawing.Color.White;
+            this.cboThang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboThang.ForeColor = System.Drawing.Color.Black;
+            this.cboThang.FormattingEnabled = true;
+            this.cboThang.Location = new System.Drawing.Point(331, 26);
+            this.cboThang.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.cboThang.Name = "cboThang";
+            this.cboThang.Size = new System.Drawing.Size(144, 33);
+            this.cboThang.TabIndex = 3;
+            // 
+            // cboTo
+            // 
+            this.cboTo.BackColor = System.Drawing.Color.White;
+            this.cboTo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTo.ForeColor = System.Drawing.Color.Black;
+            this.cboTo.FormattingEnabled = true;
+            this.cboTo.Location = new System.Drawing.Point(578, 27);
+            this.cboTo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.cboTo.Name = "cboTo";
+            this.cboTo.Size = new System.Drawing.Size(144, 33);
+            this.cboTo.TabIndex = 2;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox1.Location = new System.Drawing.Point(818, 28);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(51, 27);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Tổ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label1.Location = new System.Drawing.Point(260, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tháng";
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource7.Name = "DataSource";
+            reportDataSource7.Value = this.getBaoCaoChuanThuKyBindingSource;
+            reportDataSource8.Name = "DataSourceHDTheoDot";
+            reportDataSource8.Value = null;
+            reportDataSource9.Name = "DataSourceDHKhongDong";
+            reportDataSource9.Value = null;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource7);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource8);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource9);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QLCongNo.ReportViewer.ReportView.RPTongHopHoaDon.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 120);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1019, 412);
+            this.reportViewer1.TabIndex = 7;
+            // 
+            // getBaoCaoChuanThuKyTableAdapter
+            // 
+            this.getBaoCaoChuanThuKyTableAdapter.ClearBeforeFill = true;
+            // 
+            // novLabel2
+            // 
+            this.novLabel2.AutoSize = true;
+            this.novLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.novLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novLabel2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.novLabel2.Location = new System.Drawing.Point(534, 31);
+            this.novLabel2.Name = "novLabel2";
+            this.novLabel2.Size = new System.Drawing.Size(29, 23);
+            this.novLabel2.TabIndex = 6;
+            this.novLabel2.Text = "Tổ";
             // 
             // UcBaoCaoChuanThu
             // 
@@ -260,5 +275,6 @@
         private View.Core.NovLabel label1;
         private Core.NovComboBox comboBoxNam;
         private Core.NovLabel novLabel1;
+        private Core.NovLabel novLabel2;
     }
 }

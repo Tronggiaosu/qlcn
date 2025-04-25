@@ -18,7 +18,8 @@ namespace QLCongNo.View.UC.DangNgan
             quitButton.Click += quitButton_Click;
             btnTim.Click += btnTim_Click;
             //btnUpdate.Click += btnUpdate_Click;
-            btnExport.Click += btnExport_Click;
+            btnExportDSHDTT.Click += btnExportDSHDTT_Click;
+            btnExportDSHDCN.Click += btnExportDSHDCN_Click;
             btnTT.Click += btnTT_Click;
             btnCN.Click += btnCN_Click;
             //chkAll.CheckedChanged += chkAll_CheckedChanged;
@@ -185,92 +186,92 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            //try
+            //if (dataGridView1.Rows.Count == 0)
             //{
-            //decimal NVId = decimal.Parse(cboNganhang.SelectedValue.ToString());
-            //int loaiHD = int.Parse(cboloaiHD.SelectedValue.ToString());
-            var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-            var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            //var maDT = cboDTSD.SelectedValue.ToString();
-            var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
-            var dataChuyenNo = db.getDataChuyenNoKhoDoi(0, 0, tungay, denngay, "", "", false, 0).ToList();
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Dat files (*.dat)|*.dat";
-            saveFileDialog.DefaultExt = "dat";
-            saveFileDialog.ShowDialog();
-            if (saveFileDialog.FileName != "")
-            {
-                this.Cursor = Cursors.WaitCursor;
-                string fileName = saveFileDialog.FileName;
-                //before your loop
-                var csv = new StringBuilder();
-                //in your loop
-                foreach (var item in dataSource)
-                {
-                    //var nhanvien = db.NHANVIENs.Where(x => x.NV_ID == item.nv_id).FirstOrDefault();
-                    //var dangngan = db.DANGNGANs.Where(x => x.ID_HD == item.ID_HD).FirstOrDefault();
-                    //dangngan.IsDangNgan = true;
-                    //db.SaveChanges();
-                    var httt = 1;
-                    if (item.loaiHD_id == 13)
-                        httt = 2;
-                    var nam = item.nam;
-                    var sophathanh = item.sophathanh;
-                    var NVIDNop = item.somay;
-                    string ngayct = DateTime.Parse(item.ngaythanhtoan.ToString()).ToString("yyyyMMdd");
-                    var nuocdc = item.lechm3;
-                    var tiennuoc_dc = item.lechtiennuoc;
-                    var thue_dc = item.lechtienvat;
-                    var phi_dc = item.lechtienBVMT;
-                    var phiNT_dc = item.lechthueNT;
-                    var newLine = string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\", \"{8}\", \"{9}\"", nam, sophathanh, NVIDNop, ngayct, nuocdc, tiennuoc_dc, thue_dc, phi_dc, phiNT_dc, httt);
-                    csv.AppendLine(newLine);
-                }
-                foreach (var hoadon in dataChuyenNo)
-                {
-                    var item = db.HOADONs.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
-                    // var dangngan = db.DANGNGANs.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
-                    // if (dangngan == null)
-                    // {
-                    //     var hoadonKD = db.HOADON_KHODOI.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
-                    //     hoadonKD.ISDANGNGAN = true;
-                    //     hoadonKD.NGAYDANGNGAN = DateTime.Now;
-                    //     db.SaveChanges();
-                    // }
-                    //else
-                    // {
-                    //     dangngan.IsDangNgan = true;
-                    //     dangngan.NGAY_BILLING = DateTime.Now;
-                    //     db.SaveChanges();
-                    // }
+            //    MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            ////try
+            ////{
+            ////decimal NVId = decimal.Parse(cboNganhang.SelectedValue.ToString());
+            ////int loaiHD = int.Parse(cboloaiHD.SelectedValue.ToString());
+            //var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+            //var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            ////var maDT = cboDTSD.SelectedValue.ToString();
+            //var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
+            //var dataChuyenNo = db.getDataChuyenNoKhoDoi(0, 0, tungay, denngay, "", "", false, 0).ToList();
+            //SaveFileDialog saveFileDialog = new SaveFileDialog();
+            //saveFileDialog.Filter = "Dat files (*.dat)|*.dat";
+            //saveFileDialog.DefaultExt = "dat";
+            //saveFileDialog.ShowDialog();
+            //if (saveFileDialog.FileName != "")
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    string fileName = saveFileDialog.FileName;
+            //    //before your loop
+            //    var csv = new StringBuilder();
+            //    //in your loop
+            //    foreach (var item in dataSource)
+            //    {
+            //        //var nhanvien = db.NHANVIENs.Where(x => x.NV_ID == item.nv_id).FirstOrDefault();
+            //        //var dangngan = db.DANGNGANs.Where(x => x.ID_HD == item.ID_HD).FirstOrDefault();
+            //        //dangngan.IsDangNgan = true;
+            //        //db.SaveChanges();
+            //        var httt = 1;
+            //        if (item.loaiHD_id == 13)
+            //            httt = 2;
+            //        var nam = item.nam;
+            //        var sophathanh = item.sophathanh;
+            //        var NVIDNop = item.somay;
+            //        string ngayct = DateTime.Parse(item.ngaythanhtoan.ToString()).ToString("yyyyMMdd");
+            //        var nuocdc = item.lechm3;
+            //        var tiennuoc_dc = item.lechtiennuoc;
+            //        var thue_dc = item.lechtienvat;
+            //        var phi_dc = item.lechtienBVMT;
+            //        var phiNT_dc = item.lechthueNT;
+            //        var newLine = string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\", \"{8}\", \"{9}\"", nam, sophathanh, NVIDNop, ngayct, nuocdc, tiennuoc_dc, thue_dc, phi_dc, phiNT_dc, httt);
+            //        csv.AppendLine(newLine);
+            //    }
+            //    foreach (var hoadon in dataChuyenNo)
+            //    {
+            //        var item = db.HOADONs.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
+            //        // var dangngan = db.DANGNGANs.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
+            //        // if (dangngan == null)
+            //        // {
+            //        //     var hoadonKD = db.HOADON_KHODOI.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
+            //        //     hoadonKD.ISDANGNGAN = true;
+            //        //     hoadonKD.NGAYDANGNGAN = DateTime.Now;
+            //        //     db.SaveChanges();
+            //        // }
+            //        //else
+            //        // {
+            //        //     dangngan.IsDangNgan = true;
+            //        //     dangngan.NGAY_BILLING = DateTime.Now;
+            //        //     db.SaveChanges();
+            //        // }
 
-                    var httt = 2;
-                    var nam = item.nam;
-                    var sophathanh = item.SOPHATHANH;
-                    var NVIDNop = hoadon.somay;
-                    string ngayct = DateTime.Parse(hoadon.NGAYCHUYEN.ToString()).ToString("yyyyMMdd");
-                    var nuocdc = hoadon.m3dc;
-                    var tiennuoc_dc = hoadon.tienuoc_dc;
-                    var thue_dc = hoadon.tienthue_dc;
-                    var phi_dc = hoadon.tienphi_dc;
-                    var phiNT_dc = hoadon.lechthueNT;
-                    var newLine = string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\", \"{8}\",\"{9}\"", nam, sophathanh, NVIDNop, ngayct, nuocdc, tiennuoc_dc, thue_dc, phi_dc, phiNT_dc, httt);
-                    csv.AppendLine(newLine);
-                }
-                this.Cursor = Cursors.Default;
-                // export file path
-                File.WriteAllText(fileName, csv.ToString());
-                MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //        var httt = 2;
+            //        var nam = item.nam;
+            //        var sophathanh = item.SOPHATHANH;
+            //        var NVIDNop = hoadon.somay;
+            //        string ngayct = DateTime.Parse(hoadon.NGAYCHUYEN.ToString()).ToString("yyyyMMdd");
+            //        var nuocdc = hoadon.m3dc;
+            //        var tiennuoc_dc = hoadon.tienuoc_dc;
+            //        var thue_dc = hoadon.tienthue_dc;
+            //        var phi_dc = hoadon.tienphi_dc;
+            //        var phiNT_dc = hoadon.lechthueNT;
+            //        var newLine = string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\", \"{8}\",\"{9}\"", nam, sophathanh, NVIDNop, ngayct, nuocdc, tiennuoc_dc, thue_dc, phi_dc, phiNT_dc, httt);
+            //        csv.AppendLine(newLine);
+            //    }
+            //    this.Cursor = Cursors.Default;
+            //    // export file path
+            //    File.WriteAllText(fileName, csv.ToString());
+            //    MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
-            //catch
-            //{
-            //}
+            ////}
+            ////catch
+            ////{
+            ////}
         }
 
         //void btnUpdate_Click(object sender, EventArgs e)
@@ -320,7 +321,7 @@ namespace QLCongNo.View.UC.DangNgan
         {
             try
             {
-                this.Cursor = Cursors.WaitCursor; ;
+                this.Cursor = Cursors.WaitCursor;
                 var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
                 var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
@@ -362,6 +363,89 @@ namespace QLCongNo.View.UC.DangNgan
             dtpTungay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dtpDenngay.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dtpTungay.CustomFormat = "dd/MM/yyyy";
+        }
+
+        private void btnExportDSHDCN_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.Rows.Count == 0)
+            {
+                MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+            var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            var dataChuyenNo = db.getDataChuyenNoKhoDoi(0, 0, tungay, denngay, "", "", false, 0).ToList();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Dat files (*.dat)|*.dat";
+            saveFileDialog.DefaultExt = "dat";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
+                string fileName = saveFileDialog.FileName;
+                var csv = new StringBuilder();
+                foreach (var hoadon in dataChuyenNo)
+                {
+                    var item = db.HOADONs.Where(x => x.ID_HD == hoadon.ID_HD).FirstOrDefault();
+                    var httt = 2;
+                    var nam = item.nam;
+                    var sophathanh = item.SOPHATHANH;
+                    var NVIDNop = hoadon.somay;
+                    string ngayct = DateTime.Parse(hoadon.NGAYCHUYEN.ToString()).ToString("yyyyMMdd");
+                    var nuocdc = hoadon.m3dc;
+                    var tiennuoc_dc = hoadon.tienuoc_dc;
+                    var thue_dc = hoadon.tienthue_dc;
+                    var phi_dc = hoadon.tienphi_dc;
+                    var phiNT_dc = hoadon.lechthueNT;
+                    var newLine = string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\", \"{8}\",\"{9}\"", nam, sophathanh, NVIDNop, ngayct, nuocdc, tiennuoc_dc, thue_dc, phi_dc, phiNT_dc, httt);
+                    csv.AppendLine(newLine);
+                }
+                this.Cursor = Cursors.Default;
+                File.WriteAllText(fileName, csv.ToString());
+                MessageBox.Show("Xuất file data danh sách hoá đơn chuyển nợ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnExportDSHDTT_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+            var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Dat files (*.dat)|*.dat";
+            saveFileDialog.DefaultExt = "dat";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
+                string fileName = saveFileDialog.FileName;
+                var csv = new StringBuilder();
+                foreach (var item in dataSource)
+                {
+                    var httt = 1;
+                    if (item.loaiHD_id == 13)
+                        httt = 2;
+                    var nam = item.nam;
+                    var sophathanh = item.sophathanh;
+                    var NVIDNop = item.somay;
+                    string ngayct = DateTime.Parse(item.ngaythanhtoan.ToString()).ToString("yyyyMMdd");
+                    var nuocdc = item.lechm3;
+                    var tiennuoc_dc = item.lechtiennuoc;
+                    var thue_dc = item.lechtienvat;
+                    var phi_dc = item.lechtienBVMT;
+                    var phiNT_dc = item.lechthueNT;
+                    var newLine = string.Format("\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\", \"{8}\", \"{9}\"", nam, sophathanh, NVIDNop, ngayct, nuocdc, tiennuoc_dc, thue_dc, phi_dc, phiNT_dc, httt);
+                    csv.AppendLine(newLine);
+                }
+                this.Cursor = Cursors.Default;
+                File.WriteAllText(fileName, csv.ToString());
+                MessageBox.Show("Xuất file data danh sách hoá đơn thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

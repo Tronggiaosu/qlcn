@@ -1,6 +1,6 @@
-﻿namespace QLCongNo.ReportViewer.DataSource
+﻿namespace QLCongNo.View.UC.ReportViewer.DataSource
 {
-    partial class UcGiayBaoTienNuoc
+    partial class GiayBaoTienNuoc
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcGiayBaoTienNuoc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiayBaoTienNuoc));
             this.getDatagiayBaoTienNuocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cAPNUOC_TDCDataSet = new QLCongNo.CAPNUOC_TDCDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();

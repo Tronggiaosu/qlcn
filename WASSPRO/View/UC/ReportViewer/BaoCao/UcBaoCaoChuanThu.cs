@@ -37,25 +37,24 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             string thang = cboThang.SelectedValue.ToString();
             string result = nam + thang;
             string title = "";
-            int TOID = 1;
 
-            if (checkBox1.Checked == true)
-                TOID = int.Parse(cboTo.SelectedValue.ToString());
-
+            int TOID = int.Parse(cboTo.SelectedValue.ToString());
             if (thang == "00")
                 title = $"CHUẨN THU NĂM {nam}";
             else
                 title = $"CHUẨN THU THÁNG {thang}/{nam}";
 
-            db.Database.CommandTimeout = 300;
+            db.Database.CommandTimeout = 600;
 
             var dataSource = db.getBaoCaoChuanThuKy(0, result, TOID).ToList();
-
-            List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>();
-            param.Add(new WinFormsReport.ReportParameter("nam", title));
-            param.Add(new WinFormsReport.ReportParameter("tento", cboTo.Text));
-
-            this.getBaoCaoChuanThuKyBindingSource.DataSource = dataSource;
+            WinFormsReport.ReportDataSource reportDataSource = new WinFormsReport.ReportDataSource("DataSet1", dataSource);
+            this.reportViewer1.LocalReport.DataSources.Clear();
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+            List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>
+            {
+                new WinFormsReport.ReportParameter("nam", title),
+                new WinFormsReport.ReportParameter("tento", cboTo.Text)
+            };
             this.reportViewer1.LocalReport.SetParameters(param);
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;
@@ -92,10 +91,18 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             comboBoxNam.DisplayMember = "NAM";
 
             var dsTo = db.DM_TO.OrderBy(x => x.TENTO).ToList();
-            cboTo.DataSource = dsTo.ToList();
+
+            dsTo.Insert(0, new DM_TO
+            {
+                TO_ID = -1,       
+                TENTO = "Tất cả" 
+            });
+
+            cboTo.DataSource = dsTo;
             cboTo.ValueMember = "TO_ID";
             cboTo.DisplayMember = "TENTO";
             cboTo.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
     }
 }

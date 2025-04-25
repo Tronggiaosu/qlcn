@@ -47,7 +47,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             param.Add(new WinFormsReport.ReportParameter("thang", thang));
             param.Add(new WinFormsReport.ReportParameter("nam", nam));
             param.Add(new WinFormsReport.ReportParameter("tento", cboTo.Text));
-            this.getBaoCaoChuanThuDotBindingSource.DataSource = dataSource.ToList();
+            this.getBaoCaoChuanThuDotBindingSource.DataSource = dataSource;
             this.reportViewer1.LocalReport.SetParameters(param);
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;

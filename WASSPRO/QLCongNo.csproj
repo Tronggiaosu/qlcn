@@ -1193,11 +1193,11 @@
     <Compile Include="View\UC\ReportViewer\DataSource\UcBangKeHoaDon.Designer.cs">
       <DependentUpon>UcBangKeHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UC\ReportViewer\DataSource\UcGiayBaoTienNuoc.cs">
+    <Compile Include="View\UC\ReportViewer\DataSource\GiayBaoTienNuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UC\ReportViewer\DataSource\UcGiayBaoTienNuoc.Designer.cs">
-      <DependentUpon>UcGiayBaoTienNuoc.cs</DependentUpon>
+    <Compile Include="View\UC\ReportViewer\DataSource\GiayBaoTienNuoc.Designer.cs">
+      <DependentUpon>GiayBaoTienNuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.cs">
       <SubType>UserControl</SubType>
@@ -1836,8 +1836,8 @@
     <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcBangKeHoaDon.resx">
       <DependentUpon>UcBangKeHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcGiayBaoTienNuoc.resx">
-      <DependentUpon>UcGiayBaoTienNuoc.cs</DependentUpon>
+    <EmbeddedResource Include="View\UC\ReportViewer\DataSource\GiayBaoTienNuoc.resx">
+      <DependentUpon>GiayBaoTienNuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.resx">
       <DependentUpon>UcPhieuNgungNuoc.cs</DependentUpon>
