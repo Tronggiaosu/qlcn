@@ -257,7 +257,7 @@ namespace QLCongNo.View.UC.HoaDon
 
                 if (khachhang != null)
                 {
-                    var data = db.getDSHoaDon_KH(khachhang.ID_KH).ToList();
+                    var data = db.getDSHoaDon_KH_Newest(khachhang.ID_KH).ToList();
                     if (data.Count != 0)
                     {
                         if (data.Count > 0)

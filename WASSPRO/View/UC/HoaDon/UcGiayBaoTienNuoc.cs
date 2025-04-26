@@ -120,7 +120,7 @@ namespace QLCongNo.View.UC.HoaDon
                 string maphuong = cboPhuong.SelectedValue.ToString();
                 if (maDanhBo != "")
                 {
-                    var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
+                    var data = db.getDSInGiayBaoTienNuoc_Newest(nam, ky, trangthai, maquan, maphuong, maDanhBo).ToList();
                     if (data.Count > 0)
                     {
                         dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -133,7 +133,7 @@ namespace QLCongNo.View.UC.HoaDon
                 }
                 else
                 {
-                    var data = db.getDSInGiayBaoTienNuoc(nam, ky, trangthai, maquan, maphuong, chuoiDanhBo).ToList();
+                    var data = db.getDSInGiayBaoTienNuoc_Newest(nam, ky, trangthai, maquan, maphuong, chuoiDanhBo).ToList();
                     if (data.Count > 0)
                     {
                         dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

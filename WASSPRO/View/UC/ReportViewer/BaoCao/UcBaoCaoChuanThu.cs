@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QLCongNo.View.UC.ReportViewer.BaoCao
 {
@@ -22,6 +23,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
         private void btnTim_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+
             var root = "ReportViewer\\ReportView\\RPTongHopHoaDon.rdlc";
             string basePath = Directory.GetCurrentDirectory();
             var reportPath = $"{basePath}\\{root}";
@@ -46,7 +48,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
             db.Database.CommandTimeout = 600;
 
-            var dataSource = db.getBaoCaoChuanThuKy(0, result, TOID).ToList();
+            var dataSource = db.getBaoCaoChuanThuKy_Newest(0, result, TOID).ToList();
             WinFormsReport.ReportDataSource reportDataSource = new WinFormsReport.ReportDataSource("DataSet1", dataSource);
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);

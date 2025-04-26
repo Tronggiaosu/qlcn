@@ -121,7 +121,7 @@ namespace QLCongNo.View.UC.HoaDon
                     MessageBox.Show("Không tìm thấy khách hàng với mã danh bộ đã nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                var dsHoadon = db.getDSHoaDon_KH(khachhang.ID_KH).ToList();
+                var dsHoadon = db.getDSHoaDon_KH_Newest(khachhang.ID_KH).ToList();
                 if (dsHoadon == null || dsHoadon.Count == 0)
                 {
                     MessageBox.Show("Không có hóa đơn nào cho khách hàng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

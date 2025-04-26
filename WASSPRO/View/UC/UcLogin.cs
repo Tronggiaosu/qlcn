@@ -40,7 +40,7 @@ namespace QLCongNo
             var doc = XDocument.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             var connectionStringElement = doc.Descendants("connectionStrings")
                                              .Elements()
-                                             .FirstOrDefault(p => p.Attribute("name")?.Value == "Entities");
+                                             .FirstOrDefault(p => p.Attribute("name")?.Value == "CAPNUOC_TNCEntities");
 
             if (connectionStringElement != null)
             {
@@ -89,7 +89,6 @@ namespace QLCongNo
                 {
                     // hash password
                     string encode = txtPassword.Text.ComputeMd5Hash();
-                    //var encode = "37c8b5da89e80ec33bcb0ee43bd3f923";
 
                     // get user info
                     var acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == txtUsername.Text && x.pass == encode);

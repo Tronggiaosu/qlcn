@@ -135,7 +135,7 @@ namespace QLCongNo.View.UC.GachNo
                 if (dgvKH.RowCount > 0)
                 {
                     ID_KH = decimal.Parse(dgvKH[ID_KHColumn.Name, e.RowIndex].Value.ToString());
-                    var dsHoadon = db.getDSHoaDon_KH(ID_KH)
+                    var dsHoadon = db.getDSHoaDon_KH_Newest(ID_KH)
                         .Where(hd =>
                             hd.trangthai_id == 13 &&
                             db.HOADON_KHODOI.Any(kh => kh.ID_HD == hd.ID_HD && kh.TRANGTHAI == false)

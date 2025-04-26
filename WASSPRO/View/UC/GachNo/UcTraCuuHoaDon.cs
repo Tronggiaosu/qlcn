@@ -176,7 +176,7 @@ namespace QLCongNo.View.UC.GachNo
                     string dotSelectedStr = cboDot.SelectedValue != null ? cboDot.SelectedValue.ToString() : "";
 
                     decimal IDKH = decimal.Parse(dgvKhachHang[ID_KH_dgv1.Name, e.RowIndex].Value.ToString());
-                    var dsHoadon = db.getDSHoaDon_KH(IDKH).ToList();
+                    var dsHoadon = db.getDSHoaDon_KH_Newest(IDKH).ToList();
 
                     if (namSelectedStr != "0")
                     {

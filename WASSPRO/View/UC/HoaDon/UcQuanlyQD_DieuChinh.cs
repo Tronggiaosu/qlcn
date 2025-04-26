@@ -420,7 +420,7 @@ namespace QLCongNo.View.UC.HoaDon
             }
             var QDID = decimal.Parse(dataGridView1.SelectedRows[0].Cells[QDIDColumn.Name].Value.ToString());
             var yeucauDC = db.YEUCAU_DIEUCHINH.Where(x => x.QD_ID == QDID).FirstOrDefault();
-            var publish = db.getDSHoaDon_KH(yeucauDC.IDKH).Where(x => x.ID_HD == yeucauDC.IDHD).FirstOrDefault();
+            var publish = db.getDSHoaDon_KH_Newest(yeucauDC.IDKH).Where(x => x.ID_HD == yeucauDC.IDHD).FirstOrDefault();
             if (yeucauDC.isdaduyet == true)
                 MessageBox.Show("Hóa đơn đã thanh toán hoặc đã điều chỉnh hóa đơn điện tử, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else

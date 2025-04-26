@@ -4127,7 +4127,11 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="kyghi" Type="varchar" Mode="In" />
           <Parameter Name="ToID" Type="int" Mode="In" />
         </Function>
-        
+        <Function Name="getBaoCaoChuanThuKy_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nam" Type="int" Mode="In" />
+          <Parameter Name="kyghi" Type="varchar" Mode="In" />
+          <Parameter Name="ToID" Type="int" Mode="In" />
+        </Function>
         <Function Name="getBaocaoHoadonton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tuky" Type="nvarchar" Mode="In" />
           <Parameter Name="denky" Type="nvarchar" Mode="In" />
@@ -4144,6 +4148,10 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="ngay" Type="varchar" Mode="In" />
           <Parameter Name="TO_ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="getBaoCaoTheoDoiHoaDonTheoTo_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="varchar" Mode="In" />
+          <Parameter Name="TO_ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="getBaoCaoTongHop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tungay" Type="varchar" Mode="In" />
           <Parameter Name="denngay" Type="varchar" Mode="In" />
@@ -4151,6 +4159,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="loaiHD" Type="int" Mode="In" />
         </Function>
         <Function Name="getBaoCaoTongHopDangNganTheoNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tungay" Type="varchar" Mode="In" />
+          <Parameter Name="denngay" Type="varchar" Mode="In" />
+          <Parameter Name="kyghi" Type="varchar" Mode="In" />
+          <Parameter Name="TOID" Type="int" Mode="In" />
+          <Parameter Name="loaiHD" Type="int" Mode="In" />
+          <Parameter Name="NV_ID" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="getBaoCaoTongHopDangNganTheoNgay_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tungay" Type="varchar" Mode="In" />
           <Parameter Name="denngay" Type="varchar" Mode="In" />
           <Parameter Name="kyghi" Type="varchar" Mode="In" />
@@ -4327,7 +4343,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="phuong" Type="varchar" Mode="In" />
           <Parameter Name="search" Type="varchar(max)" Mode="In" />
         </Function>
-        
+        <Function Name="getDatagiayBaoTienNuoc_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nam" Type="int" Mode="In" />
+          <Parameter Name="kyghi" Type="varchar" Mode="In" />
+          <Parameter Name="trangthai" Type="int" Mode="In" />
+          <Parameter Name="quan" Type="varchar" Mode="In" />
+          <Parameter Name="phuong" Type="varchar" Mode="In" />
+          <Parameter Name="search" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="getDataThuHo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDNV" Type="int" Mode="In" />
           <Parameter Name="tungay" Type="varchar" Mode="In" />
@@ -4354,6 +4377,11 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="soky" Type="int" Mode="In" />
         </Function>
         <Function Name="getDSChuyenNoKhoDoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tungay" Type="varchar" Mode="In" />
+          <Parameter Name="denngay" Type="varchar" Mode="In" />
+          <Parameter Name="NVID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getDSChuyenNoKhoDoi_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tungay" Type="varchar" Mode="In" />
           <Parameter Name="denngay" Type="varchar" Mode="In" />
           <Parameter Name="NVID" Type="int" Mode="In" />
@@ -4414,6 +4442,9 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
         <Function Name="getDSHoaDon_KH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDKH" Type="numeric" Mode="In" />
         </Function>
+        <Function Name="getDSHoaDon_KH_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDKH" Type="numeric" Mode="In" />
+        </Function>
         <Function Name="getDSHoaDonChuaChiaTNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nam" Type="int" Mode="In" />
           <Parameter Name="kyHD" Type="varchar" Mode="In" />
@@ -4457,7 +4488,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="phuong" Type="varchar" Mode="In" />
           <Parameter Name="search" Type="varchar(max)" Mode="In" />
         </Function>
-        
+        <Function Name="getDSInGiayBaoTienNuoc_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nam" Type="int" Mode="In" />
+          <Parameter Name="kyghi" Type="varchar" Mode="In" />
+          <Parameter Name="trangthai" Type="int" Mode="In" />
+          <Parameter Name="quan" Type="varchar" Mode="In" />
+          <Parameter Name="phuong" Type="varchar" Mode="In" />
+          <Parameter Name="search" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="getDSKhachHangChuaThanhToan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="maquan" Type="varchar" Mode="In" />
           <Parameter Name="maphuong" Type="varchar" Mode="In" />
@@ -4993,6 +5031,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="DotID" Type="int" Mode="In" />
           <Parameter Name="Kyghi" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="test_proc_simple" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="TINHCUOC_DACBIET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KYCUOC" Type="varchar" Mode="In" />
           <Parameter Name="MALT" Type="varchar" Mode="In" />
@@ -10451,7 +10490,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CAPNUOC_TNCEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BANGGIA_DM_DB" EntityType="Self.BANGGIA_DM_DB" />
           <EntitySet Name="BD_KHACHHANG" EntityType="Self.BD_KHACHHANG" />
           <EntitySet Name="CONGTies" EntityType="Self.CONGTY" />
@@ -11938,6 +11977,48 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="TOID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Menus" EntityType="Model.Menu" />
+          <FunctionImport Name="test_proc_simple" ReturnType="Collection(String)" />
+          <FunctionImport Name="getBaoCaoChuanThuKy_Newest" ReturnType="Collection(Model.getBaoCaoChuanThuKy_Newest_Result)">
+            <Parameter Name="nam" Mode="In" Type="Int32" />
+            <Parameter Name="kyghi" Mode="In" Type="String" />
+            <Parameter Name="ToID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getBaoCaoTheoDoiHoaDonTheoTo_Newest" ReturnType="Collection(Model.getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result)">
+            <Parameter Name="ngay" Mode="In" Type="String" />
+            <Parameter Name="TO_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getBaoCaoTongHopDangNganTheoNgay_Newest" ReturnType="Collection(Model.getBaoCaoTongHopDangNganTheoNgay_Newest_Result)">
+            <Parameter Name="tungay" Mode="In" Type="String" />
+            <Parameter Name="denngay" Mode="In" Type="String" />
+            <Parameter Name="kyghi" Mode="In" Type="String" />
+            <Parameter Name="TOID" Mode="In" Type="Int32" />
+            <Parameter Name="loaiHD" Mode="In" Type="Int32" />
+            <Parameter Name="NV_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getDatagiayBaoTienNuoc_Newest" ReturnType="Collection(Model.getDatagiayBaoTienNuoc_Newest_Result)">
+            <Parameter Name="nam" Mode="In" Type="Int32" />
+            <Parameter Name="kyghi" Mode="In" Type="String" />
+            <Parameter Name="trangthai" Mode="In" Type="Int32" />
+            <Parameter Name="quan" Mode="In" Type="String" />
+            <Parameter Name="phuong" Mode="In" Type="String" />
+            <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getDSChuyenNoKhoDoi_Newest" ReturnType="Collection(Model.getDSChuyenNoKhoDoi_Newest_Result)">
+            <Parameter Name="tungay" Mode="In" Type="String" />
+            <Parameter Name="denngay" Mode="In" Type="String" />
+            <Parameter Name="NVID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getDSHoaDon_KH_Newest" ReturnType="Collection(Model.getDSHoaDon_KH_Newest_Result)">
+            <Parameter Name="IDKH" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getDSInGiayBaoTienNuoc_Newest" ReturnType="Collection(Model.getDSInGiayBaoTienNuoc_Newest_Result)">
+            <Parameter Name="nam" Mode="In" Type="Int32" />
+            <Parameter Name="kyghi" Mode="In" Type="String" />
+            <Parameter Name="trangthai" Mode="In" Type="Int32" />
+            <Parameter Name="quan" Mode="In" Type="String" />
+            <Parameter Name="phuong" Mode="In" Type="String" />
+            <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -13737,12 +13818,166 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Name="ParentId" Type="Int32" />
           <Property Name="AdditionParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="getBaoCaoChuanThuKy_Newest_Result">
+          <Property Type="Int32" Name="soluongHD" Nullable="true" />
+          <Property Type="Decimal" Name="tiennuoc" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="tienthue" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="soHD0D" Nullable="true" />
+          <Property Type="Decimal" Name="TO_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result">
+          <Property Type="Int32" Name="soluongton" Nullable="true" />
+          <Property Type="Decimal" Name="tongtienton" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="String" Name="HD_TON" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="soluongDN" Nullable="true" />
+          <Property Type="Decimal" Name="tongtienDN" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="tongtiennhan" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Int32" Name="soHDnhan" Nullable="true" />
+          <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getBaoCaoTongHopDangNganTheoNgay_Newest_Result">
+          <Property Type="Int32" Name="soluongHD" Nullable="true" />
+          <Property Type="Decimal" Name="LoaiHD_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="NGAYDANGNGAN" Nullable="true" />
+          <Property Type="String" Name="hoten" Nullable="true" MaxLength="61" />
+          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="hovaten" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="somay" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="tenloaiHD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getDatagiayBaoTienNuoc_Newest_Result">
+          <Property Type="String" Name="hoten_KH" Nullable="true" />
+          <Property Type="String" Name="sonha" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="diachi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="tenPhuong" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="tenQuan" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="madanhbo" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tentrangthai" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="seri" Nullable="true" MaxLength="101" />
+          <Property Type="Decimal" Name="ID_chitiet_HD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="SOLUONG" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="DONGIA" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="GIABVMT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="M3BVMT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="DATE_CREATE" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DATE_UPDATE" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DIENGIAI" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="USER_UPDATE" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="USER_CREATE" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ID_KH" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="isImport" Nullable="true" />
+          <Property Type="Int32" Name="STT" Nullable="false" />
+          <Property Type="Decimal" Name="chitietTDC_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="sotienbangchu" Nullable="false" MaxLength="1" />
+          <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="tienvat" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tongtien0VAT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CSMoi" Nullable="true" />
+          <Property Type="Int32" Name="CSCu" Nullable="true" />
+          <Property Type="String" Name="MaLT" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="MTT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="tungay" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="denngay" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="kyghi" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="diachihoadon" Nullable="true" />
+          <Property Type="Int32" Name="m3tieuthu" Nullable="true" />
+          <Property Type="Int32" Name="DMKH" Nullable="true" />
+          <Property Type="String" Name="sohopdong" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MST_KH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MGB" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SOPHATHANH" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ngayphathanhHD" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="PhiBVMTCu" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TienThueNT" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getDSChuyenNoKhoDoi_Newest_Result">
+          <Property Type="String" Name="maNV" Nullable="false" MaxLength="153" />
+          <Property Type="DateTime" Name="NGAYCHUYEN" Nullable="true" Precision="23" />
+          <Property Type="String" Name="InvToken" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="SOPHATHANH" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="hoten" Nullable="true" />
+          <Property Type="DateTime" Name="ngaytao" Nullable="true" Precision="23" />
+          <Property Type="String" Name="nhanvien" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ghichu" Nullable="true" MaxLength="250" />
+          <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="NGUOITHANHTOAN" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NGAYTHANHTOAN" Nullable="true" Precision="23" />
+          <Property Type="String" Name="kyghi" Nullable="false" MaxLength="7" />
+          <Property Type="Decimal" Name="TONGTIEN" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tongtien0VAT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienvat" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="dieuchinhthongtin" Nullable="false" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="getDSHoaDon_KH_Newest_Result">
+          <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="hoten" Nullable="true" />
+          <Property Type="String" Name="kyghi" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="nam" Nullable="true" />
+          <Property Type="Decimal" Name="ID_KH" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="DOT_ID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="quan" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="phuong" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="hotenNV" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SO_HD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="KY_HIEU_HD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="tentrangthai" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="chitiet" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="chuyendoi" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="dongbo" Nullable="false" MaxLength="14" />
+          <Property Type="String" Name="thanhtoan" Nullable="false" MaxLength="8" />
+          <Property Type="DateTime" Name="ngaythanhtoan" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="trangthai_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="seri" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="MaLT" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="HinhThucThanhToan" Nullable="true" MaxLength="12" />
+          <Property Type="DateTime" Name="NgayBangKe" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TenNganHang" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NhanVienGiaiTrach" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NGAYDANGNGAN_NV" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ghichu" Nullable="true" MaxLength="26" />
+          <Property Type="String" Name="trangthaiKH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="dieuchinh" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="ngaytao" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="NgaycapnhatKH" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NhanviencapnhatKH" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="trangthaiKHHD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getDSInGiayBaoTienNuoc_Newest_Result">
+          <Property Type="Decimal" Name="id_kh" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="hoten_KH" Nullable="true" />
+          <Property Type="String" Name="sonha" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="diachi" Nullable="true" />
+          <Property Type="String" Name="tenPhuong" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="tenQuan" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="madanhbo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="maLT" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tentrangthai" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="seri" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CAPNUOC_TNCEntities">
           <EntitySetMapping Name="BANGGIA_DM_DB">
             <EntityTypeMapping TypeName="Model.BANGGIA_DM_DB">
               <MappingFragment StoreEntitySet="BANGGIA_DM_DB">
@@ -18921,6 +19156,189 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="test_proc_simple" FunctionName="Model.Store.test_proc_simple" />
+          <FunctionImportMapping FunctionImportName="getBaoCaoChuanThuKy_Newest" FunctionName="Model.Store.getBaoCaoChuanThuKy_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getBaoCaoChuanThuKy_Newest_Result">
+                <ScalarProperty Name="soluongHD" ColumnName="soluongHD" />
+                <ScalarProperty Name="tiennuoc" ColumnName="tiennuoc" />
+                <ScalarProperty Name="tienthue" ColumnName="tienthue" />
+                <ScalarProperty Name="tienBVMT" ColumnName="tienBVMT" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+                <ScalarProperty Name="soHD0D" ColumnName="soHD0D" />
+                <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
+                <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getBaoCaoTheoDoiHoaDonTheoTo_Newest" FunctionName="Model.Store.getBaoCaoTheoDoiHoaDonTheoTo_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result">
+                <ScalarProperty Name="soluongton" ColumnName="soluongton" />
+                <ScalarProperty Name="tongtienton" ColumnName="tongtienton" />
+                <ScalarProperty Name="HD_TON" ColumnName="HD_TON" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+                <ScalarProperty Name="soluongDN" ColumnName="soluongDN" />
+                <ScalarProperty Name="tongtienDN" ColumnName="tongtienDN" />
+                <ScalarProperty Name="tongtiennhan" ColumnName="tongtiennhan" />
+                <ScalarProperty Name="soHDnhan" ColumnName="soHDnhan" />
+                <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getBaoCaoTongHopDangNganTheoNgay_Newest" FunctionName="Model.Store.getBaoCaoTongHopDangNganTheoNgay_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getBaoCaoTongHopDangNganTheoNgay_Newest_Result">
+                <ScalarProperty Name="soluongHD" ColumnName="soluongHD" />
+                <ScalarProperty Name="LoaiHD_ID" ColumnName="LoaiHD_ID" />
+                <ScalarProperty Name="NGAYDANGNGAN" ColumnName="NGAYDANGNGAN" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+                <ScalarProperty Name="hovaten" ColumnName="hovaten" />
+                <ScalarProperty Name="somay" ColumnName="somay" />
+                <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
+                <ScalarProperty Name="tenloaiHD" ColumnName="tenloaiHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDatagiayBaoTienNuoc_Newest" FunctionName="Model.Store.getDatagiayBaoTienNuoc_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDatagiayBaoTienNuoc_Newest_Result">
+                <ScalarProperty Name="hoten_KH" ColumnName="hoten_KH" />
+                <ScalarProperty Name="sonha" ColumnName="sonha" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="tenPhuong" ColumnName="tenPhuong" />
+                <ScalarProperty Name="tenQuan" ColumnName="tenQuan" />
+                <ScalarProperty Name="madanhbo" ColumnName="madanhbo" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="Tentrangthai" ColumnName="Tentrangthai" />
+                <ScalarProperty Name="seri" ColumnName="seri" />
+                <ScalarProperty Name="ID_chitiet_HD" ColumnName="ID_chitiet_HD" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="GIABVMT" ColumnName="GIABVMT" />
+                <ScalarProperty Name="M3BVMT" ColumnName="M3BVMT" />
+                <ScalarProperty Name="DATE_CREATE" ColumnName="DATE_CREATE" />
+                <ScalarProperty Name="DATE_UPDATE" ColumnName="DATE_UPDATE" />
+                <ScalarProperty Name="DIENGIAI" ColumnName="DIENGIAI" />
+                <ScalarProperty Name="USER_UPDATE" ColumnName="USER_UPDATE" />
+                <ScalarProperty Name="USER_CREATE" ColumnName="USER_CREATE" />
+                <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+                <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+                <ScalarProperty Name="isImport" ColumnName="isImport" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="chitietTDC_id" ColumnName="chitietTDC_id" />
+                <ScalarProperty Name="sotienbangchu" ColumnName="sotienbangchu" />
+                <ScalarProperty Name="tienBVMT" ColumnName="tienBVMT" />
+                <ScalarProperty Name="tienvat" ColumnName="tienvat" />
+                <ScalarProperty Name="tongtien0VAT" ColumnName="tongtien0VAT" />
+                <ScalarProperty Name="CSMoi" ColumnName="CSMoi" />
+                <ScalarProperty Name="CSCu" ColumnName="CSCu" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MTT" ColumnName="MTT" />
+                <ScalarProperty Name="tungay" ColumnName="tungay" />
+                <ScalarProperty Name="denngay" ColumnName="denngay" />
+                <ScalarProperty Name="kyghi" ColumnName="kyghi" />
+                <ScalarProperty Name="diachihoadon" ColumnName="diachihoadon" />
+                <ScalarProperty Name="m3tieuthu" ColumnName="m3tieuthu" />
+                <ScalarProperty Name="DMKH" ColumnName="DMKH" />
+                <ScalarProperty Name="sohopdong" ColumnName="sohopdong" />
+                <ScalarProperty Name="MST_KH" ColumnName="MST_KH" />
+                <ScalarProperty Name="MGB" ColumnName="MGB" />
+                <ScalarProperty Name="SOPHATHANH" ColumnName="SOPHATHANH" />
+                <ScalarProperty Name="ngayphathanhHD" ColumnName="ngayphathanhHD" />
+                <ScalarProperty Name="PhiBVMTCu" ColumnName="PhiBVMTCu" />
+                <ScalarProperty Name="PhiNT" ColumnName="PhiNT" />
+                <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDSChuyenNoKhoDoi_Newest" FunctionName="Model.Store.getDSChuyenNoKhoDoi_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSChuyenNoKhoDoi_Newest_Result">
+                <ScalarProperty Name="maNV" ColumnName="maNV" />
+                <ScalarProperty Name="NGAYCHUYEN" ColumnName="NGAYCHUYEN" />
+                <ScalarProperty Name="InvToken" ColumnName="InvToken" />
+                <ScalarProperty Name="SOPHATHANH" ColumnName="SOPHATHANH" />
+                <ScalarProperty Name="DANHBO" ColumnName="DANHBO" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="nhanvien" ColumnName="nhanvien" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+                <ScalarProperty Name="NGUOITHANHTOAN" ColumnName="NGUOITHANHTOAN" />
+                <ScalarProperty Name="NGAYTHANHTOAN" ColumnName="NGAYTHANHTOAN" />
+                <ScalarProperty Name="kyghi" ColumnName="kyghi" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="tongtien0VAT" ColumnName="tongtien0VAT" />
+                <ScalarProperty Name="tienvat" ColumnName="tienvat" />
+                <ScalarProperty Name="tienBVMT" ColumnName="tienBVMT" />
+                <ScalarProperty Name="PhiNT" ColumnName="PhiNT" />
+                <ScalarProperty Name="TienThueNT" ColumnName="TienThueNT" />
+                <ScalarProperty Name="dieuchinhthongtin" ColumnName="dieuchinhthongtin" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDSHoaDon_KH_Newest" FunctionName="Model.Store.getDSHoaDon_KH_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSHoaDon_KH_Newest_Result">
+                <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+                <ScalarProperty Name="DANHBO" ColumnName="DANHBO" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="kyghi" ColumnName="kyghi" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+                <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+                <ScalarProperty Name="DOT_ID" ColumnName="DOT_ID" />
+                <ScalarProperty Name="quan" ColumnName="quan" />
+                <ScalarProperty Name="phuong" ColumnName="phuong" />
+                <ScalarProperty Name="hotenNV" ColumnName="hotenNV" />
+                <ScalarProperty Name="SO_HD" ColumnName="SO_HD" />
+                <ScalarProperty Name="KY_HIEU_HD" ColumnName="KY_HIEU_HD" />
+                <ScalarProperty Name="tentrangthai" ColumnName="tentrangthai" />
+                <ScalarProperty Name="chitiet" ColumnName="chitiet" />
+                <ScalarProperty Name="chuyendoi" ColumnName="chuyendoi" />
+                <ScalarProperty Name="dongbo" ColumnName="dongbo" />
+                <ScalarProperty Name="thanhtoan" ColumnName="thanhtoan" />
+                <ScalarProperty Name="ngaythanhtoan" ColumnName="ngaythanhtoan" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="trangthai_id" ColumnName="trangthai_id" />
+                <ScalarProperty Name="seri" ColumnName="seri" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="HinhThucThanhToan" ColumnName="HinhThucThanhToan" />
+                <ScalarProperty Name="NgayBangKe" ColumnName="NgayBangKe" />
+                <ScalarProperty Name="TenNganHang" ColumnName="TenNganHang" />
+                <ScalarProperty Name="NhanVienGiaiTrach" ColumnName="NhanVienGiaiTrach" />
+                <ScalarProperty Name="NGAYDANGNGAN_NV" ColumnName="NGAYDANGNGAN_NV" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="trangthaiKH" ColumnName="trangthaiKH" />
+                <ScalarProperty Name="dieuchinh" ColumnName="dieuchinh" />
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="NgaycapnhatKH" ColumnName="NgaycapnhatKH" />
+                <ScalarProperty Name="NhanviencapnhatKH" ColumnName="NhanviencapnhatKH" />
+                <ScalarProperty Name="trangthaiKHHD" ColumnName="trangthaiKHHD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDSInGiayBaoTienNuoc_Newest" FunctionName="Model.Store.getDSInGiayBaoTienNuoc_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSInGiayBaoTienNuoc_Newest_Result">
+                <ScalarProperty Name="id_kh" ColumnName="id_kh" />
+                <ScalarProperty Name="hoten_KH" ColumnName="hoten_KH" />
+                <ScalarProperty Name="sonha" ColumnName="sonha" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="tenPhuong" ColumnName="tenPhuong" />
+                <ScalarProperty Name="tenQuan" ColumnName="tenQuan" />
+                <ScalarProperty Name="madanhbo" ColumnName="madanhbo" />
+                <ScalarProperty Name="maLT" ColumnName="maLT" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="Tentrangthai" ColumnName="Tentrangthai" />
+                <ScalarProperty Name="seri" ColumnName="seri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -29,7 +29,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             {
                 this.Cursor = Cursors.WaitCursor;
                 var startDate = this.dtPickerTu.Value.Date;
-                var endDate = this.dtPickerDen.Value.Date;
+                var endDate = this.dtPickerDen.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                 string tenbaocao = $"{startDate.ToString("dd/MM/yyyy")}_{endDate.ToString("dd/MM/yyyy")}";
                 var root = "ReportViewer\\ReportView\\RPTongHopDangNganTheoNganHang.rdlc";
                 string basePath = Directory.GetCurrentDirectory();

@@ -18,7 +18,7 @@ namespace QLCongNo
     public partial class CAPNUOC_TNCEntities : DbContext
     {
         public CAPNUOC_TNCEntities()
-            : base("name=Entities")
+            : base("name=CAPNUOC_TNCEntities")
         {
         }
     
@@ -155,13 +155,13 @@ namespace QLCongNo
         public virtual DbSet<GACHNO_TEST> GACHNO_TEST { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
     
-        [DbFunction("Entities", "fngetDatakycuoc")]
+        [DbFunction("CAPNUOC_TNCEntities", "fngetDatakycuoc")]
         public virtual IQueryable<fngetDatakycuoc_Result> fngetDatakycuoc()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fngetDatakycuoc_Result>("[Entities].[fngetDatakycuoc]()");
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fngetDatakycuoc_Result>("[CAPNUOC_TNCEntities].[fngetDatakycuoc]()");
         }
     
-        [DbFunction("Entities", "fngetDataLoTrinh")]
+        [DbFunction("CAPNUOC_TNCEntities", "fngetDataLoTrinh")]
         public virtual IQueryable<fngetDataLoTrinh_Result> fngetDataLoTrinh(string username, string loailotrinh)
         {
             var usernameParameter = username != null ?
@@ -172,7 +172,7 @@ namespace QLCongNo
                 new ObjectParameter("loailotrinh", loailotrinh) :
                 new ObjectParameter("loailotrinh", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fngetDataLoTrinh_Result>("[Entities].[fngetDataLoTrinh](@username, @loailotrinh)", usernameParameter, loailotrinhParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fngetDataLoTrinh_Result>("[CAPNUOC_TNCEntities].[fngetDataLoTrinh](@username, @loailotrinh)", usernameParameter, loailotrinhParameter);
         }
     
         public virtual int BangTongHopDangNgan(string loaihd, Nullable<System.DateTime> tungay, Nullable<System.DateTime> denngay)
@@ -3820,6 +3820,154 @@ namespace QLCongNo
                 new ObjectParameter("TOID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDangNganTheoNgay_Newest_Result>("getDangNganTheoNgay_Newest", dANHBOParameter, nVIDParameter, loaiHDParameter, tungayParameter, denngayParameter, maloaiParameter, maDTParameter, isdangnganParameter, nVLapParameter, tOIDParameter);
+        }
+    
+        public virtual ObjectResult<string> test_proc_simple()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("test_proc_simple");
+        }
+    
+        public virtual ObjectResult<getBaoCaoChuanThuKy_Newest_Result> getBaoCaoChuanThuKy_Newest(Nullable<int> nam, string kyghi, Nullable<int> toID)
+        {
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(int));
+    
+            var kyghiParameter = kyghi != null ?
+                new ObjectParameter("kyghi", kyghi) :
+                new ObjectParameter("kyghi", typeof(string));
+    
+            var toIDParameter = toID.HasValue ?
+                new ObjectParameter("ToID", toID) :
+                new ObjectParameter("ToID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBaoCaoChuanThuKy_Newest_Result>("getBaoCaoChuanThuKy_Newest", namParameter, kyghiParameter, toIDParameter);
+        }
+    
+        public virtual ObjectResult<getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result> getBaoCaoTheoDoiHoaDonTheoTo_Newest(string ngay, Nullable<int> tO_ID)
+        {
+            var ngayParameter = ngay != null ?
+                new ObjectParameter("ngay", ngay) :
+                new ObjectParameter("ngay", typeof(string));
+    
+            var tO_IDParameter = tO_ID.HasValue ?
+                new ObjectParameter("TO_ID", tO_ID) :
+                new ObjectParameter("TO_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result>("getBaoCaoTheoDoiHoaDonTheoTo_Newest", ngayParameter, tO_IDParameter);
+        }
+    
+        public virtual ObjectResult<getBaoCaoTongHopDangNganTheoNgay_Newest_Result> getBaoCaoTongHopDangNganTheoNgay_Newest(string tungay, string denngay, string kyghi, Nullable<int> tOID, Nullable<int> loaiHD, Nullable<decimal> nV_ID)
+        {
+            var tungayParameter = tungay != null ?
+                new ObjectParameter("tungay", tungay) :
+                new ObjectParameter("tungay", typeof(string));
+    
+            var denngayParameter = denngay != null ?
+                new ObjectParameter("denngay", denngay) :
+                new ObjectParameter("denngay", typeof(string));
+    
+            var kyghiParameter = kyghi != null ?
+                new ObjectParameter("kyghi", kyghi) :
+                new ObjectParameter("kyghi", typeof(string));
+    
+            var tOIDParameter = tOID.HasValue ?
+                new ObjectParameter("TOID", tOID) :
+                new ObjectParameter("TOID", typeof(int));
+    
+            var loaiHDParameter = loaiHD.HasValue ?
+                new ObjectParameter("loaiHD", loaiHD) :
+                new ObjectParameter("loaiHD", typeof(int));
+    
+            var nV_IDParameter = nV_ID.HasValue ?
+                new ObjectParameter("NV_ID", nV_ID) :
+                new ObjectParameter("NV_ID", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBaoCaoTongHopDangNganTheoNgay_Newest_Result>("getBaoCaoTongHopDangNganTheoNgay_Newest", tungayParameter, denngayParameter, kyghiParameter, tOIDParameter, loaiHDParameter, nV_IDParameter);
+        }
+    
+        public virtual ObjectResult<getDatagiayBaoTienNuoc_Newest_Result> getDatagiayBaoTienNuoc_Newest(Nullable<int> nam, string kyghi, Nullable<int> trangthai, string quan, string phuong, string search)
+        {
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(int));
+    
+            var kyghiParameter = kyghi != null ?
+                new ObjectParameter("kyghi", kyghi) :
+                new ObjectParameter("kyghi", typeof(string));
+    
+            var trangthaiParameter = trangthai.HasValue ?
+                new ObjectParameter("trangthai", trangthai) :
+                new ObjectParameter("trangthai", typeof(int));
+    
+            var quanParameter = quan != null ?
+                new ObjectParameter("quan", quan) :
+                new ObjectParameter("quan", typeof(string));
+    
+            var phuongParameter = phuong != null ?
+                new ObjectParameter("phuong", phuong) :
+                new ObjectParameter("phuong", typeof(string));
+    
+            var searchParameter = search != null ?
+                new ObjectParameter("search", search) :
+                new ObjectParameter("search", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDatagiayBaoTienNuoc_Newest_Result>("getDatagiayBaoTienNuoc_Newest", namParameter, kyghiParameter, trangthaiParameter, quanParameter, phuongParameter, searchParameter);
+        }
+    
+        public virtual ObjectResult<getDSChuyenNoKhoDoi_Newest_Result> getDSChuyenNoKhoDoi_Newest(string tungay, string denngay, Nullable<int> nVID)
+        {
+            var tungayParameter = tungay != null ?
+                new ObjectParameter("tungay", tungay) :
+                new ObjectParameter("tungay", typeof(string));
+    
+            var denngayParameter = denngay != null ?
+                new ObjectParameter("denngay", denngay) :
+                new ObjectParameter("denngay", typeof(string));
+    
+            var nVIDParameter = nVID.HasValue ?
+                new ObjectParameter("NVID", nVID) :
+                new ObjectParameter("NVID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSChuyenNoKhoDoi_Newest_Result>("getDSChuyenNoKhoDoi_Newest", tungayParameter, denngayParameter, nVIDParameter);
+        }
+    
+        public virtual ObjectResult<getDSHoaDon_KH_Newest_Result> getDSHoaDon_KH_Newest(Nullable<decimal> iDKH)
+        {
+            var iDKHParameter = iDKH.HasValue ?
+                new ObjectParameter("IDKH", iDKH) :
+                new ObjectParameter("IDKH", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSHoaDon_KH_Newest_Result>("getDSHoaDon_KH_Newest", iDKHParameter);
+        }
+    
+        public virtual ObjectResult<getDSInGiayBaoTienNuoc_Newest_Result> getDSInGiayBaoTienNuoc_Newest(Nullable<int> nam, string kyghi, Nullable<int> trangthai, string quan, string phuong, string search)
+        {
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(int));
+    
+            var kyghiParameter = kyghi != null ?
+                new ObjectParameter("kyghi", kyghi) :
+                new ObjectParameter("kyghi", typeof(string));
+    
+            var trangthaiParameter = trangthai.HasValue ?
+                new ObjectParameter("trangthai", trangthai) :
+                new ObjectParameter("trangthai", typeof(int));
+    
+            var quanParameter = quan != null ?
+                new ObjectParameter("quan", quan) :
+                new ObjectParameter("quan", typeof(string));
+    
+            var phuongParameter = phuong != null ?
+                new ObjectParameter("phuong", phuong) :
+                new ObjectParameter("phuong", typeof(string));
+    
+            var searchParameter = search != null ?
+                new ObjectParameter("search", search) :
+                new ObjectParameter("search", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSInGiayBaoTienNuoc_Newest_Result>("getDSInGiayBaoTienNuoc_Newest", namParameter, kyghiParameter, trangthaiParameter, quanParameter, phuongParameter, searchParameter);
         }
     }
 }

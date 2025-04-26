@@ -216,7 +216,7 @@ namespace QLCongNo.View.UC.HoaDon
             string pTungay = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             string pDennngay = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
             int NVID = 0;
-            var data = db.getDSChuyenNoKhoDoi(pTungay, pDennngay, NVID).ToList();
+            var data = db.getDSChuyenNoKhoDoi_Newest(pTungay, pDennngay, NVID).ToList();
             if(madanhbo != "")
             {
                 data = data.Where(x => x.DANHBO.Contains(madanhbo)).ToList();

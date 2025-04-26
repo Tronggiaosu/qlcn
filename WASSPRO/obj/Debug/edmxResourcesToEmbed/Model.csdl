@@ -3965,7 +3965,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CAPNUOC_TNCEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BANGGIA_DM_DB" EntityType="Self.BANGGIA_DM_DB" />
     <EntitySet Name="BD_KHACHHANG" EntityType="Self.BD_KHACHHANG" />
     <EntitySet Name="CONGTies" EntityType="Self.CONGTY" />
@@ -5452,6 +5452,48 @@
       <Parameter Name="TOID" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="Menus" EntityType="Model.Menu" />
+    <FunctionImport Name="test_proc_simple" ReturnType="Collection(String)" />
+    <FunctionImport Name="getBaoCaoChuanThuKy_Newest" ReturnType="Collection(Model.getBaoCaoChuanThuKy_Newest_Result)">
+      <Parameter Name="nam" Mode="In" Type="Int32" />
+      <Parameter Name="kyghi" Mode="In" Type="String" />
+      <Parameter Name="ToID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getBaoCaoTheoDoiHoaDonTheoTo_Newest" ReturnType="Collection(Model.getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result)">
+      <Parameter Name="ngay" Mode="In" Type="String" />
+      <Parameter Name="TO_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getBaoCaoTongHopDangNganTheoNgay_Newest" ReturnType="Collection(Model.getBaoCaoTongHopDangNganTheoNgay_Newest_Result)">
+      <Parameter Name="tungay" Mode="In" Type="String" />
+      <Parameter Name="denngay" Mode="In" Type="String" />
+      <Parameter Name="kyghi" Mode="In" Type="String" />
+      <Parameter Name="TOID" Mode="In" Type="Int32" />
+      <Parameter Name="loaiHD" Mode="In" Type="Int32" />
+      <Parameter Name="NV_ID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="getDatagiayBaoTienNuoc_Newest" ReturnType="Collection(Model.getDatagiayBaoTienNuoc_Newest_Result)">
+      <Parameter Name="nam" Mode="In" Type="Int32" />
+      <Parameter Name="kyghi" Mode="In" Type="String" />
+      <Parameter Name="trangthai" Mode="In" Type="Int32" />
+      <Parameter Name="quan" Mode="In" Type="String" />
+      <Parameter Name="phuong" Mode="In" Type="String" />
+      <Parameter Name="search" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getDSChuyenNoKhoDoi_Newest" ReturnType="Collection(Model.getDSChuyenNoKhoDoi_Newest_Result)">
+      <Parameter Name="tungay" Mode="In" Type="String" />
+      <Parameter Name="denngay" Mode="In" Type="String" />
+      <Parameter Name="NVID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDSHoaDon_KH_Newest" ReturnType="Collection(Model.getDSHoaDon_KH_Newest_Result)">
+      <Parameter Name="IDKH" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="getDSInGiayBaoTienNuoc_Newest" ReturnType="Collection(Model.getDSInGiayBaoTienNuoc_Newest_Result)">
+      <Parameter Name="nam" Mode="In" Type="Int32" />
+      <Parameter Name="kyghi" Mode="In" Type="String" />
+      <Parameter Name="trangthai" Mode="In" Type="Int32" />
+      <Parameter Name="quan" Mode="In" Type="String" />
+      <Parameter Name="phuong" Mode="In" Type="String" />
+      <Parameter Name="search" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -7251,4 +7293,158 @@
     <Property Name="ParentId" Type="Int32" />
     <Property Name="AdditionParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <ComplexType Name="getBaoCaoChuanThuKy_Newest_Result">
+    <Property Type="Int32" Name="soluongHD" Nullable="true" />
+    <Property Type="Decimal" Name="tiennuoc" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Decimal" Name="tienthue" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="soHD0D" Nullable="true" />
+    <Property Type="Decimal" Name="TO_ID" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="38" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result">
+    <Property Type="Int32" Name="soluongton" Nullable="true" />
+    <Property Type="Decimal" Name="tongtienton" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="String" Name="HD_TON" Nullable="false" MaxLength="4" />
+    <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="soluongDN" Nullable="true" />
+    <Property Type="Decimal" Name="tongtienDN" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Decimal" Name="tongtiennhan" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Int32" Name="soHDnhan" Nullable="true" />
+    <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="getBaoCaoTongHopDangNganTheoNgay_Newest_Result">
+    <Property Type="Int32" Name="soluongHD" Nullable="true" />
+    <Property Type="Decimal" Name="LoaiHD_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="NGAYDANGNGAN" Nullable="true" />
+    <Property Type="String" Name="hoten" Nullable="true" MaxLength="61" />
+    <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="hovaten" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="somay" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="tenloaiHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDatagiayBaoTienNuoc_Newest_Result">
+    <Property Type="String" Name="hoten_KH" Nullable="true" />
+    <Property Type="String" Name="sonha" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="diachi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="tenPhuong" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="tenQuan" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="madanhbo" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Tentrangthai" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="seri" Nullable="true" MaxLength="101" />
+    <Property Type="Decimal" Name="ID_chitiet_HD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="SOLUONG" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="DONGIA" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="GIABVMT" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="M3BVMT" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="DATE_CREATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DATE_UPDATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="DIENGIAI" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="USER_UPDATE" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="USER_CREATE" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="ID_KH" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="isImport" Nullable="true" />
+    <Property Type="Int32" Name="STT" Nullable="false" />
+    <Property Type="Decimal" Name="chitietTDC_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="sotienbangchu" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="19" Scale="0" />
+    <Property Type="Decimal" Name="tienvat" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tongtien0VAT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="CSMoi" Nullable="true" />
+    <Property Type="Int32" Name="CSCu" Nullable="true" />
+    <Property Type="String" Name="MaLT" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="MTT" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tungay" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="denngay" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="kyghi" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="diachihoadon" Nullable="true" />
+    <Property Type="Int32" Name="m3tieuthu" Nullable="true" />
+    <Property Type="Int32" Name="DMKH" Nullable="true" />
+    <Property Type="String" Name="sohopdong" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MST_KH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MGB" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SOPHATHANH" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ngayphathanhHD" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="PhiBVMTCu" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="TienThueNT" Nullable="false" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="getDSChuyenNoKhoDoi_Newest_Result">
+    <Property Type="String" Name="maNV" Nullable="false" MaxLength="153" />
+    <Property Type="DateTime" Name="NGAYCHUYEN" Nullable="true" Precision="23" />
+    <Property Type="String" Name="InvToken" Nullable="true" MaxLength="101" />
+    <Property Type="String" Name="SOPHATHANH" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="hoten" Nullable="true" />
+    <Property Type="DateTime" Name="ngaytao" Nullable="true" Precision="23" />
+    <Property Type="String" Name="nhanvien" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ghichu" Nullable="true" MaxLength="250" />
+    <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="NGUOITHANHTOAN" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NGAYTHANHTOAN" Nullable="true" Precision="23" />
+    <Property Type="String" Name="kyghi" Nullable="false" MaxLength="7" />
+    <Property Type="Decimal" Name="TONGTIEN" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tongtien0VAT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienvat" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PhiNT" Nullable="true" Precision="19" Scale="0" />
+    <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="dieuchinhthongtin" Nullable="false" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="getDSHoaDon_KH_Newest_Result">
+    <Property Type="Decimal" Name="ID_HD" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="hoten" Nullable="true" />
+    <Property Type="String" Name="kyghi" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="nam" Nullable="true" />
+    <Property Type="Decimal" Name="ID_KH" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="DOT_ID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="quan" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="phuong" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="hotenNV" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SO_HD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KY_HIEU_HD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tentrangthai" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="chitiet" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="chuyendoi" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="dongbo" Nullable="false" MaxLength="14" />
+    <Property Type="String" Name="thanhtoan" Nullable="false" MaxLength="8" />
+    <Property Type="DateTime" Name="ngaythanhtoan" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="trangthai_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="seri" Nullable="true" MaxLength="101" />
+    <Property Type="String" Name="MaLT" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="HinhThucThanhToan" Nullable="true" MaxLength="12" />
+    <Property Type="DateTime" Name="NgayBangKe" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TenNganHang" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NhanVienGiaiTrach" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="NGAYDANGNGAN_NV" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ghichu" Nullable="true" MaxLength="26" />
+    <Property Type="String" Name="trangthaiKH" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dieuchinh" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="ngaytao" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="NgaycapnhatKH" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NhanviencapnhatKH" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="trangthaiKHHD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDSInGiayBaoTienNuoc_Newest_Result">
+    <Property Type="Decimal" Name="id_kh" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="hoten_KH" Nullable="true" />
+    <Property Type="String" Name="sonha" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="diachi" Nullable="true" />
+    <Property Type="String" Name="tenPhuong" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="tenQuan" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="madanhbo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="maLT" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Tentrangthai" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="seri" Nullable="true" MaxLength="50" />
+  </ComplexType>
 </Schema>

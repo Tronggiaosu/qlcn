@@ -69,7 +69,7 @@ namespace QLCongNo.View.UC.HoaDon
                     var khachhang = db.KHACHHANGs.Where(x => x.madanhbo == danhbo).FirstOrDefault();
                     if (khachhang != null)
                     {
-                        var dsHoadon = db.getDSHoaDon_KH(khachhang.ID_KH).ToList().OrderByDescending(X => X.ID_HD).ToList();
+                        var dsHoadon = db.getDSHoaDon_KH_Newest(khachhang.ID_KH).ToList().OrderByDescending(X => X.ID_HD).ToList();
                         lbltongno.Text = "Tổng số tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Select(x => x.tongtien).Sum());
                         lbltongsokyno.Text = "Tổng số kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Count().ToString();
                         if (dsHoadon.Count > 0)

@@ -51,7 +51,8 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>();
             param.Add(new WinFormsReport.ReportParameter("ngaybaocao", pNgay));
             param.Add(new WinFormsReport.ReportParameter("tento", cboTo.Text));
-            var result = db.getBaoCaoTheoDoiHoaDonTheoTo(ngay, TOID).ToList();
+            //var result = db.getBaoCaoTheoDoiHoaDonTheoTo(ngay, TOID).ToList();
+            var result = db.getBaoCaoTheoDoiHoaDonTheoTo_Newest(ngay, TOID).ToList();
             this.getBaoCaoTheoDoiHoaDonTheoToBindingSource.DataSource = result;
             this.reportViewer1.LocalReport.SetParameters(param);
             this.reportViewer1.RefreshReport();

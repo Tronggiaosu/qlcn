@@ -405,6 +405,9 @@
     <Compile Include="getBaoCaoChuanThuKhongDong_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getBaoCaoChuanThuKy_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getBaoCaoChuanThuKy_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -417,7 +420,13 @@
     <Compile Include="getBaoCaoPhieuDieuChinhHoaDon_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getBaoCaoTheoDoiHoaDonTheoTo_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getBaoCaoTheoDoiHoaDonTheoTo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getBaoCaoTongHopDangNganTheoNgay_Newest_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getBaoCaoTongHopDangNganTheoNgay_Result.cs">
@@ -489,6 +498,9 @@
     <Compile Include="getDataChuyenNoKhoDoi_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getDatagiayBaoTienNuoc_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDatagiayBaoTienNuoc_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -499,6 +511,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDSChitietKhachhangnonhieuky_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSChuyenNoKhoDoi_Newest_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDSChuyenNoKhoDoi_Result.cs">
@@ -534,6 +549,9 @@
     <Compile Include="getDSHoadonton_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getDSHoaDon_KH_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDSHoaDon_KH_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -541,6 +559,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDSImportExcel_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSInGiayBaoTienNuoc_Newest_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDSInGiayBaoTienNuoc_Result.cs">

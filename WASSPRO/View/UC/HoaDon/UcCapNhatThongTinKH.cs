@@ -170,7 +170,7 @@ namespace QLCongNo.View.UC.HoaDon
                 cboPhuong.DropDownStyle = ComboBoxStyle.DropDownList;
                 cboPhuong.SelectedValue = khachhang.maphuong;
                 // dieu chinh
-                var listKH = db.getDSHoaDon_KH(khachhang.ID_KH).ToList();
+                var listKH = db.getDSHoaDon_KH_Newest(khachhang.ID_KH).ToList();
                 if(listKH.Count > 0)
                 {
                     dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

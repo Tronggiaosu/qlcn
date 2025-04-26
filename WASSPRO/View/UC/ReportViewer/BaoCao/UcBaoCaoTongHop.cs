@@ -63,7 +63,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             int? nVID = chkDT.Checked ? (int?)loaiHD : null;
             string tungay1 = dtpTungay.Value.ToString("yyyy-MM-dd");
             string dengay1 = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
-            var hdkd = db.getDSChuyenNoKhoDoi(tungay1, dengay1, nVID: null).ToList();
+            var hdkd = db.getDSChuyenNoKhoDoi_Newest(tungay1, dengay1, nVID: null).ToList();
 
             var groupedData = hdkd
             .GroupBy(x => x.DANHBO)

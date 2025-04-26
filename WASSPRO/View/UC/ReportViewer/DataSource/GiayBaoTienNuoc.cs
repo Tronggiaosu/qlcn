@@ -39,7 +39,8 @@ namespace QLCongNo.View.UC.ReportViewer.DataSource
 
             if(search.Length <= 11)
             {
-                var data = db.getDatagiayBaoTienNuoc(nam, result, trangthai, maquan, maphuong, search.Replace(" ", String.Empty)).ToList();
+                //var data = db.getDatagiayBaoTienNuoc(nam, result, trangthai, maquan, maphuong, search.Replace(" ", String.Empty)).ToList();
+                var data = db.getDatagiayBaoTienNuoc_Newest(nam, result, trangthai, maquan, maphuong, search.Replace(" ", String.Empty)).ToList();
                 WinFormsReport.ReportDataSource reportDataSource = new WinFormsReport.ReportDataSource("DataSource", data);
                 this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
@@ -52,7 +53,7 @@ namespace QLCongNo.View.UC.ReportViewer.DataSource
             }    
             else
             {
-                var data = db.getDatagiayBaoTienNuoc(nam, result, trangthai, maquan, maphuong, search).ToList();
+                var data = db.getDatagiayBaoTienNuoc_Newest(nam, result, trangthai, maquan, maphuong, search).ToList();
                 WinFormsReport.ReportDataSource reportDataSource = new WinFormsReport.ReportDataSource("DataSource", data);
                 this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);

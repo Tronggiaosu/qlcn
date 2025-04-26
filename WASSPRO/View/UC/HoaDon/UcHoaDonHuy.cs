@@ -169,7 +169,7 @@ namespace QLCongNo.View.UC.HoaDon
                     
                     if (hoadon != null)
                     {
-                        var data = db.getDSHoaDon_KH(hoadon.ID_KH).Where(x => x.ID_HD == hoadon.ID_HD).ToList();
+                        var data = db.getDSHoaDon_KH_Newest(hoadon.ID_KH).Where(x => x.ID_HD == hoadon.ID_HD).ToList();
                         dataGridView1.DataSource = data.ToList();
                         dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     }

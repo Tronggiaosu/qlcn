@@ -214,7 +214,7 @@ namespace QLCongNo.View.UC.GachNo
                 if (dgvKhachhang.RowCount > 0)
                 {
                     IDKH = decimal.Parse(dgvKhachhang[IDKHColumn.Name, e.RowIndex].Value.ToString());
-                    var dsHoadon = db.getDSHoaDon_KH(IDKH).ToList();
+                    var dsHoadon = db.getDSHoaDon_KH_Newest(IDKH).ToList();
 
                     lbltongno.Text = "Tổng tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Select(x => x.tongtien).Sum());
                     lbltongsokyno.Text = "Tổng kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Count().ToString();
