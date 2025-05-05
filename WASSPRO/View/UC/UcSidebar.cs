@@ -263,121 +263,141 @@ namespace QLCongNo.View.UC
 
         public bool UserRight()
         {
-            IQueryable<string> menuList = null;
-
-            var menuLv1 = db.Menus.Where(x => x.Status == 1 && x.ParentId == null)
-                .OrderBy(s => s.Sort).ToList();
-
-            if (Common.username != "vnptcto")
+            try
             {
-                var quyen = from a in db.NGUOIDUNGs
-                            from b in db.NGUOIDUNG_QUYEN
-                            where a.ma_nd == Common.username
-                            where a.nguoidung_id == b.nguoidung_id
-                            select b.quyen_id;
-                var count = quyen.Count();
-                if (count == 0)
+                IQueryable<string> menuList = null;
+
+                var menuLv1 = db.Menus.Where(x => x.Status == 1 && x.ParentId == null)
+                    .OrderBy(s => s.Sort).ToList();
+
+                if (Common.username != "vnptcto")
                 {
-                    menuLv1 = db.Menus.Where(x => x.Status == 1 && x.ParentId == null)
-                        .OrderBy(s => s.Sort).ToList();
-
-                    this.dsMenu = menuLv1;
-                    return true;
-                }
-
-                foreach (decimal nd_q in quyen.ToList())
-                {
-                    menuList = from m in db.QUYEN_MENU where m.quyen_id == nd_q select m.ten_menu;
-                }
-
-                if (menuList.Count() == 0)
-                {
-                    this.dsMenu = menuLv1;
-                    return true;
-                }     
-            }
-
-            var menuById = db.Menus.Where(x => x.Status == 1).ToDictionary(m => m.Id);
-            var menuByText = db.Menus.Where(x => x.Status == 1).ToDictionary(m => m.Text);
-            var resultMenuTree = new List<Menu>();
-            var resultById = new Dictionary<int, Menu>();
-
-            foreach (var text in menuList)
-            {
-                if (!menuByText.TryGetValue(text, out var menu))
-                    continue;
-
-                if (menu.ParentId == null)
-                {
-                    if (!resultById.ContainsKey(menu.Id))
+                    var quyen = from a in db.NGUOIDUNGs
+                                from b in db.NGUOIDUNG_QUYEN
+                                where a.ma_nd == Common.username
+                                where a.nguoidung_id == b.nguoidung_id
+                                select b.quyen_id;
+                    var count = quyen.Count();
+                    if (count == 0)
                     {
-                        resultMenuTree.Add(menu);
-                        resultById[menu.Id] = menu;
+                        menuLv1 = db.Menus.Where(x => x.Status == 1 && x.ParentId == null)
+                            .OrderBy(s => s.Sort).ToList();
+
+                        this.dsMenu = menuLv1;
+                        return true;
+                    }
+
+                    foreach (decimal nd_q in quyen.ToList())
+                    {
+                        menuList = from m in db.QUYEN_MENU where m.quyen_id == nd_q select m.ten_menu;
+                    }
+
+                    if (menuList.Count() == 0)
+                    {
+                        this.dsMenu = menuLv1;
+                        return true;
                     }
                 }
-                else
+
+                var menuById = db.Menus.Where(x => x.Status == 1).ToDictionary(m => m.Id);
+                var menuByText = db.Menus.Where(x => x.Status == 1).ToDictionary(m => m.Text);
+                var resultMenuTree = new List<Menu>();
+                var resultById = new Dictionary<int, Menu>();
+
+                var excludedMenus = menuByText
+                .Where(kv => !menuList.Contains(kv.Key))
+                .Select(kv => kv.Value)
+                .ToList();
+
+                foreach (var menu in excludedMenus)
                 {
-                    if (menuById.TryGetValue(menu.ParentId.Value, out var parent))
+                    if (menu.ParentId == null)
                     {
-                        if (!resultById.ContainsKey(parent.Id))
+                        if (!resultById.ContainsKey(menu.Id))
                         {
-                            parent.Children = new List<Menu>();
-                            resultMenuTree.Add(parent);
-                            resultById[parent.Id] = parent;
+                            resultMenuTree.Add(menu);
+                            resultById[menu.Id] = menu;
                         }
+                    }
+                    else
+                    {
+                        if (menuById.TryGetValue(menu.ParentId.Value, out var parent))
+                        {
+                            if (!resultById.ContainsKey(parent.Id))
+                            {
+                                parent.Children = new List<Menu>();
+                                resultMenuTree.Add(parent);
+                                resultById[parent.Id] = parent;
+                            }
 
-                        if (parent.Children == null)
-                            parent.Children = new List<Menu>();
+                            if (parent.Children == null)
+                                parent.Children = new List<Menu>();
 
-                        if (!parent.Children.Any(x => x.Id == menu.Id))
-                            parent.Children.Add(menu);
+                            if (!parent.Children.Any(x => x.Id == menu.Id))
+                                parent.Children.Add(menu);
+                        }
                     }
                 }
-            }
 
-            foreach (var m in resultMenuTree)
-            {
-                m.Children = m.Children?.OrderBy(x => x.Sort).ToList();
+                foreach (var m in resultMenuTree)
+                {
+                    m.Children = m.Children?.OrderBy(x => x.Sort).ToList();
+                }
+
+                resultMenuTree = resultMenuTree.OrderBy(x => x.Sort).ToList();
+                this.dsMenu = resultMenuTree;
+                return false;
             }
-            resultMenuTree = resultMenuTree.OrderBy(x => x.Sort).ToList();
-            this.dsMenu = resultMenuTree;
-            return false;
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                return true;
+            }
         }
 
         public void LoadMenu()
         {
-            var isAuthenticationOrNot = UserRight();
-            var menuLv2 = new List<Menu>();
-
-            foreach (var itemLv1 in this.dsMenu)
+            try
             {
-                var pnl = CreatePnlMenuItem();
-                var btn = CreateMenuItem(1, itemLv1);
-                pnl.Controls.Add(btn);
-                PnlMenu.Controls.Add(pnl);
-                TotalMenu.Add(new MenuInfo { Text = itemLv1.Text, Level = 1, ParentId = null, Item = itemLv1 });
+                var isAuthenticationOrNot = UserRight();
+                var menuLv2 = new List<Menu>();
 
-                if (!isAuthenticationOrNot)
+                foreach (var itemLv1 in this.dsMenu)
                 {
-                    menuLv2 = itemLv1.Children.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
-                    .OrderBy(s => s.Sort).ToList();
-                }
-                else
-                {
-                    menuLv2 = db.Menus.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
+                    var pnl = CreatePnlMenuItem();
+                    var btn = CreateMenuItem(1, itemLv1);
+                    pnl.Controls.Add(btn);
+                    PnlMenu.Controls.Add(pnl);
+                    TotalMenu.Add(new MenuInfo { Text = itemLv1.Text, Level = 1, ParentId = null, Item = itemLv1 });
+
+                    if (!isAuthenticationOrNot)
+                    {
+                        menuLv2 = itemLv1.Children?.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
                         .OrderBy(s => s.Sort).ToList();
-                }
+                    }
+                    else
+                    {
+                        menuLv2 = db.Menus.Where(x => x.Status == 1 && x.ParentId == itemLv1.Id)
+                            .OrderBy(s => s.Sort).ToList();
+                    }
 
-                if (menuLv2.Count > 0)
-                    btn.Font = new Font(btn.Font, FontStyle.Bold);
-                foreach (var itemLv2 in menuLv2)
-                {
-                    var btnLv2 = CreateMenuItem(2, itemLv2);
-                    pnl.Controls.Add(btnLv2);
-                    TotalMenu.Add(new MenuInfo { Text = itemLv2.Text, Level = 2, ParentId = itemLv1.Id, Item = itemLv2 });
+                    if (menuLv2?.Count > 0)
+                    {
+                        btn.Font = new Font(btn.Font, FontStyle.Bold);
+                        foreach (var itemLv2 in menuLv2)
+                        {
+                            var btnLv2 = CreateMenuItem(2, itemLv2);
+                            pnl.Controls.Add(btnLv2);
+                            TotalMenu.Add(new MenuInfo { Text = itemLv2.Text, Level = 2, ParentId = itemLv1.Id, Item = itemLv2 });
+                        }
+                    }
                 }
+                CollapseAll(PnlMenu);
             }
-            CollapseAll(PnlMenu);
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+            }
         }
 
         public TableLayoutPanel CreatePnlMenuItem()
