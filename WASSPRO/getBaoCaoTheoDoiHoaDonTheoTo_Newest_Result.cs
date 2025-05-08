@@ -17,7 +17,7 @@ namespace QLCongNo
         public Nullable<decimal> tongtienton { get; set; }
         public string HD_TON { get; set; }
         public string hoten { get; set; }
-        public decimal NV_ID { get; set; }
+        public string NV_ID { get; set; }
         public Nullable<int> soluongDN { get; set; }
         public Nullable<decimal> tongtienDN { get; set; }
         public Nullable<decimal> tongtiennhan { get; set; }
