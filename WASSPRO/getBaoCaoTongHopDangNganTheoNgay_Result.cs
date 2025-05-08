@@ -21,6 +21,6 @@ namespace QLCongNo
         public Nullable<decimal> TO_ID { get; set; }
         public string tenloaiHD { get; set; }
         public string hovaten { get; set; }
-        public decimal NV_ID { get; set; }
+        public string NV_ID { get; set; }
     }
 }

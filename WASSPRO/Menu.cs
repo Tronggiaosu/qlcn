@@ -24,6 +24,5 @@ namespace QLCongNo
         public Nullable<int> ParentId { get; set; }
         public string AdditionParam { get; set; }
         public List<Menu> Children { get; set; }
-
     }
 }
