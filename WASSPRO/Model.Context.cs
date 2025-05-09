@@ -3969,5 +3969,34 @@ namespace QLCongNo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSInGiayBaoTienNuoc_Newest_Result>("getDSInGiayBaoTienNuoc_Newest", namParameter, kyghiParameter, trangthaiParameter, quanParameter, phuongParameter, searchParameter);
         }
+    
+        public virtual ObjectResult<getDSKhachHangNoNhieuKy_Newest_Result> getDSKhachHangNoNhieuKy_Newest(string quan, string phuong, string strsearch, Nullable<int> tuky, Nullable<int> denky, string denngay)
+        {
+            var quanParameter = quan != null ?
+                new ObjectParameter("quan", quan) :
+                new ObjectParameter("quan", typeof(string));
+    
+            var phuongParameter = phuong != null ?
+                new ObjectParameter("phuong", phuong) :
+                new ObjectParameter("phuong", typeof(string));
+    
+            var strsearchParameter = strsearch != null ?
+                new ObjectParameter("strsearch", strsearch) :
+                new ObjectParameter("strsearch", typeof(string));
+    
+            var tukyParameter = tuky.HasValue ?
+                new ObjectParameter("tuky", tuky) :
+                new ObjectParameter("tuky", typeof(int));
+    
+            var denkyParameter = denky.HasValue ?
+                new ObjectParameter("denky", denky) :
+                new ObjectParameter("denky", typeof(int));
+    
+            var denngayParameter = denngay != null ?
+                new ObjectParameter("denngay", denngay) :
+                new ObjectParameter("denngay", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSKhachHangNoNhieuKy_Newest_Result>("getDSKhachHangNoNhieuKy_Newest", quanParameter, phuongParameter, strsearchParameter, tukyParameter, denkyParameter, denngayParameter);
+        }
     }
 }

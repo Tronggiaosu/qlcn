@@ -5362,5 +5362,24 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getDSKhachHangNoNhieuKy_Newest" FunctionName="Model.Store.getDSKhachHangNoNhieuKy_Newest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.getDSKhachHangNoNhieuKy_Newest_Result">
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+          <ScalarProperty Name="idkh" ColumnName="idkh" />
+          <ScalarProperty Name="SODB" ColumnName="SODB" />
+          <ScalarProperty Name="nvthu" ColumnName="nvthu" />
+          <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+          <ScalarProperty Name="hoten_KH" ColumnName="hoten_KH" />
+          <ScalarProperty Name="sonha" ColumnName="sonha" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="tenPhuong" ColumnName="tenPhuong" />
+          <ScalarProperty Name="tenQuan" ColumnName="tenQuan" />
+          <ScalarProperty Name="malt" ColumnName="malt" />
+          <ScalarProperty Name="tenTT" ColumnName="tenTT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

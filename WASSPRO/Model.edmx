@@ -4512,6 +4512,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="denky" Type="int" Mode="In" />
           <Parameter Name="denngay" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="getDSKhachHangNoNhieuKy_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="quan" Type="varchar" Mode="In" />
+          <Parameter Name="phuong" Type="varchar" Mode="In" />
+          <Parameter Name="strsearch" Type="nvarchar" Mode="In" />
+          <Parameter Name="tuky" Type="int" Mode="In" />
+          <Parameter Name="denky" Type="int" Mode="In" />
+          <Parameter Name="denngay" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="getDSKhoangLoTrinhChiaTNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TOID" Type="numeric" Mode="In" />
           <Parameter Name="DOTID" Type="numeric" Mode="In" />
@@ -12009,7 +12017,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="NVID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getDSHoaDon_KH_Newest" ReturnType="Collection(Model.getDSHoaDon_KH_Newest_Result)">
-            <Parameter Name="IDKH" Mode="In" Type="Decimal" />
+          <Parameter Name="IDKH" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="getDSInGiayBaoTienNuoc_Newest" ReturnType="Collection(Model.getDSInGiayBaoTienNuoc_Newest_Result)">
             <Parameter Name="nam" Mode="In" Type="Int32" />
@@ -12018,6 +12026,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="quan" Mode="In" Type="String" />
             <Parameter Name="phuong" Mode="In" Type="String" />
             <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getDSKhachHangNoNhieuKy_Newest" ReturnType="Collection(Model.getDSKhachHangNoNhieuKy_Newest_Result)">
+            <Parameter Name="quan" Mode="In" Type="String" />
+            <Parameter Name="phuong" Mode="In" Type="String" />
+            <Parameter Name="strsearch" Mode="In" Type="String" />
+            <Parameter Name="tuky" Mode="In" Type="Int32" />
+            <Parameter Name="denky" Mode="In" Type="Int32" />
+            <Parameter Name="denngay" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
@@ -13971,6 +13987,21 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
           <Property Type="String" Name="Tentrangthai" Nullable="false" MaxLength="7" />
           <Property Type="String" Name="seri" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getDSKhachHangNoNhieuKy_Newest_Result">
+          <Property Type="Int32" Name="soluong" Nullable="true" />
+          <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="idkh" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="SODB" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nvthu" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NV_ID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="hoten_KH" Nullable="true" />
+          <Property Type="String" Name="sonha" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="diachi" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="tenPhuong" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="tenQuan" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="malt" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="tenTT" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -19336,6 +19367,25 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
                 <ScalarProperty Name="tongtien" ColumnName="tongtien" />
                 <ScalarProperty Name="Tentrangthai" ColumnName="Tentrangthai" />
                 <ScalarProperty Name="seri" ColumnName="seri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDSKhachHangNoNhieuKy_Newest" FunctionName="Model.Store.getDSKhachHangNoNhieuKy_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSKhachHangNoNhieuKy_Newest_Result">
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="SODB" ColumnName="SODB" />
+                <ScalarProperty Name="nvthu" ColumnName="nvthu" />
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+                <ScalarProperty Name="hoten_KH" ColumnName="hoten_KH" />
+                <ScalarProperty Name="sonha" ColumnName="sonha" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="tenPhuong" ColumnName="tenPhuong" />
+                <ScalarProperty Name="tenQuan" ColumnName="tenQuan" />
+                <ScalarProperty Name="malt" ColumnName="malt" />
+                <ScalarProperty Name="tenTT" ColumnName="tenTT" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

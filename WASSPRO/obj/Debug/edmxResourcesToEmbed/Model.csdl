@@ -5494,6 +5494,14 @@
       <Parameter Name="phuong" Mode="In" Type="String" />
       <Parameter Name="search" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="getDSKhachHangNoNhieuKy_Newest" ReturnType="Collection(Model.getDSKhachHangNoNhieuKy_Newest_Result)">
+      <Parameter Name="quan" Mode="In" Type="String" />
+      <Parameter Name="phuong" Mode="In" Type="String" />
+      <Parameter Name="strsearch" Mode="In" Type="String" />
+      <Parameter Name="tuky" Mode="In" Type="Int32" />
+      <Parameter Name="denky" Mode="In" Type="Int32" />
+      <Parameter Name="denngay" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -7446,5 +7454,20 @@
     <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="18" Scale="0" />
     <Property Type="String" Name="Tentrangthai" Nullable="false" MaxLength="7" />
     <Property Type="String" Name="seri" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDSKhachHangNoNhieuKy_Newest_Result">
+    <Property Type="Int32" Name="soluong" Nullable="true" />
+    <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Decimal" Name="idkh" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="SODB" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nvthu" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NV_ID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="hoten_KH" Nullable="true" />
+    <Property Type="String" Name="sonha" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="diachi" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="tenPhuong" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="tenQuan" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="malt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tenTT" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

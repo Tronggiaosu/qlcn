@@ -39,6 +39,7 @@ namespace QLCongNo.View.UC.GachNo
             btnConfirm.Click += btnConfirm_Click;
             cboHTTT.SelectedIndexChanged += cboHTTT_SelectedIndexChanged;
             dgvKH.RowEnter += dgvKH_RowEnter;
+            dgvHD.CellContentClick += dgvHD_CellContentClick;
             this.dgvHD.DataError += dgvHD_DataError;
             this.dgvHD.CellFormatting += dgvHD_CellFormatting;
             cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
@@ -680,6 +681,45 @@ namespace QLCongNo.View.UC.GachNo
 
         private void dgvHD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                if (dgvHD.RowCount > 0)
+                {
+                    var senderGrid = (DataGridView)sender;
+                    if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        decimal IDHD = decimal.Parse(dgvHD.Rows[e.RowIndex].Cells[ID_HDColumn.Name].Value.ToString());
+                        if (e.ColumnIndex == 7)
+                        {
+                            Portal.PortalService portal = new Portal.PortalService();
+                            var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
+                            var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                            var hoadonloi = db.HOADONs.Where(x => x.ID_KH == hoadon.ID_KH && x.trangthai_id == -22).FirstOrDefault();
+                            var hoadonsai = db.HOADONs.Where(x => x.ID_HD == IDHD && x.DOT_ID == 1 && x.kyghi == "202302" && x.keys == null).FirstOrDefault();
+                            if (hoadonloi != null)
+                                IDHD = hoadonloi.ID_HD;
+                            var result = portal.getInvViewFkeyNoPay(IDHD.ToString(), accWS.acc_service, "123456aA@");
+                            portal78.PortalService p78 = new portal78.PortalService();
+                            if (hoadonsai != null)
+                                result = p78.getInvViewFkeyNoPay(hoadonsai.DienGiai, "capnuocthuducservice", "Einv@oi@vn#pt20");
+                            else if (hoadon.MAU_HD == "1/001" || hoadon.MAU_HD == "1/002" || hoadon.MAU_HD == "1/003")
+                                result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
+                            var frm = new Form();
+                            frm.Size = new Size(1200, 800);
+                            WebBrowser webBrowser = new WebBrowser();
+                            webBrowser.Dock = DockStyle.Fill;
+                            webBrowser.DocumentText = result;
+                            frm.Controls.Add(webBrowser);
+                            frm.ShowDialog();
+                        }
+                        this.Cursor = Cursors.Default;
+                    }
+                }
+            }
+            catch
+            {
+            }
         }
 
         private void txtTim_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

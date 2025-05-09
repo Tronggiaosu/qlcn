@@ -950,7 +950,6 @@
             this.dgvHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHD.Size = new System.Drawing.Size(836, 513);
             this.dgvHD.TabIndex = 2;
-            this.dgvHD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHD_CellContentClick);
             // 
             // ID_HDColumn
             // 

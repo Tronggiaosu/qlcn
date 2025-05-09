@@ -570,6 +570,9 @@
     <Compile Include="getDSKhachHangChuaThanhToan_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getDSKhachHangNoNhieuKy_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDSKhachHangNoNhieuKy_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
