@@ -707,6 +707,7 @@ namespace QLCongNo.View.UC.GachNo
                                 result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
                             var frm = new Form();
                             frm.Size = new Size(1200, 800);
+                            frm.StartPosition = FormStartPosition.CenterScreen;
                             WebBrowser webBrowser = new WebBrowser();
                             webBrowser.Dock = DockStyle.Fill;
                             webBrowser.DocumentText = result;
