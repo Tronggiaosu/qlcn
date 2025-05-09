@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace QLCongNo.View.UC.ReportViewer.BaoCao
@@ -20,6 +22,17 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             btnExcel.Click += btnExcel_Click;
             txtsoky.KeyPress += txtsoky_KeyPress;
             txtTimKiem.KeyDown += txtTimKiem_KeyDown;
+            this.dgvDSKhachHangNo.CellFormatting += DgvDSKhachHangNo_CellFormatting;
+        }
+
+        private void DgvDSKhachHangNo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                e.Value = (e.RowIndex + 1).ToString();
+                e.FormattingApplied = true;
+            }
+
         }
 
         private void txtsoky_KeyPress(object sender, KeyPressEventArgs e)
@@ -132,36 +145,42 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            int tuky = 0;
-            int denky = 0;
-            string denngay = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            tuky = int.Parse(CboTuKy.SelectedValue.ToString());
-            denky = int.Parse(cboDenKy.SelectedValue.ToString());
-
-            string maquan = "0";
-            maquan = cboQuan.SelectedValue.ToString();
-
-            string maphuong = cboPhuong.SelectedValue.ToString();
-            var datasource = db.getDSKhachHangNoNhieuKy(maquan, maphuong, txtTimKiem.Text.Replace(" ", String.Empty), tuky, denky, denngay).AsQueryable();
-            int soky = int.Parse(txtsoky.Text == "" ? "0" : txtsoky.Text);
-            decimal tongtien = decimal.Parse(txttongtienno.Text == "" ? "0" : txttongtienno.Text);
-            if (chksoky.Checked == true)
-                datasource = datasource.Where(x => x.soluong >= soky);
-            if (chktienno.Checked)
-                datasource = datasource.Where(x => x.tongtien >= tongtien);
-            var dataList = datasource.ToList();
-            if(dataList.Count > 0)
+            try
             {
-                dgvDSKhachHangNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }    
-            dgvDSKhachHangNo.DataSource = dataList;
-            for (int i = 0; i < dgvDSKhachHangNo.RowCount; i++)
-                dgvDSKhachHangNo.Rows[i].Cells[STTColumn.Name].Value = i + 1;
-            lblsoluong.Text = "Số lượng khách hàng: " + string.Format("{0:n0}", dataList.Count()) + "  |  Số lượng hóa đơn: " + string.Format("{0:n0}", dataList.Sum(x => x.soluong))
-                + "  |  Tổng tiền: " + string.Format("{0:n0}", dataList.Sum(x => x.tongtien));
+                this.Cursor = Cursors.WaitCursor;
+                int tuky = 0;
+                int denky = 0;
+                string denngay = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                tuky = int.Parse(CboTuKy.SelectedValue.ToString());
+                denky = int.Parse(cboDenKy.SelectedValue.ToString());
 
-            this.Cursor = Cursors.Default;
+                string maquan = "0";
+                maquan = cboQuan.SelectedValue.ToString();
+
+                string maphuong = cboPhuong.SelectedValue.ToString();
+
+                var datasource = db.getDSKhachHangNoNhieuKy_Newest(maquan, maphuong, txtTimKiem.Text.Replace(" ", String.Empty), tuky, denky, denngay).AsQueryable();
+                int soky = int.Parse(txtsoky.Text == "" ? "0" : txtsoky.Text);
+                decimal tongtien = decimal.Parse(txttongtienno.Text == "" ? "0" : txttongtienno.Text);
+                if (chksoky.Checked == true)
+                    datasource = datasource.Where(x => x.soluong >= soky);
+                if (chktienno.Checked)
+                    datasource = datasource.Where(x => x.tongtien >= tongtien);
+                var dataList = datasource.ToList();
+                if (dataList.Count > 0)
+                {
+                    dgvDSKhachHangNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+                dgvDSKhachHangNo.DataSource = dataList;
+
+                lblsoluong.Text = "Số lượng khách hàng: " + string.Format("{0:n0}", dataList.Count()) + "  |  Số lượng hóa đơn: " + string.Format("{0:n0}", dataList.Sum(x => x.soluong))
+                    + "  |  Tổng tiền: " + string.Format("{0:n0}", dataList.Sum(x => x.tongtien));
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex) 
+            {
+            }
         }
 
         private void btnXemchitiet_Click(object sender, EventArgs e)
