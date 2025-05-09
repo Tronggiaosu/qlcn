@@ -275,10 +275,12 @@ namespace QLCongNo.View.UC.GachNo
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+            this.dgvDSHD.SuspendLayout();
             foreach (DataGridViewRow r in this.dgvDSHD.Rows)
             {
                 r.Cells["checkColumn"].Value = chkAll.Checked;
             }
+            this.dgvDSHD.ResumeLayout();
             this.Cursor = Cursors.Default;
         }
 

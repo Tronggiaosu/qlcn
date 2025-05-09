@@ -52,7 +52,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 param.Add(new WinFormsReport.ReportParameter("tenbaocao", tenbaocao));
                 param.Add(new WinFormsReport.ReportParameter("tento", cboTo.Text));
                 this.reportViewer1.LocalReport.SetParameters(param);
-                var result = db.getBaoCaoTongHopDangNganTheoNgay(tungay.ToString("yyyy-MM-dd"), denngay.ToString("yyyy-MM-dd"), "", TOID, LoaiHD, 0).ToList();
+                var result = db.getBaoCaoTongHopDangNganTheoNgay_Newest(tungay.ToString("yyyy-MM-dd"), denngay.ToString("yyyy-MM-dd"), "", TOID, LoaiHD, 0).ToList();
                 this.getBaoCaoTongHopDangNganTheoNgayBindingSource.DataSource = result;
                 this.reportViewer1.RefreshReport();
                 this.Cursor = Cursors.Default;
