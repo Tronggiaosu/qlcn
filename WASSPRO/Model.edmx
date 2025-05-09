@@ -12075,14 +12075,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="18" Scale="0" />
         </ComplexType>
         <ComplexType Name="getBaoCaoChuanThuDot_Result">
-          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="NV_ID" Nullable="false" />
           <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
           <Property Type="Decimal" Name="DOT_ID" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Int32" Name="soluong" Nullable="true" />
           <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
         </ComplexType>
         <ComplexType Name="getBaoCaoChuanThuKhongDong_Result">
-          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="NV_ID" Nullable="false" />
           <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
           <Property Type="Decimal" Name="DOT_ID" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Int32" Name="soluong" Nullable="true" />
@@ -13841,7 +13841,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Decimal" Name="tienBVMT" Nullable="true" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="tongtien" Nullable="true" Precision="38" Scale="0" />
           <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
-          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="NV_ID" Nullable="false" />
           <Property Type="Int32" Name="soHD0D" Nullable="true" />
           <Property Type="Decimal" Name="TO_ID" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="TienThueNT" Nullable="true" Precision="38" Scale="0" />
@@ -13851,7 +13851,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Decimal" Name="tongtienton" Nullable="true" Precision="38" Scale="0" />
           <Property Type="String" Name="HD_TON" Nullable="false" MaxLength="4" />
           <Property Type="String" Name="hoten" Nullable="false" MaxLength="100" />
-          <Property Type="Decimal" Name="NV_ID" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="NV_ID" Nullable="false" />
           <Property Type="Int32" Name="soluongDN" Nullable="true" />
           <Property Type="Decimal" Name="tongtienDN" Nullable="true" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="tongtiennhan" Nullable="true" Precision="38" Scale="0" />

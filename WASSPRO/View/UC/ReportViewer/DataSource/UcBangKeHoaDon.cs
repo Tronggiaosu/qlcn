@@ -39,7 +39,7 @@ namespace QLCongNo.View.UC.ReportViewer.DataSource
             List<DM_NAM> dmNam = new List<DM_NAM>();
             var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
             dmNam.AddRange(dataNam);
-            cboNam.DataSource = dmNam.ToList();
+            cboNam.DataSource = dmNam.OrderByDescending(item => item.NAM).ToList();
             cboNam.ValueMember = "NAM_ID";
             cboNam.DisplayMember = "NAM";
         }

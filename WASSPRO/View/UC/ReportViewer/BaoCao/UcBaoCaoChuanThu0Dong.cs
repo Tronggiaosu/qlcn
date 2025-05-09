@@ -85,7 +85,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             List<DM_NAM> dmNam = new List<DM_NAM>();
             var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
             dmNam.AddRange(dataNam);
-            cbopNam.DataSource = dmNam.ToList();
+            cbopNam.DataSource = dmNam.OrderByDescending(item => item.NAM).ToList();
             cbopNam.ValueMember = "NAM_ID";
             cbopNam.DisplayMember = "NAM";
         }

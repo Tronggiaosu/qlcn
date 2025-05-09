@@ -13,7 +13,7 @@ namespace QLCongNo
     
     public partial class getBaoCaoChuanThuKhongDong_Result
     {
-        public decimal NV_ID { get; set; }
+        public string NV_ID { get; set; }
         public string hoten { get; set; }
         public Nullable<decimal> DOT_ID { get; set; }
         public Nullable<int> soluong { get; set; }
