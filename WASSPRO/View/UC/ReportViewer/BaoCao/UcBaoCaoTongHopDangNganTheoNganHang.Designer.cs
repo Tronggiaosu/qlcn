@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
+            this.novLabel2 = new QLCongNo.View.Core.NovLabel();
+            this.dtPickerTu = new QLCongNo.View.Core.NovDateTimePicker();
+            this.novLabel1 = new QLCongNo.View.Core.NovLabel();
+            this.dtPickerDen = new QLCongNo.View.Core.NovDateTimePicker();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
-            this.dtPickerTu = new QLCongNo.View.Core.NovDateTimePicker();
-            this.dtPickerDen = new QLCongNo.View.Core.NovDateTimePicker();
-            this.novLabel1 = new QLCongNo.View.Core.NovLabel();
-            this.novLabel2 = new QLCongNo.View.Core.NovLabel();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -108,13 +108,61 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // novLabel2
+            // 
+            this.novLabel2.AutoSize = true;
+            this.novLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.novLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novLabel2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.novLabel2.Location = new System.Drawing.Point(400, 42);
+            this.novLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.novLabel2.Name = "novLabel2";
+            this.novLabel2.Size = new System.Drawing.Size(87, 23);
+            this.novLabel2.TabIndex = 5;
+            this.novLabel2.Text = "Đến ngày:";
+            // 
+            // dtPickerTu
+            // 
+            this.dtPickerTu.CustomFormat = "dd/MM/yyyy";
+            this.dtPickerTu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPickerTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerTu.Location = new System.Drawing.Point(120, 39);
+            this.dtPickerTu.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.dtPickerTu.Name = "dtPickerTu";
+            this.dtPickerTu.Size = new System.Drawing.Size(144, 30);
+            this.dtPickerTu.TabIndex = 2;
+            // 
+            // novLabel1
+            // 
+            this.novLabel1.AutoSize = true;
+            this.novLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.novLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novLabel1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.novLabel1.Location = new System.Drawing.Point(36, 42);
+            this.novLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.novLabel1.Name = "novLabel1";
+            this.novLabel1.Size = new System.Drawing.Size(75, 23);
+            this.novLabel1.TabIndex = 4;
+            this.novLabel1.Text = "Từ ngày:";
+            // 
+            // dtPickerDen
+            // 
+            this.dtPickerDen.CustomFormat = "dd/MM/yyyy";
+            this.dtPickerDen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPickerDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerDen.Location = new System.Drawing.Point(494, 39);
+            this.dtPickerDen.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.dtPickerDen.Name = "dtPickerDen";
+            this.dtPickerDen.Size = new System.Drawing.Size(144, 30);
+            this.dtPickerDen.TabIndex = 3;
+            // 
             // reportViewer2
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer2.DocumentMapWidth = 59;
-            reportDataSource3.Name = "DataSource";
-            reportDataSource3.Value = null;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource1.Name = "DataSource";
+            reportDataSource1.Value = null;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "QLCongNo.ReportViewer.ReportView.RPTongHopDangNganTheoNgay.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(0, 141);
             this.reportViewer2.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
@@ -131,54 +179,6 @@
             this.iconDropDownButton1.Name = "iconDropDownButton1";
             this.iconDropDownButton1.Size = new System.Drawing.Size(23, 23);
             this.iconDropDownButton1.Text = "iconDropDownButton1";
-            // 
-            // dtPickerTu
-            // 
-            this.dtPickerTu.CustomFormat = "dd/MM/yyyy";
-            this.dtPickerTu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPickerTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerTu.Location = new System.Drawing.Point(114, 39);
-            this.dtPickerTu.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.dtPickerTu.Name = "dtPickerTu";
-            this.dtPickerTu.Size = new System.Drawing.Size(144, 30);
-            this.dtPickerTu.TabIndex = 2;
-            // 
-            // dtPickerDen
-            // 
-            this.dtPickerDen.CustomFormat = "dd/MM/yyyy";
-            this.dtPickerDen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtPickerDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerDen.Location = new System.Drawing.Point(402, 39);
-            this.dtPickerDen.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.dtPickerDen.Name = "dtPickerDen";
-            this.dtPickerDen.Size = new System.Drawing.Size(144, 30);
-            this.dtPickerDen.TabIndex = 3;
-            // 
-            // novLabel1
-            // 
-            this.novLabel1.AutoSize = true;
-            this.novLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.novLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novLabel1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.novLabel1.Location = new System.Drawing.Point(27, 42);
-            this.novLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.novLabel1.Name = "novLabel1";
-            this.novLabel1.Size = new System.Drawing.Size(75, 23);
-            this.novLabel1.TabIndex = 4;
-            this.novLabel1.Text = "Từ ngày:";
-            // 
-            // novLabel2
-            // 
-            this.novLabel2.AutoSize = true;
-            this.novLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.novLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novLabel2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.novLabel2.Location = new System.Drawing.Point(307, 42);
-            this.novLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.novLabel2.Name = "novLabel2";
-            this.novLabel2.Size = new System.Drawing.Size(87, 23);
-            this.novLabel2.TabIndex = 5;
-            this.novLabel2.Text = "Đến ngày:";
             // 
             // UcBaoCaoTongHopDangNganTheoNganHang
             // 

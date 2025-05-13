@@ -19,12 +19,12 @@ namespace QLCongNo.View.UC.GachNo
             btnTim.Click += btnTim_Click;
             btnConfirm.Click += btnConfirm_Click;
             btnThoat.Click += btnThoat_Click;
-            chkAll.CheckedChanged += chkAll_CheckedChanged;
+            //chkAll.CheckedChanged += chkAll_CheckedChanged;
             txtTim.KeyDown += txtTim_KeyDown;
             //dgvDSHD.RowEnter += dgvDSHD_RowEnter;
             btnGachNo.Click += btnGachNo_Click;
             btnXoaGachNo.Click += btnXoaGachNo_Click;
-            checkAll_dgv2.CheckedChanged += checkAll_dgv2_CheckedChanged;
+            //checkAll_dgv2.CheckedChanged += checkAll_dgv2_CheckedChanged;
             btnCapnhat.Click += btnCapnhat_Click;
             chkHuyTT.CheckedChanged += chkHuyTT_CheckedChanged;
             this.dgvDSHD.DataError += dgvDSHD_DataError;
@@ -164,12 +164,12 @@ namespace QLCongNo.View.UC.GachNo
 
         private void checkAll_dgv2_CheckedChanged(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            foreach (DataGridViewRow r in this.dataGridView1.Rows)
-            {
-                r.Cells["checkColumn_dgv2"].Value = checkAll_dgv2.Checked;
-            }
-            this.Cursor = Cursors.Default;
+            //this.Cursor = Cursors.WaitCursor;
+            //foreach (DataGridViewRow r in this.dataGridView1.Rows)
+            //{
+            //    r.Cells["checkColumn_dgv2"].Value = checkAll_dgv2.Checked;
+            //}
+            //this.Cursor = Cursors.Default;
         }
 
         private void btnXoaGachNo_Click(object sender, EventArgs e)
@@ -274,14 +274,14 @@ namespace QLCongNo.View.UC.GachNo
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            this.dgvDSHD.SuspendLayout();
-            foreach (DataGridViewRow r in this.dgvDSHD.Rows)
-            {
-                r.Cells["checkColumn"].Value = chkAll.Checked;
-            }
-            this.dgvDSHD.ResumeLayout();
-            this.Cursor = Cursors.Default;
+            //this.Cursor = Cursors.WaitCursor;
+            //this.dgvDSHD.SuspendLayout();
+            //foreach (DataGridViewRow r in this.dgvDSHD.Rows)
+            //{
+            //    r.Cells["checkColumn"].Value = chkAll.Checked;
+            //}
+            //this.dgvDSHD.ResumeLayout();
+            //this.Cursor = Cursors.Default;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

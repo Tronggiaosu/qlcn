@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -113,6 +114,7 @@ namespace QLCongNo.View.UC.GachNo
                             var frm = new Form();
                             frm.Size = new Size(1200, 800);
                             WebBrowser webBrowser = new WebBrowser();
+                            webBrowser.ScriptErrorsSuppressed = true;
                             webBrowser.Dock = DockStyle.Fill;
                             webBrowser.DocumentText = result;
                             frm.Controls.Add(webBrowser);
@@ -219,7 +221,9 @@ namespace QLCongNo.View.UC.GachNo
                     lbltongno.Text = "Tổng tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Select(x => x.tongtien).Sum());
                     lbltongsokyno.Text = "Tổng kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan != "Đã thu" && x.tentrangthai != "Hủy" && x.tentrangthai != "Khiếu nại" && x.tentrangthai != "Khó đòi").Count().ToString();
                     if (dsHoadon.Count() > 0)
-                        dgvHoadon.DataSource = dsHoadon.ToList();
+                        dgvHoadon.DataSource = dsHoadon
+                            //.OrderBy(hd => hd.thanhtoan == "Chưa thu" ? 0 : 1)
+                            .ToList();
                     else
                         dgvHoadon.DataSource = null;
 
