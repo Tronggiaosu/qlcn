@@ -116,11 +116,11 @@ namespace QLCongNo.View.UC.GachNo
                 var selectedItem = (DM_HINHTHUCTHANHTOAN)cboHTTT.SelectedItem;
                 if (selectedItem != null && selectedItem.tenHTTT == "Ngân hàng")
                 {
-                    cbonganhang.Enabled = true; 
+                    cbonganhang.Enabled = true;
                 }
                 else
                 {
-                    cbonganhang.Enabled = false; 
+                    cbonganhang.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -137,10 +137,10 @@ namespace QLCongNo.View.UC.GachNo
                 {
                     ID_KH = decimal.Parse(dgvKH[ID_KHColumn.Name, e.RowIndex].Value.ToString());
                     var dsHoadon = db.getDSHoaDon_KH_Newest(ID_KH)
-                        .Where(hd =>
-                            hd.trangthai_id == 13 &&
-                            db.HOADON_KHODOI.Any(kh => kh.ID_HD == hd.ID_HD && kh.TRANGTHAI == false)
-                        )
+                        //.Where(hd =>
+                        //    hd.trangthai_id == 13 &&
+                        //    db.HOADON_KHODOI.Any(kh => kh.ID_HD == hd.ID_HD && kh.TRANGTHAI == false)
+                        //)
                         .Select(hd => new
                         {
                             hd.ID_HD,
@@ -152,11 +152,16 @@ namespace QLCongNo.View.UC.GachNo
                             hd.chitiet,
                             hd.thanhtoan,
                             hd.ghichu,
+                            hd.NGAYCHUYEN,
+                            hd.ngaythanhtoan,
+                            hd.nam
                         })
-                        .OrderByDescending(X => X.SO_HD)
+                        .OrderByDescending(x => x.nam)
+                        .ThenBy(x => x.kyghi)
                         .ToList();
-                    txtTongthu.Text =  string.Format("{0:n0}", dsHoadon.Where(x => x.tentrangthai == "Khó đòi").Select(x => x.tongtien).Sum());
+                    txtTongthu.Text = string.Format("{0:n0}", dsHoadon.Where(x => x.tentrangthai == "Khó đòi").Select(x => x.tongtien).Sum());
                     txttong_HD.Text = dsHoadon.Where(x => x.tentrangthai == "Khó đòi").Count().ToString();
+                    //this.lblDSHDKhoDoi.Text = $"Danh sách hóa đơn khó đòi ({dsHoadon.Count()})";
                     if (dsHoadon.Count() > 0)
                         dgvHD.DataSource = dsHoadon.ToList();
                     else
@@ -213,7 +218,7 @@ namespace QLCongNo.View.UC.GachNo
             //}
             //catch
             //{
-                
+
             //}
         }
 
@@ -360,10 +365,10 @@ namespace QLCongNo.View.UC.GachNo
                             hoadon.trangthai_id = 10;
                             hoadon.trangthaiKH = 0;
                             var published = db.PublishedInvoices.Where(x => x.KEY == IDHD.ToString()).FirstOrDefault();
-                            if(published != null)
+                            if (published != null)
                             {
                                 published.GACH_NO = "1";
-                            }    
+                            }
                             // ghi log
                             LOG_THUTIENNUOC log = new LOG_THUTIENNUOC();
                             log.ID_KH = hoadon.ID_KH;
@@ -376,7 +381,7 @@ namespace QLCongNo.View.UC.GachNo
                         }
                         // update trạng thái trong bảng HOADON_KHODOI
                         var record = db.HOADON_KHODOI.FirstOrDefault(hdkd => hdkd.ID_HD == IDHD && hdkd.TRANGTHAI == false);
-                        if(record != null)
+                        if (record != null)
                         {
                             record.TRANGTHAI = true;
                             record.NGUOITHANHTOAN = NVLap.NHANVIEN.hoten;
@@ -388,10 +393,10 @@ namespace QLCongNo.View.UC.GachNo
                     }
                     // update trạng thái của khách hàng
                     var khachhang = db.KHACHHANGs.FirstOrDefault(kh => kh.ID_KH == ID_KH);
-                    if(khachhang != null)
+                    if (khachhang != null)
                     {
                         khachhang.trangthai = 0;
-                    }    
+                    }
                     db.GACHNOes.AddRange(dsGachno);
                     db.CHUNGTU_HOADON.AddRange(DSchungtuHD);
                     var chungtuGachNo = db.CHUNGTUs.Where(x => x.ID_CT == IDCT_Nhanvien).FirstOrDefault();
@@ -459,7 +464,7 @@ namespace QLCongNo.View.UC.GachNo
 
         void quitButton_Click(object sender, EventArgs e)
         {
-         //   this.Close();
+            //   this.Close();
         }
         void txtTim_KeyDown(object sender, KeyEventArgs e)
         {
@@ -707,6 +712,7 @@ namespace QLCongNo.View.UC.GachNo
                                 result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
                             var frm = new Form();
                             frm.Size = new Size(1200, 800);
+                            frm.StartPosition = FormStartPosition.CenterScreen;
                             WebBrowser webBrowser = new WebBrowser();
                             webBrowser.Dock = DockStyle.Fill;
                             webBrowser.DocumentText = result;

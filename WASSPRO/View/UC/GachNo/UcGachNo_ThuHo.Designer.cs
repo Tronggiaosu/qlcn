@@ -214,11 +214,11 @@
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.2297F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.15352F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.15352F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.2297F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.23355F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.14654F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.30113F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.30113F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.14654F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.10467F));
             this.tableLayoutPanel1.Controls.Add(this.txtlydohuy, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkKy, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkHuyTT, 0, 2);
@@ -257,7 +257,7 @@
             this.txtlydohuy.Multiline = true;
             this.txtlydohuy.Name = "txtlydohuy";
             this.tableLayoutPanel1.SetRowSpan(this.txtlydohuy, 2);
-            this.txtlydohuy.Size = new System.Drawing.Size(277, 103);
+            this.txtlydohuy.Size = new System.Drawing.Size(292, 103);
             this.txtlydohuy.TabIndex = 9;
             // 
             // chkKy
@@ -298,7 +298,7 @@
             this.cboKy.Location = new System.Drawing.Point(12, 49);
             this.cboKy.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboKy.Name = "cboKy";
-            this.cboKy.Size = new System.Drawing.Size(119, 33);
+            this.cboKy.Size = new System.Drawing.Size(133, 33);
             this.cboKy.TabIndex = 1;
             // 
             // label3
@@ -308,7 +308,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 3);
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(309, 109);
+            this.label3.Location = new System.Drawing.Point(324, 109);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 23);
@@ -321,7 +321,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(151, 10);
+            this.label1.Location = new System.Drawing.Point(165, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 10, 12, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 23);
@@ -334,10 +334,10 @@
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(155, 49);
+            this.dateTimePicker1.Location = new System.Drawing.Point(169, 49);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(134, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(135, 30);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // dateTimePicker2
@@ -346,10 +346,10 @@
             this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(313, 49);
+            this.dateTimePicker2.Location = new System.Drawing.Point(328, 49);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(134, 30);
+            this.dateTimePicker2.Size = new System.Drawing.Size(135, 30);
             this.dateTimePicker2.TabIndex = 5;
             // 
             // cboNV
@@ -360,10 +360,10 @@
             this.cboNV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNV.ForeColor = System.Drawing.Color.Black;
             this.cboNV.FormattingEnabled = true;
-            this.cboNV.Location = new System.Drawing.Point(471, 49);
+            this.cboNV.Location = new System.Drawing.Point(487, 49);
             this.cboNV.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNV.Name = "cboNV";
-            this.cboNV.Size = new System.Drawing.Size(264, 33);
+            this.cboNV.Size = new System.Drawing.Size(248, 33);
             this.cboNV.Sorted = true;
             this.cboNV.TabIndex = 7;
             // 
@@ -373,7 +373,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label12.Location = new System.Drawing.Point(467, 10);
+            this.label12.Location = new System.Drawing.Point(483, 10);
             this.label12.Margin = new System.Windows.Forms.Padding(8, 10, 12, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 23);
@@ -386,7 +386,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(309, 10);
+            this.label2.Location = new System.Drawing.Point(324, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 10, 12, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 23);
@@ -400,10 +400,10 @@
             this.txtTim.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTim.ForeColor = System.Drawing.Color.Black;
-            this.txtTim.Location = new System.Drawing.Point(313, 152);
+            this.txtTim.Location = new System.Drawing.Point(328, 152);
             this.txtTim.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(422, 32);
+            this.txtTim.Size = new System.Drawing.Size(407, 32);
             this.txtTim.TabIndex = 11;
             this.txtTim.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtTim_PreviewKeyDown);
             // 
@@ -413,7 +413,7 @@
             this.chkAll.BackColor = System.Drawing.Color.Transparent;
             this.chkAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAll.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkAll.Location = new System.Drawing.Point(313, 226);
+            this.chkAll.Location = new System.Drawing.Point(328, 226);
             this.chkAll.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkAll.Name = "chkAll";
             this.chkAll.Size = new System.Drawing.Size(121, 27);
@@ -433,11 +433,11 @@
             this.btnGachNo.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnGachNo.IconSize = 1;
             this.btnGachNo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGachNo.Location = new System.Drawing.Point(612, 217);
+            this.btnGachNo.Location = new System.Drawing.Point(642, 217);
             this.btnGachNo.Margin = new System.Windows.Forms.Padding(10, 5, 70, 14);
             this.btnGachNo.Name = "btnGachNo";
             this.btnGachNo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnGachNo.Size = new System.Drawing.Size(60, 38);
+            this.btnGachNo.Size = new System.Drawing.Size(35, 38);
             this.btnGachNo.TabIndex = 14;
             this.btnGachNo.Text = ">>";
             this.btnGachNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -456,7 +456,7 @@
             this.btnXoaGachNo.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnXoaGachNo.IconSize = 1;
             this.btnXoaGachNo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoaGachNo.Location = new System.Drawing.Point(530, 217);
+            this.btnXoaGachNo.Location = new System.Drawing.Point(560, 217);
             this.btnXoaGachNo.Margin = new System.Windows.Forms.Padding(70, 5, 10, 14);
             this.btnXoaGachNo.Name = "btnXoaGachNo";
             this.btnXoaGachNo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
