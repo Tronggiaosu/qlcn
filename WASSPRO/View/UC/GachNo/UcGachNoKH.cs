@@ -120,11 +120,15 @@ namespace QLCongNo.View.UC.GachNo
                         }
                         this.Cursor = Cursors.Default;
                     }
+                    else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn)
+                    {
+                        bool isChecked = Convert.ToBoolean(dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value ?? false);
+                        if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
+                            dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                    }
                 }
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,7 +234,7 @@ namespace QLCongNo.View.UC.GachNo
                         {
                             dgvHoadon.Rows[i].ReadOnly = true;
                             dgvHoadon.Rows[i].Cells[checksColumn.Name].Value = false;
-                        }
+                        }  
                     }
                     btnConfirm.Text = "Lấy dữ liệu";
                     chkAll.Checked = false;
