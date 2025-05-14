@@ -571,7 +571,6 @@ namespace QLCongNo.View.UC.HoaDon
             this.excelButton.Padding = new System.Windows.Forms.Padding(5);
             this.excelButton.Size = new System.Drawing.Size(137, 39);
             this.excelButton.Text = "Xuất Excel";
-            this.excelButton.Click += new System.EventHandler(this.excelButton_Click_1);
             // 
             // quitButton
             // 

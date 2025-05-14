@@ -98,6 +98,10 @@
             this.QuanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDKHColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.dgvHoadon = new QLCongNo.View.Core.NovDataGridView();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblDSKhachHang = new QLCongNo.View.Core.NovLabel();
+            this.lblDSHoaDon = new QLCongNo.View.Core.NovLabel();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.checksColumn = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.trangthaiKHColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -117,12 +121,8 @@
             this.tennganhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaythanhtoanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ngaybk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ngaythuchienColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lblDSKhachHang = new QLCongNo.View.Core.NovLabel();
-            this.lblDSHoaDon = new QLCongNo.View.Core.NovLabel();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -491,9 +491,9 @@
             this.label2.Location = new System.Drawing.Point(8, 172);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 10, 12, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 23);
+            this.label2.Size = new System.Drawing.Size(145, 29);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Ngày thu";
+            this.label2.Text = "Ngày bảng kê";
             // 
             // lbltongno
             // 
@@ -615,7 +615,7 @@
             this.dgvKhachhang.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvKhachhang.EnableHeadersVisualStyles = false;
             this.dgvKhachhang.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvKhachhang.Location = new System.Drawing.Point(16, 43);
+            this.dgvKhachhang.Location = new System.Drawing.Point(16, 34);
             this.dgvKhachhang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvKhachhang.MultiSelect = false;
             this.dgvKhachhang.Name = "dgvKhachhang";
@@ -629,7 +629,7 @@
             this.dgvKhachhang.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvKhachhang.RowTemplate.Height = 32;
             this.dgvKhachhang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhachhang.Size = new System.Drawing.Size(659, 372);
+            this.dgvKhachhang.Size = new System.Drawing.Size(480, 381);
             this.dgvKhachhang.TabIndex = 0;
             // 
             // maLTColumn
@@ -782,8 +782,8 @@
             this.tennganhang,
             this.ngaythanhtoanColumn,
             this.ngaybk,
-            this.ghichuColumn,
-            this.ngaythuchienColumn});
+            this.ngaythuchienColumn,
+            this.ghichuColumn});
             dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -794,7 +794,7 @@
             this.dgvHoadon.DefaultCellStyle = dataGridViewCellStyle29;
             this.dgvHoadon.EnableHeadersVisualStyles = false;
             this.dgvHoadon.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvHoadon.Location = new System.Drawing.Point(16, 43);
+            this.dgvHoadon.Location = new System.Drawing.Point(4, 34);
             this.dgvHoadon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvHoadon.Name = "dgvHoadon";
             this.dgvHoadon.ReadOnly = true;
@@ -806,8 +806,75 @@
             this.dgvHoadon.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvHoadon.RowTemplate.Height = 32;
             this.dgvHoadon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoadon.Size = new System.Drawing.Size(652, 372);
+            this.dgvHoadon.Size = new System.Drawing.Size(851, 381);
             this.dgvHoadon.TabIndex = 1;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 387);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.lblDSKhachHang);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvKhachhang);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblDSHoaDon);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvHoadon);
+            this.splitContainer1.Size = new System.Drawing.Size(1374, 437);
+            this.splitContainer1.SplitterDistance = 500;
+            this.splitContainer1.TabIndex = 2;
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // lblDSKhachHang
+            // 
+            this.lblDSKhachHang.AutoSize = true;
+            this.lblDSKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSKhachHang.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSKhachHang.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDSKhachHang.Location = new System.Drawing.Point(12, 5);
+            this.lblDSKhachHang.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSKhachHang.Name = "lblDSKhachHang";
+            this.lblDSKhachHang.Size = new System.Drawing.Size(208, 23);
+            this.lblDSKhachHang.TabIndex = 146;
+            this.lblDSKhachHang.Text = "Danh sách khách hàng (0)";
+            // 
+            // lblDSHoaDon
+            // 
+            this.lblDSHoaDon.AutoSize = true;
+            this.lblDSHoaDon.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSHoaDon.ForeColor = System.Drawing.Color.Red;
+            this.lblDSHoaDon.Location = new System.Drawing.Point(2, 4);
+            this.lblDSHoaDon.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSHoaDon.Name = "lblDSHoaDon";
+            this.lblDSHoaDon.Size = new System.Drawing.Size(183, 23);
+            this.lblDSHoaDon.TabIndex = 145;
+            this.lblDSHoaDon.Text = "Danh sách hoá đơn (0)";
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer3.Location = new System.Drawing.Point(3, 41);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel2);
+            this.splitContainer3.Size = new System.Drawing.Size(1368, 339);
+            this.splitContainer3.SplitterDistance = 684;
+            this.splitContainer3.TabIndex = 3;
             // 
             // checksColumn
             // 
@@ -1033,98 +1100,31 @@
             this.ngaybk.ReadOnly = true;
             this.ngaybk.Width = 144;
             // 
-            // ghichuColumn
-            // 
-            this.ghichuColumn.DataPropertyName = "ghichu";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.ghichuColumn.DefaultCellStyle = dataGridViewCellStyle27;
-            this.ghichuColumn.HeaderText = "Ghi chú";
-            this.ghichuColumn.MinimumWidth = 6;
-            this.ghichuColumn.Name = "ghichuColumn";
-            this.ghichuColumn.ReadOnly = true;
-            this.ghichuColumn.Width = 97;
-            // 
             // ngaythuchienColumn
             // 
             this.ngaythuchienColumn.DataPropertyName = "NGAYDANGNGAN_NV";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.Format = "dd/MM/yyyy HH:mm";
-            dataGridViewCellStyle28.NullValue = null;
-            dataGridViewCellStyle28.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.ngaythuchienColumn.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.Format = "dd/MM/yyyy HH:mm";
+            dataGridViewCellStyle27.NullValue = null;
+            dataGridViewCellStyle27.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.ngaythuchienColumn.DefaultCellStyle = dataGridViewCellStyle27;
             this.ngaythuchienColumn.HeaderText = "Ngày đăng ngân";
             this.ngaythuchienColumn.MinimumWidth = 6;
             this.ngaythuchienColumn.Name = "ngaythuchienColumn";
             this.ngaythuchienColumn.ReadOnly = true;
             this.ngaythuchienColumn.Width = 166;
             // 
-            // splitContainer1
+            // ghichuColumn
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 387);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.lblDSKhachHang);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvKhachhang);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.lblDSHoaDon);
-            this.splitContainer1.Panel2.Controls.Add(this.dgvHoadon);
-            this.splitContainer1.Size = new System.Drawing.Size(1374, 437);
-            this.splitContainer1.SplitterDistance = 687;
-            this.splitContainer1.TabIndex = 2;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
-            // 
-            // lblDSKhachHang
-            // 
-            this.lblDSKhachHang.AutoSize = true;
-            this.lblDSKhachHang.BackColor = System.Drawing.Color.Transparent;
-            this.lblDSKhachHang.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSKhachHang.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblDSKhachHang.Location = new System.Drawing.Point(12, 10);
-            this.lblDSKhachHang.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.lblDSKhachHang.Name = "lblDSKhachHang";
-            this.lblDSKhachHang.Size = new System.Drawing.Size(208, 23);
-            this.lblDSKhachHang.TabIndex = 146;
-            this.lblDSKhachHang.Text = "Danh sách khách hàng (0)";
-            // 
-            // lblDSHoaDon
-            // 
-            this.lblDSHoaDon.AutoSize = true;
-            this.lblDSHoaDon.BackColor = System.Drawing.Color.Transparent;
-            this.lblDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSHoaDon.ForeColor = System.Drawing.Color.Red;
-            this.lblDSHoaDon.Location = new System.Drawing.Point(12, 10);
-            this.lblDSHoaDon.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.lblDSHoaDon.Name = "lblDSHoaDon";
-            this.lblDSHoaDon.Size = new System.Drawing.Size(183, 23);
-            this.lblDSHoaDon.TabIndex = 145;
-            this.lblDSHoaDon.Text = "Danh sách hoá đơn (0)";
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer3.Location = new System.Drawing.Point(3, 41);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel1);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer3.Size = new System.Drawing.Size(1368, 339);
-            this.splitContainer3.SplitterDistance = 684;
-            this.splitContainer3.TabIndex = 3;
+            this.ghichuColumn.DataPropertyName = "ghichu";
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.ghichuColumn.DefaultCellStyle = dataGridViewCellStyle28;
+            this.ghichuColumn.HeaderText = "Ghi chú";
+            this.ghichuColumn.MinimumWidth = 6;
+            this.ghichuColumn.Name = "ghichuColumn";
+            this.ghichuColumn.ReadOnly = true;
+            this.ghichuColumn.Width = 97;
             // 
             // UcGachNoKH
             // 
@@ -1194,6 +1194,16 @@
         private Core.NovLabel lblDSHoaDon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnConfirm;
+        private Core.NovDataGridViewTextBoxColumn maLTColumn;
+        private Core.NovDataGridViewTextBoxColumn madanhboColumn;
+        private Core.NovDataGridViewTextBoxColumn hoten_KH_Column;
+        private Core.NovDataGridViewTextBoxColumn sonhaColumn;
+        private Core.NovDataGridViewTextBoxColumn diachiColumn;
+        private Core.NovDataGridViewTextBoxColumn phuongColumn;
+        private Core.NovDataGridViewTextBoxColumn QuanColumn;
+        private Core.NovDataGridViewTextBoxColumn IDKHColumn;
         private Core.NovDataGridViewCheckBoxColumn checksColumn;
         private Core.NovDataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private Core.NovDataGridViewTextBoxColumn trangthaiKHColumn;
@@ -1213,17 +1223,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tennganhang;
         private Core.NovDataGridViewTextBoxColumn ngaythanhtoanColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaybk;
-        private Core.NovDataGridViewTextBoxColumn ghichuColumn;
         private Core.NovDataGridViewTextBoxColumn ngaythuchienColumn;
-        private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.Button btnConfirm;
-        private Core.NovDataGridViewTextBoxColumn maLTColumn;
-        private Core.NovDataGridViewTextBoxColumn madanhboColumn;
-        private Core.NovDataGridViewTextBoxColumn hoten_KH_Column;
-        private Core.NovDataGridViewTextBoxColumn sonhaColumn;
-        private Core.NovDataGridViewTextBoxColumn diachiColumn;
-        private Core.NovDataGridViewTextBoxColumn phuongColumn;
-        private Core.NovDataGridViewTextBoxColumn QuanColumn;
-        private Core.NovDataGridViewTextBoxColumn IDKHColumn;
+        private Core.NovDataGridViewTextBoxColumn ghichuColumn;
     }
 }

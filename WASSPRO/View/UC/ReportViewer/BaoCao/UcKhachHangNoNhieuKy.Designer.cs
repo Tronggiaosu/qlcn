@@ -69,6 +69,9 @@
             this.chksoky = new QLCongNo.View.Core.NovCheckBox();
             this.novLabel1 = new QLCongNo.View.Core.NovLabel();
             this.dgvDSKhachHangNo = new QLCongNo.View.Core.NovDataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblsoluong = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.STTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.SO_HD = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.tongtien = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -82,9 +85,6 @@
             this.phuongColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.quanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.hoten = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblsoluong = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -496,6 +496,33 @@
             this.dgvDSKhachHangNo.TabIndex = 28;
             this.dgvDSKhachHangNo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSKhachHangNo_CellClick);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblsoluong);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 626);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1359, 55);
+            this.panel2.TabIndex = 29;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Location = new System.Drawing.Point(9, 15);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(151, 23);
+            this.lblsoluong.TabIndex = 0;
+            this.lblsoluong.Text = "Số lượng hóa đơn:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvDSKhachHangNo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 304);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1359, 322);
+            this.panel3.TabIndex = 30;
+            // 
             // STTColumn
             // 
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -511,7 +538,7 @@
             // SO_HD
             // 
             this.SO_HD.DataPropertyName = "soluong";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.Format = "N0";
             dataGridViewCellStyle4.NullValue = null;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -572,6 +599,7 @@
             // 
             // hoten_KH
             // 
+            this.hoten_KH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.hoten_KH.DataPropertyName = "hoten_KH";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -580,7 +608,7 @@
             this.hoten_KH.MinimumWidth = 6;
             this.hoten_KH.Name = "hoten_KH";
             this.hoten_KH.ReadOnly = true;
-            this.hoten_KH.Width = 90;
+            this.hoten_KH.Width = 350;
             // 
             // maLT
             // 
@@ -596,6 +624,7 @@
             // 
             // sonhaColumn
             // 
+            this.sonhaColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.sonhaColumn.DataPropertyName = "sonha";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -604,10 +633,11 @@
             this.sonhaColumn.MinimumWidth = 6;
             this.sonhaColumn.Name = "sonhaColumn";
             this.sonhaColumn.ReadOnly = true;
-            this.sonhaColumn.Width = 91;
+            this.sonhaColumn.Width = 250;
             // 
             // diachiColumn
             // 
+            this.diachiColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.diachiColumn.DataPropertyName = "diachi";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -616,7 +646,7 @@
             this.diachiColumn.MinimumWidth = 6;
             this.diachiColumn.Name = "diachiColumn";
             this.diachiColumn.ReadOnly = true;
-            this.diachiColumn.Width = 90;
+            this.diachiColumn.Width = 300;
             // 
             // phuongColumn
             // 
@@ -654,33 +684,6 @@
             this.hoten.Name = "hoten";
             this.hoten.ReadOnly = true;
             this.hoten.Width = 147;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblsoluong);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 626);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1359, 55);
-            this.panel2.TabIndex = 29;
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.AutoSize = true;
-            this.lblsoluong.Location = new System.Drawing.Point(9, 15);
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(151, 23);
-            this.lblsoluong.TabIndex = 0;
-            this.lblsoluong.Text = "Số lượng hóa đơn:";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dgvDSKhachHangNo);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 304);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1359, 322);
-            this.panel3.TabIndex = 30;
             // 
             // UcKhachHangNoNhieuKy
             // 
@@ -735,6 +738,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Core.NovLabel novLabel2;
         private Core.NovLabel novLabel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblsoluong;
         private Core.NovDataGridViewTextBoxColumn STTColumn;
         private Core.NovDataGridViewTextBoxColumn SO_HD;
         private Core.NovDataGridViewTextBoxColumn tongtien;
@@ -748,8 +754,5 @@
         private Core.NovDataGridViewTextBoxColumn phuongColumn;
         private Core.NovDataGridViewTextBoxColumn quanColumn;
         private Core.NovDataGridViewTextBoxColumn hoten;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblsoluong;
     }
 }

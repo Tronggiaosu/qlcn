@@ -54,7 +54,10 @@ namespace QLCongNo.View.UC.HoaDon
                     Common.ExportExcel(dataGridView1);
                 }
             }
-            catch { }        
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnIn_Click(object sender, EventArgs e)
@@ -95,7 +98,10 @@ namespace QLCongNo.View.UC.HoaDon
                 else
                     MessageBox.Show("Không có hóa đơn nào trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void seachButton_Click(object sender, EventArgs e)
@@ -146,7 +152,10 @@ namespace QLCongNo.View.UC.HoaDon
                 }
                 this.Cursor = Cursors.Default;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,58 +187,63 @@ namespace QLCongNo.View.UC.HoaDon
                     cboPhuong.DisplayMember = "tenPhuong";
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void frGiayBaoTienNuoc_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
-            for (int i = 1; i <= 12; i++)
+            try
             {
-                dmKyghi.Add(new DM_KYGHI()
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
+                for (int i = 1; i <= 12; i++)
                 {
-                    ID_kyghi = i.ToString("00"),
-                    ten_kyghi = $"{i:00}"
-                });
+                    dmKyghi.Add(new DM_KYGHI()
+                    {
+                        ID_kyghi = i.ToString("00"),
+                        ten_kyghi = $"{i:00}"
+                    });
+                }
+                cboThang.DataSource = dmKyghi;
+                cboThang.ValueMember = "ID_kyghi";
+                cboThang.DisplayMember = "ten_kyghi";
+                // dm nam
+                cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_NAM> dmNam = new List<DM_NAM>();
+                var dataNam = db.DM_NAM.OrderByDescending(x => x.NAM).ToList();
+                dmNam.AddRange(dataNam);
+                cboNam.DataSource = dmNam.ToList();
+                cboNam.ValueMember = "NAM_ID";
+                cboNam.DisplayMember = "NAM";
+                dataGridView1.AutoGenerateColumns = false;
+                // dm quan
+                cboQuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_QUAN> dsQuan = new List<DM_QUAN>();
+                dsQuan.Add(new DM_QUAN() { maQuan = "0", tenQuan = "Tất cả" });
+                var dataQuan = db.DM_QUAN.OrderBy(x => x.tenQuan).ToList();
+                dsQuan.AddRange(dataQuan);
+                cboQuan.DataSource = dsQuan.ToList();
+                cboQuan.ValueMember = "maQuan";
+                cboQuan.DisplayMember = "tenQuan";
+                // dm phuong
+                cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
+                dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
+                var dataPhuong = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
+                dsPhuong.AddRange(dataPhuong);
+                cboPhuong.DataSource = dsPhuong.ToList();
+                cboPhuong.ValueMember = "maPhuong";
+                cboPhuong.DisplayMember = "tenPhuong";
+                // trangthai
+                cboTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                string[] trangthai = { "Chưa in", "Đã in" };
+                cboTT.DataSource = trangthai;
             }
-            cboThang.DataSource = dmKyghi;
-            cboThang.ValueMember = "ID_kyghi";
-            cboThang.DisplayMember = "ten_kyghi";
-            // dm nam
-            cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_NAM> dmNam = new List<DM_NAM>();
-            var dataNam = db.DM_NAM.OrderByDescending(x => x.NAM).ToList();
-            dmNam.AddRange(dataNam);
-            cboNam.DataSource = dmNam.ToList();
-            cboNam.ValueMember = "NAM_ID";
-            cboNam.DisplayMember = "NAM";
-            dataGridView1.AutoGenerateColumns = false;
-            // dm quan
-            cboQuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_QUAN> dsQuan = new List<DM_QUAN>();
-            dsQuan.Add(new DM_QUAN() { maQuan = "0", tenQuan = "Tất cả" });
-            var dataQuan = db.DM_QUAN.OrderBy(x => x.tenQuan).ToList();
-            dsQuan.AddRange(dataQuan);
-            cboQuan.DataSource = dsQuan.ToList();
-            cboQuan.ValueMember = "maQuan";
-            cboQuan.DisplayMember = "tenQuan";
-            // dm phuong
-            cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
-            dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
-            var dataPhuong = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
-            dsPhuong.AddRange(dataPhuong);
-            cboPhuong.DataSource = dsPhuong.ToList();
-            cboPhuong.ValueMember = "maPhuong";
-            cboPhuong.DisplayMember = "tenPhuong";
-            // trangthai
-            cboTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            string[] trangthai = { "Chưa in", "Đã in" };
-            cboTT.DataSource = trangthai;
+            catch { }
         }
 
         private void txtTim_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -238,11 +252,6 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 e.IsInputKey = true;
             }
-        }
-
-        private void excelButton_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -96,94 +96,112 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (addButton.Text == "Thêm")
+            try
             {
-                EnableControl(true);
-                ClearText();
-                txtIDKyghi.Text = DateTime.Today.Year.ToString() + DateTime.Today.Month.ToString("00");
-                txtTenkyghi.Text = DateTime.Today.Month.ToString("00") + "/" + DateTime.Today.Year.ToString();
-                txtThang.Text = DateTime.Today.Month.ToString();
-                txtNam.Text = DateTime.Today.Year.ToString();
-                DtNgaytao.Value = DateTime.Today;
-                addButton.Text = "Cập nhật";
-                editButton.Text = "Hủy";
-                addnew = 1;
-            }
-            else if (addButton.Text == "Cập nhật" && addnew == 1)
-            {
-                if (!IsDataOK()) return;
-                var kycu = (from a in db.DM_KYGHI orderby a.ID_kyghi descending select a).FirstOrDefault();
-                var kyghicu = new SqlParameter("@ID_KYGHI", kycu.ID_kyghi);
-                var t = new DM_KYGHI
+                if (addButton.Text == "Thêm")
                 {
-                    ID_kyghi = txtIDKyghi.Text,
-                    ten_kyghi = txtTenkyghi.Text,
-                    thang = Int32.Parse(txtThang.Text),
-                    nam = Int32.Parse(txtNam.Text),
-                    ngaytao = DtNgaytao.Value,
-                    ngaycapnhat = DtNgaytao.Value,
-                    gachno = false,
-                    thuno = true,
-                    ghinuoc = true,
-                    hoadon = true
-                };
-                db.DM_KYGHI.Add(t);
-                var other = from u in db.DM_KYGHI where u.ID_kyghi != txtIDKyghi.Text select u;
-                foreach (DM_KYGHI kg in other)
-                    kg.hoadon = false;
-                db.SaveChanges();
+                    EnableControl(true);
+                    ClearText();
+                    txtIDKyghi.Text = DateTime.Today.Year.ToString() + DateTime.Today.Month.ToString("00");
+                    txtTenkyghi.Text = DateTime.Today.Month.ToString("00") + "/" + DateTime.Today.Year.ToString();
+                    txtThang.Text = DateTime.Today.Month.ToString();
+                    txtNam.Text = DateTime.Today.Year.ToString();
+                    DtNgaytao.Value = DateTime.Today;
+                    addButton.Text = "Cập nhật";
+                    editButton.Text = "Hủy";
+                    addnew = 1;
+                }
+                else if (addButton.Text == "Cập nhật" && addnew == 1)
+                {
+                    if (!IsDataOK()) return;
+                    var kycu = (from a in db.DM_KYGHI orderby a.ID_kyghi descending select a).FirstOrDefault();
+                    var kyghicu = new SqlParameter("@ID_KYGHI", kycu.ID_kyghi);
+                    var t = new DM_KYGHI
+                    {
+                        ID_kyghi = txtIDKyghi.Text,
+                        ten_kyghi = txtTenkyghi.Text,
+                        thang = Int32.Parse(txtThang.Text),
+                        nam = Int32.Parse(txtNam.Text),
+                        ngaytao = DtNgaytao.Value,
+                        ngaycapnhat = DtNgaytao.Value,
+                        gachno = false,
+                        thuno = true,
+                        ghinuoc = true,
+                        hoadon = true
+                    };
+                    db.DM_KYGHI.Add(t);
+                    var other = from u in db.DM_KYGHI where u.ID_kyghi != txtIDKyghi.Text select u;
+                    foreach (DM_KYGHI kg in other)
+                        kg.hoadon = false;
+                    db.SaveChanges();
 
-                //var kyghimoi = new SqlParameter("@ID_KYGHI_MOI", txtIDKyghi.Text);
-                //var chiso = db.Database.ExecuteSqlCommand("exec KYGHI @ID_KYGHI,@ID_KYGHI_MOI", kyghicu, kyghimoi);
-                var kyghi = from k in db.DM_KYGHI orderby k.ID_kyghi descending select k;
-                dataGridView1.DataSource = kyghi.ToList();
-                SetSelectRow(0);
-                EnableControl(false);
-                addButton.Text = "Thêm";
-                editButton.Text = "Sửa";
-                addnew = 0;
+                    //var kyghimoi = new SqlParameter("@ID_KYGHI_MOI", txtIDKyghi.Text);
+                    //var chiso = db.Database.ExecuteSqlCommand("exec KYGHI @ID_KYGHI,@ID_KYGHI_MOI", kyghicu, kyghimoi);
+                    var kyghi = from k in db.DM_KYGHI orderby k.ID_kyghi descending select k;
+                    dataGridView1.DataSource = kyghi.ToList();
+                    SetSelectRow(0);
+                    EnableControl(false);
+                    addButton.Text = "Thêm";
+                    editButton.Text = "Sửa";
+                    addnew = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (editButton.Text == "Sửa")
+            try
             {
-                EnableControl(true);
-                txtIDKyghi.Enabled = false;
-                addButton.Text = "Cập nhật";
-                editButton.Text = "Hủy";
-                addnew = 2;
+                if (editButton.Text == "Sửa")
+                {
+                    EnableControl(true);
+                    txtIDKyghi.Enabled = false;
+                    addButton.Text = "Cập nhật";
+                    editButton.Text = "Hủy";
+                    addnew = 2;
+                }
+                else if (editButton.Text == "Hủy")
+                {
+                    addButton.Text = "Thêm";
+                    editButton.Text = "Sửa";
+                    EnableControl(false);
+                    var kyghi = from k in db.DM_KYGHI orderby k.ID_kyghi descending select k;
+                    dataGridView1.DataSource = kyghi.ToList();
+                    SetSelectRow(0);
+                }
             }
-            else if (editButton.Text == "Hủy")
+            catch (Exception ex)
             {
-                addButton.Text = "Thêm";
-                editButton.Text = "Sửa";
-                EnableControl(false);
-                var kyghi = from k in db.DM_KYGHI orderby k.ID_kyghi descending select k;
-                dataGridView1.DataSource = kyghi.ToList();
-                SetSelectRow(0);
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private bool IsDataOK()
         {
-            if (txtIDKyghi.Text.Trim() == "" || txtTenkyghi.Text.Trim() == "")
+            try
             {
-                MessageBox.Show("Thông tin chưa đầy đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            else
-                if (addnew == 1)
-            {
-                var kyghi = (from a in db.DM_KYGHI where a.ID_kyghi == txtIDKyghi.Text.Trim() select a.ID_kyghi).ToList();
-                if (kyghi.Count > 0)
+                if (txtIDKyghi.Text.Trim() == "" || txtTenkyghi.Text.Trim() == "")
                 {
-                    MessageBox.Show("Kỳ Ghi đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Thông tin chưa đầy đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+                else
+                if (addnew == 1)
+                {
+                    var kyghi = (from a in db.DM_KYGHI where a.ID_kyghi == txtIDKyghi.Text.Trim() select a.ID_kyghi).ToList();
+                    if (kyghi.Count > 0)
+                    {
+                        MessageBox.Show("Kỳ Ghi đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+                return true;
             }
-            return true;
+            catch { return false; }
         }
 
         private void label2_Click(object sender, EventArgs e)

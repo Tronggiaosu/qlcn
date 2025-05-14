@@ -52,9 +52,7 @@ namespace QLCongNo.View.UC.HoaDon
                     cboPhuong.DisplayMember = "tenPhuong";
                 }
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         private void txtTim_KeyDown(object sender, KeyEventArgs e)
@@ -73,19 +71,23 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "nguoitaoColumn")
+            try
             {
-                if (e.Value != null)
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "nguoitaoColumn")
                 {
-                    string somay = e.Value.ToString();
-                    var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == somay);
-                    if (nhanvien != null)
+                    if (e.Value != null)
                     {
-                        e.Value = nhanvien?.hoten;
-                        e.FormattingApplied = true;
+                        string somay = e.Value.ToString();
+                        var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == somay);
+                        if (nhanvien != null)
+                        {
+                            e.Value = nhanvien?.hoten;
+                            e.FormattingApplied = true;
+                        }
                     }
                 }
             }
+            catch { }
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -125,57 +127,65 @@ namespace QLCongNo.View.UC.HoaDon
                 lblsoluong.Text = string.Format("{0:n0}", data.Count());
                 this.Cursor = Cursors.Default;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void excelButton_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.RowCount == 0)
+            try
             {
-                MessageBox.Show("Danh sách hiện tại không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }    
-            else
-            {
-                SaveFileDialog save = new SaveFileDialog();
-                save.Filter = "Excel file|.xlsx";
-                if (save.ShowDialog() == DialogResult.OK)
+                if (dataGridView1.RowCount == 0)
                 {
-                    this.Cursor = Cursors.WaitCursor;
-                    string[] columns = { "madanhbo", "maLT", "hoten_KH", "SDT_KH", "sonha", "diachi", "tenPhuong", "tenQuan", "ghichu", "sokyno", "tongtienno", "ghichu2" };
-                    var result = ExcelExportHelper.ExportExcel(table, false, columns);
-                    File.WriteAllBytes(save.FileName, result);
-                    this.Cursor = Cursors.Default;
-                    MessageBox.Show("Xuất dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Danh sách hiện tại không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }    
-        }
-
-        private void quitButton_Click(object sender, EventArgs e)
-        {
+                else
+                {
+                    SaveFileDialog save = new SaveFileDialog();
+                    save.Filter = "Excel file|.xlsx";
+                    if (save.ShowDialog() == DialogResult.OK)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        string[] columns = { "madanhbo", "maLT", "hoten_KH", "SDT_KH", "sonha", "diachi", "tenPhuong", "tenQuan", "ghichu", "sokyno", "tongtienno", "ghichu2" };
+                        var result = ExcelExportHelper.ExportExcel(table, false, columns);
+                        File.WriteAllBytes(save.FileName, result);
+                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("Xuất dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void frKhachHang_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoGenerateColumns = false;
+            try
+            {
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.AutoGenerateColumns = false;
 
-            var trangthai = db.DM_TRANGTHAI_KH.OrderBy(x => x.tenTT).ToList();
-            cboTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTT.DataSource = trangthai.ToList();
-            cboTT.DisplayMember = "tenTT";
-            cboTT.ValueMember = "maTT";
+                var trangthai = db.DM_TRANGTHAI_KH.OrderBy(x => x.tenTT).ToList();
+                cboTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                cboTT.DataSource = trangthai.ToList();
+                cboTT.DisplayMember = "tenTT";
+                cboTT.ValueMember = "maTT";
 
-            var dsQuan = db.DM_QUAN.ToList();
-            cboQuan.DataSource = dsQuan.ToList();
-            cboQuan.ValueMember = "maQuan";
-            cboQuan.DisplayMember = "tenQuan";
-            dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            cboQuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                var dsQuan = db.DM_QUAN.ToList();
+                cboQuan.DataSource = dsQuan.ToList();
+                cboQuan.ValueMember = "maQuan";
+                cboQuan.DisplayMember = "tenQuan";
+                dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+                dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+                dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+                cboQuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            }
+            catch { }
         }
 
         private void txtTim_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

@@ -34,21 +34,25 @@ namespace QLCongNo.View.UC.GachNo
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "NAMColumn")
+            try
             {
-                if (e.Value != null)
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "NAMColumn")
                 {
-                    if (int.TryParse(e.Value.ToString(), out int nam2ChuSo))
+                    if (e.Value != null)
                     {
-                        e.Value = (2000 + nam2ChuSo).ToString();  
-                        e.FormattingApplied = true;
-                    }
-                    else
-                    {
-                        e.FormattingApplied = false;
+                        if (int.TryParse(e.Value.ToString(), out int nam2ChuSo))
+                        {
+                            e.Value = (2000 + nam2ChuSo).ToString();
+                            e.FormattingApplied = true;
+                        }
+                        else
+                        {
+                            e.FormattingApplied = false;
+                        }
                     }
                 }
             }
+            catch { }
         }
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -57,100 +61,114 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-
-            string dotid = cboDot.Text;
-            decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-            string thang = int.Parse(cboKy.Text).ToString("00");
-
-            var query = db.TDC_HOADON
-                .Where(x => x.DOT == dotid.ToString() && x.NAM == (namid - 2000).ToString() && x.KY == thang)
-                .OrderBy(x => x.DANHBO)
-                .ToList();
-            if(query.Count > 0)
+            try
             {
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }    
-            dataGridView1.DataSource = query;
+                this.Cursor = Cursors.WaitCursor;
 
-            dataGridView1.Columns["HOADONs"].Visible = false;
-            dataGridView1.Columns["LNSUCXA"].Visible = false;
-            dataGridView1.Columns["PhiNT"].Visible = false;
-            dataGridView1.Columns["PhiBVMTCu"].Visible = false;
-            dataGridView1.Columns["M3GiaMoi"].Visible = false;
-            dataGridView1.Columns["PhiNT"].Visible = false;
-            dataGridView1.Columns["TienThueNT"].Visible = false;
-            dataGridView1.Columns["STGCOV"].Visible = false;
-            dataGridView1.Columns["DINHMUCHONGHEO"].Visible = false;
-            dataGridView1.Columns["M3GiaCu"].Visible = false;
-            dataGridView1.Columns["hoadonTDC_id"].Visible = false;
-            dataGridView1.Columns["isimport"].Visible = false;
-            dataGridView1.Columns["DIACHITRUSO"].Visible = false;
-            dataGridView1.Columns["STT"].Visible = false;
-            dataGridView1.Columns["CUST_ID"].Visible = false;
-            dataGridView1.Columns["MAIL"].Visible = false;
-            dataGridView1.Columns["FAX"].Visible = false;
-            dataGridView1.Columns["SODHN"].Visible = false;
-            dataGridView1.Columns["NGAY_PHATHANH"].Visible = false;
-            dataGridView1.Columns["SO_HOADON"].Visible = false;
-            dataGridView1.Columns["RETOUR"].Visible = false;
-            dataGridView1.Columns["DV"].Visible = false;
-            dataGridView1.Columns["SX"].Visible = false;
-            dataGridView1.Columns["HCSN"].Visible = false;
-            dataGridView1.Columns["SH"].Visible = false;
-            dataGridView1.Columns["MSCQ"].Visible = false;
-            dataGridView1.Columns["QUAN"].Visible = false;
-            dataGridView1.Columns["PHUONG"].Visible = false;
-            dataGridView1.Columns["GIABAN_BU_TOITHIEU"].Visible = false;
-            dataGridView1.Columns["THUEGTGT_BU_TOITHIEU"].Visible = false;
-            dataGridView1.Columns["PHIBVMT_BU_TOITHIEU"].Visible = false;
-            dataGridView1.Columns["TONGCONG_BU_TOITHIEU"].Visible = false;
-            dataGridView1.Columns["TIEUVUNG_DMA"].Visible = false;
-            dataGridView1.Columns["VUNG_DMA"].Visible = false;
-            dataGridView1.Columns["NGAY_GANDH"].Visible = false;
-            dataGridView1.Columns["TILE_TIEUTHU"].Visible = false;
-            dataGridView1.Columns["SO_PHATHANH"].Visible = false;
-            dataGridView1.Columns["CUON_STT"].Visible = false;
-            dataGridView1.Columns["CUON_GCS"].Visible = false;
-            dataGridView1.Columns["TUNGAY"].Visible = false;
-            dataGridView1.Columns["DENNGAY"].Visible = false;
-            dataGridView1.Columns["MST"].Visible = false;
+                string dotid = cboDot.Text;
+                decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
+                string thang = int.Parse(cboKy.Text).ToString("00");
 
-            lbltongso.Text = "Số lượng hóa đơn " + string.Format("{0:n0}", dataGridView1.RowCount);
-            if (dataGridView1.RowCount > 0)
-                btnDelete.Visible = true;
+                var query = db.TDC_HOADON
+                    .Where(x => x.DOT == dotid.ToString() && x.NAM == (namid - 2000).ToString() && x.KY == thang)
+                    .OrderBy(x => x.DANHBO)
+                    .ToList();
+                if (query.Count > 0)
+                {
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+                dataGridView1.DataSource = query;
 
-            this.Cursor = Cursors.Default;
+                dataGridView1.Columns["HOADONs"].Visible = false;
+                dataGridView1.Columns["LNSUCXA"].Visible = false;
+                dataGridView1.Columns["PhiNT"].Visible = false;
+                dataGridView1.Columns["PhiBVMTCu"].Visible = false;
+                dataGridView1.Columns["M3GiaMoi"].Visible = false;
+                dataGridView1.Columns["PhiNT"].Visible = false;
+                dataGridView1.Columns["TienThueNT"].Visible = false;
+                dataGridView1.Columns["STGCOV"].Visible = false;
+                dataGridView1.Columns["DINHMUCHONGHEO"].Visible = false;
+                dataGridView1.Columns["M3GiaCu"].Visible = false;
+                dataGridView1.Columns["hoadonTDC_id"].Visible = false;
+                dataGridView1.Columns["isimport"].Visible = false;
+                dataGridView1.Columns["DIACHITRUSO"].Visible = false;
+                dataGridView1.Columns["STT"].Visible = false;
+                dataGridView1.Columns["CUST_ID"].Visible = false;
+                dataGridView1.Columns["MAIL"].Visible = false;
+                dataGridView1.Columns["FAX"].Visible = false;
+                dataGridView1.Columns["SODHN"].Visible = false;
+                dataGridView1.Columns["NGAY_PHATHANH"].Visible = false;
+                dataGridView1.Columns["SO_HOADON"].Visible = false;
+                dataGridView1.Columns["RETOUR"].Visible = false;
+                dataGridView1.Columns["DV"].Visible = false;
+                dataGridView1.Columns["SX"].Visible = false;
+                dataGridView1.Columns["HCSN"].Visible = false;
+                dataGridView1.Columns["SH"].Visible = false;
+                dataGridView1.Columns["MSCQ"].Visible = false;
+                dataGridView1.Columns["QUAN"].Visible = false;
+                dataGridView1.Columns["PHUONG"].Visible = false;
+                dataGridView1.Columns["GIABAN_BU_TOITHIEU"].Visible = false;
+                dataGridView1.Columns["THUEGTGT_BU_TOITHIEU"].Visible = false;
+                dataGridView1.Columns["PHIBVMT_BU_TOITHIEU"].Visible = false;
+                dataGridView1.Columns["TONGCONG_BU_TOITHIEU"].Visible = false;
+                dataGridView1.Columns["TIEUVUNG_DMA"].Visible = false;
+                dataGridView1.Columns["VUNG_DMA"].Visible = false;
+                dataGridView1.Columns["NGAY_GANDH"].Visible = false;
+                dataGridView1.Columns["TILE_TIEUTHU"].Visible = false;
+                dataGridView1.Columns["SO_PHATHANH"].Visible = false;
+                dataGridView1.Columns["CUON_STT"].Visible = false;
+                dataGridView1.Columns["CUON_GCS"].Visible = false;
+                dataGridView1.Columns["TUNGAY"].Visible = false;
+                dataGridView1.Columns["DENNGAY"].Visible = false;
+                dataGridView1.Columns["MST"].Visible = false;
+
+                lbltongso.Text = "Số lượng hóa đơn " + string.Format("{0:n0}", dataGridView1.RowCount);
+                if (dataGridView1.RowCount > 0)
+                    btnDelete.Visible = true;
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-            decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-            string kyghi = cboKy.SelectedValue.ToString();
-            dataGridView1.Visible = true;
-            var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid && x.nam == namid && x.kyghi == kyghi && x.ischeck == 1).ToList();
-            var chitietHD = (from a in db.CHITIET_HD
-                             from x in db.HOADONs
-                             where x.ID_HD == a.ID_HD
-                             where x.DOT_ID == dotid && x.nam == namid && x.kyghi == kyghi && x.ischeck == 0
-                             select a).ToList();
-            if (hoadon.Count != 0)
-                MessageBox.Show("Hóa đơn đợt này đã được phát hành, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (chitietHD.Count > 0)
-                MessageBox.Show("Vui lòng xóa dữ liệu chi tiết hóa đơn trước khi xóa dữ liệu hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
+            try
             {
-                DialogResult rs = MessageBox.Show("Bạn có muốn xóa dữ liệu hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (rs == DialogResult.OK)
+                decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+                decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
+                string kyghi = cboKy.SelectedValue.ToString();
+                dataGridView1.Visible = true;
+                var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid && x.nam == namid && x.kyghi == kyghi && x.ischeck == 1).ToList();
+                var chitietHD = (from a in db.CHITIET_HD
+                                 from x in db.HOADONs
+                                 where x.ID_HD == a.ID_HD
+                                 where x.DOT_ID == dotid && x.nam == namid && x.kyghi == kyghi && x.ischeck == 0
+                                 select a).ToList();
+                if (hoadon.Count != 0)
+                    MessageBox.Show("Hóa đơn đợt này đã được phát hành, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (chitietHD.Count > 0)
+                    MessageBox.Show("Vui lòng xóa dữ liệu chi tiết hóa đơn trước khi xóa dữ liệu hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    this.Cursor = Cursors.WaitCursor;
-                    db.deleteHoaDon(namid, kyghi, dotid);
-                    this.Cursor = Cursors.Default;
-                    MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnDelete.Visible = false;
-                    dataGridView1.DataSource = null;
+                    DialogResult rs = MessageBox.Show("Bạn có muốn xóa dữ liệu hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (rs == DialogResult.OK)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        db.deleteHoaDon(namid, kyghi, dotid);
+                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnDelete.Visible = false;
+                        dataGridView1.DataSource = null;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -171,12 +189,16 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnEX_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Common.ExportExcel(dataGridView1);
             }
-            Common.ExportExcel(dataGridView1);
+            catch { }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -593,72 +615,80 @@ namespace QLCongNo.View.UC.GachNo
 
         private void frHoaDon_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dataGridView1.AutoGenerateColumns = false;
-            txtPath.Enabled = false;
-            var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
-
-            cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
-            for (int i = 1; i <= 12; i++)
+            try
             {
-                dmKyghi.Add(new DM_KYGHI()
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //dataGridView1.AutoGenerateColumns = false;
+                txtPath.Enabled = false;
+                var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
+
+                cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
+                for (int i = 1; i <= 12; i++)
                 {
-                    ID_kyghi = i.ToString("00"),
-                    ten_kyghi = $"{i:00}"
-                });
+                    dmKyghi.Add(new DM_KYGHI()
+                    {
+                        ID_kyghi = i.ToString("00"),
+                        ten_kyghi = $"{i:00}"
+                    });
+                }
+                cboKy.DataSource = dmKyghi;
+                cboKy.ValueMember = "ID_kyghi";
+                cboKy.DisplayMember = "ten_kyghi";
+
+                // dm nam
+                cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_NAM> dmNam = new List<DM_NAM>();
+                var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
+                dmNam.AddRange(dataNam);
+                cboNam.DataSource = dmNam.ToList();
+                cboNam.ValueMember = "nam";
+                cboNam.DisplayMember = "NAM";
+
+                // dm dot
+                cboDot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_DOT> dmDot = new List<DM_DOT>();
+                var dataDot = db.DM_DOT.OrderBy(x => x.TENDOT).ToList();
+                dmDot.AddRange(dataDot);
+                cboDot.DataSource = dmDot.ToList();
+                cboDot.ValueMember = "DOT_ID";
+                cboDot.DisplayMember = "TENDOT";
+                btnLuu.Enabled = false;
+                btnDelete.Visible = false;
             }
-            cboKy.DataSource = dmKyghi;
-            cboKy.ValueMember = "ID_kyghi";
-            cboKy.DisplayMember = "ten_kyghi";
-
-            // dm nam
-            cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_NAM> dmNam = new List<DM_NAM>();
-            var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
-            dmNam.AddRange(dataNam);
-            cboNam.DataSource = dmNam.ToList();
-            cboNam.ValueMember = "nam";
-            cboNam.DisplayMember = "NAM";
-
-            // dm dot
-            cboDot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_DOT> dmDot = new List<DM_DOT>();
-            var dataDot = db.DM_DOT.OrderBy(x => x.TENDOT).ToList();
-            dmDot.AddRange(dataDot);
-            cboDot.DataSource = dmDot.ToList();
-            cboDot.ValueMember = "DOT_ID";
-            cboDot.DisplayMember = "TENDOT";
-            btnLuu.Enabled = false;
-            btnDelete.Visible = false;
+            catch { }
         }
 
         private void btnDB_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            } 
-                
-            decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-            decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-            string kyghi = cboKy.SelectedValue.ToString();
-            string result = namid + kyghi;
-            var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-            var hoadon = db.HOADONs.Where(x => x.kyghi == result && x.DOT_ID == dotid).Count();
-            if (hoadon != 0)
-                MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                SqlParameter prkyghi = new SqlParameter("@kyghi", result);
-                SqlParameter prdotid = new SqlParameter("@dotid", dotid);
-                SqlParameter prnam = new SqlParameter("@nam", namid);
-                SqlParameter prNVID = new SqlParameter("@user_create", NVLap.nv_id);
-                db.Database.ExecuteSqlCommand("exec ImportHoaDon @user_create, @kyghi, @dotid, @nam", prNVID, prkyghi, prdotid, prnam);
-                btnLuu.Enabled = false;
-                MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+                decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
+                string kyghi = cboKy.SelectedValue.ToString();
+                string result = namid + kyghi;
+                var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                var hoadon = db.HOADONs.Where(x => x.kyghi == result && x.DOT_ID == dotid).Count();
+                if (hoadon != 0)
+                    MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    SqlParameter prkyghi = new SqlParameter("@kyghi", result);
+                    SqlParameter prdotid = new SqlParameter("@dotid", dotid);
+                    SqlParameter prnam = new SqlParameter("@nam", namid);
+                    SqlParameter prNVID = new SqlParameter("@user_create", NVLap.nv_id);
+                    db.Database.ExecuteSqlCommand("exec ImportHoaDon @user_create, @kyghi, @dotid, @nam", prNVID, prkyghi, prdotid, prnam);
+                    btnLuu.Enabled = false;
+                    MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            catch { }
         }
 
         private void linkChonFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

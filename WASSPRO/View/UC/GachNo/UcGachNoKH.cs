@@ -4,6 +4,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using QLCongNo.View.UC.HoaDon;
@@ -50,8 +51,30 @@ namespace QLCongNo.View.UC.GachNo
             dgvHoadon.CellContentClick += dgvHoadon_CellContentClick;
             this.dgvHoadon.DataError += dgvHoadon_DataError;
             this.dgvHoadon.CellFormatting += dgvHoadon_CellFormatting;
+            this.dgvKhachhang.CellContentClick += DgvKhachhang_CellContentClick;
+            this.dgvKhachhang.KeyDown += DgvKhachhang_KeyDown;
+        }
+
+        private void DgvKhachhang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                var currentRow = this.dgvKhachhang.CurrentCell.RowIndex;
+                var currentCol = this.dgvKhachhang.CurrentCell.ColumnIndex;
+                if (currentCol < 0) return;
+
+                var content = this.dgvKhachhang.Rows[currentRow].Cells[currentCol].Value?.ToString();
+                Clipboard.SetText(content);
+                MessageBox.Show($"Đã copy dữ liệu: {content}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+            };
+        }
+
+        private void DgvKhachhang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
+
         private void dgvHoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvHoadon.Columns[e.ColumnIndex].Name == "thangColumn")

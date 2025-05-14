@@ -126,177 +126,194 @@ namespace QLCongNo.View.UC.HoaDon
 
         void excelButton_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }   
-            else
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    Common.ExportExcel(dataGridView1);
+                }
+            }
+            catch (Exception ex)
             {
-                Common.ExportExcel(dataGridView1);
-            }    
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
          void bdButton_Click(object sender, EventArgs e)
           {
-              if (dataGridView1.RowCount > 0)
-              {
-                  DialogResult rs = MessageBox.Show("Bạn có muốn phát hành hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                  if (rs == DialogResult.OK)
-                  {
-                      decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-                      decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-                      int kyghi = int.Parse( cboKy.SelectedValue.ToString());
-                      string pkyghi = cboKy.SelectedValue.ToString();
-                      //var NVLap = db.NGUOIDUNGs.Where(x => x.nv_id == Common.NVID).FirstOrDefault();
-                      var soluongPH = db.HOADONs.Where(x => x.DOT_ID == dotid 
-                                        && x.kyghi == pkyghi
-                                        && x.trangthai_id == 1  
-                                        && x.DaPhatHanh == false ).ToList().Count();
-                      bdButton.Enabled = false;
-                      excelButton.Enabled = false;
-                      quitButton.Enabled = false;
-                      int soluongHD = soluongPH;
-                      int soluongPhathanh = soluongPH;
-                      int i = 0;
-                      int soluongPro = soluongPH;
-                      var acc = db.TAIKHOAN_SERVICE.FirstOrDefault();
-                      try
-                      {
-                          var xml = db.sp_xmlUpdateCus(cboKy.SelectedValue.ToString(), dotid).FirstOrDefault().ToString();
-                          pb78.PublishService pb = new pb78.PublishService();
-                          pb.UpdateCus(xml, "capnuocthuducservice", "Einv@oi@vn#pt20", 0);
-                      }
-                      catch
-                      {
+            try
+            {
+                if (dataGridView1.RowCount > 0)
+                {
+                    DialogResult rs = MessageBox.Show("Bạn có muốn phát hành hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (rs == DialogResult.OK)
+                    {
+                        decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+                        decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
+                        int kyghi = int.Parse(cboKy.SelectedValue.ToString());
+                        string pkyghi = cboKy.SelectedValue.ToString();
+                        //var NVLap = db.NGUOIDUNGs.Where(x => x.nv_id == Common.NVID).FirstOrDefault();
+                        var soluongPH = db.HOADONs.Where(x => x.DOT_ID == dotid
+                                          && x.kyghi == pkyghi
+                                          && x.trangthai_id == 1
+                                          && x.DaPhatHanh == false).ToList().Count();
+                        bdButton.Enabled = false;
+                        excelButton.Enabled = false;
+                        quitButton.Enabled = false;
+                        int soluongHD = soluongPH;
+                        int soluongPhathanh = soluongPH;
+                        int i = 0;
+                        int soluongPro = soluongPH;
+                        var acc = db.TAIKHOAN_SERVICE.FirstOrDefault();
+                        try
+                        {
+                            var xml = db.sp_xmlUpdateCus(cboKy.SelectedValue.ToString(), dotid).FirstOrDefault().ToString();
+                            pb78.PublishService pb = new pb78.PublishService();
+                            pb.UpdateCus(xml, "capnuocthuducservice", "Einv@oi@vn#pt20", 0);
+                        }
+                        catch
+                        {
 
-                      }
-                      while (soluongHD > 0)
-                      {
-                          MessageBox.Show("1");
-                          pb78.PublishService pb = new pb78.PublishService();
-                          string xml = db.sp_xmlPublishInv(kyghi,2019, dotid).FirstOrDefault().ToString();
-                          var thongbao = db.MAU_HD.FirstOrDefault();
-                          pb.Timeout = 180000;
-                          var result = pb.ImportAndPublishInv("capnuocthuducadmin", acc.pass_admin, xml, "capnuocthuducservice", "Einv@oi@vn#pt20", thongbao.mau_HD1, thongbao.ky_hieu_HD, 0);
-                          MessageBox.Show(result);
-                          if (result.Substring(0, 2) == "OK")
-                          {
-                              this.Cursor = Cursors.WaitCursor;
-                              if (soluongHD < 300)
-                                  i = i + soluongHD;
-                              else
-                                  i = i + 300;
-                              StringParserToInv(result);
-                              soluongHD = soluongHD - 300;
-                              this.Cursor = Cursors.Default;
-                          }
-                          else
-                          {
-                              switch (result)
-                              {
-                                  case "ERR:1":
-                                      MessageBox.Show("Tài khoản đăng nhập sai hoặc không có quyền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    break;
+                        }
+                        while (soluongHD > 0)
+                        {
+                            MessageBox.Show("1");
+                            pb78.PublishService pb = new pb78.PublishService();
+                            string xml = db.sp_xmlPublishInv(kyghi, 2019, dotid).FirstOrDefault().ToString();
+                            var thongbao = db.MAU_HD.FirstOrDefault();
+                            pb.Timeout = 180000;
+                            var result = pb.ImportAndPublishInv("capnuocthuducadmin", acc.pass_admin, xml, "capnuocthuducservice", "Einv@oi@vn#pt20", thongbao.mau_HD1, thongbao.ky_hieu_HD, 0);
+                            MessageBox.Show(result);
+                            if (result.Substring(0, 2) == "OK")
+                            {
+                                this.Cursor = Cursors.WaitCursor;
+                                if (soluongHD < 300)
+                                    i = i + soluongHD;
+                                else
+                                    i = i + 300;
+                                StringParserToInv(result);
+                                soluongHD = soluongHD - 300;
+                                this.Cursor = Cursors.Default;
+                            }
+                            else
+                            {
+                                switch (result)
+                                {
+                                    case "ERR:1":
+                                        MessageBox.Show("Tài khoản đăng nhập sai hoặc không có quyền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        break;
 
-                                  case "ERR:2":
-                                      MessageBox.Show("Hóa đơn cần điều chỉnh không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    break;
-                                  case "ERR:3":
-                                      MessageBox.Show("Xml đầu vào không đúng quy định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                      break;
-                                  case "ERR:5":
-                                      MessageBox.Show("Không phát hành được hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                      break;
-                                  case "ERR:13":
-                                      var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid 
-                                                        && x.kyghi == pkyghi
-                                                        && x.trangthai_id == 1
-                                                        && x.DaPhatHanh == false).OrderBy(x=>x.SOPHATHANH).Take(400).ToList();
-                                      foreach (var item in hoadon)
-                                      {
-                                          portal78.PortalService pt = new portal78.PortalService();
-                                          var xmlInvocie = pt.listInvByCusFkey(item.ID_HD.ToString(), DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("dd/MM/yyyy"), acc.acc_service, "Einv@oi@vn#pt20").ToString();
-                                          if (xmlInvocie != "<Data></Data>")
-                                          {
-                                              var rootElement = XElement.Parse(xmlInvocie.Replace("<Data>", "").Replace("</Data>", ""));
-                                              var soHD = rootElement.Element("invNum").Value;
-                                              if (soHD != null)
-                                              {
-                                                  var objHoadon = db.HOADONs.Where(x => x.ID_HD == item.ID_HD && x.DaPhatHanh == false).FirstOrDefault();
-                                                  if (objHoadon != null)
-                                                  {
-                                                      objHoadon.DaPhatHanh = true;
-                                                      objHoadon.ArisingDate = DateTime.Now;
-                                                      objHoadon.SO_HD = int.Parse(soHD).ToString();
-                                                      db.SaveChanges();
-                                                  }
-                                              }
-                                          }
-                                      }
-                                      break;
-                                  case "ERR:6":
-                                      MessageBox.Show("Dãy hóa đơn cũ đã hết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                      break;
-                                  default:
-                                      break;
-                              }
-                              HOADON_LOG HDLog = new HOADON_LOG();
-                              HDLog.fkey = result + "_" + DateTime.Now.ToString() + "_" + xml + "_" + Common.NVID.ToString();
-                              db.HOADON_LOG.Add(HDLog);
-                              db.SaveChanges();
-                              seachButton.PerformClick();
-                              bdButton.Enabled = true;
-                              excelButton.Enabled = true;
-                              quitButton.Enabled = true;
-                              seachButton.PerformClick();
-                              dataGridView1.Visible = true; ;
-                              bdButton.Enabled = false;
-                              break;
-                          }
-                      }
-                      MessageBox.Show("Phát hành thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                      seachButton.PerformClick();
-                  }
-              }
+                                    case "ERR:2":
+                                        MessageBox.Show("Hóa đơn cần điều chỉnh không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        break;
+                                    case "ERR:3":
+                                        MessageBox.Show("Xml đầu vào không đúng quy định", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        break;
+                                    case "ERR:5":
+                                        MessageBox.Show("Không phát hành được hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        break;
+                                    case "ERR:13":
+                                        var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid
+                                                          && x.kyghi == pkyghi
+                                                          && x.trangthai_id == 1
+                                                          && x.DaPhatHanh == false).OrderBy(x => x.SOPHATHANH).Take(400).ToList();
+                                        foreach (var item in hoadon)
+                                        {
+                                            portal78.PortalService pt = new portal78.PortalService();
+                                            var xmlInvocie = pt.listInvByCusFkey(item.ID_HD.ToString(), DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("dd/MM/yyyy"), acc.acc_service, "Einv@oi@vn#pt20").ToString();
+                                            if (xmlInvocie != "<Data></Data>")
+                                            {
+                                                var rootElement = XElement.Parse(xmlInvocie.Replace("<Data>", "").Replace("</Data>", ""));
+                                                var soHD = rootElement.Element("invNum").Value;
+                                                if (soHD != null)
+                                                {
+                                                    var objHoadon = db.HOADONs.Where(x => x.ID_HD == item.ID_HD && x.DaPhatHanh == false).FirstOrDefault();
+                                                    if (objHoadon != null)
+                                                    {
+                                                        objHoadon.DaPhatHanh = true;
+                                                        objHoadon.ArisingDate = DateTime.Now;
+                                                        objHoadon.SO_HD = int.Parse(soHD).ToString();
+                                                        db.SaveChanges();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case "ERR:6":
+                                        MessageBox.Show("Dãy hóa đơn cũ đã hết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                HOADON_LOG HDLog = new HOADON_LOG();
+                                HDLog.fkey = result + "_" + DateTime.Now.ToString() + "_" + xml + "_" + Common.NVID.ToString();
+                                db.HOADON_LOG.Add(HDLog);
+                                db.SaveChanges();
+                                seachButton.PerformClick();
+                                bdButton.Enabled = true;
+                                excelButton.Enabled = true;
+                                quitButton.Enabled = true;
+                                seachButton.PerformClick();
+                                dataGridView1.Visible = true; ;
+                                bdButton.Enabled = false;
+                                break;
+                            }
+                        }
+                        MessageBox.Show("Phát hành thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        seachButton.PerformClick();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
         private void StringParserToInv(string result)
         {
-            string[] patterns;
-            string pattern, Serialno;
-            var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-            //Lấy phần parrten
-            patterns = result.Split(';');
-            if (patterns.Length > 0)
+            try
             {
-                //Lấy phần Serialno
-                pattern = patterns[0];
-                pattern = pattern.Substring(3, pattern.Length - 3);
-                //Serialnos = patterns[1].Split('-');
+                string[] patterns;
+                string pattern, Serialno;
+                var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                //Lấy phần parrten
+                patterns = result.Split(';');
+                if (patterns.Length > 0)
+                {
+                    //Lấy phần Serialno
+                    pattern = patterns[0];
+                    pattern = pattern.Substring(3, pattern.Length - 3);
+                    //Serialnos = patterns[1].Split('-');
 
-                //Xử lý tách khóa key và số hóa đơn
-                int index = patterns[1].IndexOf("-");
-                Serialno = patterns[1].Substring(0, index);
-                string Data = patterns[1].Substring(index + 1);
-                HOADON_LOG HDLog = new HOADON_LOG();
-                HDLog.patterns = pattern;
-                HDLog.Serialno = Serialno;
-                HDLog.fkey = Data;
-                db.HOADON_LOG.Add(HDLog);
-                db.SaveChanges();
-                decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-                decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
-                string kyghi = cboKy.SelectedValue.ToString();
-                db.sp_updateHoaDon(Data, Serialno, pattern, NVLap.nv_id, kyghi, dotid, namid);
-                //ImportInvoices(pattern, Serialno, Data);
+                    //Xử lý tách khóa key và số hóa đơn
+                    int index = patterns[1].IndexOf("-");
+                    Serialno = patterns[1].Substring(0, index);
+                    string Data = patterns[1].Substring(index + 1);
+                    HOADON_LOG HDLog = new HOADON_LOG();
+                    HDLog.patterns = pattern;
+                    HDLog.Serialno = Serialno;
+                    HDLog.fkey = Data;
+                    db.HOADON_LOG.Add(HDLog);
+                    db.SaveChanges();
+                    decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+                    decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
+                    string kyghi = cboKy.SelectedValue.ToString();
+                    db.sp_updateHoaDon(Data, Serialno, pattern, NVLap.nv_id, kyghi, dotid, namid);
+                    //ImportInvoices(pattern, Serialno, Data);
+                }
+                else
+                {
+                    HOADON_LOG HDLog = new HOADON_LOG();
+                    HDLog.fkey = result;
+                    db.SaveChanges();
+                }
             }
-            else
-            {
-                HOADON_LOG HDLog = new HOADON_LOG();
-                HDLog.fkey = result;
-                db.SaveChanges();
-            }
-                
-
+            catch { }
         }
         private void ImportInvoices(string pattern, string Serialno, string Data)
         {
@@ -334,51 +351,58 @@ namespace QLCongNo.View.UC.HoaDon
 
         void seachButton_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
-            int nam = int.Parse(cboNam.Text);
-            string thang = cboKy.Text;
-            string result = nam.ToString() + thang;
-            var dataHD = db.HOADONs.Where(x => x.trangthai_id == 1 
-                                            && x.DOT_ID == dotid 
-                                            && x.nam == nam
-                                            && x.kyghi == result
-                                            && x.DaPhatHanh == false ).ToList();
-            var chitietHD = (from a in db.CHITIET_HD
-                             from x in db.HOADONs
-                             where a.ID_HD == x.ID_HD && x.ID_KH == a.ID_KH 
-                             where x.trangthai_id == 1 
-                                && x.DOT_ID == dotid
-                                && x.nam == nam
-                                && x.kyghi == result
-                                && x.DaPhatHanh == false 
-                             select a).ToList().Count();
-          
-            if (dataHD.Count() == 0)
-                MessageBox.Show("Tháng này đã được phát hành hóa đơn hoặc không có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (chitietHD == 0)
-                MessageBox.Show("Dữ liệu chi tiết hóa đơn không tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
+            try
             {
-                bdButton.Enabled = true;
-                if(dataHD.Count > 0)
+                this.Cursor = Cursors.WaitCursor;
+                decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
+                int nam = int.Parse(cboNam.Text);
+                string thang = cboKy.Text;
+                string result = nam.ToString() + thang;
+                var dataHD = db.HOADONs.Where(x => x.trangthai_id == 1
+                                                && x.DOT_ID == dotid
+                                                && x.nam == nam
+                                                && x.kyghi == result
+                                                && x.DaPhatHanh == false).ToList();
+                var chitietHD = (from a in db.CHITIET_HD
+                                 from x in db.HOADONs
+                                 where a.ID_HD == x.ID_HD && x.ID_KH == a.ID_KH
+                                 where x.trangthai_id == 1
+                                    && x.DOT_ID == dotid
+                                    && x.nam == nam
+                                    && x.kyghi == result
+                                    && x.DaPhatHanh == false
+                                 select a).ToList().Count();
+
+                if (dataHD.Count() == 0)
+                    MessageBox.Show("Tháng này đã được phát hành hóa đơn hoặc không có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (chitietHD == 0)
+                    MessageBox.Show("Dữ liệu chi tiết hóa đơn không tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                }    
-                dataGridView1.DataSource = dataHD.OrderBy(x => x.MaLT).ToList();
-                txtsoHD.Text = string.Format("{0:n0}", dataHD.Count());
-                txttiennuoc.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT));
-                txtTienBVMT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.PhiBVMTCu));
-                txtPhiNT25.Text = string.Format("{0:n0}", dataHD.Sum(z => z.PhiNT));
-                txtThueGTGT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tienvat));
-                txtTongTien.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
-                txtLNTT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.m3tieuthu));
-                lblTongtien.Text = "Số lượng: " + string.Format("{0:n0}", dataHD.Count()) + " Tiền nước: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT)) +
-                    " Tiền thuế GTGT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienvat)) + " Tiền BVMT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienBVMT)) +
-                    " Tổng tiền: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
-                this.danhsach = dataHD;
+                    bdButton.Enabled = true;
+                    if (dataHD.Count > 0)
+                    {
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    }
+                    dataGridView1.DataSource = dataHD.OrderBy(x => x.MaLT).ToList();
+                    txtsoHD.Text = string.Format("{0:n0}", dataHD.Count());
+                    txttiennuoc.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT));
+                    txtTienBVMT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.PhiBVMTCu));
+                    txtPhiNT25.Text = string.Format("{0:n0}", dataHD.Sum(z => z.PhiNT));
+                    txtThueGTGT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tienvat));
+                    txtTongTien.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
+                    txtLNTT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.m3tieuthu));
+                    lblTongtien.Text = "Số lượng: " + string.Format("{0:n0}", dataHD.Count()) + " Tiền nước: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT)) +
+                        " Tiền thuế GTGT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienvat)) + " Tiền BVMT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienBVMT)) +
+                        " Tổng tiền: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
+                    this.danhsach = dataHD;
+                }
+                this.Cursor = Cursors.Default;
             }
-            this.Cursor = Cursors.Default;  
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         void quitButton_Click(object sender, EventArgs e)
@@ -388,84 +412,90 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void frPhatHanhHD_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoGenerateColumns = false;
-            //// dm mau so, ky hieu hoa don
-            //var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
-            //cboMauHD.DataSource = dataMauHD.ToList();
-            //cboMauHD.ValueMember = "mau_HD1";
-            //cboKH.DataSource = dataMauHD.ToList();
-            //cboKH.ValueMember = "ky_hieu_HD";
-
-            // dm mau HD
-            List<MAU_HD> dsMau = new List<MAU_HD>();
-            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
-            dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
-            dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
-            dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
-            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
-            dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
-            cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboMauHD.DataSource = dsMau;
-            cboMauHD.ValueMember = "mau_HD1";
-            // dm ky hieu
-            cboKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboKH.DataSource = dsMau;
-            cboKH.ValueMember = "ky_hieu_HD";
-            cboKH.DisplayMember = "ky_hieu_HD";
-
-            cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
-            for (int i = 1; i <= 12; i++)
+            try
             {
-                dmKyghi.Add(new DM_KYGHI()
-                {
-                    ID_kyghi = i.ToString("00"),
-                    ten_kyghi = $"{i:00}"
-                });
-            }
-            cboKy.DataSource = dmKyghi;
-            cboKy.ValueMember = "ID_kyghi";
-            cboKy.DisplayMember = "ten_kyghi";
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.AutoGenerateColumns = false;
+                //// dm mau so, ky hieu hoa don
+                //var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
+                //cboMauHD.DataSource = dataMauHD.ToList();
+                //cboMauHD.ValueMember = "mau_HD1";
+                //cboKH.DataSource = dataMauHD.ToList();
+                //cboKH.ValueMember = "ky_hieu_HD";
 
-            cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_NAM> dmNam = new List<DM_NAM>();
-            var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
-            dmNam.AddRange(dataNam);
-            cboNam.DataSource = dmNam.ToList();
-            cboNam.ValueMember = "NAM_ID";
-            cboNam.DisplayMember = "NAM";
-            // dm dot
-            cboDot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_DOT> dmDot = new List<DM_DOT>();
-            //dmDot.Add(new DM_DOT() { DOT_ID = 0, TENDOT = "Tất cả" });
-            var dataDot = db.DM_DOT.OrderBy(x => x.TENDOT).ToList();
-            dmDot.AddRange(dataDot);
-            cboDot.DataSource = dmDot.ToList();
-            cboDot.ValueMember = "DOT_ID";
-            cboDot.DisplayMember = "TENDOT";
-            bdButton.Enabled = false;
+                // dm mau HD
+                List<MAU_HD> dsMau = new List<MAU_HD>();
+                dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
+                dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
+                dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
+                dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
+                dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
+                dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
+                cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                cboMauHD.DataSource = dsMau;
+                cboMauHD.ValueMember = "mau_HD1";
+                // dm ky hieu
+                cboKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                cboKH.DataSource = dsMau;
+                cboKH.ValueMember = "ky_hieu_HD";
+                cboKH.DisplayMember = "ky_hieu_HD";
+
+                cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
+                for (int i = 1; i <= 12; i++)
+                {
+                    dmKyghi.Add(new DM_KYGHI()
+                    {
+                        ID_kyghi = i.ToString("00"),
+                        ten_kyghi = $"{i:00}"
+                    });
+                }
+                cboKy.DataSource = dmKyghi;
+                cboKy.ValueMember = "ID_kyghi";
+                cboKy.DisplayMember = "ten_kyghi";
+
+                cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_NAM> dmNam = new List<DM_NAM>();
+                var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
+                dmNam.AddRange(dataNam);
+                cboNam.DataSource = dmNam.ToList();
+                cboNam.ValueMember = "NAM_ID";
+                cboNam.DisplayMember = "NAM";
+                // dm dot
+                cboDot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_DOT> dmDot = new List<DM_DOT>();
+                //dmDot.Add(new DM_DOT() { DOT_ID = 0, TENDOT = "Tất cả" });
+                var dataDot = db.DM_DOT.OrderBy(x => x.TENDOT).ToList();
+                dmDot.AddRange(dataDot);
+                cboDot.DataSource = dmDot.ToList();
+                cboDot.ValueMember = "DOT_ID";
+                cboDot.DisplayMember = "TENDOT";
+                bdButton.Enabled = false;
+            }
+            catch { }
         }
 
         private void btnDC_Click(object sender, EventArgs e)
         {
-            if (btnDC.Text == "Khóa điều chỉnh hóa đơn")
+            try
             {
-                var nguoidung = db.NGUOIDUNGs.Where(x => x.nv_id == 819).FirstOrDefault();
-                nguoidung.isLock = true;
-                db.SaveChanges();
-                btnDC.Text = "Mở điều chỉnh hóa đơn";
+                if (btnDC.Text == "Khóa điều chỉnh hóa đơn")
+                {
+                    var nguoidung = db.NGUOIDUNGs.Where(x => x.nv_id == 819).FirstOrDefault();
+                    nguoidung.isLock = true;
+                    db.SaveChanges();
+                    btnDC.Text = "Mở điều chỉnh hóa đơn";
+                }
+                if (btnDC.Text == "Mở điều chỉnh hóa đơn")
+                {
+                    var nguoidung = db.NGUOIDUNGs.Where(x => x.nv_id == 819).FirstOrDefault();
+                    nguoidung.isLock = false;
+                    db.SaveChanges();
+                    btnDC.Text = "Khóa điều chỉnh hóa đơn";
+
+                }
             }
-            if (btnDC.Text == "Mở điều chỉnh hóa đơn")
-            {
-                var nguoidung = db.NGUOIDUNGs.Where(x => x.nv_id == 819).FirstOrDefault();
-                nguoidung.isLock = false;
-                db.SaveChanges();
-                btnDC.Text = "Khóa điều chỉnh hóa đơn";
-
-            }
-
-
+            catch { }
         }
     }
 }

@@ -29,9 +29,17 @@ namespace QLCongNo.View.UC.GachNo
             chkHuyTT.CheckedChanged += chkHuyTT_CheckedChanged;
             this.dgvDSHD.DataError += dgvDSHD_DataError;
             this.dgvDSHD.CellFormatting += dgvDSHD_CellFormatting;
+            this.dgvDSHD.ColumnHeaderMouseClick += DgvDSHD_ColumnHeaderMouseClick;
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
 
+        private void DgvDSHD_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                this.dgvDSHD.SelectAll();
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
