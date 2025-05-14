@@ -134,7 +134,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
 
         private void frKhachHangNoNhieuKy_Load(object sender, EventArgs e)
         {
-            dgvDSKhachHangNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDSKhachHangNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDSKhachHangNo.AutoGenerateColumns = false;
             LoadTuKy();
             LoadDenKy();

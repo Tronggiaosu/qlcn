@@ -19,11 +19,6 @@ namespace QLCongNo.View.UC.HoaDon
             txtTim.KeyDown += txtTim_KeyDown;
         }
 
-        private void quitButton_Click(object sender, EventArgs e)
-        {
-         //   this.Close();
-        }
-
         private void seachButton_Click(object sender, EventArgs e)
         {
             try 
@@ -38,9 +33,9 @@ namespace QLCongNo.View.UC.HoaDon
                 dataGridView1.DataSource = khachhang.ToList();
                 Cursor.Current = Cursors.Default;
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -66,9 +61,9 @@ namespace QLCongNo.View.UC.HoaDon
                 pb78.UpdateCus(xml, acc.acc_service, acc.pass_service,0);
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

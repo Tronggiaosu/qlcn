@@ -38,31 +38,35 @@ namespace QLCongNo.View.UC.HoaDon
 
         private DataTable ReadFromExcelfile(string path)
         {
-            // Khởi tạo data table
-            DataTable dt = new DataTable();
-            // Load file excel và các setting ban đầu
-            using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))
+            try
             {
-                //if (package.Workbook.Worksheets.Count <  1)
-                //{
-                //}
-                ExcelWorksheet workSheet = package.Workbook.Worksheets.FirstOrDefault();
-                foreach (var firstRowCell in workSheet.Cells[1, 1, 1, workSheet.Dimension.End.Column])
+                // Khởi tạo data table
+                DataTable dt = new DataTable();
+                // Load file excel và các setting ban đầu
+                using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))
                 {
-                    dt.Columns.Add(firstRowCell.Text);
-                }
-                for (var rowNumber = 2; rowNumber <= workSheet.Dimension.End.Row; rowNumber++)
-                {
-                    var row = workSheet.Cells[rowNumber, 1, rowNumber, 5];
-                    var newRow = dt.NewRow();
-                    foreach (var cell in row)
+                    //if (package.Workbook.Worksheets.Count <  1)
+                    //{
+                    //}
+                    ExcelWorksheet workSheet = package.Workbook.Worksheets.FirstOrDefault();
+                    foreach (var firstRowCell in workSheet.Cells[1, 1, 1, workSheet.Dimension.End.Column])
                     {
-                        newRow[cell.Start.Column - 1] = cell.Text;
+                        dt.Columns.Add(firstRowCell.Text);
                     }
-                    dt.Rows.Add(newRow);
+                    for (var rowNumber = 2; rowNumber <= workSheet.Dimension.End.Row; rowNumber++)
+                    {
+                        var row = workSheet.Cells[rowNumber, 1, rowNumber, 5];
+                        var newRow = dt.NewRow();
+                        foreach (var cell in row)
+                        {
+                            newRow[cell.Start.Column - 1] = cell.Text;
+                        }
+                        dt.Rows.Add(newRow);
+                    }
                 }
+                return dt;
             }
-            return dt;
+            catch { return null; }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,51 +88,65 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            string pathFile = txtPath.Text;
-            DataTable objTable = new DataTable();
-            if (pathFile != "")
+            try
             {
-                if (btnImport.Text == "Tải dữ liệu")
+                string pathFile = txtPath.Text;
+                DataTable objTable = new DataTable();
+                if (pathFile != "")
                 {
-                    this.Cursor = Cursors.WaitCursor;
-                    objTable = ReadFromExcelfile(txtPath.Text);
-                    dataGridView1.DataSource = objTable;
-                    lblsoluong.Text = "Số lượng: " + objTable.Rows.Count.ToString();
-                    if (objTable.Rows.Count > 0)
-                        btnImport.Text = "Cập nhật";
-                    this.Cursor = Cursors.Default;
-                }
-                else if (btnImport.Text == "Cập nhật")
-                {
-                    DialogResult rs = MessageBox.Show("Bạn có cập nhật địa chỉ khách hàng?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (rs == DialogResult.OK)
+                    if (btnImport.Text == "Tải dữ liệu")
                     {
-                        objTable = ReadFromExcelfile(txtPath.Text);
                         this.Cursor = Cursors.WaitCursor;
-                        //InsertDataIntoSQLServerUsingSQLBulkCopy(objTable);
-                        var result = db.UpdateDiaChi_KH().ToString();
+                        objTable = ReadFromExcelfile(txtPath.Text);
+                        dataGridView1.DataSource = objTable;
+                        lblsoluong.Text = "Số lượng: " + objTable.Rows.Count.ToString();
+                        if (objTable.Rows.Count > 0)
+                            btnImport.Text = "Cập nhật";
                         this.Cursor = Cursors.Default;
-                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btnImport.Text = "Tải dữ liệu";
-                        objTable = null;
+                    }
+                    else if (btnImport.Text == "Cập nhật")
+                    {
+                        DialogResult rs = MessageBox.Show("Bạn có cập nhật địa chỉ khách hàng?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (rs == DialogResult.OK)
+                        {
+                            objTable = ReadFromExcelfile(txtPath.Text);
+                            this.Cursor = Cursors.WaitCursor;
+                            //InsertDataIntoSQLServerUsingSQLBulkCopy(objTable);
+                            var result = db.UpdateDiaChi_KH().ToString();
+                            this.Cursor = Cursors.Default;
+                            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            btnImport.Text = "Tải dữ liệu";
+                            objTable = null;
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Chưa chọn file!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Chưa chọn file!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void excelButton_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount == 0)
+            try
             {
-                MessageBox.Show("Bạn chưa tải liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (dataGridView1.RowCount == 0)
+                {
+                    MessageBox.Show("Bạn chưa tải liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    Common.ExportExcel(dataGridView1);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Common.ExportExcel(dataGridView1);
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

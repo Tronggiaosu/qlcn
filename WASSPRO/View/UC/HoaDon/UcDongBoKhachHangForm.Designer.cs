@@ -117,7 +117,6 @@
             this.quitButton.Size = new System.Drawing.Size(124, 39);
             this.quitButton.Text = "Thoát";
             this.quitButton.Visible = false;
-            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // groupBox1
             // 

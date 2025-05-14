@@ -41,30 +41,37 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void dgvKhachHang_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvKhachHang.Columns[e.ColumnIndex].Name == "kyhd_dgv2")
+            try
             {
-                if (e.Value != null)
+                if (dgvKhachHang.Columns[e.ColumnIndex].Name == "kyhd_dgv2")
                 {
-                    string kyghiFull = e.Value.ToString();
-                    if (kyghiFull.Length >= 2)
+                    if (e.Value != null)
                     {
-                        e.Value = kyghiFull.Substring(0, 2);
-                        e.FormattingApplied = true;
+                        string kyghiFull = e.Value.ToString();
+                        if (kyghiFull.Length >= 2)
+                        {
+                            e.Value = kyghiFull.Substring(0, 2);
+                            e.FormattingApplied = true;
+                        }
+                    }
+                }
+                if (dgvKhachHang.Columns[e.ColumnIndex].Name == "Nhanviencapnhat")
+                {
+                    if (e.Value != null)
+                    {
+                        string somay = e.Value.ToString();
+                        var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == somay);
+                        if (nhanvien != null)
+                        {
+                            e.Value = nhanvien?.hoten;
+                            e.FormattingApplied = true;
+                        }
                     }
                 }
             }
-            if (dgvKhachHang.Columns[e.ColumnIndex].Name == "Nhanviencapnhat")
+            catch (Exception ex)
             {
-                if (e.Value != null)
-                {
-                    string somay = e.Value.ToString();
-                    var nhanvien = db.NHANVIENs.FirstOrDefault(nv => nv.somay == somay);
-                    if (nhanvien != null)
-                    {
-                        e.Value = nhanvien?.hoten;
-                        e.FormattingApplied = true;
-                    }
-                }
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -75,109 +82,117 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            string maDanhBo = txtTim.Text.Trim();
-            if (string.IsNullOrEmpty(maDanhBo))
+            try
             {
-                MessageBox.Show("Chưa nhập thông tin mã danh bộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else if (maDanhBo.Length != 11)
-            {
-                MessageBox.Show("Thông tin tìm kiếm chưa chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else
-            {
-                this.Cursor = Cursors.WaitCursor;
-                var khachhang = db.KHACHHANGs.Where(x => x.madanhbo == maDanhBo).FirstOrDefault();
-
-                if (khachhang == null)
+                string maDanhBo = txtTim.Text.Trim();
+                if (string.IsNullOrEmpty(maDanhBo))
                 {
-                    MessageBox.Show($"Không tìm thấy khách hàng có mã danh bộ này {maDanhBo}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Cursor = Cursors.Default;
+                    MessageBox.Show("Chưa nhập thông tin mã danh bộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                txtDanhBo.Text = khachhang.madanhbo;
-                txtSonha.Text = khachhang.sonha;
-                txtdiachi.Text = khachhang.diachi;
-                txthieuDH.Text = khachhang.hieuHD;
-                txthoten.Text = khachhang.hoten_KH;
-                txtkichco.Text = khachhang.kichcoDH;
-                txtmail.Text = khachhang.email;
-                txtseriDH.Text = khachhang.soseri_DH;
-                txtMLT.Text = khachhang.maLT;
-                txtMST.Text = khachhang.MST_KH;
-                txtSDT.Text = khachhang.SDT_KH;
-                txtghichu.Text = khachhang.ghichu;
-
-                txtDanhBo.Enabled = true;
-                txtDanhBo.BackColor = Color.White;
-                txtMLT.Enabled = true;
-                txtMLT.BackColor = Color.White;
-                cboQuan.Enabled = true;
-                cboQuan.BackColor = Color.White;
-                cboPhuong.Enabled = true;
-                cboPhuong.BackColor = Color.White;
-                txtSonha.Enabled = true;
-                txtSonha.BackColor = Color.White;
-                txtdiachi.Enabled = true;
-                txtdiachi.BackColor = Color.White;
-                txthoten.Enabled = true;
-                txthoten.BackColor = Color.White;
-                txtMST.Enabled = true;
-                txtMST.BackColor = Color.White;
-                txtSDT.Enabled = true;
-                txtSDT.BackColor = Color.White;
-                txtmail.Enabled = true;
-                txtmail.BackColor = Color.White;
-                txtseriDH.Enabled = true;
-                txtseriDH.BackColor = Color.White;
-                txthieuDH.Enabled = true;
-                txthieuDH.BackColor = Color.White;
-                txtkichco.Enabled = true;
-                txtkichco.BackColor = Color.White;
-                cboTrangthai.Enabled = true;
-                cboTrangthai.BackColor = Color.White;
-                cboTTHD.Enabled = true;
-                cboTTHD.BackColor = Color.White;
-                txtghichu.Enabled = true;
-                txtghichu.BackColor = Color.White;
-
-                chkGB.Checked = false;
-                if (khachhang.isingiaybao == true)
-                    chkGB.Checked = true;
-                if (khachhang.nganhang_id != null || khachhang.nganhang_id != 0)
-                    //cboNganHang.Text = khachhang.DM_NGANHANG.TENNGANHANG;
-                    // trang thai
-                    cboTrangthai.DropDownStyle = ComboBoxStyle.DropDownList;
-                cboTrangthai.DataSource = db.DM_TRANGTHAI_KH.OrderBy(x => x.tenTT).ToList();
-                cboTrangthai.ValueMember = "maTT";
-                cboTrangthai.DisplayMember = "tenTT";
-
-                cboTTHD.DataSource = db.DM_TRANGTHAIHOADON.Where(x => x.trangthai_id != 2 && x.trangthai_id != 3 && x.trangthai_id != 4 && x.trangthai_id != 5 && x.trangthai_id != 8 && x.trangthai_id != 9 && x.trangthai_id != 10).OrderBy(x => x.Trangthai).ToList();
-                cboTTHD.ValueMember = "trangthai_id";
-                cboTTHD.DisplayMember = "Trangthai";
-                // quan
-                cboQuan.DataSource = db.DM_QUAN.OrderBy(x => x.tenQuan).ToList();
-                cboQuan.ValueMember = "maQuan";
-                cboQuan.DisplayMember = "tenQuan";
-                cboQuan.DropDownStyle = ComboBoxStyle.DropDownList;
-                cboQuan.SelectedValue = khachhang.maquan;
-                //phuong
-                cboPhuong.DataSource = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
-                cboPhuong.ValueMember = "maPhuong";
-                cboPhuong.DisplayMember = "tenPhuong";
-                cboPhuong.DropDownStyle = ComboBoxStyle.DropDownList;
-                cboPhuong.SelectedValue = khachhang.maphuong;
-                // dieu chinh
-                var listKH = db.getDSHoaDon_KH_Newest(khachhang.ID_KH).ToList();
-                if(listKH.Count > 0)
+                else if (maDanhBo.Length != 11)
                 {
-                    dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    MessageBox.Show("Thông tin tìm kiếm chưa chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                dgvKhachHang.DataSource = listKH;
-                this.Cursor = Cursors.Default;
+                else
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    var khachhang = db.KHACHHANGs.Where(x => x.madanhbo == maDanhBo).FirstOrDefault();
+
+                    if (khachhang == null)
+                    {
+                        MessageBox.Show($"Không tìm thấy khách hàng có mã danh bộ này {maDanhBo}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
+                    txtDanhBo.Text = khachhang.madanhbo;
+                    txtSonha.Text = khachhang.sonha;
+                    txtdiachi.Text = khachhang.diachi;
+                    txthieuDH.Text = khachhang.hieuHD;
+                    txthoten.Text = khachhang.hoten_KH;
+                    txtkichco.Text = khachhang.kichcoDH;
+                    txtmail.Text = khachhang.email;
+                    txtseriDH.Text = khachhang.soseri_DH;
+                    txtMLT.Text = khachhang.maLT;
+                    txtMST.Text = khachhang.MST_KH;
+                    txtSDT.Text = khachhang.SDT_KH;
+                    txtghichu.Text = khachhang.ghichu;
+
+                    txtDanhBo.Enabled = true;
+                    txtDanhBo.BackColor = Color.White;
+                    txtMLT.Enabled = true;
+                    txtMLT.BackColor = Color.White;
+                    cboQuan.Enabled = true;
+                    cboQuan.BackColor = Color.White;
+                    cboPhuong.Enabled = true;
+                    cboPhuong.BackColor = Color.White;
+                    txtSonha.Enabled = true;
+                    txtSonha.BackColor = Color.White;
+                    txtdiachi.Enabled = true;
+                    txtdiachi.BackColor = Color.White;
+                    txthoten.Enabled = true;
+                    txthoten.BackColor = Color.White;
+                    txtMST.Enabled = true;
+                    txtMST.BackColor = Color.White;
+                    txtSDT.Enabled = true;
+                    txtSDT.BackColor = Color.White;
+                    txtmail.Enabled = true;
+                    txtmail.BackColor = Color.White;
+                    txtseriDH.Enabled = true;
+                    txtseriDH.BackColor = Color.White;
+                    txthieuDH.Enabled = true;
+                    txthieuDH.BackColor = Color.White;
+                    txtkichco.Enabled = true;
+                    txtkichco.BackColor = Color.White;
+                    cboTrangthai.Enabled = true;
+                    cboTrangthai.BackColor = Color.White;
+                    cboTTHD.Enabled = true;
+                    cboTTHD.BackColor = Color.White;
+                    txtghichu.Enabled = true;
+                    txtghichu.BackColor = Color.White;
+
+                    chkGB.Checked = false;
+                    if (khachhang.isingiaybao == true)
+                        chkGB.Checked = true;
+                    if (khachhang.nganhang_id != null || khachhang.nganhang_id != 0)
+                        //cboNganHang.Text = khachhang.DM_NGANHANG.TENNGANHANG;
+                        // trang thai
+                        cboTrangthai.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cboTrangthai.DataSource = db.DM_TRANGTHAI_KH.OrderBy(x => x.tenTT).ToList();
+                    cboTrangthai.ValueMember = "maTT";
+                    cboTrangthai.DisplayMember = "tenTT";
+
+                    cboTTHD.DataSource = db.DM_TRANGTHAIHOADON.Where(x => x.trangthai_id != 2 && x.trangthai_id != 3 && x.trangthai_id != 4 && x.trangthai_id != 5 && x.trangthai_id != 8 && x.trangthai_id != 9 && x.trangthai_id != 10).OrderBy(x => x.Trangthai).ToList();
+                    cboTTHD.ValueMember = "trangthai_id";
+                    cboTTHD.DisplayMember = "Trangthai";
+                    // quan
+                    cboQuan.DataSource = db.DM_QUAN.OrderBy(x => x.tenQuan).ToList();
+                    cboQuan.ValueMember = "maQuan";
+                    cboQuan.DisplayMember = "tenQuan";
+                    cboQuan.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cboQuan.SelectedValue = khachhang.maquan;
+                    //phuong
+                    cboPhuong.DataSource = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
+                    cboPhuong.ValueMember = "maPhuong";
+                    cboPhuong.DisplayMember = "tenPhuong";
+                    cboPhuong.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cboPhuong.SelectedValue = khachhang.maphuong;
+                    // dieu chinh
+                    var listKH = db.getDSHoaDon_KH_Newest(khachhang.ID_KH).ToList();
+                    if (listKH.Count > 0)
+                    {
+                        dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    }
+                    dgvKhachHang.DataSource = listKH;
+                    this.Cursor = Cursors.Default;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dgvHoaDon_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -549,8 +564,9 @@ namespace QLCongNo.View.UC.HoaDon
                     this.Cursor = Cursors.Default;
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
