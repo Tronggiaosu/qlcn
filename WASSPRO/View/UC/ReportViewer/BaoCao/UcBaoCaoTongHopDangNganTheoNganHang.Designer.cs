@@ -33,6 +33,8 @@
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
+            this.novLabel3 = new QLCongNo.View.Core.NovLabel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.novLabel2 = new QLCongNo.View.Core.NovLabel();
             this.dtPickerTu = new QLCongNo.View.Core.NovDateTimePicker();
             this.novLabel1 = new QLCongNo.View.Core.NovLabel();
@@ -93,6 +95,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.novLabel3);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.novLabel2);
             this.groupBox1.Controls.Add(this.dtPickerTu);
             this.groupBox1.Controls.Add(this.novLabel1);
@@ -108,13 +112,34 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // novLabel3
+            // 
+            this.novLabel3.AutoSize = true;
+            this.novLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.novLabel3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novLabel3.ForeColor = System.Drawing.Color.MediumBlue;
+            this.novLabel3.Location = new System.Drawing.Point(563, 42);
+            this.novLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.novLabel3.Name = "novLabel3";
+            this.novLabel3.Size = new System.Drawing.Size(80, 23);
+            this.novLabel3.TabIndex = 7;
+            this.novLabel3.Text = "Lọc theo:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(647, 38);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(179, 31);
+            this.comboBox1.TabIndex = 6;
+            // 
             // novLabel2
             // 
             this.novLabel2.AutoSize = true;
             this.novLabel2.BackColor = System.Drawing.Color.Transparent;
             this.novLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.novLabel2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.novLabel2.Location = new System.Drawing.Point(400, 42);
+            this.novLabel2.Location = new System.Drawing.Point(283, 42);
             this.novLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.novLabel2.Name = "novLabel2";
             this.novLabel2.Size = new System.Drawing.Size(87, 23);
@@ -150,7 +175,7 @@
             this.dtPickerDen.CustomFormat = "dd/MM/yyyy";
             this.dtPickerDen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPickerDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerDen.Location = new System.Drawing.Point(494, 39);
+            this.dtPickerDen.Location = new System.Drawing.Point(377, 39);
             this.dtPickerDen.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.dtPickerDen.Name = "dtPickerDen";
             this.dtPickerDen.Size = new System.Drawing.Size(144, 30);
@@ -212,5 +237,7 @@
         private Core.NovDateTimePicker dtPickerTu;
         private Core.NovLabel novLabel1;
         private Core.NovDateTimePicker dtPickerDen;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private Core.NovLabel novLabel3;
     }
 }

@@ -434,10 +434,10 @@
             this.btnGachNo.IconSize = 1;
             this.btnGachNo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGachNo.Location = new System.Drawing.Point(642, 217);
-            this.btnGachNo.Margin = new System.Windows.Forms.Padding(10, 5, 70, 14);
+            this.btnGachNo.Margin = new System.Windows.Forms.Padding(10, 5, 43, 14);
             this.btnGachNo.Name = "btnGachNo";
             this.btnGachNo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnGachNo.Size = new System.Drawing.Size(35, 38);
+            this.btnGachNo.Size = new System.Drawing.Size(62, 38);
             this.btnGachNo.TabIndex = 14;
             this.btnGachNo.Text = ">>";
             this.btnGachNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

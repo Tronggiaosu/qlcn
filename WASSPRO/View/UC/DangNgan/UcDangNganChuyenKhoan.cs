@@ -197,11 +197,11 @@ namespace QLCongNo.View.UC.DangNgan
                 MessageBox.Show("Không có dữ liệu để đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(dataGridView1.Rows.Count > 0 && chkisdangngan.Checked == true)
+            if (dataGridView1.Rows.Count > 0 && chkisdangngan.Checked == true)
             {
                 MessageBox.Show("Dữ liệu này đã đăng ngân rồi, không thể đăng ngân nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }    
+            }
             DialogResult rs = MessageBox.Show("Xác nhận đăng ngân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (rs == DialogResult.OK)
             {
@@ -215,7 +215,8 @@ namespace QLCongNo.View.UC.DangNgan
                     TOID = int.Parse(cboTO.SelectedValue.ToString());
                 var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "", false, NVLap, TOID);
                 btnTim.PerformClick();
-                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{dataGridView1.Rows.Count} hoá đơn vừa được đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -514,14 +515,13 @@ namespace QLCongNo.View.UC.DangNgan
             if (_staticMaloai == "TT")
                 TOID = int.Parse(cboTO.SelectedValue.ToString());
             var dataSource = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
-            
+
             table = ExcelExportHelper.ListToDataTable(dataSource);
             if (dataSource.Count() > 0)
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 dataGridView1.Columns[10].Width = 270;
-                //btnDN.Enabled = true;
             }
             dataGridView1.DataSource = dataSource;
             lblsoluong.Text = "Số lượng HĐ: " + string.Format("{0:n0}", dataGridView1.RowCount);
@@ -531,7 +531,12 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void frDangNganChuyenKhoan_Load(object sender, EventArgs e)
         {
-            if (Common.username != "tkct-thuy" && Common.username != "tkct-hoa" && Common.username != "tkct-le" && Common.username != "tkct-yen")
+            if (Common.username != "tkct-thuy" 
+                && Common.username != "tkct-hoa" 
+                && Common.username != "tkct-le" 
+                && Common.username != "tkct-yen" 
+                && Common.username != "tkct" 
+                && Common.username != "tracham")
             {
                 btnDN.Enabled = false;
             }
