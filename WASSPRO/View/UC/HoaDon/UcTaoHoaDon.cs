@@ -113,7 +113,7 @@ namespace QLCongNo.View.UC.HoaDon
                 //dmNam.Add(new DM_NAM() { NAM_ID = 0, NAM = "Tất cả" });
                 var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
                 dmNam.AddRange(dataNam);
-                cboNam.DataSource = dmNam.ToList();
+                cboNam.DataSource = dmNam.OrderByDescending(x => x.NAM).ToList();
                 cboNam.ValueMember = "nam";
                 cboNam.DisplayMember = "NAM";
 

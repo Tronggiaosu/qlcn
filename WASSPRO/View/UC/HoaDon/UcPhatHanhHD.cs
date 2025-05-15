@@ -416,29 +416,29 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AutoGenerateColumns = false;
-                //// dm mau so, ky hieu hoa don
-                //var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
-                //cboMauHD.DataSource = dataMauHD.ToList();
-                //cboMauHD.ValueMember = "mau_HD1";
-                //cboKH.DataSource = dataMauHD.ToList();
-                //cboKH.ValueMember = "ky_hieu_HD";
-
-                // dm mau HD
-                List<MAU_HD> dsMau = new List<MAU_HD>();
-                dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
-                dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
-                dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
-                dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
-                dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
-                dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
-                cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-                cboMauHD.DataSource = dsMau;
+                // dm mau so, ky hieu hoa don
+                var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
+                cboMauHD.DataSource = dataMauHD.ToList();
                 cboMauHD.ValueMember = "mau_HD1";
-                // dm ky hieu
-                cboKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-                cboKH.DataSource = dsMau;
+                cboKH.DataSource = dataMauHD.ToList();
                 cboKH.ValueMember = "ky_hieu_HD";
-                cboKH.DisplayMember = "ky_hieu_HD";
+
+                //// dm mau HD
+                //List<MAU_HD> dsMau = new List<MAU_HD>();
+                //dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K24TTD" });
+                //dsMau.Add(new MAU_HD { mau_HD1 = "1/003", ky_hieu_HD = "K23TTD" });
+                //dsMau.Add(new MAU_HD { mau_HD1 = "1/002", ky_hieu_HD = "K23TTD" });
+                //dsMau.Add(new MAU_HD { mau_HD1 = "1/001", ky_hieu_HD = "K22TTD" });
+                //dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/003", ky_hieu_HD = "TD/22E" });
+                //dsMau.Add(new MAU_HD { mau_HD1 = "01GTKT0/002", ky_hieu_HD = "TD/21E" });
+                //cboMauHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                //cboMauHD.DataSource = dsMau;
+                //cboMauHD.ValueMember = "mau_HD1";
+                //// dm ky hieu
+                //cboKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                //cboKH.DataSource = dsMau;
+                //cboKH.ValueMember = "ky_hieu_HD";
+                //cboKH.DisplayMember = "ky_hieu_HD";
 
                 cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
                 List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
@@ -458,7 +458,7 @@ namespace QLCongNo.View.UC.HoaDon
                 List<DM_NAM> dmNam = new List<DM_NAM>();
                 var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
                 dmNam.AddRange(dataNam);
-                cboNam.DataSource = dmNam.ToList();
+                cboNam.DataSource = dmNam.OrderByDescending(x => x.NAM).ToList();
                 cboNam.ValueMember = "NAM_ID";
                 cboNam.DisplayMember = "NAM";
                 // dm dot

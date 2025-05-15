@@ -579,6 +579,7 @@ namespace QLCongNo.View.UC.DangNgan
             chkHuyTT.Visible = Common.isxoa;
             txtlydo.Visible = Common.isxoa;
             dataGridView1.Columns[ngayBKColumn.Name].Visible = true;
+            
             if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
                 label1.Text = "Nhân viên thu";

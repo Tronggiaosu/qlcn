@@ -61,16 +61,16 @@
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.txtTimDanhBo = new QLCongNo.View.Core.NovTextBox();
             this.label3 = new QLCongNo.View.Core.NovLabel();
-            this.chkHuyTT = new QLCongNo.View.Core.NovCheckBox();
-            this.txtlydo = new QLCongNo.View.Core.NovTextBox();
             this.chkNgayDN = new QLCongNo.View.Core.NovCheckBox();
             this.dtpBK = new QLCongNo.View.Core.NovDateTimePicker();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.cboNganhang = new QLCongNo.View.Core.NovComboBox();
             this.chkisdangngan = new QLCongNo.View.Core.NovCheckBox();
-            this.cboTO = new QLCongNo.View.Core.NovComboBox();
-            this.lblTo = new QLCongNo.View.Core.NovLabel();
             this.chkIn = new QLCongNo.View.Core.NovCheckBox();
+            this.txtlydo = new QLCongNo.View.Core.NovTextBox();
+            this.chkHuyTT = new QLCongNo.View.Core.NovCheckBox();
+            this.cboTO = new QLCongNo.View.Core.NovComboBox();
+            this.lblTo = new QLCongNo.View.Core.NovCheckBox();
             this.chkAllList = new QLCongNo.View.Core.NovCheckBox();
             this.chkAll = new QLCongNo.View.Core.NovCheckBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
@@ -258,16 +258,16 @@
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtTimDanhBo, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chkHuyTT, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtlydo, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkNgayDN, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dtpBK, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.cboNganhang, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkisdangngan, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cboTO, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lblTo, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.chkIn, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtlydo, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.chkHuyTT, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboTO, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblTo, 4, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -275,6 +275,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.27746F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.27746F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.90173F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1326, 173);
             this.tableLayoutPanel1.TabIndex = 82;
             // 
@@ -356,33 +357,6 @@
             this.label3.Text = "Tra cứu mã danh bộ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // chkHuyTT
-            // 
-            this.chkHuyTT.AutoSize = true;
-            this.chkHuyTT.BackColor = System.Drawing.Color.Transparent;
-            this.chkHuyTT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkHuyTT.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkHuyTT.Location = new System.Drawing.Point(1006, 88);
-            this.chkHuyTT.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
-            this.chkHuyTT.Name = "chkHuyTT";
-            this.chkHuyTT.Size = new System.Drawing.Size(152, 27);
-            this.chkHuyTT.TabIndex = 115;
-            this.chkHuyTT.Text = "Hủy thanh toán";
-            this.chkHuyTT.UseVisualStyleBackColor = true;
-            this.chkHuyTT.CheckedChanged += new System.EventHandler(this.chkHuyTT_CheckedChanged);
-            // 
-            // txtlydo
-            // 
-            this.txtlydo.BackColor = System.Drawing.Color.White;
-            this.txtlydo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlydo.ForeColor = System.Drawing.Color.Black;
-            this.txtlydo.Location = new System.Drawing.Point(1006, 127);
-            this.txtlydo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.txtlydo.Name = "txtlydo";
-            this.txtlydo.Size = new System.Drawing.Size(158, 32);
-            this.txtlydo.TabIndex = 111;
-            this.txtlydo.Visible = false;
-            // 
             // chkNgayDN
             // 
             this.chkNgayDN.AutoSize = true;
@@ -450,32 +424,6 @@
             this.chkisdangngan.Text = "Đã đăng ngân";
             this.chkisdangngan.UseVisualStyleBackColor = true;
             // 
-            // cboTO
-            // 
-            this.cboTO.BackColor = System.Drawing.Color.White;
-            this.cboTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTO.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTO.ForeColor = System.Drawing.Color.Black;
-            this.cboTO.FormattingEnabled = true;
-            this.cboTO.Location = new System.Drawing.Point(789, 127);
-            this.cboTO.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.cboTO.Name = "cboTO";
-            this.cboTO.Size = new System.Drawing.Size(185, 33);
-            this.cboTO.TabIndex = 106;
-            // 
-            // lblTo
-            // 
-            this.lblTo.AutoSize = true;
-            this.lblTo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblTo.Location = new System.Drawing.Point(789, 88);
-            this.lblTo.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(29, 23);
-            this.lblTo.TabIndex = 105;
-            this.lblTo.Text = "Tổ";
-            // 
             // chkIn
             // 
             this.chkIn.AutoSize = true;
@@ -489,6 +437,62 @@
             this.chkIn.TabIndex = 113;
             this.chkIn.Text = "In biên nhận";
             this.chkIn.UseVisualStyleBackColor = true;
+            // 
+            // txtlydo
+            // 
+            this.txtlydo.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.SetColumnSpan(this.txtlydo, 3);
+            this.txtlydo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtlydo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlydo.ForeColor = System.Drawing.Color.Black;
+            this.txtlydo.Location = new System.Drawing.Point(789, 127);
+            this.txtlydo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.txtlydo.Name = "txtlydo";
+            this.txtlydo.Size = new System.Drawing.Size(525, 32);
+            this.txtlydo.TabIndex = 111;
+            this.txtlydo.Visible = false;
+            // 
+            // chkHuyTT
+            // 
+            this.chkHuyTT.AutoSize = true;
+            this.chkHuyTT.BackColor = System.Drawing.Color.Transparent;
+            this.chkHuyTT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkHuyTT.ForeColor = System.Drawing.Color.MediumBlue;
+            this.chkHuyTT.Location = new System.Drawing.Point(789, 88);
+            this.chkHuyTT.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
+            this.chkHuyTT.Name = "chkHuyTT";
+            this.chkHuyTT.Size = new System.Drawing.Size(152, 27);
+            this.chkHuyTT.TabIndex = 115;
+            this.chkHuyTT.Text = "Hủy thanh toán";
+            this.chkHuyTT.UseVisualStyleBackColor = true;
+            this.chkHuyTT.CheckedChanged += new System.EventHandler(this.chkHuyTT_CheckedChanged);
+            // 
+            // cboTO
+            // 
+            this.cboTO.BackColor = System.Drawing.Color.White;
+            this.cboTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTO.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTO.ForeColor = System.Drawing.Color.Black;
+            this.cboTO.FormattingEnabled = true;
+            this.cboTO.Location = new System.Drawing.Point(1006, 43);
+            this.cboTO.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.cboTO.Name = "cboTO";
+            this.cboTO.Size = new System.Drawing.Size(158, 33);
+            this.cboTO.TabIndex = 117;
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTo.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblTo.Location = new System.Drawing.Point(1006, 8);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(51, 25);
+            this.lblTo.TabIndex = 116;
+            this.lblTo.Text = "Tổ";
+            this.lblTo.UseVisualStyleBackColor = true;
             // 
             // chkAllList
             // 
@@ -874,8 +878,6 @@
         private View.Core.NovDateTimePicker dtpTungay;
         private View.Core.NovDateTimePicker dtpBK;
         private View.Core.NovToolStripButton btnInbaocao;
-        private View.Core.NovComboBox cboTO;
-        private View.Core.NovLabel lblTo;
         private View.Core.NovToolStripButton btnDN;
         private View.Core.NovCheckBox chkisdangngan;
         private View.Core.NovTextBox txtlydo;
@@ -912,5 +914,7 @@
         private Core.NovDataGridViewTextBoxColumn maLTColumn;
         private Core.NovDataGridViewTextBoxColumn ghichuColumn;
         private Core.NovDataGridViewTextBoxColumn IDHDColumn;
+        private Core.NovComboBox cboTO;
+        private Core.NovCheckBox lblTo;
     }
 }

@@ -322,7 +322,7 @@ namespace QLCongNo.View.UC.HoaDon
                 List<DM_NAM> dmNam = new List<DM_NAM>();
                 var dataNam = db.DM_NAM.OrderBy(x => x.NAM).ToList();
                 dmNam.AddRange(dataNam);
-                cboNam.DataSource = dmNam.ToList();
+                cboNam.DataSource = dmNam.OrderByDescending(x => x.NAM).ToList();
                 cboNam.ValueMember = "nam";
                 cboNam.DisplayMember = "NAM";
 
