@@ -21,6 +21,7 @@ namespace QLCongNo.View.UC.GachNo
         public string _maloai;
         public int _trangthai;
         private decimal IDKH;
+        private string manv;
 
         private static string _staticMaloai;
 
@@ -51,7 +52,6 @@ namespace QLCongNo.View.UC.GachNo
             dgvHoadon.CellContentClick += dgvHoadon_CellContentClick;
             this.dgvHoadon.DataError += dgvHoadon_DataError;
             this.dgvHoadon.CellFormatting += dgvHoadon_CellFormatting;
-            this.dgvKhachhang.CellContentClick += DgvKhachhang_CellContentClick;
             this.dgvKhachhang.KeyDown += DgvKhachhang_KeyDown;
         }
 
@@ -65,14 +65,8 @@ namespace QLCongNo.View.UC.GachNo
 
                 var content = this.dgvKhachhang.Rows[currentRow].Cells[currentCol].Value?.ToString();
                 Clipboard.SetText(content);
-                MessageBox.Show($"Đã copy dữ liệu: {content}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Handled = true;
             };
-        }
-
-        private void DgvKhachhang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dgvHoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -149,7 +143,12 @@ namespace QLCongNo.View.UC.GachNo
                     {
                         bool isChecked = Convert.ToBoolean(dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value ?? false);
                         if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
-                            dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                        {
+                            if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1")
+                            {
+                                dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                            }
+                        }
                     }
                 }
             }
@@ -261,7 +260,16 @@ namespace QLCongNo.View.UC.GachNo
                         {
                             dgvHoadon.Rows[i].ReadOnly = true;
                             dgvHoadon.Rows[i].Cells[checksColumn.Name].Value = false;
-                        }  
+                        }
+                        //else
+                        //{
+                        //    if (this.manv != "926" && this.manv != "927" && this.manv != "928" && this.manv != "931")
+                        //    {
+                        //        var rowIndex = i;
+                        //        dgvHoadon.Rows[i].Cells[checksColumn.Name].Value = false;
+                        //        dgvHoadon.Rows[i].Cells[checksColumn.Name].ReadOnly = true;
+                        //    }
+                        //}
                     }
                     btnConfirm.Text = "Lấy dữ liệu";
                     chkAll.Checked = false;
@@ -549,58 +557,65 @@ namespace QLCongNo.View.UC.GachNo
 
         private void frGachNoKH_Load(object sender, EventArgs e)
         {
-            txttong_HD.Text = "0";
-            txtTongthu.Text = "0";
-            dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // dm doi tuong
-            cboDoiTuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_DOITUONGSUDUNG> dmDoiTuong = new List<DM_DOITUONGSUDUNG>();
-            dmDoiTuong.Add(new DM_DOITUONGSUDUNG() { maDT = "0", tenDT = "Tất cả" });
-            var data = db.DM_DOITUONGSUDUNG.OrderBy(x => x.tenDT).ToList();
-            dmDoiTuong.AddRange(data);
-            cboDoiTuong.DataSource = dmDoiTuong.ToList();
-            cboDoiTuong.ValueMember = "maDT";
-            cboDoiTuong.DisplayMember = "tenDT";
-            dtpNgaythu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dtpNgaythu.CustomFormat = "dd/MM/yyyy";
-            dgvKhachhang.AutoGenerateColumns = false;
-            dgvHoadon.AutoGenerateColumns = false;
-
-            // dm phuong
-            cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
-            dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
-            var dataPhuong = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
-            dsPhuong.AddRange(dataPhuong);
-            cboPhuong.DataSource = dsPhuong.ToList();
-            cboPhuong.ValueMember = "maPhuong";
-            cboPhuong.DisplayMember = "tenPhuong";
-            // dm quan
-            cboQuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_QUAN> dsQuan = new List<DM_QUAN>();
-            dsQuan.Add(new DM_QUAN() { maQuan = "0", tenQuan = "Tất cả" });
-            var dataQuan = db.DM_QUAN.OrderBy(x => x.tenQuan).ToList();
-            dsQuan.AddRange(dataQuan);
-            cboQuan.DataSource = dsQuan.ToList();
-            cboQuan.ValueMember = "maQuan";
-            cboQuan.DisplayMember = "tenQuan";
-
-            // dm ngan hang
-            cboNganhang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            List<DM_NGANHANG> nganhang = new List<DM_NGANHANG>();
-            //nganhang.Add(new DM_NGANHANG() { NGANHANG_ID = 0, TENNGANHANG = "Tất cả" });
-            var dmNganhang = db.DM_NGANHANG.OrderBy(x => x.TENNGANHANG).ToList();
-            nganhang.AddRange(dmNganhang);
-            cboNganhang.DataSource = nganhang.ToList();
-            cboNganhang.ValueMember = "NGANHANG_ID";
-            cboNganhang.DisplayMember = "TENNGANHANG";
-            lblnganhang.Enabled = false;
-            cboNganhang.Enabled = false;
-            if (_staticMaloai == "CK")
+            try
             {
-                lblnganhang.Enabled = true;
-                cboNganhang.Enabled = true;
+                var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                this.manv = nguoidung.manv;
+
+                txttong_HD.Text = "0";
+                txtTongthu.Text = "0";
+                dgvKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // dm doi tuong
+                cboDoiTuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_DOITUONGSUDUNG> dmDoiTuong = new List<DM_DOITUONGSUDUNG>();
+                dmDoiTuong.Add(new DM_DOITUONGSUDUNG() { maDT = "0", tenDT = "Tất cả" });
+                var data = db.DM_DOITUONGSUDUNG.OrderBy(x => x.tenDT).ToList();
+                dmDoiTuong.AddRange(data);
+                cboDoiTuong.DataSource = dmDoiTuong.ToList();
+                cboDoiTuong.ValueMember = "maDT";
+                cboDoiTuong.DisplayMember = "tenDT";
+                dtpNgaythu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+                dtpNgaythu.CustomFormat = "dd/MM/yyyy";
+                dgvKhachhang.AutoGenerateColumns = false;
+                dgvHoadon.AutoGenerateColumns = false;
+
+                // dm phuong
+                cboPhuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_PHUONG> dsPhuong = new List<DM_PHUONG>();
+                dsPhuong.Add(new DM_PHUONG() { maPhuong = "0", tenPhuong = "Tất cả" });
+                var dataPhuong = db.DM_PHUONG.OrderBy(x => x.tenPhuong).ToList();
+                dsPhuong.AddRange(dataPhuong);
+                cboPhuong.DataSource = dsPhuong.ToList();
+                cboPhuong.ValueMember = "maPhuong";
+                cboPhuong.DisplayMember = "tenPhuong";
+                // dm quan
+                cboQuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_QUAN> dsQuan = new List<DM_QUAN>();
+                dsQuan.Add(new DM_QUAN() { maQuan = "0", tenQuan = "Tất cả" });
+                var dataQuan = db.DM_QUAN.OrderBy(x => x.tenQuan).ToList();
+                dsQuan.AddRange(dataQuan);
+                cboQuan.DataSource = dsQuan.ToList();
+                cboQuan.ValueMember = "maQuan";
+                cboQuan.DisplayMember = "tenQuan";
+
+                // dm ngan hang
+                cboNganhang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+                List<DM_NGANHANG> nganhang = new List<DM_NGANHANG>();
+                //nganhang.Add(new DM_NGANHANG() { NGANHANG_ID = 0, TENNGANHANG = "Tất cả" });
+                var dmNganhang = db.DM_NGANHANG.OrderBy(x => x.TENNGANHANG).ToList();
+                nganhang.AddRange(dmNganhang);
+                cboNganhang.DataSource = nganhang.ToList();
+                cboNganhang.ValueMember = "NGANHANG_ID";
+                cboNganhang.DisplayMember = "TENNGANHANG";
+                lblnganhang.Enabled = false;
+                cboNganhang.Enabled = false;
+                if (_staticMaloai == "CK")
+                {
+                    lblnganhang.Enabled = true;
+                    cboNganhang.Enabled = true;
+                }
             }
+            catch { }
         }
 
         public string CreateSO_CT()
@@ -617,11 +632,6 @@ namespace QLCongNo.View.UC.GachNo
         }
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

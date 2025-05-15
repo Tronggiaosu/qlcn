@@ -49,7 +49,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             db.Database.CommandTimeout = 600;
 
             var dataSource = db.getBaoCaoChuanThuKy_Newest(0, result, TOID).ToList();
-            WinFormsReport.ReportDataSource reportDataSource = new WinFormsReport.ReportDataSource("DataSource", dataSource);
+            WinFormsReport.ReportDataSource reportDataSource = new WinFormsReport.ReportDataSource("DataSet1", dataSource);
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
             List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>

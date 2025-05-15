@@ -562,7 +562,9 @@ namespace QLCongNo.View.UC.DangNgan
             cboTO.Visible = false;
             chkIn.Visible = false;
             chkHuyTT.Visible = Common.isxoa;
+            this.txtlydo.Visible = Common.isxoa;
             dataGridView1.Columns[ngayBKColumn.Name].Visible = true;
+            
             if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
                 label1.Text = "Nhân viên thu";
