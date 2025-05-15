@@ -23,6 +23,18 @@ namespace QLCongNo.Data
             return data;
         }
 
+        public static List<NHANVIEN> getDanhSachNhanVien()
+        {
+            using (CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities())
+            {
+                var usernames = new List<string> { "tkct-le", "tkct-hoa", "tkct-thuy", "tkct-yen" };
+                var data = db.NHANVIENs
+                             .Where(nv => usernames.Contains(nv.somay))
+                             .ToList();
+                return data;
+            }
+        }
+
         public static List<DM_TO> getDSTo(decimal? TOID)
         {
             CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();

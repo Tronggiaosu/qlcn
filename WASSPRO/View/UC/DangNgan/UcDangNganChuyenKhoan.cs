@@ -224,8 +224,7 @@ namespace QLCongNo.View.UC.DangNgan
         {
             try
             {
-                int TOID = int.Parse(cboTO.SelectedValue.ToString());
-                LoadNhanVien(TOID);
+                LoadNhanVien();
             }
             catch
             {
@@ -347,6 +346,7 @@ namespace QLCongNo.View.UC.DangNgan
                     MessageBox.Show("Chưa nhập lý do hủy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     foreach (DataGridViewRow r in dataGridView1.Rows)
                     {
                         DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
@@ -403,13 +403,15 @@ namespace QLCongNo.View.UC.DangNgan
                                 }
                                 // reset trang thai hoa don
                                 db.Database.ExecuteSqlCommand("resetTrangThaiHoaDOn " + chungtuHD.ID_KH.ToString() + "," + chungtuHD.ID_CT.ToString());
+                                var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                                hoadon.trangthai_id = 1;
+                                db.SaveChanges();
                                 var ds = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtuHD.ID_CT).ToList().Count();
                                 if (ds == 0)
                                     db.CHUNGTUs.Remove(db.CHUNGTUs.Where(x => x.ID_CT == chungtuHD.ID_CT).FirstOrDefault());
                                 db.ChungTuLogs.AddRange(dslog);
                                 db.SaveChanges();
                                 MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                btnTim.PerformClick();
                                 btnTim.PerformClick();
                             }
                             //if (chungtuHD != null && maloai == "CK")
@@ -464,6 +466,7 @@ namespace QLCongNo.View.UC.DangNgan
                             //}
                         }
                     }
+                    this.Cursor = Cursors.Default;
                 }
             }
             //}
@@ -501,14 +504,25 @@ namespace QLCongNo.View.UC.DangNgan
             var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
             var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
             var danhbo = txtTimDanhBo.Text;
-
             decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
+
+            //decimal NVLap = -1;
+            //if (_staticMaloai == "CK")
+            //{
+            //    NVLap = 0;
+            //}
+            //else if (_staticMaloai == "TT")
+            //{
+            //    NVLap = NHID;
+            //}
+            //MessageBox.Show(NVLap.ToString());
+
             decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
             bool isdangngan = false;
             if (chkisdangngan.Checked == true)
             {
                 isdangngan = true;
-            }    
+            }
             int TOID = -1;
             if (Common.ChucvuID != 1 && Common.ChucvuID != 4)
                 NVLap = 0;
@@ -526,6 +540,7 @@ namespace QLCongNo.View.UC.DangNgan
             dataGridView1.DataSource = dataSource;
             lblsoluong.Text = "Số lượng HĐ: " + string.Format("{0:n0}", dataGridView1.RowCount);
             lbltongtien.Text = "Tổng tiền:  " + string.Format("{0:n0}", dataSource.ToList().Sum(x => x.tongtien));
+
             this.Cursor = Cursors.Default;
         }
 
@@ -562,6 +577,7 @@ namespace QLCongNo.View.UC.DangNgan
             cboTO.Visible = false;
             chkIn.Visible = false;
             chkHuyTT.Visible = Common.isxoa;
+            txtlydo.Visible = Common.isxoa;
             dataGridView1.Columns[ngayBKColumn.Name].Visible = true;
             if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
@@ -583,11 +599,11 @@ namespace QLCongNo.View.UC.DangNgan
             }
             else if (_staticMaloai == "TT")
             {
-                label1.Text = "Nhân viên thu";
+                label1.Text = "Nhân viên";
                 decimal? TOID = Common.TOID;
                 if (TOID == 0)
                     TOID = -1;
-                LoadNhanVien(TOID);
+                LoadNhanVien();
                 lblTo.Visible = true;
                 cboTO.Visible = true;
                 LoadTO(TOID);
@@ -596,10 +612,10 @@ namespace QLCongNo.View.UC.DangNgan
             }
         }
 
-        public void LoadNhanVien(decimal? TOID)
+        public void LoadNhanVien()
         {
             cboNganhang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            var data = DataDanhMuc.getDSNhanvien(TOID).Select(x => new { hoten = x.maNV + " - " + x.hoten, x.NV_ID }).ToList();
+            var data = DataDanhMuc.getDanhSachNhanVien().Select(x => new { hoten = x.maNV + " - " + x.hoten, x.NV_ID }).ToList();
             cboNganhang.DataSource = data.ToList();
             cboNganhang.DisplayMember = "hoten";
             cboNganhang.ValueMember = "NV_ID";
