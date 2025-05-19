@@ -23,6 +23,36 @@ namespace QLCongNo.View.UC.GachNo
             quitButton.Click += quitButton_Click;
             btnKiemtra.Click += btnKiemtra_Click;
             btnExcelFail.Click += btnExcelFail_Click;
+            this.dataGridView1.KeyDown += DataGridView1_KeyDown;
+            this.dataGridView2.KeyDown += DataGridView2_KeyDown;
+        }
+
+        private void DataGridView2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Copy(this.dataGridView2);
+                e.Handled = true;
+            };
+        }
+
+        private void DataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Copy(this.dataGridView1);
+                e.Handled = true;
+            };
+        }
+
+        private void Copy(DataGridView dgv)
+        {
+            var currentRow = dgv.CurrentCell.RowIndex;
+            var currentCol = dgv.CurrentCell.ColumnIndex;
+            if (currentCol < 0) return;
+
+            var content = dgv.Rows[currentRow].Cells[currentCol].Value?.ToString();
+            Clipboard.SetText(content);
         }
 
         private void btnformexcel_Click(object sender, EventArgs e)
@@ -80,12 +110,25 @@ namespace QLCongNo.View.UC.GachNo
                 int soluong = dt.Rows.Count;
                 InsertDataIntoSQLServerUsingSQLBulkCopy(dt);
                 dataGridView1.DataSource = db.getDSImportExcel(1).ToList();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                novLabel4.Text = $"Danh sách thanh toán ({dataGridView1.Rows.Count})";
+
+                dataGridView1.Columns[0].Name = "Key";
+                dataGridView1.Columns[1].Name = "Tháng";
+                dataGridView1.Columns[2].Name = "Năm";
+                dataGridView1.Columns[3].Name = "Danh bộ";
+                dataGridView1.Columns[4].Name = "Tổng tiền";
+                dataGridView1.Columns[5].Name = "Họ tên";
+                dataGridView1.Columns[6].Name = "UserID";
+                dataGridView1.Columns[7].Name = "Ngày";
+
                 var result = db.getDSImportExcel(0).ToList();
                 if(result.Count > 0)
                 {
                     dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 }    
                 dataGridView2.DataSource = db.getDSImportExcel(0).ToList();
+                novLabel3.Text = $"Danh sách không đúng ({dataGridView2.Rows.Count})";
                 txtsoHD.Text = dataGridView1.RowCount.ToString();
                 //lblsoluongthanhtoan.Text = "Số lượng hóa đơn: " + dataGridView1.RowCount.ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", db.getDSImportExcel(1).ToList().Sum(x => x.TongTien));

@@ -301,6 +301,9 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
+                var year = DateTime.Now.ToString("YYYY");
+                var month = DateTime.Now.ToString("MM");
+
                 txtPath.Enabled = false;
                 var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
                 cboKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -337,6 +340,30 @@ namespace QLCongNo.View.UC.HoaDon
                 btnLuu.Enabled = false;
                 dataGridView1.Visible = true;
                 btnDelete.Visible = false;
+
+                if (dataNam.Count > 0)
+                {
+                    foreach (var item in dataNam)
+                    {
+                        if (item.NAM == year)
+                        {
+                            cboNam.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
+
+                if (dmKyghi.Count > 0)
+                {
+                    foreach (var item in dmKyghi)
+                    {
+                        if (item.ten_kyghi == month)
+                        {
+                            cboKy.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
             }
             catch { }
         }
