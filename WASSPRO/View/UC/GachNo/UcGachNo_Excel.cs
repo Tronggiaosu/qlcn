@@ -23,6 +23,36 @@ namespace QLCongNo.View.UC.GachNo
             quitButton.Click += quitButton_Click;
             btnKiemtra.Click += btnKiemtra_Click;
             btnExcelFail.Click += btnExcelFail_Click;
+            this.dataGridView1.KeyDown += DataGridView1_KeyDown;
+            this.dataGridView2.KeyDown += DataGridView2_KeyDown;
+        }
+
+        private void DataGridView2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Copy(this.dataGridView2);
+                e.Handled = true;
+            };
+        }
+
+        private void DataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Copy(this.dataGridView1);
+                e.Handled = true;
+            };
+        }
+
+        private void Copy(DataGridView dgv)
+        {
+            var currentRow = dgv.CurrentCell.RowIndex;
+            var currentCol = dgv.CurrentCell.ColumnIndex;
+            if (currentCol < 0) return;
+
+            var content = dgv.Rows[currentRow].Cells[currentCol].Value?.ToString();
+            Clipboard.SetText(content);
         }
 
         public class ExcelRowModel

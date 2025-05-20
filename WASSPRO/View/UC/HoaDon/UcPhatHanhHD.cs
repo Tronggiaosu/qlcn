@@ -414,6 +414,9 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
+                var year = DateTime.Now.ToString("YYYY");
+                var month = DateTime.Now.ToString("MM");
+
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AutoGenerateColumns = false;
                 // dm mau so, ky hieu hoa don
@@ -471,6 +474,30 @@ namespace QLCongNo.View.UC.HoaDon
                 cboDot.ValueMember = "DOT_ID";
                 cboDot.DisplayMember = "TENDOT";
                 bdButton.Enabled = false;
+
+                if (dataNam.Count > 0)
+                {
+                    foreach (var item in dataNam)
+                    {
+                        if (item.NAM == year)
+                        {
+                            cboNam.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
+
+                if (dmKyghi.Count > 0)
+                {
+                    foreach (var item in dmKyghi)
+                    {
+                        if (item.ten_kyghi == month)
+                        {
+                            cboKy.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
             }
             catch { }
         }

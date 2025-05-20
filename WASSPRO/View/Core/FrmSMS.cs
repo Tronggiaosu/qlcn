@@ -95,13 +95,14 @@ namespace QLCongNo.View.Core
             this.btnSend.Click += (sender, e) => SendSMS();
             this.ptbClose.Click += (sender, e) =>
             {
-                var dialog = MessageBox.Show("Chắc chắn thoát khỏi trang này?", "Thông báo",
-                                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialog == DialogResult.Yes)
-                {
-                    Close();
-                }
-                else return;
+                Close();
+                //var dialog = MessageBox.Show("Chắc chắn thoát khỏi trang này?", "Thông báo",
+                //                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //if (dialog == DialogResult.Yes)
+                //{
+                //    Close();
+                //}
+                //else return;
             };
         }
 

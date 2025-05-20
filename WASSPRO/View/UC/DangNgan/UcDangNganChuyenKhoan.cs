@@ -34,6 +34,21 @@ namespace QLCongNo.View.UC.DangNgan
             txtTimDanhBo.KeyDown += textBox1_KeyDown;
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            this.dataGridView1.KeyDown += DataGridView1_KeyDown;
+        }
+
+        private void DataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                var currentRow = this.dataGridView1.CurrentCell.RowIndex;
+                var currentCol = this.dataGridView1.CurrentCell.ColumnIndex;
+                if (currentCol < 0) return;
+
+                var content = this.dataGridView1.Rows[currentRow].Cells[currentCol].Value?.ToString();
+                Clipboard.SetText(content);
+                e.Handled = true;
+            };
         }
 
         public UcDangNganChuyenKhoan(string maloai) 

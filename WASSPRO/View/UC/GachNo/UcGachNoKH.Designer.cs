@@ -530,7 +530,7 @@
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip3.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip3.Size = new System.Drawing.Size(301, 39);
+            this.toolStrip3.Size = new System.Drawing.Size(454, 39);
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -661,7 +661,7 @@
             // 
             // hoten_KH_Column
             // 
-            this.hoten_KH_Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.hoten_KH_Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.hoten_KH_Column.DataPropertyName = "hoten_KH";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -670,11 +670,11 @@
             this.hoten_KH_Column.MinimumWidth = 6;
             this.hoten_KH_Column.Name = "hoten_KH_Column";
             this.hoten_KH_Column.ReadOnly = true;
-            this.hoten_KH_Column.Width = 220;
+            this.hoten_KH_Column.Width = 90;
             // 
             // sonhaColumn
             // 
-            this.sonhaColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.sonhaColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.sonhaColumn.DataPropertyName = "sonha";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -683,11 +683,11 @@
             this.sonhaColumn.MinimumWidth = 6;
             this.sonhaColumn.Name = "sonhaColumn";
             this.sonhaColumn.ReadOnly = true;
-            this.sonhaColumn.Width = 160;
+            this.sonhaColumn.Width = 91;
             // 
             // diachiColumn
             // 
-            this.diachiColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.diachiColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.diachiColumn.DataPropertyName = "diachi";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -696,11 +696,11 @@
             this.diachiColumn.MinimumWidth = 6;
             this.diachiColumn.Name = "diachiColumn";
             this.diachiColumn.ReadOnly = true;
-            this.diachiColumn.Width = 250;
+            this.diachiColumn.Width = 90;
             // 
             // phuongColumn
             // 
-            this.phuongColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.phuongColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.phuongColumn.DataPropertyName = "tenphuong";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -709,11 +709,11 @@
             this.phuongColumn.MinimumWidth = 6;
             this.phuongColumn.Name = "phuongColumn";
             this.phuongColumn.ReadOnly = true;
-            this.phuongColumn.Width = 180;
+            this.phuongColumn.Width = 98;
             // 
             // QuanColumn
             // 
-            this.QuanColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.QuanColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.QuanColumn.DataPropertyName = "tenquan";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
@@ -722,7 +722,7 @@
             this.QuanColumn.MinimumWidth = 6;
             this.QuanColumn.Name = "QuanColumn";
             this.QuanColumn.ReadOnly = true;
-            this.QuanColumn.Width = 150;
+            this.QuanColumn.Width = 80;
             // 
             // IDKHColumn
             // 
@@ -1196,14 +1196,6 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnConfirm;
-        private Core.NovDataGridViewTextBoxColumn maLTColumn;
-        private Core.NovDataGridViewTextBoxColumn madanhboColumn;
-        private Core.NovDataGridViewTextBoxColumn hoten_KH_Column;
-        private Core.NovDataGridViewTextBoxColumn sonhaColumn;
-        private Core.NovDataGridViewTextBoxColumn diachiColumn;
-        private Core.NovDataGridViewTextBoxColumn phuongColumn;
-        private Core.NovDataGridViewTextBoxColumn QuanColumn;
-        private Core.NovDataGridViewTextBoxColumn IDKHColumn;
         private Core.NovDataGridViewCheckBoxColumn checksColumn;
         private Core.NovDataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private Core.NovDataGridViewTextBoxColumn trangthaiKHColumn;
@@ -1225,5 +1217,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaybk;
         private Core.NovDataGridViewTextBoxColumn ngaythuchienColumn;
         private Core.NovDataGridViewTextBoxColumn ghichuColumn;
+        private Core.NovDataGridViewTextBoxColumn maLTColumn;
+        private Core.NovDataGridViewTextBoxColumn madanhboColumn;
+        private Core.NovDataGridViewTextBoxColumn hoten_KH_Column;
+        private Core.NovDataGridViewTextBoxColumn sonhaColumn;
+        private Core.NovDataGridViewTextBoxColumn diachiColumn;
+        private Core.NovDataGridViewTextBoxColumn phuongColumn;
+        private Core.NovDataGridViewTextBoxColumn QuanColumn;
+        private Core.NovDataGridViewTextBoxColumn IDKHColumn;
     }
 }

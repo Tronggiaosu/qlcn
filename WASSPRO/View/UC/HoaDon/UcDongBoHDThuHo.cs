@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using QLCongNo.Data;
 using System.Collections.Generic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace QLCongNo.View.UC.HoaDon
 {
@@ -247,6 +248,9 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
+                var year = DateTime.Now.ToString("YYYY");
+                var month = DateTime.Now.ToString("MM");
+
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AutoGenerateColumns = false;
 
@@ -283,6 +287,30 @@ namespace QLCongNo.View.UC.HoaDon
                 cboTT.DropDownStyle = ComboBoxStyle.DropDownList;
                 string[] trangthai = { "Chưa đồng bộ", "Đã đồng bộ" };
                 cboTT.DataSource = trangthai;
+
+                if (dataNam.Count > 0)
+                {
+                    foreach (var item in dataNam)
+                    {
+                        if (item.NAM == year)
+                        {
+                            cboNam.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
+
+                if (dmKyghi.Count > 0)
+                {
+                    foreach (var item in dmKyghi)
+                    {
+                        if (item.ten_kyghi == month)
+                        {
+                            cboThang.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
             }
             catch { }
         }

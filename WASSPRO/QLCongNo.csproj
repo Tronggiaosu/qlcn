@@ -216,6 +216,11 @@
     <Compile Include="DANGNGANKH.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="AutoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Data\DataDangNganNH.cs" />
     <Compile Include="Data\DataDangNganNV.cs" />
     <Compile Include="Data\DataDanhMuc.cs" />
@@ -517,6 +522,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDSChuyenNoKhoDoi_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDSDangNgan_Newest_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="getDSDangNgan_Result.cs">
@@ -1738,6 +1746,17 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="AutoDataSet.xsc">
+      <DependentUpon>AutoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AutoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AutoDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AutoDataSet.xss">
+      <DependentUpon>AutoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Web References\AccountTDC\account.disco" />
     <EmbeddedResource Include="GachNo\frPhanQuyenNhanVienThu.resx">
       <DependentUpon>frPhanQuyenNhanVienThu.cs</DependentUpon>
@@ -1866,6 +1885,7 @@
     <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.resx">
       <DependentUpon>UcPhieuNgungNuoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPHoaDonNoTon.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNganHang.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNhanVienGiaiTrach.rdlc" />
     <EmbeddedResource Include="View\UC\UcLogin.resx">

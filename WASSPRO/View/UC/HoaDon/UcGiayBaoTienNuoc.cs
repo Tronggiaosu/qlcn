@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using QLCongNo.View.UC.ReportViewer.DataSource;
 using OfficeOpenXml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace QLCongNo.View.UC.HoaDon
 {
@@ -197,6 +198,9 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
+                var year = DateTime.Now.ToString("YYYY");
+                var month = DateTime.Now.ToString("MM");
+
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
                 List<DM_KYGHI> dmKyghi = new List<DM_KYGHI>();
@@ -242,6 +246,30 @@ namespace QLCongNo.View.UC.HoaDon
                 cboTT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
                 string[] trangthai = { "Chưa in", "Đã in" };
                 cboTT.DataSource = trangthai;
+
+                if (dataNam.Count > 0)
+                {
+                    foreach (var item in dataNam)
+                    {
+                        if (item.NAM == year)
+                        {
+                            cboNam.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
+
+                if (dmKyghi.Count > 0)
+                {
+                    foreach (var item in dmKyghi)
+                    {
+                        if (item.ten_kyghi == month)
+                        {
+                            cboThang.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
             }
             catch { }
         }

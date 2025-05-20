@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLuu = new QLCongNo.View.Core.NovToolStripButton();
             this.btnEX = new QLCongNo.View.Core.NovToolStripButton();
             this.btnDelete = new QLCongNo.View.Core.NovToolStripButton();
@@ -197,12 +197,12 @@
             this.tableLayoutPanel2.Controls.Add(this.cboDot, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.button1, 5, 1);
             this.tableLayoutPanel2.Controls.Add(this.linkChonFile, 4, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 12);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1175, 80);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1175, 94);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // novLabel1
@@ -214,7 +214,7 @@
             this.novLabel1.Location = new System.Drawing.Point(330, 10);
             this.novLabel1.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.novLabel1.Name = "novLabel1";
-            this.novLabel1.Size = new System.Drawing.Size(90, 23);
+            this.novLabel1.Size = new System.Drawing.Size(90, 22);
             this.novLabel1.TabIndex = 9;
             this.novLabel1.Text = "Tải lên tệp";
             // 
@@ -225,7 +225,7 @@
             this.cboNam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNam.ForeColor = System.Drawing.Color.Black;
             this.cboNam.FormattingEnabled = true;
-            this.cboNam.Location = new System.Drawing.Point(12, 45);
+            this.cboNam.Location = new System.Drawing.Point(12, 42);
             this.cboNam.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNam.Name = "cboNam";
             this.cboNam.Size = new System.Drawing.Size(82, 33);
@@ -240,7 +240,7 @@
             this.label1.Location = new System.Drawing.Point(224, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 23);
+            this.label1.Size = new System.Drawing.Size(38, 22);
             this.label1.TabIndex = 4;
             this.label1.Text = "Đợt";
             // 
@@ -253,7 +253,7 @@
             this.label2.Location = new System.Drawing.Point(118, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 23);
+            this.label2.Size = new System.Drawing.Size(58, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tháng";
             // 
@@ -266,7 +266,7 @@
             this.label5.Location = new System.Drawing.Point(12, 10);
             this.label5.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 23);
+            this.label5.Size = new System.Drawing.Size(47, 22);
             this.label5.TabIndex = 0;
             this.label5.Text = "Năm";
             // 
@@ -277,7 +277,7 @@
             this.cboKy.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboKy.ForeColor = System.Drawing.Color.Black;
             this.cboKy.FormattingEnabled = true;
-            this.cboKy.Location = new System.Drawing.Point(118, 45);
+            this.cboKy.Location = new System.Drawing.Point(118, 42);
             this.cboKy.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboKy.Name = "cboKy";
             this.cboKy.Size = new System.Drawing.Size(82, 33);
@@ -290,7 +290,7 @@
             this.txtPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath.ForeColor = System.Drawing.Color.Black;
-            this.txtPath.Location = new System.Drawing.Point(330, 45);
+            this.txtPath.Location = new System.Drawing.Point(330, 42);
             this.txtPath.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(674, 32);
@@ -303,7 +303,7 @@
             this.cboDot.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDot.ForeColor = System.Drawing.Color.Black;
             this.cboDot.FormattingEnabled = true;
-            this.cboDot.Location = new System.Drawing.Point(224, 45);
+            this.cboDot.Location = new System.Drawing.Point(224, 42);
             this.cboDot.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboDot.Name = "cboDot";
             this.cboDot.Size = new System.Drawing.Size(82, 33);
@@ -321,11 +321,11 @@
             this.button1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.button1.IconSize = 1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1018, 42);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(1018, 39);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 20);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(155, 36);
+            this.button1.Size = new System.Drawing.Size(155, 35);
             this.button1.TabIndex = 8;
             this.button1.Text = "Chọn File";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,7 +339,7 @@
             this.linkChonFile.Location = new System.Drawing.Point(679, 10);
             this.linkChonFile.Margin = new System.Windows.Forms.Padding(12, 10, 12, 5);
             this.linkChonFile.Name = "linkChonFile";
-            this.linkChonFile.Size = new System.Drawing.Size(78, 23);
+            this.linkChonFile.Size = new System.Drawing.Size(78, 22);
             this.linkChonFile.TabIndex = 6;
             this.linkChonFile.TabStop = true;
             this.linkChonFile.Text = "Chọn file";
@@ -379,35 +379,35 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.ColumnHeadersHeight = 50;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NAMColumn,
             this.KyColumn,
             this.dotcolumn});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MediumBlue;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -416,11 +416,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1189, 495);
@@ -429,8 +429,8 @@
             // NAMColumn
             // 
             this.NAMColumn.DataPropertyName = "NAM";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.NAMColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NAMColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.NAMColumn.HeaderText = "NAM";
             this.NAMColumn.MinimumWidth = 6;
             this.NAMColumn.Name = "NAMColumn";
@@ -440,8 +440,8 @@
             // KyColumn
             // 
             this.KyColumn.DataPropertyName = "KY";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.KyColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.KyColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.KyColumn.HeaderText = "THANG";
             this.KyColumn.MinimumWidth = 6;
             this.KyColumn.Name = "KyColumn";
@@ -451,8 +451,8 @@
             // dotcolumn
             // 
             this.dotcolumn.DataPropertyName = "dot";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dotcolumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dotcolumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.dotcolumn.HeaderText = "DOT";
             this.dotcolumn.MinimumWidth = 6;
             this.dotcolumn.Name = "dotcolumn";

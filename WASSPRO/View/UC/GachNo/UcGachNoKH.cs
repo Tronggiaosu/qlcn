@@ -22,6 +22,7 @@ namespace QLCongNo.View.UC.GachNo
         public int _trangthai;
         private decimal IDKH;
         private string manv;
+        private string maPB;
 
         private static string _staticMaloai;
 
@@ -144,9 +145,19 @@ namespace QLCongNo.View.UC.GachNo
                         bool isChecked = Convert.ToBoolean(dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value ?? false);
                         if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
                         {
-                            if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1")
+                            if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi")
                             {
-                                dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                                if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931") // Phong Ghi Thu - TKCT
+                                {
+                                    dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                                }
+                            }
+                            else
+                            {
+                                if (this.maPB == "14") // Phong Kinh Doanh
+                                {
+                                    dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                                }
                             }
                         }
                     }
@@ -203,23 +214,25 @@ namespace QLCongNo.View.UC.GachNo
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkAll.Checked == true)
+            bool isChecked = Convert.ToBoolean(chkAll.Checked);
+            foreach (DataGridViewRow r in dgvHoadon.Rows)
             {
-
-                foreach (DataGridViewRow r in dgvHoadon.Rows)
+                if (r.Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
                 {
-                    r.Cells[checksColumn.Name].Value = true;
-                    if (r.Cells[trangthaiColumn.Name].Value.ToString() == "Đã thu" || r.Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy")
-                        r.Cells[checksColumn.Name].Value = false;
-                }
-            }
-            else
-            {
-
-                foreach (DataGridViewRow r in dgvHoadon.Rows)
-                {
-                    if (r.Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu" || r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Hủy")
-                        r.Cells[checksColumn.Name].Value = false;
+                    if (r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi")
+                    {
+                        if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931") // Phong Ghi Thu - TKCT
+                        {
+                            r.Cells[checksColumn.Name].Value = isChecked;
+                        }
+                    }
+                    else
+                    {
+                        if (this.maPB == "14") // Phong Kinh Doanh
+                        {
+                            r.Cells[checksColumn.Name].Value = isChecked;
+                        }
+                    }
                 }
             }
         }
@@ -261,15 +274,6 @@ namespace QLCongNo.View.UC.GachNo
                             dgvHoadon.Rows[i].ReadOnly = true;
                             dgvHoadon.Rows[i].Cells[checksColumn.Name].Value = false;
                         }
-                        //else
-                        //{
-                        //    if (this.manv != "926" && this.manv != "927" && this.manv != "928" && this.manv != "931")
-                        //    {
-                        //        var rowIndex = i;
-                        //        dgvHoadon.Rows[i].Cells[checksColumn.Name].Value = false;
-                        //        dgvHoadon.Rows[i].Cells[checksColumn.Name].ReadOnly = true;
-                        //    }
-                        //}
                     }
                     btnConfirm.Text = "Lấy dữ liệu";
                     chkAll.Checked = false;
@@ -560,7 +564,9 @@ namespace QLCongNo.View.UC.GachNo
             try
             {
                 var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                var phong = db.NHANVIENs.Where(x => x.maNV == nguoidung.manv).FirstOrDefault();
                 this.manv = nguoidung.manv;
+                this.maPB = phong.maPB;
 
                 txttong_HD.Text = "0";
                 txtTongthu.Text = "0";

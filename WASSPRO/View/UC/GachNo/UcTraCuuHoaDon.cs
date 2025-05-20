@@ -4,8 +4,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
-using QLCongNo.View.UC.HoaDon;
+using Microsoft.Reporting.WinForms;
+
 
 namespace QLCongNo.View.UC.GachNo
 {
@@ -24,12 +26,135 @@ namespace QLCongNo.View.UC.GachNo
             txtTim.KeyDown += txtTim_KeyDown;
             quitButton.Click += quitButton_Click;
             btnEX.Click += btnEX_Click;
+            btnInNoTon.Click += BtnInNoTon_Click;
             dgvKhachHang.RowEnter += dgvKhachHang_RowEnter;
             dgvHoaDon.CellContentClick += dgvHoaDon_CellContentClick;
             cboQuan.SelectedIndexChanged += cboQuan_SelectedIndexChanged;
             this.dgvHoaDon.DataError += dgvHoaDon_DataError;
             this.dgvHoaDon.CellFormatting += dgvHoaDon_CellFormatting;
 
+        }
+
+        private void BtnInNoTon_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                var rowIndex = this.dgvKhachHang.CurrentCell.RowIndex;
+                var danhbo = this.dgvKhachHang.Rows[rowIndex].Cells[1].Value.ToString();
+                var hoten = this.dgvKhachHang.Rows[rowIndex].Cells[2].Value.ToString();
+                var sonha = this.dgvKhachHang.Rows[rowIndex].Cells[3].Value.ToString();
+                var duong = this.dgvKhachHang.Rows[rowIndex].Cells[4].Value.ToString();
+                var phuong = this.dgvKhachHang.Rows[rowIndex].Cells[5].Value.ToString();
+                var quan = this.dgvKhachHang.Rows[rowIndex].Cells[6].Value.ToString();
+                var id_kh = this.dgvHoaDon.Rows[rowIndex].Cells[15].Value.ToString();
+                var diachi = $"{sonha}, {duong}, {phuong}, {quan}";
+                var ngay = DateTime.Now.Day.ToString();
+                var thang = DateTime.Now.Month.ToString();
+                var nam = DateTime.Now.Year.ToString();
+                var soID_KH = Int32.Parse(id_kh);
+
+                var count = this.dgvHoaDon.Rows.Count;
+                var hoadon = db.HOADONs.Where(x => x.ID_KH == soID_KH).FirstOrDefault();
+
+                var frm = new Form();
+                frm.Size = new Size(1200, 800);
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                var report = new Microsoft.Reporting.WinForms.ReportViewer();
+                report.Dock = DockStyle.Fill;
+
+                var root = "ReportViewer\\ReportView\\RPHoaDonNoTon.rdlc";
+                string basePath = Directory.GetCurrentDirectory();
+                var reportPath = $"{basePath}\\{root}";
+
+                if (!File.Exists(reportPath))
+                {
+                    MessageBox.Show("File report không tồn tại: " + reportPath);
+                    return;
+                }
+
+                report.LocalReport.ReportPath = reportPath;
+                var parameters = new ReportParameter[]
+                    {
+                        new ReportParameter("Ngay", ngay),
+                        new ReportParameter("Thang", thang),
+                        new ReportParameter("Nam", nam),
+                        new ReportParameter("HoTenKH", hoten),
+                        new ReportParameter("DiaChiKH", diachi),
+                        new ReportParameter("DanhBo", danhbo)
+                    };
+
+                var dt = GetDataNoTon(this.dgvHoaDon);
+                report.LocalReport.DataSources.Clear();
+                report.LocalReport.DataSources.Add(new ReportDataSource("DataSource", dt));
+                report.LocalReport.SetParameters(parameters);
+                report.RefreshReport();
+                frm.Controls.Add(report);
+                frm.ShowDialog();
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+            }
+        }
+
+        public DataTable GetDataNoTon(DataGridView dgv)
+        {
+            try
+            {
+                var dt = new DataTable();
+                dt.Columns.Add("STT", typeof(Int32));
+                dt.Columns.Add("KyHoaDon", typeof(string));
+                dt.Columns.Add("TieuThu", typeof(int));
+                dt.Columns.Add("SoTien", typeof(decimal));
+                dt.Columns.Add("GhiChu", typeof(string));
+
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    var thanhtoan = row.Cells["thanhtoanColumn"].Value;
+                    var idHD = row.Cells["id_hd_dgv2"].Value?.ToString();
+                    var HD = Decimal.Parse(idHD);
+                    if (!row.IsNewRow && thanhtoan?.ToString() == "Chưa thu")
+                    {
+                        var hoadon = db.HOADONs.Where(x => x.ID_HD == HD).FirstOrDefault();
+                        DataRow dr = dt.NewRow();
+                        dr[1] = row.Cells["kyhd_dgv2"].Value?.ToString();
+                        dr[2] = hoadon.m3tieuthu;
+                        dr[3] = Decimal.Parse(row.Cells["tongtienColumn"].Value?.ToString());
+                        dr[4] = row.Cells["ghichuColumn"].Value?.ToString();
+                        dt.Rows.Add(dr);
+                    }
+                }
+
+                var count = dt.Rows.Count;
+                if (count < 14)
+                {
+                    for (var i = count; i < 10; i++)
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr[1] = String.Empty;
+                        dr[2] = DBNull.Value;
+                        dr[3] = DBNull.Value;
+                        dr[4] = String.Empty;
+                        dt.Rows.Add(dr);
+                    }
+                }
+
+                var stt = 1;
+                foreach (DataRow row in dt.Rows)
+                {
+                    row[0] = stt;
+                    stt++;
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                return null;
+            }
         }
 
         private void cboQuan_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,8 +284,8 @@ namespace QLCongNo.View.UC.GachNo
                     string kyghiFull = e.Value.ToString();
                     if (kyghiFull.Length >= 2)
                     {
-                        e.Value = kyghiFull.Substring(0, 2); 
-                        e.FormattingApplied = true; 
+                        e.Value = kyghiFull.Substring(0, 2);
+                        e.FormattingApplied = true;
                     }
                 }
             }
@@ -188,16 +313,16 @@ namespace QLCongNo.View.UC.GachNo
                     {
                         int nam = int.Parse(namSelectedStr) + 2000;
                         dsHoadon = dsHoadon.Where(x => x.nam == nam).ToList();
-                    }    
+                    }
 
-                    if(kyghiSelected != "00")
+                    if (kyghiSelected != "00")
                     {
                         int nam = int.Parse(namSelectedStr) + 2000;
                         string thang = kyghiSelected + "/" + nam.ToString();
                         dsHoadon = dsHoadon.Where(x => x.kyghi == thang).ToList();
-                    }    
+                    }
 
-                    if(dotSelectedStr != "0")
+                    if (dotSelectedStr != "0")
                     {
                         int dot = int.Parse(dotSelectedStr);
                         dsHoadon = dsHoadon.Where(x => x.DOT_ID == dot).ToList();
@@ -309,7 +434,10 @@ namespace QLCongNo.View.UC.GachNo
             try
             {
                 if (txtTim.Text == "")
+                {
+                    this.btnInNoTon.Enabled = false;
                     MessageBox.Show("Chưa nhập thông tin tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 else
                 {
                     this.Cursor = Cursors.WaitCursor;
@@ -325,11 +453,13 @@ namespace QLCongNo.View.UC.GachNo
                     dgvKhachHang.DataSource = khachhang.ToList();
                     if (khachhang.Count == 0)
                         dgvHoaDon.DataSource = null;
+                    this.btnInNoTon.Enabled = true;
                     this.Cursor = Cursors.Default;
                 }
             }
             catch (Exception ex)
             {
+                this.btnInNoTon.Enabled = false;
                 MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -402,14 +532,6 @@ namespace QLCongNo.View.UC.GachNo
                 cboDot.DisplayMember = "TENDOT";
             }
             catch { }
-        }
-
-        private void txtTim_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.IsInputKey = true;
-            }
         }
     }
 }
