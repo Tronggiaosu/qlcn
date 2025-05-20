@@ -5161,6 +5161,7 @@
           <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
           <ScalarProperty Name="NGANHANG_ID" ColumnName="NGANHANG_ID" />
           <ScalarProperty Name="NV_ID_NOP" ColumnName="NV_ID_NOP" />
+          <ScalarProperty Name="TEN_NV_LAP" ColumnName="TEN_NV_LAP" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

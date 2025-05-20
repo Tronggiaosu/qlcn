@@ -25,6 +25,15 @@ namespace QLCongNo.View.UC.GachNo
             btnExcelFail.Click += btnExcelFail_Click;
         }
 
+        public class ExcelRowModel
+        {
+            public string Ngay { get; set; }
+            public string DanhBo { get; set; }
+            public decimal TongTien { get; set; }
+            public string Thang { get; set; }
+            public string Nam { get; set; }
+        }
+
         private void btnformexcel_Click(object sender, EventArgs e)
         {
         }
@@ -58,106 +67,142 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnKiemtra_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            if (btnKiemtra.Text == "Tải dữ liệu")
+            try
             {
-                db.Database.ExecuteSqlCommand("delete GACHNOexcel");
-                DataTable dt = new DataTable();
-                if (string.IsNullOrEmpty(txtPath.Text))
+                if (btnKiemtra.Text == "Tải dữ liệu")
                 {
-                    MessageBox.Show("Đường dẫn không được để trống hoặc null.", nameof(txtPath.Text), MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Kiểm tra file có tồn tại hay không
-                if (!File.Exists(txtPath.Text))
-                {
-                    MessageBox.Show("Không tìm thấy file tại đường dẫn cung cấp.", txtPath.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                dt = ReadFromExcelfile(txtPath.Text, "");
-                int soluong = dt.Rows.Count;
-                InsertDataIntoSQLServerUsingSQLBulkCopy(dt);
-                dataGridView1.DataSource = db.getDSImportExcel(1).ToList();
-                var result = db.getDSImportExcel(0).ToList();
-                if(result.Count > 0)
-                {
-                    dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                }    
-                dataGridView2.DataSource = db.getDSImportExcel(0).ToList();
-                txtsoHD.Text = dataGridView1.RowCount.ToString();
-                //lblsoluongthanhtoan.Text = "Số lượng hóa đơn: " + dataGridView1.RowCount.ToString();
-                txttongthanhtoan.Text = string.Format("{0:n0}", db.getDSImportExcel(1).ToList().Sum(x => x.TongTien));
-                if (dataGridView1.RowCount > 0)
-                    btnKiemtra.Text = "Xác nhận thanh toán";
-                //else
-                //db.deleteDSImportExcel();
-            }
-            else if (btnKiemtra.Text == "Xác nhận thanh toán")
-            {
-                DialogResult rs = MessageBox.Show("Có xác nhận thanh toán hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (rs == DialogResult.OK)
-                {
-                    var kyghi = db.DM_KYGHI.Where(x => x.hoadon == true).FirstOrDefault();
-                    var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-                    int NganHangID = int.Parse(cboNH.SelectedValue.ToString());
-                    decimal tongtien = decimal.Parse(txttongthanhtoan.Text);
-                    // add chung tu
-                    CHUNGTU chungtu = new CHUNGTU();
-                    chungtu.ID_KYGHI = kyghi.ID_kyghi;
-                    chungtu.MALOAI = "CK";
-                    chungtu.NGAYLAP = DateTime.Now;
-                    chungtu.NV_ID_LAP = NVLap.nv_id;
-                    chungtu.NV_ID_NOP = NganHangID;
-                    chungtu.GHICHU = txtghichu.Text;
-                    chungtu.TRANGTHAI = false;
-                    chungtu.SOCT = SO_CT_tutang();
-                    chungtu.TONGTIEN = 0;
-                    chungtu.NGAYCT = dtpNgaythu.Value.Date;
-                    chungtu.TONGTIEN = tongtien;
-                    db.CHUNGTUs.Add(chungtu);
-                    db.SaveChanges();
-                    db.gachno_Thanhtoanchuyenkhoan(chungtu.ID_CT, int.Parse(NVLap.nv_id.ToString()), NganHangID);
-                    var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.HOADON.ID_KH).Distinct().ToList();
-                    string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
-                    ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
-                    if (chungtuGN.Count() == 0)
-                        db.CHUNGTUs.Remove(chungtu);
-                    else
+                    this.Cursor = Cursors.WaitCursor;
+                    db.Database.ExecuteSqlCommand("delete GACHNOexcel");
+                    DataTable dt = new DataTable();
+                    if (string.IsNullOrEmpty(txtPath.Text))
                     {
-                        db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
+                        MessageBox.Show("Đường dẫn không được để trống hoặc null.", nameof(txtPath.Text), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                        foreach (var item in chungtuGN)
-                        {
-                            var dshoadon = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT && x.ID_KH == item).ToList();
-                            object[] reseult = tdc.ThanhToanHoaDonList("WASS01", hashkey, dshoadon.Select(x => x.ID_HD.ToString()).ToArray(), dshoadon.FirstOrDefault().DANHBO, "", dshoadon.FirstOrDefault().GHICHU, Common.username, "CHUYENKHOAN", cboNH.Text, "").ToArray();
-                        }
+                    // Kiểm tra file có tồn tại hay không
+                    if (!File.Exists(txtPath.Text))
+                    {
+                        MessageBox.Show("Không tìm thấy file tại đường dẫn cung cấp.", txtPath.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    dt = ReadFromExcelfile(txtPath.Text, "");
+                    int soluong = dt.Rows.Count;
+                    InsertDataIntoSQLServerUsingSQLBulkCopy(dt);
 
-                        db.Database.ExecuteSqlCommand("update a set a.GACH_NO = '1' from PublishedInvoices a with(nolock) where  (GACH_NO is null or GACH_NO = '0')  and a.IDHD in (select id_hd from CHUNGTU_HOADON b where b.ID_CT = " + chungtu.ID_CT + "  ) ");
-                        try
+                    
+                    var dataDung = db.getDSImportExcel(1).ToList();
+                    if(dataDung.Count() == 0)
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; 
+                    else
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;   
+                    dataGridView1.DataSource = dataDung;
+                    dataGridView1.Columns[0].HeaderText = "Key";
+                    dataGridView1.Columns[1].HeaderText = "Tháng";
+                    dataGridView1.Columns[2].HeaderText = "Năm";
+                    dataGridView1.Columns[3].HeaderText = "Danh bộ";
+                    dataGridView1.Columns[4].HeaderText = "Tổng tiền";
+                    dataGridView1.Columns[5].HeaderText = "Họ tên";
+                    dataGridView1.Columns[6].HeaderText = "UserID";
+                    dataGridView1.Columns[7].HeaderText = "Ngày";
+                    novLabel4.Text = $"Danh sách thanh toán ({dataGridView1.Rows.Count})";
+
+                    var allExcelRows = dt.AsEnumerable()
+                        .Where(row =>
+                            row["DanhBo"] != DBNull.Value && !string.IsNullOrWhiteSpace(row["DanhBo"].ToString()) &&
+                            row["TongTien"] != DBNull.Value && Convert.ToDecimal(row["TongTien"]) > 0
+                        )
+                        .Select(row => new ExcelRowModel
                         {
-                            db.XuLyDangNganbyIDCT(chungtu.ID_CT);
-                        }
-                        catch
+                            Ngay = row["Ngay"].ToString().Trim(),
+                            DanhBo = row["DanhBo"].ToString().Trim(),
+                            TongTien = Convert.ToDecimal(row["TongTien"]),
+                            Thang = row["Thang"].ToString().Trim(),
+                            Nam = row["Nam"].ToString().Trim()
+                        }).ToList();
+
+                    var dataSai = allExcelRows
+                        .Where(row => !dataDung.Any(d => d.DanhBo.Trim() == row.DanhBo.Trim()))
+                        .ToList();
+
+                    dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView2.DataSource = dataSai;
+                    novLabel3.Text = $"Danh sách không đúng ({dataGridView2.Rows.Count})";
+
+                    txtsoHD.Text = dataGridView1.RowCount.ToString();
+                    txttongthanhtoan.Text = string.Format("{0:n0}", db.getDSImportExcel(1).ToList().Sum(x => x.TongTien));
+                    if (dataGridView1.RowCount > 0)
+                        btnKiemtra.Text = "Xác nhận thanh toán";
+                    //else
+                    //db.deleteDSImportExcel();
+                    this.Cursor = Cursors.Default;
+                }
+                else if (btnKiemtra.Text == "Xác nhận thanh toán")
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    DialogResult rs = MessageBox.Show("Có xác nhận thanh toán hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (rs == DialogResult.OK)
+                    {
+                        var kyghi = db.DM_KYGHI.Where(x => x.hoadon == true).FirstOrDefault();
+                        var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                        int NganHangID = int.Parse(cboNH.SelectedValue.ToString());
+                        decimal tongtien = decimal.Parse(txttongthanhtoan.Text);
+                        // add chung tu
+                        CHUNGTU chungtu = new CHUNGTU();
+                        chungtu.ID_KYGHI = kyghi.ID_kyghi;
+                        chungtu.MALOAI = "CK";
+                        chungtu.NGAYLAP = DateTime.Now;
+                        chungtu.NV_ID_LAP = NVLap.nv_id;
+                        chungtu.NV_ID_NOP = NganHangID;
+                        chungtu.GHICHU = txtghichu.Text;
+                        chungtu.TRANGTHAI = false;
+                        chungtu.SOCT = SO_CT_tutang();
+                        chungtu.TONGTIEN = 0;
+                        chungtu.NGAYCT = dtpNgaythu.Value.Date;
+                        chungtu.TONGTIEN = tongtien;
+                        db.CHUNGTUs.Add(chungtu);
+                        db.SaveChanges();
+                        db.gachno_Thanhtoanchuyenkhoan(chungtu.ID_CT, int.Parse(NVLap.nv_id.ToString()), NganHangID);
+                        var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.HOADON.ID_KH).Distinct().ToList();
+                        string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
+                        ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
+                        if (chungtuGN.Count() == 0)
+                            db.CHUNGTUs.Remove(chungtu);
+                        else
                         {
+                            db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
+
+                            foreach (var item in chungtuGN)
+                            {
+                                var dshoadon = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT && x.ID_KH == item).ToList();
+                                object[] reseult = tdc.ThanhToanHoaDonList("WASS01", hashkey, dshoadon.Select(x => x.ID_HD.ToString()).ToArray(), dshoadon.FirstOrDefault().DANHBO, "", dshoadon.FirstOrDefault().GHICHU, Common.username, "CHUYENKHOAN", cboNH.Text, "").ToArray();
+                            }
+
+                            db.Database.ExecuteSqlCommand("update a set a.GACH_NO = '1' from PublishedInvoices a with(nolock) where  (GACH_NO is null or GACH_NO = '0')  and a.IDHD in (select id_hd from CHUNGTU_HOADON b where b.ID_CT = " + chungtu.ID_CT + "  ) ");
+                            try
+                            {
+                                db.XuLyDangNganbyIDCT(chungtu.ID_CT);
+                            }
+                            catch
+                            {
+                                db.SaveChanges();
+                                btnKiemtra.Text = "Tải dữ liệu";
+                                dataGridView1.DataSource = null;
+                                txtPath.Text = "";
+                                MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                             db.SaveChanges();
                             btnKiemtra.Text = "Tải dữ liệu";
                             dataGridView1.DataSource = null;
                             txtPath.Text = "";
                             MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        db.SaveChanges();
-                        btnKiemtra.Text = "Tải dữ liệu";
-                        dataGridView1.DataSource = null;
-                        txtPath.Text = "";
-                        MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    this.Cursor = Cursors.Default;
                 }
-                //}
-                //catch
-                //{
-                //}
+            }
+            catch
+            {
             }
         }
 

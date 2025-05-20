@@ -13819,6 +13819,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="NGANHANG_ID" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="NV_ID_NOP" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="TEN_NV_LAP" Nullable="true" MaxLength="100" />
         </ComplexType>
         <EntityType Name="Menu">
           <Key>
@@ -19170,6 +19171,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
                 <ScalarProperty Name="TO_ID" ColumnName="TO_ID" />
                 <ScalarProperty Name="NGANHANG_ID" ColumnName="NGANHANG_ID" />
                 <ScalarProperty Name="NV_ID_NOP" ColumnName="NV_ID_NOP" />
+                <ScalarProperty Name="TEN_NV_LAP" ColumnName="TEN_NV_LAP" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

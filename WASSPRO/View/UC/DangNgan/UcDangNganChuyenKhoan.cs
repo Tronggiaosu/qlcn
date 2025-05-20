@@ -1,4 +1,5 @@
 ﻿using QLCongNo.Data;
+using QLCongNo.View.UC.GachNo;
 using QLCongNo.View.UC.ReportViewer.BaoCao;
 using System;
 using System.Collections.Generic;
@@ -192,31 +193,49 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnDN_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu để đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (dataGridView1.Rows.Count > 0 && chkisdangngan.Checked == true)
-            {
-                MessageBox.Show("Dữ liệu này đã đăng ngân rồi, không thể đăng ngân nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            DialogResult rs = MessageBox.Show("Xác nhận đăng ngân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (rs == DialogResult.OK)
+            try
             {
                 var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-                var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-                var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
-                decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
-                decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
-                int TOID = -1;
-                if (_staticMaloai == "TT")
-                    TOID = int.Parse(cboTO.SelectedValue.ToString());
-                var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "", false, NVLap, TOID);
-                btnTim.PerformClick();
-                MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MessageBox.Show($"{dataGridView1.Rows.Count} hoá đơn vừa được đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                decimal _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (dataGridView1.Rows.Count > 0 && chkisdangngan.Checked == true)
+                {
+                    MessageBox.Show("Dữ liệu này đã đăng ngân rồi, không thể đăng ngân nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (dataGridView1.Rows.Count > 0 && nguoidung.nv_id != _nhanVien)
+                {
+                    MessageBox.Show("Vui lòng chọn đúng tên nhân viên đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                DialogResult rs = MessageBox.Show("Xác nhận đăng ngân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (rs == DialogResult.OK)
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+                    var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                    decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
+                    decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
+                    var danhbo = txtTimDanhBo.Text;
+
+                    int TOID = -1;
+                    if (_staticMaloai == "TT")
+                        TOID = int.Parse(cboTO.SelectedValue.ToString());
+                    var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "", false, NVLap, TOID);
+                    var data = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", false, _nhanVien, TOID).ToList();
+                    btnTim.PerformClick();
+                    MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"{data.Count} hoá đơn vừa được đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch(Exception ex)
+            {
+
             }
         }
 
@@ -499,49 +518,41 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-            var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-            var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
-            var danhbo = txtTimDanhBo.Text;
-            decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
-
-            //decimal NVLap = -1;
-            //if (_staticMaloai == "CK")
-            //{
-            //    NVLap = 0;
-            //}
-            //else if (_staticMaloai == "TT")
-            //{
-            //    NVLap = NHID;
-            //}
-            //MessageBox.Show(NVLap.ToString());
-
-            decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
-            bool isdangngan = false;
-            if (chkisdangngan.Checked == true)
+            try
             {
-                isdangngan = true;
-            }
-            int TOID = -1;
-            if (Common.ChucvuID != 1 && Common.ChucvuID != 4)
-                NVLap = 0;
-            if (_staticMaloai == "TT")
-                TOID = int.Parse(cboTO.SelectedValue.ToString());
-            var dataSource = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, NVLap, TOID).ToList();
+                this.Cursor = Cursors.WaitCursor;
+                var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
+                var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
+                var danhbo = txtTimDanhBo.Text;
+                decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
+                decimal _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
 
-            table = ExcelExportHelper.ListToDataTable(dataSource);
-            if (dataSource.Count() > 0)
+                bool isdangngan = false;
+                if (chkisdangngan.Checked == true)
+                {
+                    isdangngan = true;
+                }
+                int TOID = -1;
+                var dataSource = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", isdangngan, _nhanVien, TOID).ToList();
+
+                table = ExcelExportHelper.ListToDataTable(dataSource);
+                if (dataSource.Count() > 0)
+                {
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView1.Columns[10].Width = 270;
+                }
+                dataGridView1.DataSource = dataSource;
+                lblsoluong.Text = "Số lượng HĐ: " + string.Format("{0:n0}", dataGridView1.RowCount);
+                lbltongtien.Text = "Tổng tiền:  " + string.Format("{0:n0}", dataSource.ToList().Sum(x => x.tongtien));
+
+                this.Cursor = Cursors.Default;
+            }
+            catch(Exception ex)
             {
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView1.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dataGridView1.Columns[10].Width = 270;
-            }
-            dataGridView1.DataSource = dataSource;
-            lblsoluong.Text = "Số lượng HĐ: " + string.Format("{0:n0}", dataGridView1.RowCount);
-            lbltongtien.Text = "Tổng tiền:  " + string.Format("{0:n0}", dataSource.ToList().Sum(x => x.tongtien));
 
-            this.Cursor = Cursors.Default;
+            }
+            
         }
 
         private void frDangNganChuyenKhoan_Load(object sender, EventArgs e)
@@ -582,6 +593,8 @@ namespace QLCongNo.View.UC.DangNgan
             
             if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
+                lblNhanVien.Visible = false;
+                cboNhanVien.Visible = false;
                 label1.Text = "Nhân viên thu";
                 List<NHANVIEN> dsNhanvien = new List<NHANVIEN>();
                 dsNhanvien.Add(new NHANVIEN() { NV_ID = 0, hoten = "Tất cả" });
@@ -598,28 +611,26 @@ namespace QLCongNo.View.UC.DangNgan
                 chkIn.Visible = true;
                 dataGridView1.Columns[ngayBKColumn.Name].Visible = false;
             }
-            else if (_staticMaloai == "TT")
+            else if (_staticMaloai == "CK")
             {
-                label1.Text = "Nhân viên";
-                decimal? TOID = Common.TOID;
-                if (TOID == 0)
-                    TOID = -1;
                 LoadNhanVien();
-                lblTo.Visible = true;
-                cboTO.Visible = true;
-                LoadTO(TOID);
-                dataGridView1.Columns[nganhangColumn.Name].HeaderText = "Nhân viên thu";
-                dataGridView1.Columns[ngayBKColumn.Name].Visible = false;
             }
         }
 
         public void LoadNhanVien()
         {
-            cboNganhang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            var data = DataDanhMuc.getDanhSachNhanVien().Select(x => new { hoten = x.maNV + " - " + x.hoten, x.NV_ID }).ToList();
-            cboNganhang.DataSource = data.ToList();
-            cboNganhang.DisplayMember = "hoten";
-            cboNganhang.ValueMember = "NV_ID";
+            cboNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+
+            var data = DataDanhMuc.getDanhSachNhanVien()
+                .Select(x => new { hoten = x.maNV + " - " + x.hoten, x.NV_ID })
+                .ToList();
+
+            var tatCa = new { hoten = "Tất cả", NV_ID = (decimal)0 };
+            data.Insert(0, tatCa);
+
+            cboNhanVien.DataSource = data;
+            cboNhanVien.DisplayMember = "hoten";
+            cboNhanVien.ValueMember = "NV_ID";
         }
 
         public void LoadTO(decimal? TOID)

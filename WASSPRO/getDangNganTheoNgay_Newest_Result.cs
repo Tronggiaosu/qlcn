@@ -53,5 +53,6 @@ namespace QLCongNo
         public Nullable<decimal> TO_ID { get; set; }
         public Nullable<decimal> NGANHANG_ID { get; set; }
         public Nullable<decimal> NV_ID_NOP { get; set; }
+        public string TEN_NV_LAP { get; set; }
     }
 }

@@ -7286,6 +7286,7 @@
     <Property Type="Decimal" Name="TO_ID" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NGANHANG_ID" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="NV_ID_NOP" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="TEN_NV_LAP" Nullable="true" MaxLength="100" />
   </ComplexType>
   <EntityType Name="Menu">
     <Key>
