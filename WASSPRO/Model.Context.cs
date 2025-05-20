@@ -3998,5 +3998,38 @@ namespace QLCongNo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSKhachHangNoNhieuKy_Newest_Result>("getDSKhachHangNoNhieuKy_Newest", quanParameter, phuongParameter, strsearchParameter, tukyParameter, denkyParameter, denngayParameter);
         }
+    
+        public virtual ObjectResult<getDSDangNgan_Newest_Result> getDSDangNgan_Newest(string dANHBO, Nullable<decimal> nVID, string tungay, string denngay, string maloai, Nullable<bool> isdangngan, Nullable<int> nganHangID)
+        {
+            var dANHBOParameter = dANHBO != null ?
+                new ObjectParameter("DANHBO", dANHBO) :
+                new ObjectParameter("DANHBO", typeof(string));
+    
+            var nVIDParameter = nVID.HasValue ?
+                new ObjectParameter("NVID", nVID) :
+                new ObjectParameter("NVID", typeof(decimal));
+    
+            var tungayParameter = tungay != null ?
+                new ObjectParameter("tungay", tungay) :
+                new ObjectParameter("tungay", typeof(string));
+    
+            var denngayParameter = denngay != null ?
+                new ObjectParameter("denngay", denngay) :
+                new ObjectParameter("denngay", typeof(string));
+    
+            var maloaiParameter = maloai != null ?
+                new ObjectParameter("maloai", maloai) :
+                new ObjectParameter("maloai", typeof(string));
+    
+            var isdangnganParameter = isdangngan.HasValue ?
+                new ObjectParameter("isdangngan", isdangngan) :
+                new ObjectParameter("isdangngan", typeof(bool));
+    
+            var nganHangIDParameter = nganHangID.HasValue ?
+                new ObjectParameter("NganHangID", nganHangID) :
+                new ObjectParameter("NganHangID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSDangNgan_Newest_Result>("getDSDangNgan_Newest", dANHBOParameter, nVIDParameter, tungayParameter, denngayParameter, maloaiParameter, isdangnganParameter, nganHangIDParameter);
+        }
     }
 }

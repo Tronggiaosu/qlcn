@@ -524,6 +524,9 @@
     <Compile Include="getDSChuyenNoKhoDoi_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getDSDangNgan_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDSDangNgan_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -111,16 +111,6 @@ namespace QLCongNo.View.UC.GachNo
                 InsertDataIntoSQLServerUsingSQLBulkCopy(dt);
                 dataGridView1.DataSource = db.getDSImportExcel(1).ToList();
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                novLabel4.Text = $"Danh sách thanh toán ({dataGridView1.Rows.Count})";
-
-                dataGridView1.Columns[0].Name = "Key";
-                dataGridView1.Columns[1].Name = "Tháng";
-                dataGridView1.Columns[2].Name = "Năm";
-                dataGridView1.Columns[3].Name = "Danh bộ";
-                dataGridView1.Columns[4].Name = "Tổng tiền";
-                dataGridView1.Columns[5].Name = "Họ tên";
-                dataGridView1.Columns[6].Name = "UserID";
-                dataGridView1.Columns[7].Name = "Ngày";
 
                 var result = db.getDSImportExcel(0).ToList();
                 if(result.Count > 0)
@@ -128,7 +118,6 @@ namespace QLCongNo.View.UC.GachNo
                     dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 }    
                 dataGridView2.DataSource = db.getDSImportExcel(0).ToList();
-                novLabel3.Text = $"Danh sách không đúng ({dataGridView2.Rows.Count})";
                 txtsoHD.Text = dataGridView1.RowCount.ToString();
                 //lblsoluongthanhtoan.Text = "Số lượng hóa đơn: " + dataGridView1.RowCount.ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", db.getDSImportExcel(1).ToList().Sum(x => x.TongTien));

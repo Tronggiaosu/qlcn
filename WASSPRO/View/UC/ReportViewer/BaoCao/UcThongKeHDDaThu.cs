@@ -42,14 +42,15 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 }
 
                 var currentIndex = currentRow.Index;
-                var currentDanhBo = this.dataGridView1.Rows[currentIndex].Cells[4].Value;
+                var currentDanhBo = this.dataGridView1.Rows[currentIndex].Cells[4].Value.ToString();
                 var currentInfo = this.danhsach.FirstOrDefault(x => x.DANHBO == currentDanhBo);
+                var kh = db.KHACHHANGs.FirstOrDefault(x => x.madanhbo == currentDanhBo);
                 if (currentInfo != null)
                 {
                     var danhbo = currentInfo.DANHBO;
                     var soHD = currentInfo.so_hd;
                     var hoten = currentInfo.hoten_KH;
-                    var sdt = String.Empty;
+                    var sdt = kh.SDT_KH;
                     var thoigian = currentInfo.ten_kyghi;
                     var tongtien = string.Format("{0:n0}", currentInfo.tongtien);
                     var thongtin = $"{thoigian}; Tong tien {tongtien}";
@@ -157,45 +158,8 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                     thuNgan = 0;
                 if (chkHTT.Checked == false)
                     maLoai = "";
-                var data = db.getDSDangNgan(thuNgan, tungay, denngay, maLoai, chkisdangngan.Checked, nganHangID).ToList();
-                //if (!string.IsNullOrEmpty(madanhbo))
-                //{
-                //    data = data.Where(x => x.DANHBO.Contains(madanhbo)).ToList();
-                //}
-                //var result = data.Select(x =>
-                //{
-                //    var ngayDangNgan = x.ngaydangngan?.ToString("dd/MM/yyyy");
-                //    var ngayBK = x.ngayBK?.ToString("dd/MM/yyyy");
-                //    var ngayThanhToan = db.GACHNOes.FirstOrDefault(g => g.ID_HD == x.ID_HD)?.NGAYTHANHTOAN?.ToString("dd/MM/yyyy");
-                //    var nvLap = db.NHANVIENs.FirstOrDefault(nv => nv.NV_ID == x.NV_ID_LAP)?.hoten;
-                //    var tenNganHang = db.DM_NGANHANG.FirstOrDefault(nh => nh.NGANHANG_ID == x.NGANHANG_ID)?.TENNGANHANG;
-
-                //    return new
-                //    {
-                //        x.so_hd,
-                //        x.KY_HIEU_HD,
-                //        x.SOPHATHANH,
-                //        x.nam,
-                //        x.DANHBO,
-                //        x.tongtien0VAT,
-                //        x.tienvat,
-                //        x.tienBVMT,
-                //        x.PhiNT,
-                //        x.TienThueNT,
-                //        x.tongtien,
-                //        x.hoten_KH,
-                //        x.NVNop,
-                //        x.GHICHU,
-                //        x.ten_kyghi,
-                //        ngayDangNgan,
-                //        ngayBK,
-                //        x.MaLT,
-                //        x.tenloai,
-                //        ngayThanhToan,
-                //        nvLap,
-                //        tenNganHang
-                //    };
-                //}).ToList();
+                var data = db.getDSDangNgan_Newest(madanhbo, thuNgan, tungay, denngay, maLoai, chkisdangngan.Checked, nganHangID).ToList();
+                
                 if (data.Count > 0)
                 {
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
