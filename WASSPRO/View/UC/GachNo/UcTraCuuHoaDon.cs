@@ -330,7 +330,7 @@ namespace QLCongNo.View.UC.GachNo
 
                     if (dsHoadon.Count > 0)
                     {
-                        dgvHoaDon.DataSource = dsHoadon.OrderByDescending(x => x.ngaytao).ToList();
+                        dgvHoaDon.DataSource = dsHoadon.OrderByDescending(x => DateTime.Parse(x.kyghi)).ToList();
                     }
                     else
                         dgvHoaDon.DataSource = null;

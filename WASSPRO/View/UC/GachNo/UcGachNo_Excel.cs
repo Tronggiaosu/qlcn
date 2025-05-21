@@ -25,6 +25,24 @@ namespace QLCongNo.View.UC.GachNo
             btnExcelFail.Click += btnExcelFail_Click;
             this.dataGridView1.KeyDown += DataGridView1_KeyDown;
             this.dataGridView2.KeyDown += DataGridView2_KeyDown;
+            this.dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
+            this.dataGridView2.ColumnHeaderMouseClick += DataGridView2_ColumnHeaderMouseClick;
+        }
+
+        private void DataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                this.dataGridView2.SelectAll();
+            }
+        }
+
+        private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                this.dataGridView1.SelectAll();
+            }
         }
 
         private void DataGridView2_KeyDown(object sender, KeyEventArgs e)
@@ -47,12 +65,22 @@ namespace QLCongNo.View.UC.GachNo
 
         private void Copy(DataGridView dgv)
         {
-            var currentRow = dgv.CurrentCell.RowIndex;
-            var currentCol = dgv.CurrentCell.ColumnIndex;
-            if (currentCol < 0) return;
-
-            var content = dgv.Rows[currentRow].Cells[currentCol].Value?.ToString();
-            Clipboard.SetText(content);
+            if (dgv.SelectedCells.Count == dgv.RowCount * dgv.ColumnCount)
+            {
+                //Copy all of datagridview
+                DataObject dataObj = dgv.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+            }
+            else
+            {
+                //Copy 1 cell
+                var currentCell = dgv.CurrentCell;
+                if (currentCell != null && currentCell.Value != null)
+                {
+                    Clipboard.SetText(currentCell.Value.ToString());
+                }
+            }
         }
 
         public class ExcelRowModel

@@ -35,20 +35,39 @@ namespace QLCongNo.View.UC.DangNgan
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             this.dataGridView1.KeyDown += DataGridView1_KeyDown;
+            this.dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
+        }
+
+        private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                this.dataGridView1.SelectAll();
+            }
         }
 
         private void DataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.C)
             {
-                var currentRow = this.dataGridView1.CurrentCell.RowIndex;
-                var currentCol = this.dataGridView1.CurrentCell.ColumnIndex;
-                if (currentCol < 0) return;
-
-                var content = this.dataGridView1.Rows[currentRow].Cells[currentCol].Value?.ToString();
-                Clipboard.SetText(content);
+                if (dataGridView1.SelectedCells.Count == dataGridView1.RowCount * dataGridView1.ColumnCount)
+                {
+                    //Copy all of datagridview
+                    DataObject dataObj = dataGridView1.GetClipboardContent();
+                    if (dataObj != null)
+                        Clipboard.SetDataObject(dataObj);
+                }
+                else
+                {
+                    //Copy 1 cell
+                    var currentCell = dataGridView1.CurrentCell;
+                    if (currentCell != null && currentCell.Value != null)
+                    {
+                        Clipboard.SetText(currentCell.Value.ToString());
+                    }
+                }
                 e.Handled = true;
-            };
+            }
         }
 
         public UcDangNganChuyenKhoan(string maloai) 
@@ -635,7 +654,7 @@ namespace QLCongNo.View.UC.DangNgan
         public void LoadNhanVien()
         {
             cboNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-
+            var nguoidung = Common.NVID;
             var data = DataDanhMuc.getDanhSachNhanVien()
                 .Select(x => new { hoten = x.maNV + " - " + x.hoten, x.NV_ID })
                 .ToList();
@@ -646,6 +665,14 @@ namespace QLCongNo.View.UC.DangNgan
             cboNhanVien.DataSource = data;
             cboNhanVien.DisplayMember = "hoten";
             cboNhanVien.ValueMember = "NV_ID";
+            cboNhanVien.SelectedIndex = 0;
+
+            for (var i = 0; i< data.Count; i++)
+            {
+                var id = data[i].NV_ID;
+                if (id == nguoidung)
+                    cboNhanVien.SelectedIndex = i;
+            }
         }
 
         public void LoadTO(decimal? TOID)

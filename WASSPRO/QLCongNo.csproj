@@ -1782,6 +1782,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\DangNgan\UcDangNganChuyenKhoan.resx">
       <DependentUpon>UcDangNganChuyenKhoan.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\DangNgan\UcTongHopBilling.resx">
       <DependentUpon>UcTongHopBilling.cs</DependentUpon>

@@ -77,15 +77,6 @@
             this.chkAllList = new QLCongNo.View.Core.NovCheckBox();
             this.chkAll = new QLCongNo.View.Core.NovCheckBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.sp_ChangePasswordTableAdapter1 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
-            this.sp_ChangePasswordTableAdapter2 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
-            this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.lbltongtien = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.lbltong = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.chkColumn = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.seriColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.namColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -101,6 +92,15 @@
             this.maLTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.sp_ChangePasswordTableAdapter1 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
+            this.sp_ChangePasswordTableAdapter2 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
+            this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.lbltongtien = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.lbltong = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -600,6 +600,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
@@ -610,6 +611,190 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1390, 349);
             this.dataGridView1.TabIndex = 81;
+            // 
+            // chkColumn
+            // 
+            this.chkColumn.FalseValue = "false";
+            this.chkColumn.HeaderText = "Chọn";
+            this.chkColumn.MinimumWidth = 6;
+            this.chkColumn.Name = "chkColumn";
+            this.chkColumn.ReadOnly = true;
+            this.chkColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.chkColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.chkColumn.TrueValue = "true";
+            this.chkColumn.Width = 79;
+            // 
+            // seriColumn
+            // 
+            this.seriColumn.DataPropertyName = "KY_HIEU_HD";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.seriColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.seriColumn.HeaderText = "Seri";
+            this.seriColumn.MinimumWidth = 6;
+            this.seriColumn.Name = "seriColumn";
+            this.seriColumn.ReadOnly = true;
+            this.seriColumn.Width = 66;
+            // 
+            // namColumn
+            // 
+            this.namColumn.DataPropertyName = "ten_kyghi";
+            this.namColumn.HeaderText = "Năm";
+            this.namColumn.MinimumWidth = 6;
+            this.namColumn.Name = "namColumn";
+            this.namColumn.ReadOnly = true;
+            this.namColumn.Width = 75;
+            // 
+            // thangColumn
+            // 
+            this.thangColumn.DataPropertyName = "ten_kyghi";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.thangColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.thangColumn.HeaderText = "Tháng";
+            this.thangColumn.MinimumWidth = 6;
+            this.thangColumn.Name = "thangColumn";
+            this.thangColumn.ReadOnly = true;
+            this.thangColumn.Width = 86;
+            // 
+            // soHDColumn
+            // 
+            this.soHDColumn.DataPropertyName = "SO_HD";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.soHDColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.soHDColumn.HeaderText = "Số hóa đơn";
+            this.soHDColumn.MinimumWidth = 6;
+            this.soHDColumn.Name = "soHDColumn";
+            this.soHDColumn.ReadOnly = true;
+            this.soHDColumn.Width = 126;
+            // 
+            // danhboColumn
+            // 
+            this.danhboColumn.DataPropertyName = "danhbo";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.danhboColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.danhboColumn.HeaderText = "Danh bộ";
+            this.danhboColumn.MinimumWidth = 6;
+            this.danhboColumn.Name = "danhboColumn";
+            this.danhboColumn.ReadOnly = true;
+            this.danhboColumn.Width = 104;
+            // 
+            // ngaythuColumn
+            // 
+            this.ngaythuColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ngaythuColumn.DataPropertyName = "ngaydangngan";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "dd/MM/yyyy HH:mm";
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.ngaythuColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ngaythuColumn.HeaderText = "Ngày đăng ngân";
+            this.ngaythuColumn.MinimumWidth = 6;
+            this.ngaythuColumn.Name = "ngaythuColumn";
+            this.ngaythuColumn.ReadOnly = true;
+            this.ngaythuColumn.Width = 166;
+            // 
+            // ngayBKColumn
+            // 
+            this.ngayBKColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ngayBKColumn.DataPropertyName = "ngayBK";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.ngayBKColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ngayBKColumn.HeaderText = "Ngày bảng kê";
+            this.ngayBKColumn.MinimumWidth = 6;
+            this.ngayBKColumn.Name = "ngayBKColumn";
+            this.ngayBKColumn.ReadOnly = true;
+            this.ngayBKColumn.Width = 144;
+            // 
+            // tongcongColumn
+            // 
+            this.tongcongColumn.DataPropertyName = "tongtien";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.tongcongColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            this.tongcongColumn.HeaderText = "Tổng cộng";
+            this.tongcongColumn.MinimumWidth = 6;
+            this.tongcongColumn.Name = "tongcongColumn";
+            this.tongcongColumn.ReadOnly = true;
+            this.tongcongColumn.Width = 120;
+            // 
+            // nganhangColumn
+            // 
+            this.nganhangColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nganhangColumn.DataPropertyName = "NVNop";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.nganhangColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.nganhangColumn.HeaderText = "Tên ngân hàng";
+            this.nganhangColumn.MinimumWidth = 6;
+            this.nganhangColumn.Name = "nganhangColumn";
+            this.nganhangColumn.ReadOnly = true;
+            this.nganhangColumn.Width = 152;
+            // 
+            // TEN_NV_LAP
+            // 
+            this.TEN_NV_LAP.DataPropertyName = "TEN_NV_LAP";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.TEN_NV_LAP.DefaultCellStyle = dataGridViewCellStyle11;
+            this.TEN_NV_LAP.HeaderText = "Nhân viên giải trách";
+            this.TEN_NV_LAP.MinimumWidth = 6;
+            this.TEN_NV_LAP.Name = "TEN_NV_LAP";
+            this.TEN_NV_LAP.ReadOnly = true;
+            this.TEN_NV_LAP.Width = 192;
+            // 
+            // hotenColumn
+            // 
+            this.hotenColumn.DataPropertyName = "hoten_KH";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.hotenColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            this.hotenColumn.HeaderText = "Họ tên";
+            this.hotenColumn.MinimumWidth = 6;
+            this.hotenColumn.Name = "hotenColumn";
+            this.hotenColumn.ReadOnly = true;
+            this.hotenColumn.Width = 90;
+            // 
+            // maLTColumn
+            // 
+            this.maLTColumn.DataPropertyName = "maLT";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.maLTColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.maLTColumn.HeaderText = "Mã lộ trình";
+            this.maLTColumn.MinimumWidth = 6;
+            this.maLTColumn.Name = "maLTColumn";
+            this.maLTColumn.ReadOnly = true;
+            this.maLTColumn.Width = 122;
+            // 
+            // ghichuColumn
+            // 
+            this.ghichuColumn.DataPropertyName = "ghichu";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.ghichuColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.ghichuColumn.HeaderText = "Ghi chú";
+            this.ghichuColumn.MinimumWidth = 6;
+            this.ghichuColumn.Name = "ghichuColumn";
+            this.ghichuColumn.ReadOnly = true;
+            this.ghichuColumn.Width = 97;
+            // 
+            // IDHDColumn
+            // 
+            this.IDHDColumn.DataPropertyName = "ID_HD";
+            this.IDHDColumn.HeaderText = "IDHD";
+            this.IDHDColumn.MinimumWidth = 6;
+            this.IDHDColumn.Name = "IDHDColumn";
+            this.IDHDColumn.ReadOnly = true;
+            this.IDHDColumn.Visible = false;
+            this.IDHDColumn.Width = 79;
             // 
             // sp_ChangePasswordTableAdapter1
             // 
@@ -689,185 +874,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1390, 40);
             this.panel2.TabIndex = 82;
-            // 
-            // chkColumn
-            // 
-            this.chkColumn.FalseValue = "false";
-            this.chkColumn.HeaderText = "Chọn";
-            this.chkColumn.MinimumWidth = 6;
-            this.chkColumn.Name = "chkColumn";
-            this.chkColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.chkColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.chkColumn.TrueValue = "true";
-            this.chkColumn.Width = 79;
-            // 
-            // seriColumn
-            // 
-            this.seriColumn.DataPropertyName = "KY_HIEU_HD";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.seriColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.seriColumn.HeaderText = "Seri";
-            this.seriColumn.MinimumWidth = 6;
-            this.seriColumn.Name = "seriColumn";
-            this.seriColumn.ReadOnly = true;
-            this.seriColumn.Width = 66;
-            // 
-            // namColumn
-            // 
-            this.namColumn.DataPropertyName = "ten_kyghi";
-            this.namColumn.HeaderText = "Năm";
-            this.namColumn.MinimumWidth = 6;
-            this.namColumn.Name = "namColumn";
-            this.namColumn.ReadOnly = true;
-            this.namColumn.Width = 75;
-            // 
-            // thangColumn
-            // 
-            this.thangColumn.DataPropertyName = "ten_kyghi";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.thangColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.thangColumn.HeaderText = "Tháng";
-            this.thangColumn.MinimumWidth = 6;
-            this.thangColumn.Name = "thangColumn";
-            this.thangColumn.Width = 86;
-            // 
-            // soHDColumn
-            // 
-            this.soHDColumn.DataPropertyName = "SO_HD";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.soHDColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.soHDColumn.HeaderText = "Số hóa đơn";
-            this.soHDColumn.MinimumWidth = 6;
-            this.soHDColumn.Name = "soHDColumn";
-            this.soHDColumn.ReadOnly = true;
-            this.soHDColumn.Width = 126;
-            // 
-            // danhboColumn
-            // 
-            this.danhboColumn.DataPropertyName = "danhbo";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.danhboColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.danhboColumn.HeaderText = "Danh bộ";
-            this.danhboColumn.MinimumWidth = 6;
-            this.danhboColumn.Name = "danhboColumn";
-            this.danhboColumn.ReadOnly = true;
-            this.danhboColumn.Width = 104;
-            // 
-            // ngaythuColumn
-            // 
-            this.ngaythuColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ngaythuColumn.DataPropertyName = "ngaydangngan";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "dd/MM/yyyy HH:mm";
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.ngaythuColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ngaythuColumn.HeaderText = "Ngày đăng ngân";
-            this.ngaythuColumn.MinimumWidth = 6;
-            this.ngaythuColumn.Name = "ngaythuColumn";
-            this.ngaythuColumn.ReadOnly = true;
-            this.ngaythuColumn.Width = 166;
-            // 
-            // ngayBKColumn
-            // 
-            this.ngayBKColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ngayBKColumn.DataPropertyName = "ngayBK";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.ngayBKColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ngayBKColumn.HeaderText = "Ngày bảng kê";
-            this.ngayBKColumn.MinimumWidth = 6;
-            this.ngayBKColumn.Name = "ngayBKColumn";
-            this.ngayBKColumn.Width = 144;
-            // 
-            // tongcongColumn
-            // 
-            this.tongcongColumn.DataPropertyName = "tongtien";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.tongcongColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.tongcongColumn.HeaderText = "Tổng cộng";
-            this.tongcongColumn.MinimumWidth = 6;
-            this.tongcongColumn.Name = "tongcongColumn";
-            this.tongcongColumn.ReadOnly = true;
-            this.tongcongColumn.Width = 120;
-            // 
-            // nganhangColumn
-            // 
-            this.nganhangColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nganhangColumn.DataPropertyName = "NVNop";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.nganhangColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.nganhangColumn.HeaderText = "Tên ngân hàng";
-            this.nganhangColumn.MinimumWidth = 6;
-            this.nganhangColumn.Name = "nganhangColumn";
-            this.nganhangColumn.ReadOnly = true;
-            this.nganhangColumn.Width = 152;
-            // 
-            // TEN_NV_LAP
-            // 
-            this.TEN_NV_LAP.DataPropertyName = "TEN_NV_LAP";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.TEN_NV_LAP.DefaultCellStyle = dataGridViewCellStyle11;
-            this.TEN_NV_LAP.HeaderText = "Nhân viên giải trách";
-            this.TEN_NV_LAP.MinimumWidth = 6;
-            this.TEN_NV_LAP.Name = "TEN_NV_LAP";
-            this.TEN_NV_LAP.Width = 192;
-            // 
-            // hotenColumn
-            // 
-            this.hotenColumn.DataPropertyName = "hoten_KH";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.hotenColumn.DefaultCellStyle = dataGridViewCellStyle12;
-            this.hotenColumn.HeaderText = "Họ tên";
-            this.hotenColumn.MinimumWidth = 6;
-            this.hotenColumn.Name = "hotenColumn";
-            this.hotenColumn.ReadOnly = true;
-            this.hotenColumn.Width = 90;
-            // 
-            // maLTColumn
-            // 
-            this.maLTColumn.DataPropertyName = "maLT";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.maLTColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.maLTColumn.HeaderText = "Mã lộ trình";
-            this.maLTColumn.MinimumWidth = 6;
-            this.maLTColumn.Name = "maLTColumn";
-            this.maLTColumn.ReadOnly = true;
-            this.maLTColumn.Width = 122;
-            // 
-            // ghichuColumn
-            // 
-            this.ghichuColumn.DataPropertyName = "ghichu";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.ghichuColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.ghichuColumn.HeaderText = "Ghi chú";
-            this.ghichuColumn.MinimumWidth = 6;
-            this.ghichuColumn.Name = "ghichuColumn";
-            this.ghichuColumn.Width = 97;
-            // 
-            // IDHDColumn
-            // 
-            this.IDHDColumn.DataPropertyName = "ID_HD";
-            this.IDHDColumn.HeaderText = "IDHD";
-            this.IDHDColumn.MinimumWidth = 6;
-            this.IDHDColumn.Name = "IDHDColumn";
-            this.IDHDColumn.ReadOnly = true;
-            this.IDHDColumn.Visible = false;
-            this.IDHDColumn.Width = 79;
             // 
             // UcDangNganChuyenKhoan
             // 

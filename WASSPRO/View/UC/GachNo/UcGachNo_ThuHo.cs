@@ -30,8 +30,33 @@ namespace QLCongNo.View.UC.GachNo
             this.dgvDSHD.DataError += dgvDSHD_DataError;
             this.dgvDSHD.CellFormatting += dgvDSHD_CellFormatting;
             this.dgvDSHD.ColumnHeaderMouseClick += DgvDSHD_ColumnHeaderMouseClick;
+            this.dgvDSHD.KeyDown += DgvDSHD_KeyDown;
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+
+        private void DgvDSHD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                if (dgvDSHD.SelectedCells.Count == dgvDSHD.RowCount * dgvDSHD.ColumnCount)
+                {
+                    //Copy all of datagridview
+                    DataObject dataObj = dgvDSHD.GetClipboardContent();
+                    if (dataObj != null)
+                        Clipboard.SetDataObject(dataObj);
+                }
+                else
+                {
+                    //Copy 1 cell
+                    var currentCell = dgvDSHD.CurrentCell;
+                    if (currentCell != null && currentCell.Value != null)
+                    {
+                        Clipboard.SetText(currentCell.Value.ToString());
+                    }
+                }
+                e.Handled = true;
+            }
         }
 
         private void DgvDSHD_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
