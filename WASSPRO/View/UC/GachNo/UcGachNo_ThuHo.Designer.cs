@@ -561,7 +561,6 @@
             this.ngaythuColumn.HeaderText = "Ngày thu";
             this.ngaythuColumn.MinimumWidth = 6;
             this.ngaythuColumn.Name = "ngaythuColumn";
-            this.ngaythuColumn.ReadOnly = true;
             this.ngaythuColumn.Width = 109;
             // 
             // namColumn
@@ -572,7 +571,6 @@
             this.namColumn.HeaderText = "Năm";
             this.namColumn.MinimumWidth = 6;
             this.namColumn.Name = "namColumn";
-            this.namColumn.ReadOnly = true;
             this.namColumn.Width = 75;
             // 
             // thangColumn
@@ -584,7 +582,6 @@
             this.thangColumn.HeaderText = "Tháng";
             this.thangColumn.MinimumWidth = 6;
             this.thangColumn.Name = "thangColumn";
-            this.thangColumn.ReadOnly = true;
             this.thangColumn.Width = 86;
             // 
             // DOTColumn
@@ -593,7 +590,6 @@
             this.DOTColumn.HeaderText = "Đợt";
             this.DOTColumn.MinimumWidth = 6;
             this.DOTColumn.Name = "DOTColumn";
-            this.DOTColumn.ReadOnly = true;
             this.DOTColumn.Visible = false;
             this.DOTColumn.Width = 66;
             // 
@@ -606,7 +602,6 @@
             this.danhboColumn.HeaderText = "Danh bộ";
             this.danhboColumn.MinimumWidth = 6;
             this.danhboColumn.Name = "danhboColumn";
-            this.danhboColumn.ReadOnly = true;
             this.danhboColumn.Width = 104;
             // 
             // tiennuocColumn
@@ -620,7 +615,6 @@
             this.tiennuocColumn.HeaderText = "Tổng tiền thu";
             this.tiennuocColumn.MinimumWidth = 6;
             this.tiennuocColumn.Name = "tiennuocColumn";
-            this.tiennuocColumn.ReadOnly = true;
             this.tiennuocColumn.Width = 142;
             // 
             // hotenColumn
@@ -654,7 +648,6 @@
             this.SOHDColumn.HeaderText = "Số HĐ";
             this.SOHDColumn.MinimumWidth = 6;
             this.SOHDColumn.Name = "SOHDColumn";
-            this.SOHDColumn.ReadOnly = true;
             this.SOHDColumn.Visible = false;
             this.SOHDColumn.Width = 86;
             // 
@@ -667,7 +660,6 @@
             this.sonhaColumn.HeaderText = "Số nhà";
             this.sonhaColumn.MinimumWidth = 6;
             this.sonhaColumn.Name = "sonhaColumn";
-            this.sonhaColumn.ReadOnly = true;
             this.sonhaColumn.Width = 91;
             // 
             // diachiColumn
@@ -679,7 +671,6 @@
             this.diachiColumn.HeaderText = "Đường";
             this.diachiColumn.MinimumWidth = 6;
             this.diachiColumn.Name = "diachiColumn";
-            this.diachiColumn.ReadOnly = true;
             this.diachiColumn.Width = 90;
             // 
             // phuongColumn
@@ -691,7 +682,6 @@
             this.phuongColumn.HeaderText = "Phường";
             this.phuongColumn.MinimumWidth = 6;
             this.phuongColumn.Name = "phuongColumn";
-            this.phuongColumn.ReadOnly = true;
             this.phuongColumn.Width = 98;
             // 
             // quanColumn
@@ -703,7 +693,6 @@
             this.quanColumn.HeaderText = "Quận";
             this.quanColumn.MinimumWidth = 6;
             this.quanColumn.Name = "quanColumn";
-            this.quanColumn.ReadOnly = true;
             this.quanColumn.Width = 80;
             // 
             // IDHDColumn
@@ -712,7 +701,6 @@
             this.IDHDColumn.HeaderText = "ID_HD";
             this.IDHDColumn.MinimumWidth = 6;
             this.IDHDColumn.Name = "IDHDColumn";
-            this.IDHDColumn.ReadOnly = true;
             this.IDHDColumn.Visible = false;
             this.IDHDColumn.Width = 86;
             // 

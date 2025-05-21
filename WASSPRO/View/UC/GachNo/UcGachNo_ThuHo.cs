@@ -39,7 +39,8 @@ namespace QLCongNo.View.UC.GachNo
         {
             if (e.Control && e.KeyCode == Keys.C)
             {
-                if (dgvDSHD.SelectedCells.Count == dgvDSHD.RowCount * dgvDSHD.ColumnCount)
+                var count = dgvDSHD.SelectedCells.Count;
+                if (count == dgvDSHD.RowCount * dgvDSHD.ColumnCount && count != 8)
                 {
                     //Copy all of datagridview
                     DataObject dataObj = dgvDSHD.GetClipboardContent();

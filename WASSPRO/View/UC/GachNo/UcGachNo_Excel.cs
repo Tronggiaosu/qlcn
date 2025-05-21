@@ -65,7 +65,8 @@ namespace QLCongNo.View.UC.GachNo
 
         private void Copy(DataGridView dgv)
         {
-            if (dgv.SelectedCells.Count == dgv.RowCount * dgv.ColumnCount)
+            var count = dgv.SelectedCells.Count;
+            if (count == dgv.RowCount * dgv.ColumnCount && count != 8)
             {
                 //Copy all of datagridview
                 DataObject dataObj = dgv.GetClipboardContent();
