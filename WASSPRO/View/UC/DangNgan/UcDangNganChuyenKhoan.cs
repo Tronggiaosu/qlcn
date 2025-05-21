@@ -565,6 +565,7 @@ namespace QLCongNo.View.UC.DangNgan
             try
             {
                 this.Cursor = Cursors.WaitCursor;
+                var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
                 var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
                 var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
                 var danhbo = txtTimDanhBo.Text;
@@ -573,6 +574,10 @@ namespace QLCongNo.View.UC.DangNgan
                 if (_staticMaloai == "CK")
                 {
                     _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                }    
+                if(_staticMaloai == "TC")
+                {
+                    _nhanVien = nguoidung?.nv_id ?? 0;
                 }    
 
                 bool isdangngan = false;
