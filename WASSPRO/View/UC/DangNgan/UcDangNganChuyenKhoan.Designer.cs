@@ -77,15 +77,6 @@
             this.chkAllList = new QLCongNo.View.Core.NovCheckBox();
             this.chkAll = new QLCongNo.View.Core.NovCheckBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.sp_ChangePasswordTableAdapter1 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
-            this.sp_ChangePasswordTableAdapter2 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
-            this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.lbltongtien = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.lbltong = new QLCongNo.View.Core.NovToolStripStatusLabel();
-            this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.chkColumn = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.seriColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.namColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -101,6 +92,15 @@
             this.maLTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.sp_ChangePasswordTableAdapter1 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
+            this.sp_ChangePasswordTableAdapter2 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
+            this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.lbltongtien = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.lbltong = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -611,85 +611,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1390, 349);
             this.dataGridView1.TabIndex = 81;
             // 
-            // sp_ChangePasswordTableAdapter1
-            // 
-            this.sp_ChangePasswordTableAdapter1.ClearBeforeFill = true;
-            // 
-            // sp_ChangePasswordTableAdapter2
-            // 
-            this.sp_ChangePasswordTableAdapter2.ClearBeforeFill = true;
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.BackColor = System.Drawing.Color.White;
-            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsoluong.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(0, 16);
-            // 
-            // lbltongtien
-            // 
-            this.lbltongtien.BackColor = System.Drawing.Color.White;
-            this.lbltongtien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltongtien.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbltongtien.Name = "lbltongtien";
-            this.lbltongtien.Size = new System.Drawing.Size(0, 16);
-            // 
-            // lbltong
-            // 
-            this.lbltong.BackColor = System.Drawing.Color.White;
-            this.lbltong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltong.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbltong.Name = "lbltong";
-            this.lbltong.Size = new System.Drawing.Size(0, 16);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.White;
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusStrip1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblsoluong,
-            this.lbltongtien,
-            this.lbltong});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 241);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 15, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1390, 22);
-            this.statusStrip1.TabIndex = 79;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 263);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1390, 389);
-            this.panel1.TabIndex = 82;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1390, 349);
-            this.panel3.TabIndex = 83;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.chkAllList);
-            this.panel2.Controls.Add(this.chkAll);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1390, 40);
-            this.panel2.TabIndex = 82;
-            // 
             // chkColumn
             // 
             this.chkColumn.FalseValue = "false";
@@ -868,6 +789,85 @@
             this.IDHDColumn.ReadOnly = true;
             this.IDHDColumn.Visible = false;
             this.IDHDColumn.Width = 79;
+            // 
+            // sp_ChangePasswordTableAdapter1
+            // 
+            this.sp_ChangePasswordTableAdapter1.ClearBeforeFill = true;
+            // 
+            // sp_ChangePasswordTableAdapter2
+            // 
+            this.sp_ChangePasswordTableAdapter2.ClearBeforeFill = true;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.BackColor = System.Drawing.Color.White;
+            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsoluong.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(0, 16);
+            // 
+            // lbltongtien
+            // 
+            this.lbltongtien.BackColor = System.Drawing.Color.White;
+            this.lbltongtien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltongtien.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lbltongtien.Name = "lbltongtien";
+            this.lbltongtien.Size = new System.Drawing.Size(0, 16);
+            // 
+            // lbltong
+            // 
+            this.lbltong.BackColor = System.Drawing.Color.White;
+            this.lbltong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltong.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lbltong.Name = "lbltong";
+            this.lbltong.Size = new System.Drawing.Size(0, 16);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblsoluong,
+            this.lbltongtien,
+            this.lbltong});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 241);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 15, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1390, 22);
+            this.statusStrip1.TabIndex = 79;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 263);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1390, 389);
+            this.panel1.TabIndex = 82;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1390, 349);
+            this.panel3.TabIndex = 83;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.chkAllList);
+            this.panel2.Controls.Add(this.chkAll);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1390, 40);
+            this.panel2.TabIndex = 82;
             // 
             // UcDangNganChuyenKhoan
             // 

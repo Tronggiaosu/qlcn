@@ -211,7 +211,11 @@ namespace QLCongNo.View.UC.DangNgan
             try
             {
                 var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-                decimal _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                decimal _nhanVien = 0;
+                if(_staticMaloai == "CK")
+                {
+                    _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                }    
                 if (dataGridView1.Rows.Count == 0)
                 {
                     MessageBox.Show("Không có dữ liệu để đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -222,11 +226,14 @@ namespace QLCongNo.View.UC.DangNgan
                     MessageBox.Show("Dữ liệu này đã đăng ngân rồi, không thể đăng ngân nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (dataGridView1.Rows.Count > 0 && nguoidung.nv_id != _nhanVien)
+                if(_staticMaloai == "CK")
                 {
-                    MessageBox.Show("Vui lòng chọn đúng tên nhân viên đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    if (dataGridView1.Rows.Count > 0 && nguoidung.nv_id != _nhanVien)
+                    {
+                        MessageBox.Show("Vui lòng chọn đúng tên nhân viên đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }    
                 DialogResult rs = MessageBox.Show("Xác nhận đăng ngân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs == DialogResult.OK)
                 {
@@ -241,10 +248,13 @@ namespace QLCongNo.View.UC.DangNgan
                     if (_staticMaloai == "TT")
                         TOID = int.Parse(cboTO.SelectedValue.ToString());
                     var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "", false, NVLap, TOID);
-                    var data = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", false, _nhanVien, TOID).ToList();
+                    var data = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", false, _nhanVien, TOID).ToList();   
                     btnTim.PerformClick();
                     MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MessageBox.Show($"{data.Count} hoá đơn vừa được đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (_staticMaloai == "CK")
+                    {
+                        MessageBox.Show($"{data.Count} hoá đơn vừa được đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }                         
                     this.Cursor = Cursors.Default;
                 }
             }
@@ -540,7 +550,11 @@ namespace QLCongNo.View.UC.DangNgan
                 var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
                 var danhbo = txtTimDanhBo.Text;
                 decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
-                decimal _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                decimal _nhanVien = 0;
+                if (_staticMaloai == "CK")
+                {
+                    _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                }    
 
                 bool isdangngan = false;
                 if (chkisdangngan.Checked == true)
