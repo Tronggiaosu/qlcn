@@ -60,7 +60,8 @@ namespace QLCongNo.View.UC.GachNo
         {
             if (e.Control && e.KeyCode == Keys.C)
             {
-                if (dgvKhachhang.SelectedCells.Count == dgvKhachhang.RowCount * dgvKhachhang.ColumnCount)
+                var count = dgvKhachhang.SelectedCells.Count;
+                if (count == dgvKhachhang.RowCount * dgvKhachhang.ColumnCount && count != 8)
                 {
                     //Copy all of datagridview
                     DataObject dataObj = dgvKhachhang.GetClipboardContent();

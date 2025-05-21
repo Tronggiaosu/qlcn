@@ -48,9 +48,11 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void DataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.Control && e.KeyCode == Keys.C)
             {
-                if (dataGridView1.SelectedCells.Count == dataGridView1.RowCount * dataGridView1.ColumnCount)
+                var count = dataGridView1.SelectedCells.Count;
+                if (count == dataGridView1.RowCount * dataGridView1.ColumnCount && count != 8)
                 {
                     //Copy all of datagridview
                     DataObject dataObj = dataGridView1.GetClipboardContent();
@@ -70,7 +72,7 @@ namespace QLCongNo.View.UC.DangNgan
             }
         }
 
-        public UcDangNganChuyenKhoan(string maloai) 
+        public UcDangNganChuyenKhoan(string maloai)
         {
             this.maloai = maloai;
             _staticMaloai = maloai;
@@ -168,7 +170,7 @@ namespace QLCongNo.View.UC.DangNgan
         {
             try
             {
-                if(dataGridView1.Rows.Count == 0)
+                if (dataGridView1.Rows.Count == 0)
                 {
                     MessageBox.Show("Không có dữ liệu để in!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -231,10 +233,10 @@ namespace QLCongNo.View.UC.DangNgan
             {
                 var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
                 decimal _nhanVien = 0;
-                if(_staticMaloai == "CK")
+                if (_staticMaloai == "CK")
                 {
                     _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
-                }    
+                }
                 if (dataGridView1.Rows.Count == 0)
                 {
                     MessageBox.Show("Không có dữ liệu để đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -245,14 +247,14 @@ namespace QLCongNo.View.UC.DangNgan
                     MessageBox.Show("Dữ liệu này đã đăng ngân rồi, không thể đăng ngân nữa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if(_staticMaloai == "CK")
+                if (_staticMaloai == "CK")
                 {
                     if (dataGridView1.Rows.Count > 0 && nguoidung.nv_id != _nhanVien)
                     {
                         MessageBox.Show("Vui lòng chọn đúng tên nhân viên đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                }    
+                }
                 DialogResult rs = MessageBox.Show("Xác nhận đăng ngân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs == DialogResult.OK)
                 {
@@ -267,17 +269,17 @@ namespace QLCongNo.View.UC.DangNgan
                     if (_staticMaloai == "TT")
                         TOID = int.Parse(cboTO.SelectedValue.ToString());
                     var dataSource = db.UpdateDangNganTheoNgay(NHID, 0, tungay, denngay, _staticMaloai, "", false, NVLap, TOID);
-                    var data = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", false, _nhanVien, TOID).ToList();   
+                    var data = db.getDangNganTheoNgay_Newest(danhbo, NHID, 0, tungay, denngay, _staticMaloai, "0", false, _nhanVien, TOID).ToList();
                     btnTim.PerformClick();
                     MessageBox.Show("Đăng ngân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (_staticMaloai == "CK")
                     {
                         MessageBox.Show($"{data.Count} hoá đơn vừa được đăng ngân!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }                         
+                    }
                     this.Cursor = Cursors.Default;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -573,7 +575,7 @@ namespace QLCongNo.View.UC.DangNgan
                 if (_staticMaloai == "CK")
                 {
                     _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
-                }    
+                }
 
                 bool isdangngan = false;
                 if (chkisdangngan.Checked == true)
@@ -596,20 +598,20 @@ namespace QLCongNo.View.UC.DangNgan
 
                 this.Cursor = Cursors.Default;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-            
+
         }
 
         private void frDangNganChuyenKhoan_Load(object sender, EventArgs e)
         {
-            if (Common.username != "tkct-thuy" 
-                && Common.username != "tkct-hoa" 
-                && Common.username != "tkct-le" 
-                && Common.username != "tkct-yen" 
-                && Common.username != "tkct" 
+            if (Common.username != "tkct-thuy"
+                && Common.username != "tkct-hoa"
+                && Common.username != "tkct-le"
+                && Common.username != "tkct-yen"
+                && Common.username != "tkct"
                 && Common.username != "tracham")
             {
                 btnDN.Enabled = false;
@@ -638,7 +640,7 @@ namespace QLCongNo.View.UC.DangNgan
             chkHuyTT.Visible = Common.isxoa;
             txtlydo.Visible = Common.isxoa;
             dataGridView1.Columns[ngayBKColumn.Name].Visible = true;
-            
+
             if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
                 lblNhanVien.Visible = false;
@@ -681,7 +683,7 @@ namespace QLCongNo.View.UC.DangNgan
             cboNhanVien.ValueMember = "NV_ID";
             cboNhanVien.SelectedIndex = 0;
 
-            for (var i = 0; i< data.Count; i++)
+            for (var i = 0; i < data.Count; i++)
             {
                 var id = data[i].NV_ID;
                 if (id == nguoidung)
