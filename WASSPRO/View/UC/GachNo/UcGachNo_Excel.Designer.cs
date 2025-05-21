@@ -199,7 +199,7 @@
             this.txtPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPath.Multiline = true;
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(418, 38);
+            this.txtPath.Size = new System.Drawing.Size(1035, 38);
             this.txtPath.TabIndex = 1;
             // 
             // groupBox2

@@ -600,6 +600,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
@@ -617,6 +618,7 @@
             this.chkColumn.HeaderText = "Chọn";
             this.chkColumn.MinimumWidth = 6;
             this.chkColumn.Name = "chkColumn";
+            this.chkColumn.ReadOnly = true;
             this.chkColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.chkColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.chkColumn.TrueValue = "true";
@@ -652,6 +654,7 @@
             this.thangColumn.HeaderText = "Tháng";
             this.thangColumn.MinimumWidth = 6;
             this.thangColumn.Name = "thangColumn";
+            this.thangColumn.ReadOnly = true;
             this.thangColumn.Width = 86;
             // 
             // soHDColumn
@@ -705,6 +708,7 @@
             this.ngayBKColumn.HeaderText = "Ngày bảng kê";
             this.ngayBKColumn.MinimumWidth = 6;
             this.ngayBKColumn.Name = "ngayBKColumn";
+            this.ngayBKColumn.ReadOnly = true;
             this.ngayBKColumn.Width = 144;
             // 
             // tongcongColumn
@@ -743,6 +747,7 @@
             this.TEN_NV_LAP.HeaderText = "Nhân viên giải trách";
             this.TEN_NV_LAP.MinimumWidth = 6;
             this.TEN_NV_LAP.Name = "TEN_NV_LAP";
+            this.TEN_NV_LAP.ReadOnly = true;
             this.TEN_NV_LAP.Width = 192;
             // 
             // hotenColumn
@@ -778,6 +783,7 @@
             this.ghichuColumn.HeaderText = "Ghi chú";
             this.ghichuColumn.MinimumWidth = 6;
             this.ghichuColumn.Name = "ghichuColumn";
+            this.ghichuColumn.ReadOnly = true;
             this.ghichuColumn.Width = 97;
             // 
             // IDHDColumn

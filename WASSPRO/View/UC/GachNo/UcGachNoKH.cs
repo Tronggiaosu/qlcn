@@ -60,14 +60,24 @@ namespace QLCongNo.View.UC.GachNo
         {
             if (e.Control && e.KeyCode == Keys.C)
             {
-                var currentRow = this.dgvKhachhang.CurrentCell.RowIndex;
-                var currentCol = this.dgvKhachhang.CurrentCell.ColumnIndex;
-                if (currentCol < 0) return;
-
-                var content = this.dgvKhachhang.Rows[currentRow].Cells[currentCol].Value?.ToString();
-                Clipboard.SetText(content);
+                if (dgvKhachhang.SelectedCells.Count == dgvKhachhang.RowCount * dgvKhachhang.ColumnCount)
+                {
+                    //Copy all of datagridview
+                    DataObject dataObj = dgvKhachhang.GetClipboardContent();
+                    if (dataObj != null)
+                        Clipboard.SetDataObject(dataObj);
+                }
+                else
+                {
+                    //Copy 1 cell
+                    var currentCell = dgvKhachhang.CurrentCell;
+                    if (currentCell != null && currentCell.Value != null)
+                    {
+                        Clipboard.SetText(currentCell.Value.ToString());
+                    }
+                }
                 e.Handled = true;
-            };
+            }
         }
 
         private void dgvHoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

@@ -58,8 +58,8 @@
             this.btnExcel = new QLCongNo.View.Core.NovToolStripButton();
             this.btnQuit = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
-            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.textBox1 = new QLCongNo.View.Core.NovTextBox();
             this.chkHTT = new QLCongNo.View.Core.NovCheckBox();
             this.cboHTTT = new QLCongNo.View.Core.NovComboBox();
@@ -103,8 +103,8 @@
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -185,21 +185,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // ptbSendSMS
-            // 
-            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
-            this.ptbSendSMS.Location = new System.Drawing.Point(1242, 59);
-            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
-            this.ptbSendSMS.Name = "ptbSendSMS";
-            this.tableLayoutPanel1.SetRowSpan(this.ptbSendSMS, 2);
-            this.ptbSendSMS.Size = new System.Drawing.Size(48, 48);
-            this.ptbSendSMS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ptbSendSMS.TabIndex = 26;
-            this.ptbSendSMS.TabStop = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 6;
@@ -231,6 +216,21 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.69388F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1290, 162);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // ptbSendSMS
+            // 
+            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
+            this.ptbSendSMS.Location = new System.Drawing.Point(1242, 59);
+            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
+            this.ptbSendSMS.Name = "ptbSendSMS";
+            this.tableLayoutPanel1.SetRowSpan(this.ptbSendSMS, 2);
+            this.ptbSendSMS.Size = new System.Drawing.Size(48, 48);
+            this.ptbSendSMS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ptbSendSMS.TabIndex = 26;
+            this.ptbSendSMS.TabStop = false;
             // 
             // textBox1
             // 
@@ -820,9 +820,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSendSMS)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
