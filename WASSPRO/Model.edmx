@@ -4448,6 +4448,13 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="tudot" Type="int" Mode="In" />
           <Parameter Name="dendot" Type="int" Mode="In" />
         </Function>
+        <Function Name="getDSGuiSMS_Newest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="trangthai" Type="int" Mode="In" />
+          <Parameter Name="tungay" Type="varchar" Mode="In" />
+          <Parameter Name="denngay" Type="varchar" Mode="In" />
+          <Parameter Name="tudot" Type="int" Mode="In" />
+          <Parameter Name="dendot" Type="int" Mode="In" />
+        </Function>
         <Function Name="getDSHoaDon_KH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDKH" Type="numeric" Mode="In" />
         </Function>
@@ -12052,6 +12059,13 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="NganHangID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Menus" EntityType="Model.Menu" />
+          <FunctionImport Name="getDSGuiSMS_Newest" ReturnType="Collection(Model.getDSGuiSMS_Newest_Result)">
+            <Parameter Name="trangthai" Mode="In" Type="Int32" />
+            <Parameter Name="tungay" Mode="In" Type="String" />
+            <Parameter Name="denngay" Mode="In" Type="String" />
+            <Parameter Name="tudot" Mode="In" Type="Int32" />
+            <Parameter Name="dendot" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -14062,6 +14076,15 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Name="ParentId" Type="Int32" />
           <Property Name="AdditionParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="getDSGuiSMS_Newest_Result">
+          <Property Type="String" Name="sdt" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="hoten" Nullable="true" />
+          <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="diachihoadon" Nullable="true" />
+          <Property Type="Int32" Name="soky" Nullable="true" />
+          <Property Type="String" Name="sotien" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="tonggiam" Nullable="false" MaxLength="1" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -19492,6 +19515,19 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getDSGuiSMS_Newest" FunctionName="Model.Store.getDSGuiSMS_Newest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSGuiSMS_Newest_Result">
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="DANHBO" ColumnName="DANHBO" />
+                <ScalarProperty Name="diachihoadon" ColumnName="diachihoadon" />
+                <ScalarProperty Name="soky" ColumnName="soky" />
+                <ScalarProperty Name="sotien" ColumnName="sotien" />
+                <ScalarProperty Name="tonggiam" ColumnName="tonggiam" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

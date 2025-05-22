@@ -5425,5 +5425,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getDSGuiSMS_Newest" FunctionName="Model.Store.getDSGuiSMS_Newest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.getDSGuiSMS_Newest_Result">
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="DANHBO" ColumnName="DANHBO" />
+          <ScalarProperty Name="diachihoadon" ColumnName="diachihoadon" />
+          <ScalarProperty Name="soky" ColumnName="soky" />
+          <ScalarProperty Name="sotien" ColumnName="sotien" />
+          <ScalarProperty Name="tonggiam" ColumnName="tonggiam" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

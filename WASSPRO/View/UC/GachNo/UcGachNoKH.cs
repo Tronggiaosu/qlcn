@@ -443,8 +443,6 @@ namespace QLCongNo.View.UC.GachNo
                                         // update hoa don, publish
                                         hoadon.gachno = true;
                                         hoadon.ngaythanhtoan = dtpNgaythu.Value;
-                                        hoadon.trangthai_id = 10;
-                                        hoadon.trangthaiKH = 0;
                                     }
                                 }
                             }

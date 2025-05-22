@@ -539,6 +539,9 @@
     <Compile Include="getDSGIAODICH_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getDSGuiSMS_Newest_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDSGuiSMS_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

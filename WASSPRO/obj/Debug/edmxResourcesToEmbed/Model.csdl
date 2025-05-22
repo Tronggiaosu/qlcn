@@ -5511,6 +5511,13 @@
       <Parameter Name="NganHangID" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="Menus" EntityType="Model.Menu" />
+    <FunctionImport Name="getDSGuiSMS_Newest" ReturnType="Collection(Model.getDSGuiSMS_Newest_Result)">
+      <Parameter Name="trangthai" Mode="In" Type="Int32" />
+      <Parameter Name="tungay" Mode="In" Type="String" />
+      <Parameter Name="denngay" Mode="In" Type="String" />
+      <Parameter Name="tudot" Mode="In" Type="Int32" />
+      <Parameter Name="dendot" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -7521,4 +7528,13 @@
     <Property Name="ParentId" Type="Int32" />
     <Property Name="AdditionParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <ComplexType Name="getDSGuiSMS_Newest_Result">
+    <Property Type="String" Name="sdt" Nullable="true" MaxLength="101" />
+    <Property Type="String" Name="hoten" Nullable="true" />
+    <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="diachihoadon" Nullable="true" />
+    <Property Type="Int32" Name="soky" Nullable="true" />
+    <Property Type="String" Name="sotien" Nullable="true" MaxLength="8000" />
+    <Property Type="String" Name="tonggiam" Nullable="false" MaxLength="1" />
+  </ComplexType>
 </Schema>

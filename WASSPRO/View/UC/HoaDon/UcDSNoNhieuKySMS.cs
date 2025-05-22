@@ -42,7 +42,7 @@ namespace QLCongNo.View.UC.HoaDon
                     tudot = -1;
                 if (chkTuNgayKhoa.Checked == false)
                     tungay = "";
-                var data = db.getDSGuiSMS(trangthai, tungay, denngay, tudot, dendot).ToList();
+                var data = db.getDSGuiSMS_Newest(trangthai, tungay, denngay, tudot, dendot).ToList();
                 if (chksoky.Checked == true)
                     data = data.Where(x => x.soky == int.Parse(soky)).ToList();
                 dgvDSKhachHangNo.DataSource = data.ToList();

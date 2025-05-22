@@ -83,9 +83,10 @@ namespace QLCongNo.View.UC.HoaDon
                 string kyghi = cboKy.SelectedValue.ToString();
                 string result = namid + kyghi;
                 var dsChitiet = db.CHITIET_HD.Where(x => x.HOADON.kyghi == result && x.HOADON.DOT_ID == dotid).Select(x => x.TDC_CHITIETHD).ToList();
-                dataGridView1.DataSource = dsChitiet.ToList();
-                lblsoluong.Text = "Số lượng: " + string.Format("{0:n0}", dataGridView1.RowCount);
-                if (dataGridView1.RowCount > 0)
+                dgvHoaDon.DataSource = dsChitiet;
+                dgvHoaDon.DefaultCellStyle.ForeColor = Color.Black;
+                lblsoluong.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dgvHoaDon.RowCount);
+                if (dgvHoaDon.RowCount > 0)
                     btnDelete.Visible = true;
                 this.Cursor = Cursors.Default;
             }
@@ -99,7 +100,7 @@ namespace QLCongNo.View.UC.HoaDon
         {
             try
             {
-                if (dataGridView1.Rows.Count == 0)
+                if (dgvHoaDon.Rows.Count == 0)
                 {
                     MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -135,14 +136,14 @@ namespace QLCongNo.View.UC.HoaDon
                 decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
                 string kyghi = cboKy.SelectedValue.ToString();
                 string result = namid + kyghi;
-                dataGridView1.Visible = true;
+                dgvHoaDon.Visible = true;
                 if (txtPath.Text != "")
                 {
                     if (btnLuu.Text == "Tải dữ liệu")
                     {
                         btnLuu.Text = "Lưu dữ liệu";
-                        dataGridView1.DataSource = GetDataTabletFromCSVFile(@"" + txtPath.Text + "", namid, result, dotid);
-                        lblsoluong.Text = "Số lượng: " + string.Format("{0:n0}", dataGridView1.RowCount) + " dòng";
+                        dgvHoaDon.DataSource = GetDataTabletFromCSVFile(@"" + txtPath.Text + "", namid, result, dotid);
+                        lblsoluong.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dgvHoaDon.RowCount) + " dòng";
                     }
                     else if (btnLuu.Text == "Lưu dữ liệu")
                     {
@@ -338,7 +339,7 @@ namespace QLCongNo.View.UC.HoaDon
                 cboDot.ValueMember = "DOT_ID";
                 cboDot.DisplayMember = "TENDOT";
                 btnLuu.Enabled = false;
-                dataGridView1.Visible = true;
+                dgvHoaDon.Visible = true;
                 btnDelete.Visible = false;
 
                 if (dataNam.Count > 0)

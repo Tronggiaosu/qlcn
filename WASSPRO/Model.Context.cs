@@ -4031,5 +4031,30 @@ namespace QLCongNo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSDangNgan_Newest_Result>("getDSDangNgan_Newest", dANHBOParameter, nVIDParameter, tungayParameter, denngayParameter, maloaiParameter, isdangnganParameter, nganHangIDParameter);
         }
+    
+        public virtual ObjectResult<getDSGuiSMS_Newest_Result> getDSGuiSMS_Newest(Nullable<int> trangthai, string tungay, string denngay, Nullable<int> tudot, Nullable<int> dendot)
+        {
+            var trangthaiParameter = trangthai.HasValue ?
+                new ObjectParameter("trangthai", trangthai) :
+                new ObjectParameter("trangthai", typeof(int));
+    
+            var tungayParameter = tungay != null ?
+                new ObjectParameter("tungay", tungay) :
+                new ObjectParameter("tungay", typeof(string));
+    
+            var denngayParameter = denngay != null ?
+                new ObjectParameter("denngay", denngay) :
+                new ObjectParameter("denngay", typeof(string));
+    
+            var tudotParameter = tudot.HasValue ?
+                new ObjectParameter("tudot", tudot) :
+                new ObjectParameter("tudot", typeof(int));
+    
+            var dendotParameter = dendot.HasValue ?
+                new ObjectParameter("dendot", dendot) :
+                new ObjectParameter("dendot", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSGuiSMS_Newest_Result>("getDSGuiSMS_Newest", trangthaiParameter, tungayParameter, denngayParameter, tudotParameter, dendotParameter);
+        }
     }
 }
