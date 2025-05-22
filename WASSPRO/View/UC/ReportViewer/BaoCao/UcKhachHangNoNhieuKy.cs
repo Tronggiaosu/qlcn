@@ -110,8 +110,9 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             List<DM_QUAN> dsquan = new List<DM_QUAN>();
             dsquan.Add(new DM_QUAN() { maQuan = "0", tenQuan = "Tất cả" });
             var quan = db.DM_QUAN.ToList();
-            dsquan.AddRange(quan);
-            cboQuan.DataSource = quan.ToList();
+            dsquan.AddRange(quan); 
+
+            cboQuan.DataSource = dsquan; 
             cboQuan.DisplayMember = "tenQuan";
             cboQuan.ValueMember = "maQuan";
         }
@@ -154,9 +155,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 tuky = int.Parse(CboTuKy.SelectedValue.ToString());
                 denky = int.Parse(cboDenKy.SelectedValue.ToString());
 
-                string maquan = "0";
-                maquan = cboQuan.SelectedValue.ToString();
-
+                string maquan = cboQuan.SelectedValue.ToString();
                 string maphuong = cboPhuong.SelectedValue.ToString();
 
                 var datasource = db.getDSKhachHangNoNhieuKy_Newest(maquan, maphuong, txtTimKiem.Text.Replace(" ", String.Empty), tuky, denky, denngay).AsQueryable();

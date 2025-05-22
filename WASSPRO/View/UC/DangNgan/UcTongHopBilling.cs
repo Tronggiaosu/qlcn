@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -114,17 +116,69 @@ namespace QLCongNo.View.UC.DangNgan
             }
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Excel file|.xlsx";
+
             if (save.ShowDialog() == DialogResult.OK)
             {
                 this.Cursor = Cursors.WaitCursor;
-                string[] columns = { "ngaythanhtoan", "somay", "sophathanh", "kyHD", "tongtien0VAT", "tienvat", "tienBVMT", "PhiNT", "TienThueNT", "tongtien", "madanhbo", };
 
-                var result = ExcelExportHelper.ExportExcel(table, false, columns);
+                DateTime now = DateTime.Now;
+                string thang = now.Month.ToString("D2");  
+                string nam = now.Year.ToString();        
+
+                string[] columns = { "ngaythanhtoan", "somay", "sophathanh", "kyHD", "tongtien0VAT", "tienvat", "tienBVMT", "PhiNT", "TienThueNT", "tongtien", "madanhbo" };
+
+                DataTable sheet1 = new DataTable(); 
+                DataTable sheet2 = new DataTable(); 
+
+                foreach (string col in columns)
+                {
+                    sheet1.Columns.Add(col);
+                    sheet2.Columns.Add(col);
+                }
+
+                foreach (DataRow row in table.Rows)
+                {
+                    string kyHD = row["kyHD"]?.ToString()?.Trim() ?? "";
+                    string _thang = "", _nam = "";
+
+                    if (kyHD.Length >= 6)
+                    {
+                        _thang = kyHD.Substring(0, 2);
+                        _nam = kyHD.Substring(kyHD.Length - 4, 4);
+                    }
+
+                    DataRow newRow;
+                    if (_thang == thang && _nam == nam)
+                        newRow = sheet1.NewRow();
+                    else
+                        newRow = sheet2.NewRow();
+
+                    foreach (string col in columns)
+                    {
+                        if (table.Columns.Contains(col))
+                            newRow[col] = row[col];
+                    }
+
+                    if (_thang == thang && _nam == nam)
+                        sheet1.Rows.Add(newRow);
+                    else
+                        sheet2.Rows.Add(newRow);
+                }
+
+                var sheets = new Dictionary<string, DataTable>
+                {
+                    { $"Thang_{thang}_{nam}", sheet1 },
+                    { "ConLai", sheet2 }
+                };
+
+                var result = ExcelExportHelper.ExportMultiSheetExcel(sheets);
                 File.WriteAllBytes(save.FileName, result);
+
                 this.Cursor = Cursors.Default;
                 MessageBox.Show("Xuất dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
         //void chkKD_CheckedChanged(object sender, EventArgs e)
         //{

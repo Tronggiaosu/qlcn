@@ -192,5 +192,19 @@ namespace QLCongNo
                 workSheet.Column(i).AutoFit();
             }
         }
+
+        public static byte[] ExportMultiSheetExcel(Dictionary<string, DataTable> sheets)
+        {
+            using (var package = new ExcelPackage())
+            {
+                foreach (var sheet in sheets)
+                {
+                    var ws = package.Workbook.Worksheets.Add(sheet.Key);
+                    ws.Cells["A1"].LoadFromDataTable(sheet.Value, true);
+                    ws.Cells[ws.Dimension.Address].AutoFitColumns();
+                }
+                return package.GetAsByteArray();
+            }
+        }
     }
 }
