@@ -29,14 +29,24 @@ namespace QLCongNo.View.UC.GachNo
             btnDelete.Click += btnDelete_Click;
             btnTim.Click += btnTim_Click;
             this.button1.FlatStyle = FlatStyle.Standard;
-            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
-            this.dataGridView1.DataError += dataGridView1_DataError;
+            //this.dgvHoaDon.CellFormatting += dgvHoaDon_CellFormatting;
+            this.dgvHoaDon.DataError += dgvHoaDon_DataError;
+            this.dgvHoaDon.DataBindingComplete += DataGridView2_DataBindingComplete;
         }
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+
+        private void DataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn col in dgvHoaDon.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+        }
+
+        private void dgvHoaDon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
             {
-                if (dataGridView1.Columns[e.ColumnIndex].Name == "NAMColumn")
+                if (dgvHoaDon.Columns[e.ColumnIndex].Name == "NAMColumn")
                 {
                     if (e.Value != null)
                     {
@@ -54,7 +64,7 @@ namespace QLCongNo.View.UC.GachNo
             }
             catch { }
         }
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void dgvHoaDon_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;  
         }
@@ -73,57 +83,54 @@ namespace QLCongNo.View.UC.GachNo
                     .Where(x => x.DOT == dotid.ToString() && x.NAM == (namid - 2000).ToString() && x.KY == thang)
                     .OrderBy(x => x.DANHBO)
                     .ToList();
-                if (query.Count > 0)
-                {
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                }
-                dataGridView1.DataSource = query;
+                dgvHoaDon.DataSource = query;
+                dgvHoaDon.DefaultCellStyle.ForeColor = Color.Black;
 
-                dataGridView1.Columns["HOADONs"].Visible = false;
-                dataGridView1.Columns["LNSUCXA"].Visible = false;
-                dataGridView1.Columns["PhiNT"].Visible = false;
-                dataGridView1.Columns["PhiBVMTCu"].Visible = false;
-                dataGridView1.Columns["M3GiaMoi"].Visible = false;
-                dataGridView1.Columns["PhiNT"].Visible = false;
-                dataGridView1.Columns["TienThueNT"].Visible = false;
-                dataGridView1.Columns["STGCOV"].Visible = false;
-                dataGridView1.Columns["DINHMUCHONGHEO"].Visible = false;
-                dataGridView1.Columns["M3GiaCu"].Visible = false;
-                dataGridView1.Columns["hoadonTDC_id"].Visible = false;
-                dataGridView1.Columns["isimport"].Visible = false;
-                dataGridView1.Columns["DIACHITRUSO"].Visible = false;
-                dataGridView1.Columns["STT"].Visible = false;
-                dataGridView1.Columns["CUST_ID"].Visible = false;
-                dataGridView1.Columns["MAIL"].Visible = false;
-                dataGridView1.Columns["FAX"].Visible = false;
-                dataGridView1.Columns["SODHN"].Visible = false;
-                dataGridView1.Columns["NGAY_PHATHANH"].Visible = false;
-                dataGridView1.Columns["SO_HOADON"].Visible = false;
-                dataGridView1.Columns["RETOUR"].Visible = false;
-                dataGridView1.Columns["DV"].Visible = false;
-                dataGridView1.Columns["SX"].Visible = false;
-                dataGridView1.Columns["HCSN"].Visible = false;
-                dataGridView1.Columns["SH"].Visible = false;
-                dataGridView1.Columns["MSCQ"].Visible = false;
-                dataGridView1.Columns["QUAN"].Visible = false;
-                dataGridView1.Columns["PHUONG"].Visible = false;
-                dataGridView1.Columns["GIABAN_BU_TOITHIEU"].Visible = false;
-                dataGridView1.Columns["THUEGTGT_BU_TOITHIEU"].Visible = false;
-                dataGridView1.Columns["PHIBVMT_BU_TOITHIEU"].Visible = false;
-                dataGridView1.Columns["TONGCONG_BU_TOITHIEU"].Visible = false;
-                dataGridView1.Columns["TIEUVUNG_DMA"].Visible = false;
-                dataGridView1.Columns["VUNG_DMA"].Visible = false;
-                dataGridView1.Columns["NGAY_GANDH"].Visible = false;
-                dataGridView1.Columns["TILE_TIEUTHU"].Visible = false;
-                dataGridView1.Columns["SO_PHATHANH"].Visible = false;
-                dataGridView1.Columns["CUON_STT"].Visible = false;
-                dataGridView1.Columns["CUON_GCS"].Visible = false;
-                dataGridView1.Columns["TUNGAY"].Visible = false;
-                dataGridView1.Columns["DENNGAY"].Visible = false;
-                dataGridView1.Columns["MST"].Visible = false;
+                //dgvHoaDon.Columns["HOADONs"].Visible = false;
+                //dgvHoaDon.Columns["LNSUCXA"].Visible = false;
+                //dgvHoaDon.Columns["PhiNT"].Visible = false;
+                //dgvHoaDon.Columns["PhiBVMTCu"].Visible = false;
+                //dgvHoaDon.Columns["M3GiaMoi"].Visible = false;
+                //dgvHoaDon.Columns["PhiNT"].Visible = false;
+                //dgvHoaDon.Columns["TienThueNT"].Visible = false;
+                //dgvHoaDon.Columns["STGCOV"].Visible = false;
+                //dgvHoaDon.Columns["DINHMUCHONGHEO"].Visible = false;
+                //dgvHoaDon.Columns["M3GiaCu"].Visible = false;
+                //dgvHoaDon.Columns["hoadonTDC_id"].Visible = false;
+                //dgvHoaDon.Columns["isimport"].Visible = false;
+                //dgvHoaDon.Columns["DIACHITRUSO"].Visible = false;
+                //dgvHoaDon.Columns["STT"].Visible = false;
+                //dgvHoaDon.Columns["CUST_ID"].Visible = false;
+                //dgvHoaDon.Columns["MAIL"].Visible = false;
+                //dgvHoaDon.Columns["FAX"].Visible = false;
+                //dgvHoaDon.Columns["SODHN"].Visible = false;
+                //dgvHoaDon.Columns["NGAY_PHATHANH"].Visible = false;
+                //dgvHoaDon.Columns["SO_HOADON"].Visible = false;
+                //dgvHoaDon.Columns["RETOUR"].Visible = false;
+                //dgvHoaDon.Columns["DV"].Visible = false;
+                //dgvHoaDon.Columns["SX"].Visible = false;
+                //dgvHoaDon.Columns["HCSN"].Visible = false;
+                //dgvHoaDon.Columns["SH"].Visible = false;
+                //dgvHoaDon.Columns["MSCQ"].Visible = false;
+                //dgvHoaDon.Columns["QUAN"].Visible = false;
+                //dgvHoaDon.Columns["PHUONG"].Visible = false;
+                //dgvHoaDon.Columns["GIABAN_BU_TOITHIEU"].Visible = false;
+                //dgvHoaDon.Columns["THUEGTGT_BU_TOITHIEU"].Visible = false;
+                //dgvHoaDon.Columns["PHIBVMT_BU_TOITHIEU"].Visible = false;
+                //dgvHoaDon.Columns["TONGCONG_BU_TOITHIEU"].Visible = false;
+                //dgvHoaDon.Columns["TIEUVUNG_DMA"].Visible = false;
+                //dgvHoaDon.Columns["VUNG_DMA"].Visible = false;
+                //dgvHoaDon.Columns["NGAY_GANDH"].Visible = false;
+                //dgvHoaDon.Columns["TILE_TIEUTHU"].Visible = false;
+                //dgvHoaDon.Columns["SO_PHATHANH"].Visible = false;
+                //dgvHoaDon.Columns["CUON_STT"].Visible = false;
+                //dgvHoaDon.Columns["CUON_GCS"].Visible = false;
+                //dgvHoaDon.Columns["TUNGAY"].Visible = false;
+                //dgvHoaDon.Columns["DENNGAY"].Visible = false;
+                //dgvHoaDon.Columns["MST"].Visible = false;
 
-                lbltongso.Text = "Số lượng hóa đơn " + string.Format("{0:n0}", dataGridView1.RowCount);
-                if (dataGridView1.RowCount > 0)
+                lbltongso.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dgvHoaDon.RowCount);
+                if (dgvHoaDon.RowCount > 0)
                     btnDelete.Visible = true;
 
                 this.Cursor = Cursors.Default;
@@ -141,7 +148,7 @@ namespace QLCongNo.View.UC.GachNo
                 decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
                 decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
                 string kyghi = cboKy.SelectedValue.ToString();
-                dataGridView1.Visible = true;
+                dgvHoaDon.Visible = true;
                 var hoadon = db.HOADONs.Where(x => x.DOT_ID == dotid && x.nam == namid && x.kyghi == kyghi && x.ischeck == 1).ToList();
                 var chitietHD = (from a in db.CHITIET_HD
                                  from x in db.HOADONs
@@ -162,7 +169,7 @@ namespace QLCongNo.View.UC.GachNo
                         this.Cursor = Cursors.Default;
                         MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnDelete.Visible = false;
-                        dataGridView1.DataSource = null;
+                        dgvHoaDon.DataSource = null;
                     }
                 }
             }
@@ -191,12 +198,12 @@ namespace QLCongNo.View.UC.GachNo
         {
             try
             {
-                if (dataGridView1.Rows.Count == 0)
+                if (dgvHoaDon.Rows.Count == 0)
                 {
                     MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                Common.ExportExcel(dataGridView1);
+                Common.ExportExcel(dgvHoaDon);
             }
             catch { }
         }
@@ -224,20 +231,20 @@ namespace QLCongNo.View.UC.GachNo
                             MessageBox.Show("Hóa đơn kỳ này đã được import vào hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                         {
-                            dataGridView1.DataSource = GetDataTabletFromCSVFile(@"" + txtPath.Text + "");
-                            var nam = dataGridView1.SelectedRows[0].Cells[NAMColumn.Name].Value.ToString();
-                            var ky = dataGridView1.SelectedRows[0].Cells[KyColumn.Name].Value.ToString();
-                            var dot = dataGridView1.SelectedRows[0].Cells[dotcolumn.Name].Value.ToString();
+                            dgvHoaDon.DataSource = GetDataTabletFromCSVFile(@"" + txtPath.Text + "");
+                            var nam = dgvHoaDon.SelectedRows[0].Cells[NamColumn.Name].Value.ToString();
+                            var ky = dgvHoaDon.SelectedRows[0].Cells[KyColumn.Name].Value.ToString();
+                            var dot = dgvHoaDon.SelectedRows[0].Cells[DotColumn.Name].Value.ToString();
                             string kybilling = (int.Parse(nam) + 2000).ToString() + ky;
                             if (kybilling != result || dot != dot.ToString())
                                 MessageBox.Show("Dữ liệu trong file không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             else
                                 btnLuu.Text = "Lưu dữ liệu";
 
-                            lbltongso.Text = "Số lượng hóa đơn " + string.Format("{0:n0}", dataGridView1.RowCount);
+                            lbltongso.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dgvHoaDon.RowCount);
                         }
 
-                        foreach (DataGridViewColumn column in dataGridView1.Columns)
+                        foreach (DataGridViewColumn column in dgvHoaDon.Columns)
                         {
                             var index = column.Index;
                             if (index == 0 || (index >= 3 && index <= 6) || index == 61)
@@ -266,7 +273,7 @@ namespace QLCongNo.View.UC.GachNo
                             }
                         }
 
-                        this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        this.dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         this.Cursor = Cursors.Default;
                     }
                     else if (btnLuu.Text == "Lưu dữ liệu")
@@ -620,8 +627,8 @@ namespace QLCongNo.View.UC.GachNo
                 var year = DateTime.Now.ToString("YYYY");
                 var month = DateTime.Now.ToString("MM");
 
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //dataGridView1.AutoGenerateColumns = false;
+                dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //dgvHoaDon.AutoGenerateColumns = false;
                 txtPath.Enabled = false;
                 var dataMauHD = db.MAU_HD.Where(x => x.Active == true).ToList();
 
@@ -690,7 +697,7 @@ namespace QLCongNo.View.UC.GachNo
         {
             try
             {
-                if (dataGridView1.Rows.Count == 0)
+                if (dgvHoaDon.Rows.Count == 0)
                 {
                     MessageBox.Show("Bạn chưa tải dữ liệu lên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
