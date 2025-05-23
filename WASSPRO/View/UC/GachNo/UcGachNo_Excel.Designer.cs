@@ -43,6 +43,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new QLCongNo.View.Core.NovToolStrip();
             this.btnKiemtra = new QLCongNo.View.Core.NovToolStripButton();
+            this.btnConfirm = new QLCongNo.View.Core.NovToolStripButton();
             this.btnEX = new QLCongNo.View.Core.NovToolStripButton();
             this.btnExcelFail = new QLCongNo.View.Core.NovToolStripButton();
             this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
@@ -95,6 +96,7 @@
             this.toolStrip2.IsMainMenu = true;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnKiemtra,
+            this.btnConfirm,
             this.btnEX,
             this.btnExcelFail,
             this.quitButton});
@@ -112,18 +114,31 @@
             this.btnKiemtra.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKiemtra.Image = global::QLCongNo.Properties.Resources.refresh_new;
             this.btnKiemtra.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnKiemtra.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnKiemtra.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnKiemtra.Name = "btnKiemtra";
             this.btnKiemtra.Padding = new System.Windows.Forms.Padding(5);
-            this.btnKiemtra.Size = new System.Drawing.Size(134, 39);
-            this.btnKiemtra.Text = "Tải dữ liệu";
+            this.btnKiemtra.Size = new System.Drawing.Size(179, 39);
+            this.btnKiemtra.Text = "Kiểm tra dữ liệu";
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Image = global::QLCongNo.Properties.Resources.paid;
+            this.btnConfirm.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Padding = new System.Windows.Forms.Padding(4);
+            this.btnConfirm.Size = new System.Drawing.Size(203, 39);
+            this.btnConfirm.Text = "Xác nhận thanh toán";
+            this.btnConfirm.Visible = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnEX
             // 
             this.btnEX.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEX.Image = global::QLCongNo.Properties.Resources.excel2019;
             this.btnEX.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEX.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.btnEX.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.btnEX.Name = "btnEX";
             this.btnEX.Padding = new System.Windows.Forms.Padding(5);
             this.btnEX.Size = new System.Drawing.Size(211, 39);
@@ -660,5 +675,6 @@
         private Core.NovDataGridViewTextBoxColumn NamColumn;
         private Core.NovDataGridViewTextBoxColumn tongtienColumn;
         private Core.NovDataGridViewTextBoxColumn NgaythuColumn;
+        private Core.NovToolStripButton btnConfirm;
     }
 }

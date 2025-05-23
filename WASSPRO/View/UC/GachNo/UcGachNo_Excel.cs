@@ -14,6 +14,7 @@ namespace QLCongNo.View.UC.GachNo
     public partial class UcGachNo_Excel : View.Core.NovUserControl
     {
         private CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities();
+        private string _mSCTKey = "";
 
         public UcGachNo_Excel()
         {
@@ -27,6 +28,7 @@ namespace QLCongNo.View.UC.GachNo
             this.dataGridView2.KeyDown += DataGridView2_KeyDown;
             this.dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
             this.dataGridView2.ColumnHeaderMouseClick += DataGridView2_ColumnHeaderMouseClick;
+            btnConfirm.Visible = false;
         }
 
         private void DataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -124,37 +126,222 @@ namespace QLCongNo.View.UC.GachNo
             }
         }
 
-        private void btnKiemtra_Click(object sender, EventArgs e)
+        private static string ImportData2Table(DataTable dtData, string pTableName)
+        {
+            string sRet = "OK";
+            try
+            {
+                System.Data.Entity.Core.EntityClient.EntityConnectionStringBuilder entityBuilder = new System.Data.Entity.Core.EntityClient.EntityConnectionStringBuilder(Common.strConn);
+                string strconnect = entityBuilder.ProviderConnectionString;
+                using (SqlConnection dbConnection = new SqlConnection(strconnect))
+                {
+                    dbConnection.Open();
+                    using (SqlBulkCopy s = new SqlBulkCopy(dbConnection))
+                    {
+                        s.DestinationTableName = pTableName;// "GACHNOEXCEL";
+                        foreach (var column in dtData.Columns)
+                            s.ColumnMappings.Add(column.ToString(), column.ToString());
+                        s.WriteToServer(dtData);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                sRet = ex.Message;
+            }
+
+            return sRet;
+
+        }
+        private string loadDataExcel(string pExcelFile)
+        {
+            string sRet = "";
+            try
+            {
+                _mSCTKey = Common.NVID.ToString() + "_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
+
+                DataTable dt = new DataTable();
+                dt = ReadFromExcelfile_ByNhanVien(pExcelFile, "", _mSCTKey);
+                if (dt.Rows.Count == 0)
+                {
+                    sRet = "EXCEL_NODATA";
+                    return sRet;
+                }
+
+                string sImport = ImportData2Table(dt, "GACHNOEXCEL_NV");
+                if (sImport != "OK")
+                {
+                    sRet = "Lỗi Import file Excel!";
+                    return sRet;
+                }
+
+
+                //var dataDung = db.getDSImportExcel_ByNhanVien(1, Convert.ToInt16(Common.NVID.ToString()), _mSCTKey).ToList();
+                //if (dataDung.Count() == 0)
+                //    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //else
+                //    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //dataGridView1.DataSource = dataDung;
+                dataGridView1.Columns[0].HeaderText = "Key";
+                dataGridView1.Columns[1].HeaderText = "Tháng";
+                dataGridView1.Columns[2].HeaderText = "Năm";
+                dataGridView1.Columns[3].HeaderText = "Danh bộ";
+                dataGridView1.Columns[4].HeaderText = "Tổng tiền";
+                dataGridView1.Columns[5].HeaderText = "Họ tên";
+                dataGridView1.Columns[6].HeaderText = "UserID";
+                dataGridView1.Columns[7].HeaderText = "Ngày";
+                novLabel4.Text = $"Danh sách thanh toán ({dataGridView1.Rows.Count})";
+
+                var allExcelRows = dt.AsEnumerable()
+                    .Where(row =>
+                        row["DanhBo"] != DBNull.Value && !string.IsNullOrWhiteSpace(row["DanhBo"].ToString()) &&
+                        row["TongTien"] != DBNull.Value && Convert.ToDecimal(row["TongTien"]) > 0
+                    )
+                    .Select(row => new ExcelRowModel
+                    {
+                        Ngay = row["Ngay"].ToString().Trim(),
+                        DanhBo = row["DanhBo"].ToString().Trim(),
+                        TongTien = Convert.ToDecimal(row["TongTien"]),
+                        Thang = row["Thang"].ToString().Trim(),
+                        Nam = row["Nam"].ToString().Trim()
+                    }).ToList();
+
+                //var dataSai = allExcelRows
+                //    .Where(row => !dataDung.Any(d => d.DanhBo.Trim() == row.DanhBo.Trim()))
+                //    .ToList();
+
+                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //dataGridView2.DataSource = dataSai;
+                novLabel3.Text = $"Danh sách không đúng ({dataGridView2.Rows.Count})";
+
+                txtsoHD.Text = dataGridView1.RowCount.ToString();
+                //txttongthanhtoan.Text = string.Format("{0:n0}", dataDung.Sum(x => x.TongTien));
+                sRet = "OK";
+            }
+            catch (Exception ex)
+            {
+                sRet = ex.Message;
+            }
+
+            return sRet;
+        }
+
+        private string xacNhanThanhToan()
+        {
+            string sRet = "";
+            try
+            {
+                var kyghi = db.DM_KYGHI.Where(x => x.hoadon == true).FirstOrDefault();
+                //var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                int NganHangID = int.Parse(cboNH.SelectedValue.ToString());
+                decimal tongtien = decimal.Parse(txttongthanhtoan.Text);
+                // add chung tu
+                CHUNGTU chungtu = new CHUNGTU();
+                chungtu.ID_KYGHI = kyghi.ID_kyghi;
+                chungtu.MALOAI = "CK";
+                chungtu.NGAYLAP = DateTime.Now;
+                chungtu.NV_ID_LAP = Common.NVID;
+                chungtu.NV_ID_NOP = NganHangID;
+                chungtu.GHICHU = txtghichu.Text;
+                chungtu.TRANGTHAI = false;
+                chungtu.SOCT = SO_CT_tutang();
+                chungtu.NGAYCT = dtpNgaythu.Value.Date;
+                chungtu.TONGTIEN = 0;
+                chungtu.TONGTIEN = tongtien;
+                db.CHUNGTUs.Add(chungtu);
+                db.SaveChanges();
+
+                //int iKetQua = db.gachno_Thanhtoanchuyenkhoan_ByNhanVien(chungtu.ID_CT, int.Parse(Common.NVID.ToString()), NganHangID, _mSCTKey);
+                //if (iKetQua == 1)
+                //{
+                    var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.HOADON.ID_KH).Distinct().ToList();
+                    string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
+                    ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
+                    if (chungtuGN.Count() == 0)
+                        db.CHUNGTUs.Remove(chungtu);
+                    else
+                    {
+                        db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
+                        foreach (var item in chungtuGN)
+                        {
+                            var dshoadon = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT && x.ID_KH == item).ToList();
+                            object[] reseult = tdc.ThanhToanHoaDonList("WASS01", hashkey, dshoadon.Select(x => x.ID_HD.ToString()).ToArray(), dshoadon.FirstOrDefault().DANHBO, "", dshoadon.FirstOrDefault().GHICHU, Common.username, "CHUYENKHOAN", cboNH.Text, "").ToArray();
+
+                            if (reseult[1].ToString() == "SUCCESS" && reseult[2].ToString() == "TRANSACTION_SUCCESS")
+                            {
+                                //cho vô danh sách các hóa đơn thành công ID_HD
+                            }
+
+                        }
+
+
+                        //Chỗ này chỉnh lại, chỉ gạch nợ đối với các ID_HD thành công 
+                        db.Database.ExecuteSqlCommand("update a set a.GACH_NO = '1' from PublishedInvoices a with(nolock) where  (GACH_NO is null or GACH_NO = '0')  and a.IDHD in (select id_hd from CHUNGTU_HOADON b where b.ID_CT = " + chungtu.ID_CT + "  ) ");
+
+
+                        sRet = "OK";
+
+                        try
+                        {
+                            db.XuLyDangNganbyIDCT(chungtu.ID_CT);
+                        }
+                        catch
+                        {
+                            db.SaveChanges();
+                            btnKiemtra.Text = "Tải dữ liệu";
+                            dataGridView1.DataSource = null;
+                            txtPath.Text = "";
+                            MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        db.SaveChanges();
+                        btnKiemtra.Text = "Tải dữ liệu";
+                        dataGridView1.DataSource = null;
+                        txtPath.Text = "";
+                        MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                sRet = ex.Message;
+            }
+
+            return sRet;
+        }
+
+        private void backupSource_btnKiemtra_Click()
         {
             try
             {
                 if (btnKiemtra.Text == "Tải dữ liệu")
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    db.Database.ExecuteSqlCommand("delete GACHNOexcel");
                     DataTable dt = new DataTable();
                     if (string.IsNullOrEmpty(txtPath.Text))
                     {
                         MessageBox.Show("Đường dẫn không được để trống hoặc null.", nameof(txtPath.Text), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Cursor = Cursors.Default;
                         return;
                     }
-
-                    // Kiểm tra file có tồn tại hay không
                     if (!File.Exists(txtPath.Text))
                     {
                         MessageBox.Show("Không tìm thấy file tại đường dẫn cung cấp.", txtPath.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Cursor = Cursors.Default;
                         return;
                     }
+                    db.Database.ExecuteSqlCommand("delete GACHNOexcel");
                     dt = ReadFromExcelfile(txtPath.Text, "");
-                    int soluong = dt.Rows.Count;
+                    //int soluong = dt.Rows.Count;
                     InsertDataIntoSQLServerUsingSQLBulkCopy(dt);
 
-                    
+
                     var dataDung = db.getDSImportExcel(1).ToList();
-                    if(dataDung.Count() == 0)
-                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; 
+                    if (dataDung.Count() == 0)
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     else
-                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;   
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView1.DataSource = dataDung;
                     dataGridView1.Columns[0].HeaderText = "Key";
                     dataGridView1.Columns[1].HeaderText = "Tháng";
@@ -203,7 +390,7 @@ namespace QLCongNo.View.UC.GachNo
                     if (rs == DialogResult.OK)
                     {
                         var kyghi = db.DM_KYGHI.Where(x => x.hoadon == true).FirstOrDefault();
-                        var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                        //var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
                         int NganHangID = int.Parse(cboNH.SelectedValue.ToString());
                         decimal tongtien = decimal.Parse(txttongthanhtoan.Text);
                         // add chung tu
@@ -211,7 +398,7 @@ namespace QLCongNo.View.UC.GachNo
                         chungtu.ID_KYGHI = kyghi.ID_kyghi;
                         chungtu.MALOAI = "CK";
                         chungtu.NGAYLAP = DateTime.Now;
-                        chungtu.NV_ID_LAP = NVLap.nv_id;
+                        chungtu.NV_ID_LAP = Common.NVID;
                         chungtu.NV_ID_NOP = NganHangID;
                         chungtu.GHICHU = txtghichu.Text;
                         chungtu.TRANGTHAI = false;
@@ -221,7 +408,7 @@ namespace QLCongNo.View.UC.GachNo
                         chungtu.TONGTIEN = tongtien;
                         db.CHUNGTUs.Add(chungtu);
                         db.SaveChanges();
-                        db.gachno_Thanhtoanchuyenkhoan(chungtu.ID_CT, int.Parse(NVLap.nv_id.ToString()), NganHangID);
+                        db.gachno_Thanhtoanchuyenkhoan(chungtu.ID_CT, int.Parse(Common.NVID.ToString()), NganHangID);
                         var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.HOADON.ID_KH).Distinct().ToList();
                         string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
                         ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
@@ -265,6 +452,55 @@ namespace QLCongNo.View.UC.GachNo
             }
         }
 
+
+        private void btnKiemtra_Click(object sender, EventArgs e)
+        {
+            btnKiemtra.Enabled = false;
+
+            try
+            {
+                _mSCTKey = "";
+                txtsoHD.Text = "";
+                txttongthanhtoan.Text = "";
+                string sExcelFile = txtPath.Text;
+                if (string.IsNullOrEmpty(sExcelFile))
+                {
+                    MessageBox.Show("Vui lòng chọn file Excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnKiemtra.Enabled = true;
+                    return;
+                }
+
+                // Kiểm tra file có tồn tại hay không
+                if (!File.Exists(sExcelFile))
+                {
+                    MessageBox.Show("File Excel không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnKiemtra.Enabled = true;
+                    return;
+                }
+
+                this.Cursor = Cursors.WaitCursor;
+                string sKetQua = loadDataExcel(sExcelFile);
+
+                if (sKetQua == "EXCEL_NODATA")
+                {
+                    MessageBox.Show("File Excel không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnKiemtra.Enabled = true;
+                    return;
+
+                }
+
+
+
+                if (sKetQua == "OK" && dataGridView1.RowCount > 0) btnConfirm.Visible = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            btnKiemtra.Enabled = true;
+            this.Cursor = Cursors.Default;
+        }
+
         private void quitButton_Click(object sender, EventArgs e)
         {
             //this.Close();
@@ -296,14 +532,9 @@ namespace QLCongNo.View.UC.GachNo
 
         private DataTable ReadFromExcelfile(string path, string sheetName)
         {
-            // Khởi tạo data table
             DataTable dt = new DataTable();
-            // Load file excel và các setting ban đầu
             using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))
             {
-                //if (package.Workbook.Worksheets.Count <  1)
-                //{
-                //}
                 ExcelWorksheet workSheet = package.Workbook.Worksheets.FirstOrDefault();
                 foreach (var firstRowCell in workSheet.Cells[1, 1, 1, workSheet.Dimension.End.Column])
                 {
@@ -317,6 +548,37 @@ namespace QLCongNo.View.UC.GachNo
                     {
                         newRow[cell.Start.Column - 1] = cell.Text;
                     }
+                    dt.Rows.Add(newRow);
+                }
+            }
+            return dt;
+        }
+
+        private DataTable ReadFromExcelfile_ByNhanVien(string path, string sheetName, string sKey)
+        {
+            DataTable dt = new DataTable();
+            // Load file excel và các setting ban đầu
+            using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))
+            {
+                ExcelWorksheet workSheet = package.Workbook.Worksheets.FirstOrDefault();
+                foreach (var firstRowCell in workSheet.Cells[1, 1, 1, workSheet.Dimension.End.Column])
+                {
+                    dt.Columns.Add(firstRowCell.Text);
+                }
+                dt.Columns.Add("NVID");
+                dt.Columns.Add("SCT");
+
+                for (var rowNumber = 2; rowNumber <= workSheet.Dimension.End.Row; rowNumber++)
+                {
+                    var row = workSheet.Cells[rowNumber, 1, rowNumber, 6];
+                    var newRow = dt.NewRow();
+                    foreach (var cell in row)
+                    {
+                        newRow[cell.Start.Column - 1] = cell.Text;
+                    }
+
+                    newRow["NVID"] = Common.NVID.ToString();
+                    newRow["SCT"] = sKey;
                     dt.Rows.Add(newRow);
                 }
             }
@@ -413,6 +675,53 @@ namespace QLCongNo.View.UC.GachNo
                 MessageBox.Show("File không đúng định dạng" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return b_dt_kq;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.RowCount == 0) return;
+                if (txttongthanhtoan.Text == "" || txttongthanhtoan.Text == "0") return;
+
+                if (cboNH.SelectedValue.ToString() == "")
+                {
+                    MessageBox.Show("Chưa chọn Ngân hàng/ đơn vị thu hộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                DialogResult rs = MessageBox.Show("Xác nhận thanh toán hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (rs != DialogResult.OK) return;
+
+
+
+
+                //btnXacNhan.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+
+                string sKetQua = xacNhanThanhToan();
+                if (sKetQua == "OK")
+                {
+
+                    //btnXacNhan.Visible = false;
+                    btnKiemtra.Visible = true;
+                    dataGridView1.DataSource = null;
+                    txtPath.Text = "";
+                    txtsoHD.Text = "";
+                    txttongthanhtoan.Text = "";
+                    MessageBox.Show("Gạch nợ Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //sRet = ex.Message;
+            }
+
+
+            //btnXacNhan.Enabled = true;
+            this.Cursor = Cursors.Default;
         }
     }
 }

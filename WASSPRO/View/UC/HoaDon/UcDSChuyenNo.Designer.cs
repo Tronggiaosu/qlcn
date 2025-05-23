@@ -85,8 +85,8 @@
             this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lbltong = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -656,15 +656,6 @@
             this.panel1.Size = new System.Drawing.Size(1476, 48);
             this.panel1.TabIndex = 3;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 178);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1476, 434);
-            this.panel2.TabIndex = 4;
-            // 
             // lbltong
             // 
             this.lbltong.AutoSize = true;
@@ -673,6 +664,15 @@
             this.lbltong.Size = new System.Drawing.Size(53, 23);
             this.lbltong.TabIndex = 0;
             this.lbltong.Text = "Tổng:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 178);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1476, 434);
+            this.panel2.TabIndex = 4;
             // 
             // UcDSChuyenNo
             // 
