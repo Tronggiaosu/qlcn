@@ -137,10 +137,10 @@ namespace QLCongNo.View.UC.GachNo
                 {
                     ID_KH = decimal.Parse(dgvKH[ID_KHColumn.Name, e.RowIndex].Value.ToString());
                     var dsHoadon = db.getDSHoaDon_KH_Newest(ID_KH)
-                        //.Where(hd =>
-                        //    hd.trangthai_id == 13 &&
-                        //    db.HOADON_KHODOI.Any(kh => kh.ID_HD == hd.ID_HD && kh.TRANGTHAI == false)
-                        //)
+                        .Where(hd =>
+                            hd.trangthai_id == 13 &&
+                            db.HOADON_KHODOI.Any(kh => kh.ID_HD == hd.ID_HD && kh.TRANGTHAI == false)
+                        )
                         .Select(hd => new
                         {
                             hd.ID_HD,
@@ -362,8 +362,6 @@ namespace QLCongNo.View.UC.GachNo
                             // update hoa don, publish
                             hoadon.gachno = true;
                             hoadon.ngaythanhtoan = DateTime.Now;
-                            //hoadon.trangthai_id = 10;
-                            //hoadon.trangthaiKH = 0;
                             var published = db.PublishedInvoices.Where(x => x.KEY == IDHD.ToString()).FirstOrDefault();
                             if (published != null)
                             {
