@@ -5518,6 +5518,18 @@
       <Parameter Name="tudot" Mode="In" Type="Int32" />
       <Parameter Name="dendot" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="gachno_Thanhtoanchuyenkhoan_ByNhanVien">
+      <Parameter Name="IDCT" Mode="In" Type="Decimal" />
+      <Parameter Name="NVID" Mode="In" Type="Int32" />
+      <Parameter Name="NganhangID" Mode="In" Type="Int32" />
+      <Parameter Name="SCT" Mode="In" Type="String" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDSImportExcel_ByNhanVien" ReturnType="Collection(Model.getDSImportExcel_ByNhanVien_Result)">
+      <Parameter Name="loai" Mode="In" Type="Int32" />
+      <Parameter Name="NVID" Mode="In" Type="Int32" />
+      <Parameter Name="SCT" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -7536,5 +7548,15 @@
     <Property Type="Int32" Name="soky" Nullable="true" />
     <Property Type="String" Name="sotien" Nullable="true" MaxLength="8000" />
     <Property Type="String" Name="tonggiam" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="getDSImportExcel_ByNhanVien_Result">
+    <Property Type="String" Name="key" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Thang" Nullable="true" />
+    <Property Type="Int32" Name="Nam" Nullable="true" />
+    <Property Type="String" Name="DanhBo" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="hoten" Nullable="true" MaxLength="125" />
+    <Property Type="Decimal" Name="UserID" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Ngay" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

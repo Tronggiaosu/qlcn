@@ -5438,5 +5438,20 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="gachno_Thanhtoanchuyenkhoan_ByNhanVien" FunctionName="Model.Store.gachno_Thanhtoanchuyenkhoan_ByNhanVien" />
+    <FunctionImportMapping FunctionImportName="getDSImportExcel_ByNhanVien" FunctionName="Model.Store.getDSImportExcel_ByNhanVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.getDSImportExcel_ByNhanVien_Result">
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+          <ScalarProperty Name="DanhBo" ColumnName="DanhBo" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

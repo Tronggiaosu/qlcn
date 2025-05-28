@@ -4069,6 +4069,13 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="NVID" Type="int" Mode="In" />
           <Parameter Name="NganhangID" Type="int" Mode="In" />
         </Function>
+        <Function Name="gachno_Thanhtoanchuyenkhoan_ByNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCT" Type="numeric" Mode="In" />
+          <Parameter Name="NVID" Type="int" Mode="In" />
+          <Parameter Name="NganhangID" Type="int" Mode="In" />
+          <Parameter Name="SCT" Type="varchar" Mode="In" />
+          <Parameter Name="Result" Type="int" Mode="InOut" />
+        </Function>
         <Function Name="gachno_thanhtoanhoadonkhongdong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DotID" Type="int" Mode="In" />
           <Parameter Name="kyghi" Type="varchar" Mode="In" />
@@ -4495,6 +4502,11 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
         </Function>
         <Function Name="getDSImportExcel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="loai" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getDSImportExcel_ByNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="loai" Type="int" Mode="In" />
+          <Parameter Name="NVID" Type="int" Mode="In" />
+          <Parameter Name="SCT" Type="varchar" Mode="In" />
         </Function>
         <Function Name="getDSInGiayBaoTienNuoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nam" Type="int" Mode="In" />
@@ -12066,6 +12078,18 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="tudot" Mode="In" Type="Int32" />
             <Parameter Name="dendot" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="gachno_Thanhtoanchuyenkhoan_ByNhanVien">
+            <Parameter Name="IDCT" Mode="In" Type="Decimal" />
+            <Parameter Name="NVID" Mode="In" Type="Int32" />
+            <Parameter Name="NganhangID" Mode="In" Type="Int32" />
+            <Parameter Name="SCT" Mode="In" Type="String" />
+            <Parameter Name="Result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getDSImportExcel_ByNhanVien" ReturnType="Collection(Model.getDSImportExcel_ByNhanVien_Result)">
+            <Parameter Name="loai" Mode="In" Type="Int32" />
+            <Parameter Name="NVID" Mode="In" Type="Int32" />
+            <Parameter Name="SCT" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -14084,6 +14108,16 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Int32" Name="soky" Nullable="true" />
           <Property Type="String" Name="sotien" Nullable="true" MaxLength="8000" />
           <Property Type="String" Name="tonggiam" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="getDSImportExcel_ByNhanVien_Result">
+          <Property Type="String" Name="key" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Thang" Nullable="true" />
+          <Property Type="Int32" Name="Nam" Nullable="true" />
+          <Property Type="String" Name="DanhBo" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="TongTien" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="hoten" Nullable="true" MaxLength="125" />
+          <Property Type="Decimal" Name="UserID" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Ngay" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -19525,6 +19559,21 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
                 <ScalarProperty Name="soky" ColumnName="soky" />
                 <ScalarProperty Name="sotien" ColumnName="sotien" />
                 <ScalarProperty Name="tonggiam" ColumnName="tonggiam" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="gachno_Thanhtoanchuyenkhoan_ByNhanVien" FunctionName="Model.Store.gachno_Thanhtoanchuyenkhoan_ByNhanVien" />
+          <FunctionImportMapping FunctionImportName="getDSImportExcel_ByNhanVien" FunctionName="Model.Store.getDSImportExcel_ByNhanVien">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.getDSImportExcel_ByNhanVien_Result">
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="Thang" ColumnName="Thang" />
+                <ScalarProperty Name="Nam" ColumnName="Nam" />
+                <ScalarProperty Name="DanhBo" ColumnName="DanhBo" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
