@@ -20,6 +20,20 @@ namespace QLCongNo.View.UC.HoaDon
             txtTim.KeyDown += txtTim_KeyDown;
             btnThoat.Click += btnThoat_Click;
             btnExcel.Click += btnExcel_Click;
+            this.dataGridView1.DataError += dataGridView1_DataError;
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "STTColumn" && e.RowIndex >= 0)
+            {
+                e.Value = (e.RowIndex + 1).ToString();
+                e.FormattingApplied = true;
+            }
+        }
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -78,8 +92,6 @@ namespace QLCongNo.View.UC.HoaDon
             }    
             table = ExcelExportHelper.ListToDataTable(data.ToList());
             dataGridView1.DataSource = table;
-            for (int i = 0; i < data.Count(); i++)
-                dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
             this.Cursor = Cursors.Default;
         }
 

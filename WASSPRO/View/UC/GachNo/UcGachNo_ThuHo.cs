@@ -414,7 +414,7 @@ namespace QLCongNo.View.UC.GachNo
                 
             var dataSource = db.getDataThuHo(NVID, tungay, denngay, kyghi, text.Replace(" ", String.Empty)).OrderBy(x => x.NGAYTHANHTOAN).ToList();
             dsDaDongTien.AddRange(dataSource);
-            dgvDSHD.DataSource = dataSource.ToList();
+            dgvDSHD.DataSource = dataSource;
             txtsoHD.Text = dataSource.Count().ToString();
             txttongthanhtoan.Text = string.Format("{0:n0}", dataSource.Sum(z => z.tongtien));
 

@@ -30,6 +30,11 @@ namespace QLCongNo.View.UC.HoaDon
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "stt" && e.RowIndex >= 0)
+            {
+                e.Value = (e.RowIndex + 1).ToString();
+                e.FormattingApplied = true;
+            }
             if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
             {
                 if (e.Value != null)
@@ -201,13 +206,6 @@ namespace QLCongNo.View.UC.HoaDon
                 MessageBox.Show("Xuất dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private void CapNhatSTT()
-        {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                dataGridView1.Rows[i].Cells["stt"].Value = i + 1;
-            }
-        }
 
         void btnTim_Click(object sender, EventArgs e)
         {
@@ -227,7 +225,6 @@ namespace QLCongNo.View.UC.HoaDon
             }    
             table = ExcelExportHelper.ListToDataTable(data.OrderByDescending(x => x.ngaytao).ToList());
             dataGridView1.DataSource = table;
-            CapNhatSTT();
             int tongHoaDon = data.Count;
             decimal tongTien = data.Sum(x => {
                 decimal val;

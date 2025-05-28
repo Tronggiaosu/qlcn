@@ -98,8 +98,8 @@ namespace QLCongNo.View.UC.GachNo
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }    
-            dataGridView1.DataSource = dataSource.ToList();
-            lbl.Text = "Số lượng: " + string.Format("{0:n0}", dataSource.Select(x => x.soluong).Sum()) + " Tổng tiền: " + string.Format("{0:n0}", dataSource.Select(x => x.tongtien).Sum());
+            dataGridView1.DataSource = dataSource;
+            lblTongSo.Text = "Số lượng: " + string.Format("{0:n0}", dataSource.Select(x => x.soluong).Sum()) + " | Tổng tiền: " + string.Format("{0:n0}", dataSource.Select(x => x.tongtien).Sum());
             this.Cursor = Cursors.Default;
         }
 

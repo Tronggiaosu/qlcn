@@ -115,14 +115,15 @@ namespace QLCongNo.View.UC.GachNo
             }
             if (chkky.Checked == false)
                 tuky = 0;
+
             var datasource = db.getDSPhieuMobileApp(tungay, denngay, TOID, NVIDThu, giaybao, tuky, denky).ToList();
             if (txtTim.Text != "")
                 datasource = datasource.Where(x => x.timkiem.Contains((txtTim.Text.Replace(" ", String.Empty)).ToUpper())).ToList();
-            if(datasource.Count > 0)
+            if (datasource.Count > 0)
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }    
-            dataGridView1.DataSource = datasource.ToList();
+            dataGridView1.DataSource = datasource;
             lblsoluong.Text = "  | Số lượng giấy báo: " + datasource.Where(x => x.GIAYBAO == 1).ToList().Count().ToString() + "    | Số lượng biên nhận: " + datasource.Where(x => x.GIAYBAO == 0).ToList().Count().ToString();
             table = ExcelExportHelper.ListToDataTable(datasource.ToList());
             this.Cursor = Cursors.Default;

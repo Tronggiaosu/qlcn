@@ -379,12 +379,12 @@ namespace QLCongNo.View.UC.DangNgan
                 var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
                 var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 var dataSource = db.getFiledataBilling(0, 0, tungay, denngay, "", "", false, 0).ToList();
-                dataGridView1.DataSource = dataSource.ToList();
+                dataGridView1.DataSource = dataSource;
                 lbltong.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}", dataSource.Count())
                     + " | Tổng tiền: " + string.Format("{0:n0}", dataSource.Sum(x => x.tongtien));
                 var dataChuyenNo = db.getDataChuyenNoKhoDoi(0, 0, tungay, denngay, "", "", false, 0).ToList();
                 table = ExcelExportHelper.ListToDataTable(dataSource.OrderBy(x => x.somay).ThenBy(x => x.somay).ToList());
-                dataGridView2.DataSource = dataChuyenNo.ToList();
+                dataGridView2.DataSource = dataChuyenNo;
                 lblCN.Text = "Số lượng hóa đơn: " + string.Format("{0:n0}",
                     dataChuyenNo.Count()) + " | Tổng tiền: " + string.Format("{0:n0}", dataChuyenNo.Sum(x => x.tongtien));
                 this.Cursor = Cursors.Default;
