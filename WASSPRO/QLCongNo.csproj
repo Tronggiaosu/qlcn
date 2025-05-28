@@ -569,6 +569,9 @@
     <Compile Include="getDSHuyThanhToan_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="getDSImportExcel_ByNhanVien_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="getDSImportExcel_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

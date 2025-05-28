@@ -4056,5 +4056,43 @@ namespace QLCongNo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSGuiSMS_Newest_Result>("getDSGuiSMS_Newest", trangthaiParameter, tungayParameter, denngayParameter, tudotParameter, dendotParameter);
         }
+    
+        public virtual int gachno_Thanhtoanchuyenkhoan_ByNhanVien(Nullable<decimal> iDCT, Nullable<int> nVID, Nullable<int> nganhangID, string sCT, ObjectParameter result)
+        {
+            var iDCTParameter = iDCT.HasValue ?
+                new ObjectParameter("IDCT", iDCT) :
+                new ObjectParameter("IDCT", typeof(decimal));
+    
+            var nVIDParameter = nVID.HasValue ?
+                new ObjectParameter("NVID", nVID) :
+                new ObjectParameter("NVID", typeof(int));
+    
+            var nganhangIDParameter = nganhangID.HasValue ?
+                new ObjectParameter("NganhangID", nganhangID) :
+                new ObjectParameter("NganhangID", typeof(int));
+    
+            var sCTParameter = sCT != null ?
+                new ObjectParameter("SCT", sCT) :
+                new ObjectParameter("SCT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("gachno_Thanhtoanchuyenkhoan_ByNhanVien", iDCTParameter, nVIDParameter, nganhangIDParameter, sCTParameter, result);
+        }
+    
+        public virtual ObjectResult<getDSImportExcel_ByNhanVien_Result> getDSImportExcel_ByNhanVien(Nullable<int> loai, Nullable<int> nVID, string sCT)
+        {
+            var loaiParameter = loai.HasValue ?
+                new ObjectParameter("loai", loai) :
+                new ObjectParameter("loai", typeof(int));
+    
+            var nVIDParameter = nVID.HasValue ?
+                new ObjectParameter("NVID", nVID) :
+                new ObjectParameter("NVID", typeof(int));
+    
+            var sCTParameter = sCT != null ?
+                new ObjectParameter("SCT", sCT) :
+                new ObjectParameter("SCT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSImportExcel_ByNhanVien_Result>("getDSImportExcel_ByNhanVien", loaiParameter, nVIDParameter, sCTParameter);
+        }
     }
 }

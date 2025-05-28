@@ -331,6 +331,7 @@ namespace QLCongNo.View.UC.GachNo
                     if (dsHoadon.Count > 0)
                     {
                         dgvHoaDon.DataSource = dsHoadon.OrderByDescending(x => DateTime.Parse(x.kyghi)).ToList();
+                        dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     }
                     else
                         dgvHoaDon.DataSource = null;
@@ -446,10 +447,10 @@ namespace QLCongNo.View.UC.GachNo
                     string maDT = cboDTSD.SelectedValue.ToString();
                     string strSearch = txtTim.Text.Trim();
                     var khachhang = db.getDanhSachKhachHang(2, maQuan, maPhuong, maDT, (strSearch.Replace(" ", String.Empty)).ToUpper()).Distinct().ToList();
-                    if (khachhang.Count > 0)
-                    {
-                        dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    }
+                    //if (khachhang.Count > 0)
+                    //{
+                    //    dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    //}
                     dgvKhachHang.DataSource = khachhang.ToList();
                     if (khachhang.Count == 0)
                         dgvHoaDon.DataSource = null;

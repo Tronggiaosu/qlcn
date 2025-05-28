@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using System.Windows.Shapes;
 
@@ -138,13 +140,12 @@ namespace QLCongNo.View.UC.GachNo
                     dbConnection.Open();
                     using (SqlBulkCopy s = new SqlBulkCopy(dbConnection))
                     {
-                        s.DestinationTableName = pTableName;// "GACHNOEXCEL";
+                        s.DestinationTableName = pTableName;
                         foreach (var column in dtData.Columns)
                             s.ColumnMappings.Add(column.ToString(), column.ToString());
                         s.WriteToServer(dtData);
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -152,8 +153,8 @@ namespace QLCongNo.View.UC.GachNo
             }
 
             return sRet;
-
         }
+
         private string loadDataExcel(string pExcelFile)
         {
             string sRet = "";
@@ -176,13 +177,12 @@ namespace QLCongNo.View.UC.GachNo
                     return sRet;
                 }
 
-
-                //var dataDung = db.getDSImportExcel_ByNhanVien(1, Convert.ToInt16(Common.NVID.ToString()), _mSCTKey).ToList();
-                //if (dataDung.Count() == 0)
-                //    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //else
-                //    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                //dataGridView1.DataSource = dataDung;
+                var dataDung = db.getDSImportExcel_ByNhanVien(1, Convert.ToInt16(Common.NVID.ToString()), _mSCTKey).ToList();
+                if (dataDung.Count() == 0)
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                else
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.DataSource = dataDung;
                 dataGridView1.Columns[0].HeaderText = "Key";
                 dataGridView1.Columns[1].HeaderText = "Tháng";
                 dataGridView1.Columns[2].HeaderText = "Năm";
@@ -207,16 +207,20 @@ namespace QLCongNo.View.UC.GachNo
                         Nam = row["Nam"].ToString().Trim()
                     }).ToList();
 
-                //var dataSai = allExcelRows
-                //    .Where(row => !dataDung.Any(d => d.DanhBo.Trim() == row.DanhBo.Trim()))
-                //    .ToList();
+                var dataSai = allExcelRows
+                    .Where(row => !dataDung.Any(d => d.TongTien == row.TongTien))
+                    .ToList();
 
                 dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //dataGridView2.DataSource = dataSai;
+                dataGridView2.DataSource = dataSai;
                 novLabel3.Text = $"Danh sách không đúng ({dataGridView2.Rows.Count})";
+                dataGridView1.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+                dataGridView1.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 txtsoHD.Text = dataGridView1.RowCount.ToString();
-                //txttongthanhtoan.Text = string.Format("{0:n0}", dataDung.Sum(x => x.TongTien));
+                txttongthanhtoan.Text = string.Format("{0:n0}", dataDung.Sum(x => x.TongTien));
                 sRet = "OK";
             }
             catch (Exception ex)
@@ -233,7 +237,6 @@ namespace QLCongNo.View.UC.GachNo
             try
             {
                 var kyghi = db.DM_KYGHI.Where(x => x.hoadon == true).FirstOrDefault();
-                //var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
                 int NganHangID = int.Parse(cboNH.SelectedValue.ToString());
                 decimal tongtien = decimal.Parse(txttongthanhtoan.Text);
                 // add chung tu
@@ -252,56 +255,69 @@ namespace QLCongNo.View.UC.GachNo
                 db.CHUNGTUs.Add(chungtu);
                 db.SaveChanges();
 
-                //int iKetQua = db.gachno_Thanhtoanchuyenkhoan_ByNhanVien(chungtu.ID_CT, int.Parse(Common.NVID.ToString()), NganHangID, _mSCTKey);
-                //if (iKetQua == 1)
-                //{
+                var result = new ObjectParameter("result", typeof(int));
+                db.gachno_Thanhtoanchuyenkhoan_ByNhanVien(chungtu.ID_CT, int.Parse(Common.NVID.ToString()), NganHangID, _mSCTKey, result);
+                var rs = Convert.ToInt32(result.Value);
+                if (rs == 1)
+                {
                     var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.HOADON.ID_KH).Distinct().ToList();
-                    string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
-                    ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
+                    var hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
+                    var tdc = new ServiceTDC.ThuHo();
                     if (chungtuGN.Count() == 0)
                         db.CHUNGTUs.Remove(chungtu);
                     else
                     {
-                        db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
+                        var id_ct = chungtu.ID_CT;
+                        var nvid = Common.NVID;
+                        var username = Common.username;
+                        var bank = cboNH.Text;
+                        var type = "CHUYENKHOAN";
+                        var dsSuccess = new List<string>();
+                        var cmd = $"exec DANGNGAN_NV {nvid}, {id_ct}";
+
+                        db.Database.ExecuteSqlCommand(cmd);
+                        
                         foreach (var item in chungtuGN)
                         {
                             var dshoadon = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT && x.ID_KH == item).ToList();
-                            object[] reseult = tdc.ThanhToanHoaDonList("WASS01", hashkey, dshoadon.Select(x => x.ID_HD.ToString()).ToArray(), dshoadon.FirstOrDefault().DANHBO, "", dshoadon.FirstOrDefault().GHICHU, Common.username, "CHUYENKHOAN", cboNH.Text, "").ToArray();
+                            var danhbo = dshoadon.FirstOrDefault().DANHBO;
+                            var note = dshoadon.FirstOrDefault().GHICHU;
+                            var dsID_HD = dshoadon.Select(x => x.ID_HD.ToString()).ToArray();
 
-                            if (reseult[1].ToString() == "SUCCESS" && reseult[2].ToString() == "TRANSACTION_SUCCESS")
+                            object[] kq = tdc.ThanhToanHoaDonList("WASS01", hashkey, dsID_HD, danhbo, "", note, username, type, bank, "").ToArray();
+
+                            if (kq[1].ToString() == "SUCCESS" && kq[2].ToString() == "TRANSACTION_SUCCESS")
                             {
-                                //cho vô danh sách các hóa đơn thành công ID_HD
+                                dsSuccess.Add(string.Join(",", dsID_HD));
                             }
-
                         }
 
+                        var dsTotal = string.Join(",", dsSuccess);
 
-                        //Chỗ này chỉnh lại, chỉ gạch nợ đối với các ID_HD thành công 
-                        db.Database.ExecuteSqlCommand("update a set a.GACH_NO = '1' from PublishedInvoices a with(nolock) where  (GACH_NO is null or GACH_NO = '0')  and a.IDHD in (select id_hd from CHUNGTU_HOADON b where b.ID_CT = " + chungtu.ID_CT + "  ) ");
-
+                        //var tam = $"select id_hd from CHUNGTU_HOADON b where b.id_hd in ({dsTotal})";
+                        //var query = $"update a set a.GACH_NO = '1' from PublishedInvoices a with(nolock) where (GACH_NO is null or GACH_NO = '0')  and a.IDHD in ({dsTotal}) ";
+                        var command = $"update a set a.GACH_NO = '1' from PublishedInvoices a with(nolock) where (GACH_NO is null or GACH_NO = '0')  and a.IDHD in (select id_hd from CHUNGTU_HOADON b where b.ID_CT = {chungtu.ID_CT}) ";
+                        var ketqua = db.Database.ExecuteSqlCommand(command);
+                        db.SaveChanges();
 
                         sRet = "OK";
+                        //try
+                        //{
+                        //    db.XuLyDangNganbyIDCT(chungtu.ID_CT);
+                        //}
+                        //catch
+                        //{
+                        //    db.SaveChanges();
+                        //    dataGridView1.DataSource = null;
+                        //    txtPath.Text = "";
+                        //    MessageBox.Show("Gạch nợ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //}
 
-                        try
-                        {
-                            db.XuLyDangNganbyIDCT(chungtu.ID_CT);
-                        }
-                        catch
-                        {
-                            db.SaveChanges();
-                            btnKiemtra.Text = "Tải dữ liệu";
-                            dataGridView1.DataSource = null;
-                            txtPath.Text = "";
-                            MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        db.SaveChanges();
-                        btnKiemtra.Text = "Tải dữ liệu";
-                        dataGridView1.DataSource = null;
-                        txtPath.Text = "";
-                        MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //dataGridView1.DataSource = null;
+                        //txtPath.Text = "";
+                        //MessageBox.Show("Gạch nợ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                //}
-
+                }
             }
             catch (Exception ex)
             {
@@ -452,11 +468,9 @@ namespace QLCongNo.View.UC.GachNo
             }
         }
 
-
         private void btnKiemtra_Click(object sender, EventArgs e)
         {
             btnKiemtra.Enabled = false;
-
             try
             {
                 _mSCTKey = "";
@@ -467,14 +481,15 @@ namespace QLCongNo.View.UC.GachNo
                 {
                     MessageBox.Show("Vui lòng chọn file Excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     btnKiemtra.Enabled = true;
+                    btnConfirm.Visible = false;
                     return;
                 }
 
-                // Kiểm tra file có tồn tại hay không
                 if (!File.Exists(sExcelFile))
                 {
                     MessageBox.Show("File Excel không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     btnKiemtra.Enabled = true;
+                    btnConfirm.Visible = false;
                     return;
                 }
 
@@ -485,20 +500,31 @@ namespace QLCongNo.View.UC.GachNo
                 {
                     MessageBox.Show("File Excel không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     btnKiemtra.Enabled = true;
+                    btnConfirm.Visible = false;
+                    this.Cursor = Cursors.Default;
                     return;
-
                 }
 
-
-
-                if (sKetQua == "OK" && dataGridView1.RowCount > 0) btnConfirm.Visible = true;
+                if (sKetQua == "OK" && dataGridView1.RowCount > 0)
+                {
+                    btnConfirm.Visible = true;
+                }     
+                else if (sKetQua == "OK" && dataGridView1.RowCount == 0)
+                {
+                    btnConfirm.Visible = false;
+                }
+                else
+                {
+                    btnConfirm.Visible = false;
+                    MessageBox.Show($"{sKetQua}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch (Exception ex)
+            catch {}
+            finally
             {
-
+                btnKiemtra.Enabled = true;
+                this.Cursor = Cursors.Default;
             }
-            btnKiemtra.Enabled = true;
-            this.Cursor = Cursors.Default;
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -557,7 +583,6 @@ namespace QLCongNo.View.UC.GachNo
         private DataTable ReadFromExcelfile_ByNhanVien(string path, string sheetName, string sKey)
         {
             DataTable dt = new DataTable();
-            // Load file excel và các setting ban đầu
             using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))
             {
                 ExcelWorksheet workSheet = package.Workbook.Worksheets.FirstOrDefault();
@@ -571,6 +596,19 @@ namespace QLCongNo.View.UC.GachNo
                 for (var rowNumber = 2; rowNumber <= workSheet.Dimension.End.Row; rowNumber++)
                 {
                     var row = workSheet.Cells[rowNumber, 1, rowNumber, 6];
+                    bool isEmptyRow = true;
+                    foreach (var cell in row)
+                    {
+                        if (!string.IsNullOrWhiteSpace(cell.Text))
+                        {
+                            isEmptyRow = false;
+                            break;
+                        }
+                    }
+
+                    if (isEmptyRow)
+                        continue;
+
                     var newRow = dt.NewRow();
                     foreach (var cell in row)
                     {
@@ -582,11 +620,13 @@ namespace QLCongNo.View.UC.GachNo
                     dt.Rows.Add(newRow);
                 }
             }
+
             return dt;
         }
 
         private void btnFile_Click(object sender, EventArgs e)
         {
+            
             // Show the Dialog.
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             // show only file .xml
@@ -597,9 +637,22 @@ namespace QLCongNo.View.UC.GachNo
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string file = openFileDialog1.FileName;
-                // link file name
                 txtPath.Text = openFileDialog1.FileName;
+                ResetUI();
             }
+        }
+
+        private void ResetUI()
+        {
+            txtsoHD.Text = String.Empty;
+            txttongthanhtoan.Text = String.Empty;
+            txtghichu.Text = String.Empty;
+            novLabel3.Text = "Danh sách không đúng";
+            novLabel4.Text = "Danh sách thanh toán";
+            btnConfirm.Visible = false;
+            dataGridView1.DataSource = null;
+            dataGridView2.DataSource = null;
+            cboNH.SelectedIndex = 0;
         }
 
         private void frGachNo_Excel_Load(object sender, EventArgs e)
@@ -608,6 +661,12 @@ namespace QLCongNo.View.UC.GachNo
             dataGridView2.AutoGenerateColumns = false;
             // dm ngan hang
             var dmNganhang = db.DM_NGANHANG.OrderBy(x => x.TENNGANHANG).ToList();
+            dmNganhang.Insert(0, new DM_NGANHANG
+            {
+                NGANHANG_ID = 0,
+                TENNGANHANG = ""
+            });
+
             cboNH.DataSource = dmNganhang.ToList();
             cboNH.ValueMember = "NGANHANG_ID";
             cboNH.DisplayMember = "TENNGANHANG";
@@ -684,44 +743,36 @@ namespace QLCongNo.View.UC.GachNo
                 if (dataGridView1.RowCount == 0) return;
                 if (txttongthanhtoan.Text == "" || txttongthanhtoan.Text == "0") return;
 
-                if (cboNH.SelectedValue.ToString() == "")
+                if (cboNH.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Chưa chọn Ngân hàng/ đơn vị thu hộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Chưa chọn Ngân hàng/Đơn vị thu hộ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
 
                 DialogResult rs = MessageBox.Show("Xác nhận thanh toán hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (rs != DialogResult.OK) return;
 
-
-
-
-                //btnXacNhan.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
 
                 string sKetQua = xacNhanThanhToan();
                 if (sKetQua == "OK")
                 {
-
-                    //btnXacNhan.Visible = false;
+                    btnConfirm.Visible = false;
                     btnKiemtra.Visible = true;
                     dataGridView1.DataSource = null;
                     txtPath.Text = "";
                     txtsoHD.Text = "";
                     txttongthanhtoan.Text = "";
+                    cboNH.SelectedIndex = 0;
+                    novLabel4.Text = "Danh sách thanh toán";
                     MessageBox.Show("Gạch nợ Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             }
-            catch (Exception ex)
+            catch { }
+            finally
             {
-                //sRet = ex.Message;
+                this.Cursor = Cursors.Default;
             }
-
-
-            //btnXacNhan.Enabled = true;
-            this.Cursor = Cursors.Default;
         }
     }
 }

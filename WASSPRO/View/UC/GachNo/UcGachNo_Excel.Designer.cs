@@ -114,7 +114,7 @@
             this.btnKiemtra.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKiemtra.Image = global::QLCongNo.Properties.Resources.refresh_new;
             this.btnKiemtra.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnKiemtra.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnKiemtra.Margin = new System.Windows.Forms.Padding(20, 0, 2, 0);
             this.btnKiemtra.Name = "btnKiemtra";
             this.btnKiemtra.Padding = new System.Windows.Forms.Padding(5);
             this.btnKiemtra.Size = new System.Drawing.Size(179, 39);
@@ -207,6 +207,8 @@
             // 
             // txtPath
             // 
+            this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPath.BackColor = System.Drawing.Color.White;
             this.txtPath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPath.ForeColor = System.Drawing.Color.Black;
@@ -214,7 +216,7 @@
             this.txtPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPath.Multiline = true;
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(1035, 38);
+            this.txtPath.Size = new System.Drawing.Size(1132, 38);
             this.txtPath.TabIndex = 1;
             // 
             // groupBox2
@@ -320,13 +322,13 @@
             this.txtsoHD.BackColor = System.Drawing.Color.White;
             this.txtsoHD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtsoHD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtsoHD.Enabled = false;
             this.txtsoHD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtsoHD.ForeColor = System.Drawing.Color.Black;
             this.txtsoHD.Location = new System.Drawing.Point(233, 46);
             this.txtsoHD.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtsoHD.Multiline = true;
             this.txtsoHD.Name = "txtsoHD";
+            this.txtsoHD.ReadOnly = true;
             this.txtsoHD.Size = new System.Drawing.Size(197, 33);
             this.txtsoHD.TabIndex = 3;
             // 
@@ -361,13 +363,13 @@
             this.txttongthanhtoan.BackColor = System.Drawing.Color.White;
             this.txttongthanhtoan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txttongthanhtoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txttongthanhtoan.Enabled = false;
             this.txttongthanhtoan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttongthanhtoan.ForeColor = System.Drawing.Color.Black;
             this.txttongthanhtoan.Location = new System.Drawing.Point(454, 46);
             this.txttongthanhtoan.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txttongthanhtoan.Multiline = true;
             this.txttongthanhtoan.Name = "txttongthanhtoan";
+            this.txttongthanhtoan.ReadOnly = true;
             this.txttongthanhtoan.Size = new System.Drawing.Size(197, 33);
             this.txttongthanhtoan.TabIndex = 5;
             // 
