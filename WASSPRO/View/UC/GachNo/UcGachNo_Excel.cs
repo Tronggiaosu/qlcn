@@ -23,7 +23,6 @@ namespace QLCongNo.View.UC.GachNo
             InitializeComponent();
             btnFile.Click += btnFile_Click;
             btnEX.Click += btnEX_Click;
-            quitButton.Click += quitButton_Click;
             btnKiemtra.Click += btnKiemtra_Click;
             btnExcelFail.Click += btnExcelFail_Click;
             this.dataGridView1.KeyDown += DataGridView1_KeyDown;
@@ -527,12 +526,6 @@ namespace QLCongNo.View.UC.GachNo
             }
         }
 
-        private void quitButton_Click(object sender, EventArgs e)
-        {
-            //this.Close();
-            db.Database.ExecuteSqlCommand("delete GACHNOexcel");
-        }
-
         private void btnEX_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0)
@@ -626,7 +619,6 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnFile_Click(object sender, EventArgs e)
         {
-            
             // Show the Dialog.
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             // show only file .xml
