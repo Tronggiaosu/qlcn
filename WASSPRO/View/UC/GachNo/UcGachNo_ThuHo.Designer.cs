@@ -103,7 +103,7 @@
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox4 = new QLCongNo.View.Core.NovGroupBox();
             this.panel3 = new QLCongNo.View.Core.NovPanel();
-            this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
+            this.dgvGachNo = new QLCongNo.View.Core.NovDataGridView();
             this.checkColumn_dgv2 = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.ngaythuColumn_dgv2 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.namColumn_dgv2 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -143,7 +143,7 @@
             this.toolStrip2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGachNo)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -782,7 +782,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgvGachNo);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -793,21 +793,21 @@
             this.panel3.Size = new System.Drawing.Size(805, 761);
             this.panel3.TabIndex = 76;
             // 
-            // dataGridView1
+            // dgvGachNo
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dgvGachNo.AllowUserToAddRows = false;
+            this.dgvGachNo.AllowUserToDeleteRows = false;
+            this.dgvGachNo.AllowUserToResizeRows = false;
             dataGridViewCellStyle17.BackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvGachNo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvGachNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvGachNo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvGachNo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvGachNo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
             dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -815,10 +815,10 @@
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(64)))), ((int)(((byte)(156)))));
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridView1.ColumnHeadersHeight = 50;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvGachNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvGachNo.ColumnHeadersHeight = 50;
+            this.dgvGachNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvGachNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.checkColumn_dgv2,
             this.ngaythuColumn_dgv2,
             this.namColumn_dgv2,
@@ -841,22 +841,22 @@
             dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle31;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 292);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dgvGachNo.DefaultCellStyle = dataGridViewCellStyle31;
+            this.dgvGachNo.EnableHeadersVisualStyles = false;
+            this.dgvGachNo.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.dgvGachNo.Location = new System.Drawing.Point(19, 292);
+            this.dgvGachNo.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvGachNo.Name = "dgvGachNo";
+            this.dgvGachNo.RowHeadersVisible = false;
+            this.dgvGachNo.RowHeadersWidth = 51;
             dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle32;
-            this.dataGridView1.RowTemplate.Height = 32;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(771, 448);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvGachNo.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            this.dgvGachNo.RowTemplate.Height = 32;
+            this.dgvGachNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvGachNo.Size = new System.Drawing.Size(771, 448);
+            this.dgvGachNo.TabIndex = 0;
             // 
             // checkColumn_dgv2
             // 
@@ -1236,7 +1236,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGachNo)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -1274,7 +1274,7 @@
         private View.Core.NovToolStripButton btnTim;
         private View.Core.NovToolStripButton btnConfirm;
         private View.Core.NovToolStripButton btnThoat;
-        private View.Core.NovDataGridView dataGridView1;
+        private View.Core.NovDataGridView dgvGachNo;
         private View.Core.NovButton btnXoaGachNo;
         private View.Core.NovButton btnGachNo;
         private View.Core.NovCheckBox checkAll_dgv2;

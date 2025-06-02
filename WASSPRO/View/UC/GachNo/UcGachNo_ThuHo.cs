@@ -29,34 +29,59 @@ namespace QLCongNo.View.UC.GachNo
             chkHuyTT.CheckedChanged += chkHuyTT_CheckedChanged;
             this.dgvDSHD.DataError += dgvDSHD_DataError;
             this.dgvDSHD.CellFormatting += dgvDSHD_CellFormatting;
-            this.dgvDSHD.ColumnHeaderMouseClick += DgvDSHD_ColumnHeaderMouseClick;
             this.dgvDSHD.KeyDown += DgvDSHD_KeyDown;
-            this.dataGridView1.DataError += dataGridView1_DataError;
-            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            this.dgvDSHD.ColumnHeaderMouseClick += DgvDSHD_ColumnHeaderMouseClick;
+
+            this.dgvGachNo.DataError += dataGridView1_DataError;
+            this.dgvGachNo.CellFormatting += dataGridView1_CellFormatting;
+            this.dgvGachNo.KeyDown += DgvGachNo_KeyDown;
+            this.dgvGachNo.ColumnHeaderMouseClick += DgvGachNo_ColumnHeaderMouseClick;
+        }
+
+        private void DgvGachNo_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                this.dgvGachNo.SelectAll();
+            }
+        }
+
+        private void DgvGachNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Copy(this.dgvGachNo);
+                e.Handled = true;
+            }
         }
 
         private void DgvDSHD_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.C)
             {
-                var count = dgvDSHD.SelectedCells.Count;
-                if (count == dgvDSHD.RowCount * dgvDSHD.ColumnCount && count != 8)
-                {
-                    //Copy all of datagridview
-                    DataObject dataObj = dgvDSHD.GetClipboardContent();
-                    if (dataObj != null)
-                        Clipboard.SetDataObject(dataObj);
-                }
-                else
-                {
-                    //Copy 1 cell
-                    var currentCell = dgvDSHD.CurrentCell;
-                    if (currentCell != null && currentCell.Value != null)
-                    {
-                        Clipboard.SetText(currentCell.Value.ToString());
-                    }
-                }
+                Copy(this.dgvDSHD);
                 e.Handled = true;
+            }
+        }
+
+        private void Copy(DataGridView dgv)
+        {
+            var count = dgv.SelectedCells.Count;
+            if (count == dgv.RowCount * dgv.ColumnCount && count != 8)
+            {
+                //Copy all of datagridview
+                DataObject dataObj = dgv.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+            }
+            else
+            {
+                //Copy 1 cell
+                var currentCell = dgv.CurrentCell;
+                if (currentCell != null && currentCell.Value != null)
+                {
+                    Clipboard.SetText(currentCell.Value.ToString());
+                }
             }
         }
 
@@ -70,7 +95,7 @@ namespace QLCongNo.View.UC.GachNo
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "kyColumn_dgv2")
+            if (dgvGachNo.Columns[e.ColumnIndex].Name == "kyColumn_dgv2")
             {
                 if (e.Value != null)
                 {
@@ -82,7 +107,7 @@ namespace QLCongNo.View.UC.GachNo
                     }
                 }
             }
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "namColumn_dgv2")
+            if (dgvGachNo.Columns[e.ColumnIndex].Name == "namColumn_dgv2")
             {
                 if (e.Value != null)
                 {
@@ -218,13 +243,13 @@ namespace QLCongNo.View.UC.GachNo
                 }
                 else
                 {
-                    foreach (DataGridViewRow r in dataGridView1.Rows)
+                    foreach (DataGridViewRow r in dgvGachNo.Rows)
                     {
                         DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[checkColumn_dgv2.Name];
                         var thu = checks.Value;
                         if (Convert.ToBoolean(thu) == true)
                         {
-                            decimal IDHD = decimal.Parse(dataGridView1[IDHDColumn_dgv2.Name, r.Index].Value.ToString());
+                            decimal IDHD = decimal.Parse(dgvGachNo[IDHDColumn_dgv2.Name, r.Index].Value.ToString());
                             var isdagachno = dsGachNo.Where(x => x.ID_HD == IDHD).FirstOrDefault();
                             if (isdagachno != null)
                             {
@@ -235,12 +260,12 @@ namespace QLCongNo.View.UC.GachNo
                         }
                     }
                 }
-                dataGridView1.DataSource = dsGachNo.ToList();
+                dgvGachNo.DataSource = dsGachNo.ToList();
                 dgvDSHD.DataSource = dsDaDongTien.ToList();
                 txtsoHD.Text = dsGachNo.Count().ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
 
-                if (this.dataGridView1.Rows.Count == 0) this.btnConfirm.Enabled = false;
+                if (this.dgvGachNo.Rows.Count == 0) this.btnConfirm.Enabled = false;
             }
             catch
             {
@@ -276,12 +301,12 @@ namespace QLCongNo.View.UC.GachNo
                         }
                     }
                 }
-                dataGridView1.DataSource = dsGachNo.ToList();
+                dgvGachNo.DataSource = dsGachNo.ToList();
                 dgvDSHD.DataSource = dsDaDongTien.ToList();
                 txtsoHD.Text = dsGachNo.Count().ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
 
-                if (this.dataGridView1.Rows.Count > 0) this.btnConfirm.Enabled = true;
+                if (this.dgvGachNo.Rows.Count > 0) this.btnConfirm.Enabled = true;
             }
             catch
             {
@@ -332,7 +357,7 @@ namespace QLCongNo.View.UC.GachNo
         {
             try
             {
-                if (dataGridView1.RowCount > 0)
+                if (dgvGachNo.RowCount > 0)
                 {
                     if (chkBK.Checked == true)
                     {
@@ -424,7 +449,7 @@ namespace QLCongNo.View.UC.GachNo
         private void frGachNo_ThuHo_Load(object sender, EventArgs e)
         {
             dgvDSHD.AutoGenerateColumns = false;
-            dataGridView1.AutoGenerateColumns = false;
+            dgvGachNo.AutoGenerateColumns = false;
             cboNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             var dmNganhang = db.DM_NGANHANG.OrderBy(x => x.TENNGANHANG).ToList();
             cboNV.DataSource = dmNganhang.ToList();

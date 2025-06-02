@@ -59,7 +59,6 @@
             this.btnQuit = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.textBox1 = new QLCongNo.View.Core.NovTextBox();
             this.chkHTT = new QLCongNo.View.Core.NovCheckBox();
             this.cboHTTT = new QLCongNo.View.Core.NovComboBox();
@@ -73,6 +72,7 @@
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.label3 = new QLCongNo.View.Core.NovLabel();
             this.label4 = new QLCongNo.View.Core.NovLabel();
+            this.ptbSendSMS = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblsoluong = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbltongtien = new System.Windows.Forms.ToolStripStatusLabel();
@@ -216,21 +216,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.69388F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1290, 162);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // ptbSendSMS
-            // 
-            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
-            this.ptbSendSMS.Location = new System.Drawing.Point(1242, 59);
-            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
-            this.ptbSendSMS.Name = "ptbSendSMS";
-            this.tableLayoutPanel1.SetRowSpan(this.ptbSendSMS, 2);
-            this.ptbSendSMS.Size = new System.Drawing.Size(48, 48);
-            this.ptbSendSMS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ptbSendSMS.TabIndex = 26;
-            this.ptbSendSMS.TabStop = false;
             // 
             // textBox1
             // 
@@ -407,6 +392,21 @@
             this.label4.Size = new System.Drawing.Size(71, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "Từ ngày";
+            // 
+            // ptbSendSMS
+            // 
+            this.ptbSendSMS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbSendSMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbSendSMS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbSendSMS.Image = ((System.Drawing.Image)(resources.GetObject("ptbSendSMS.Image")));
+            this.ptbSendSMS.Location = new System.Drawing.Point(1242, 59);
+            this.ptbSendSMS.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
+            this.ptbSendSMS.Name = "ptbSendSMS";
+            this.tableLayoutPanel1.SetRowSpan(this.ptbSendSMS, 2);
+            this.ptbSendSMS.Size = new System.Drawing.Size(48, 48);
+            this.ptbSendSMS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ptbSendSMS.TabIndex = 26;
+            this.ptbSendSMS.TabStop = false;
             // 
             // statusStrip1
             // 

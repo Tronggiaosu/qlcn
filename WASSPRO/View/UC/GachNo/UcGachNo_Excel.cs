@@ -206,8 +206,12 @@ namespace QLCongNo.View.UC.GachNo
                         Nam = row["Nam"].ToString().Trim()
                     }).ToList();
 
+                var dungKeys = dataDung.Select(d =>
+                    $"{d.DanhBo.Trim()}_{d.TongTien}"
+                    ).ToHashSet();
+
                 var dataSai = allExcelRows
-                    .Where(row => !dataDung.Any(d => d.TongTien == row.TongTien))
+                    .Where(row => !dungKeys.Contains($"{row.DanhBo.Trim()}_{row.TongTien}"))
                     .ToList();
 
                 dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -275,7 +279,7 @@ namespace QLCongNo.View.UC.GachNo
                         var cmd = $"exec DANGNGAN_NV {nvid}, {id_ct}";
 
                         db.Database.ExecuteSqlCommand(cmd);
-                        
+
                         foreach (var item in chungtuGN)
                         {
                             var dshoadon = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT && x.ID_KH == item).ToList();
@@ -507,7 +511,7 @@ namespace QLCongNo.View.UC.GachNo
                 if (sKetQua == "OK" && dataGridView1.RowCount > 0)
                 {
                     btnConfirm.Visible = true;
-                }     
+                }
                 else if (sKetQua == "OK" && dataGridView1.RowCount == 0)
                 {
                     btnConfirm.Visible = false;
@@ -518,7 +522,7 @@ namespace QLCongNo.View.UC.GachNo
                     MessageBox.Show($"{sKetQua}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch {}
+            catch { }
             finally
             {
                 btnKiemtra.Enabled = true;

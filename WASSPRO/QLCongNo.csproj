@@ -1892,6 +1892,7 @@
     <EmbeddedResource Include="View\UC\ReportViewer\DataSource\UcPhieuNgungNuoc.resx">
       <DependentUpon>UcPhieuNgungNuoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPBaoCaoTongHop.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPHoaDonNoTon.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNganHang.rdlc" />
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPTongHopDangNganTheoNhanVienGiaiTrach.rdlc" />
@@ -2216,9 +2217,6 @@
     <None Include="View\UC\ReportViewer\ReportView\PhieuNgungNuoc.rdlc" />
     <None Include="View\UC\ReportViewer\ReportView\RPBaoCaoChiaTheoDot.rdlc" />
     <None Include="View\UC\ReportViewer\ReportView\RPBaoCaoChuanThuHD0Dong.rdlc" />
-    <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPBaoCaoTongHop.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\UC\ReportViewer\ReportView\RPBaoCaoTongHopTheoLoai.rdlc" />
     <None Include="View\UC\ReportViewer\ReportView\rpChitiethoadonton.rdlc" />
     <None Include="View\UC\ReportViewer\ReportView\RPDangNgan.rdlc" />
