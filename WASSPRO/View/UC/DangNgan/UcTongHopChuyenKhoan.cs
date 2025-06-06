@@ -58,12 +58,14 @@ namespace QLCongNo.View.UC.DangNgan
                 param.Add(new WinFormsReport.ReportParameter("pNgaythang", pNgayThang));
                 var data = db.getThongKeDangNganChuyenKhoanTheoNgay(loaiHD, tungay, dengay).ToList();
 
-                //var copyData = data;
+                //var copyData = data.ToList();
+
+                ////var copyData = data;
                 //var pattern = @"(\d{1,2}/\d{1,2}/\d{2}).*?:\s*(\d{1,3}\.\d{3})";
-                //foreach (var item in data)
-                //    copyData.Add(item);
-     
-                //foreach (var item in data)
+                ////foreach (var item in data)
+                ////    copyData.Add(item);
+
+                //foreach (var item in copyData)
                 //{
                 //    var ghichu = item.ghichu;
                 //    var matches = Regex.Matches(ghichu, pattern);
