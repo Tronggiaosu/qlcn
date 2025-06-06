@@ -182,7 +182,7 @@ namespace QLCongNo.View.UC.GachNo
                         {
                             if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi")
                             {
-                                if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931") // Phong Ghi Thu - TKCT
+                                if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1") // Phong Ghi Thu - TKCT
                                 {
                                     dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
                                 }
@@ -256,7 +256,7 @@ namespace QLCongNo.View.UC.GachNo
                 {
                     if (r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi")
                     {
-                        if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931") // Phong Ghi Thu - TKCT
+                        if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1") // Phong Ghi Thu - TKCT
                         {
                             r.Cells[checksColumn.Name].Value = isChecked;
                         }
