@@ -36,6 +36,21 @@ namespace QLCongNo.View.UC.DangNgan
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             this.dataGridView1.KeyDown += DataGridView1_KeyDown;
             this.dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
+
+            this.dataGridView1.KeyDown += dataGridView1_KeyDown;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.MultiSelect = true;
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dataGridView1.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
         }
 
         private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

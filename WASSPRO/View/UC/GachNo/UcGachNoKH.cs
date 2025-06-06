@@ -53,10 +53,40 @@ namespace QLCongNo.View.UC.GachNo
             dgvHoadon.CellContentClick += dgvHoadon_CellContentClick;
             this.dgvHoadon.DataError += dgvHoadon_DataError;
             this.dgvHoadon.CellFormatting += dgvHoadon_CellFormatting;
-            this.dgvHoadon.KeyDown += DgvHoadon_KeyDown;
+            //this.dgvHoadon.KeyDown += DgvHoadon_KeyDown;
             this.dgvHoadon.ColumnHeaderMouseClick += DgvHoadon_ColumnHeaderMouseClick;
-            this.dgvKhachhang.KeyDown += DgvKhachhang_KeyDown;
+            //this.dgvKhachhang.KeyDown += DgvKhachhang_KeyDown;
+
+            this.dgvHoadon.KeyDown += dgvHoadon_KeyDown;
+            this.dgvKhachhang.KeyDown += dgvKhachhang_KeyDown;
+            dgvHoadon.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvHoadon.MultiSelect = true;
+            dgvKhachhang.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvKhachhang.MultiSelect = true;
         }
+
+        private void dgvHoadon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dgvHoadon.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
+        }
+
+        private void dgvKhachhang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dgvKhachhang.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
+        }
+
 
         private void DgvHoadon_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -66,44 +96,44 @@ namespace QLCongNo.View.UC.GachNo
             }
         }
 
-        private void DgvHoadon_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                Copy(this.dgvHoadon);
-                e.Handled = true;
-            }
-        }
+        //private void DgvHoadon_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Control && e.KeyCode == Keys.C)
+        //    {
+        //        Copy(this.dgvHoadon);
+        //        e.Handled = true;
+        //    }
+        //}
 
-        private void DgvKhachhang_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                Copy(this.dgvKhachhang);
-                e.Handled = true;
-            }
-        }
+        //private void DgvKhachhang_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Control && e.KeyCode == Keys.C)
+        //    {
+        //        Copy(this.dgvKhachhang);
+        //        e.Handled = true;
+        //    }
+        //}
 
-        private void Copy(DataGridView dgv)
-        {
-            var count = dgv.SelectedCells.Count;
-            if (count == dgv.RowCount * dgv.ColumnCount && count != 8)
-            {
-                //Copy all of datagridview
-                DataObject dataObj = dgv.GetClipboardContent();
-                if (dataObj != null)
-                    Clipboard.SetDataObject(dataObj);
-            }
-            else
-            {
-                //Copy 1 cell
-                var currentCell = dgv.CurrentCell;
-                if (currentCell != null && currentCell.Value != null)
-                {
-                    Clipboard.SetText(currentCell.Value.ToString());
-                }
-            }
-        }
+        //private void Copy(DataGridView dgv)
+        //{
+        //    var count = dgv.SelectedCells.Count;
+        //    if (count == dgv.RowCount * dgv.ColumnCount && count != 8)
+        //    {
+        //        //Copy all of datagridview
+        //        DataObject dataObj = dgv.GetClipboardContent();
+        //        if (dataObj != null)
+        //            Clipboard.SetDataObject(dataObj);
+        //    }
+        //    else
+        //    {
+        //        //Copy 1 cell
+        //        var currentCell = dgv.CurrentCell;
+        //        if (currentCell != null && currentCell.Value != null)
+        //        {
+        //            Clipboard.SetText(currentCell.Value.ToString());
+        //        }
+        //    }
+        //}
 
         private void dgvHoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {

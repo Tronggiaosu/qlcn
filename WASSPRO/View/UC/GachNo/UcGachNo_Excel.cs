@@ -30,6 +30,35 @@ namespace QLCongNo.View.UC.GachNo
             this.dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
             this.dataGridView2.ColumnHeaderMouseClick += DataGridView2_ColumnHeaderMouseClick;
             btnConfirm.Visible = false;
+
+            this.dataGridView1.KeyDown += dataGridView1_KeyDown;
+            this.dataGridView2.KeyDown += dataGridView2_KeyDown;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.MultiSelect = true;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView2.MultiSelect = true;
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dataGridView1.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
+        }
+
+        private void dataGridView2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dataGridView2.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
         }
 
         private void DataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

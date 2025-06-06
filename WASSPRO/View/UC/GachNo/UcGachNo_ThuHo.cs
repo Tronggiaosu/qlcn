@@ -36,6 +36,35 @@ namespace QLCongNo.View.UC.GachNo
             this.dgvGachNo.CellFormatting += dataGridView1_CellFormatting;
             this.dgvGachNo.KeyDown += DgvGachNo_KeyDown;
             this.dgvGachNo.ColumnHeaderMouseClick += DgvGachNo_ColumnHeaderMouseClick;
+
+            this.dgvDSHD.KeyDown += dgvDSHD_KeyDown;
+            this.dgvGachNo.KeyDown += dgvGachNo_KeyDown;
+            dgvDSHD.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvDSHD.MultiSelect = true;
+            dgvGachNo.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvGachNo.MultiSelect = true;
+        }
+
+        private void dgvDSHD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dgvDSHD.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
+        }
+
+        private void dgvGachNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                DataObject dataObj = dgvGachNo.GetClipboardContent();
+                if (dataObj != null)
+                    Clipboard.SetDataObject(dataObj);
+                e.Handled = true;
+            }
         }
 
         private void DgvGachNo_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
