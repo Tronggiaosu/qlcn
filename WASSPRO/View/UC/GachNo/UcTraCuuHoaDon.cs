@@ -55,8 +55,17 @@ namespace QLCongNo.View.UC.GachNo
                 var soID_KH = Int32.Parse(id_kh);
 
                 var count = this.dgvHoaDon.Rows.Count;
-                var hoadon = db.HOADONs.Where(x => x.ID_KH == soID_KH).FirstOrDefault();
+                var dt = GetDataNoTon(this.dgvHoaDon);
 
+                if (dt.Rows.Count == 0)
+                {
+                    this.btnInNoTon.Enabled = false;
+                    this.Cursor = Cursors.Default;
+                    MessageBox.Show("Không có hóa đơn nợ tồn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var hoadon = db.HOADONs.Where(x => x.ID_KH == soID_KH).FirstOrDefault();
                 var frm = new Form();
                 frm.Size = new Size(1200, 800);
                 frm.StartPosition = FormStartPosition.CenterScreen;
@@ -84,7 +93,7 @@ namespace QLCongNo.View.UC.GachNo
                         new ReportParameter("DanhBo", danhbo)
                     };
 
-                var dt = GetDataNoTon(this.dgvHoaDon);
+                
                 report.LocalReport.DataSources.Clear();
                 report.LocalReport.DataSources.Add(new ReportDataSource("DataSource", dt));
                 report.LocalReport.SetParameters(parameters);
@@ -96,6 +105,7 @@ namespace QLCongNo.View.UC.GachNo
             catch (Exception ex)
             {
                 var msg = ex.Message;
+                this.Cursor = Cursors.Default;
             }
         }
 
@@ -113,9 +123,10 @@ namespace QLCongNo.View.UC.GachNo
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
                     var thanhtoan = row.Cells["thanhtoanColumn"].Value;
+                    var trangthai = row.Cells["trangthaiColumn"].Value;
                     var idHD = row.Cells["id_hd_dgv2"].Value?.ToString();
                     var HD = Decimal.Parse(idHD);
-                    if (!row.IsNewRow && thanhtoan?.ToString() == "Chưa thu")
+                    if (!row.IsNewRow && thanhtoan?.ToString() == "Chưa thu" && trangthai?.ToString() != "Hủy")
                     {
                         var hoadon = db.HOADONs.Where(x => x.ID_HD == HD).FirstOrDefault();
                         DataRow dr = dt.NewRow();
@@ -128,7 +139,11 @@ namespace QLCongNo.View.UC.GachNo
                 }
 
                 var count = dt.Rows.Count;
-                if (count < 14)
+                if (count == 0)
+                {
+                    return dt;
+                }    
+                else if (count < 14)
                 {
                     for (var i = count; i < 10; i++)
                     {
@@ -200,20 +215,33 @@ namespace QLCongNo.View.UC.GachNo
                     {
                         this.Cursor = Cursors.WaitCursor;
                         decimal IDHD = decimal.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[id_hd_dgv2.Name].Value.ToString());
+                        var dsMauHD = db.MAU_HD.Select(x => x.mau_HD1).ToList();
                         if (e.ColumnIndex == 10)
                         {
+                            var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                            var mauHD = hoadon.MAU_HD;
+                            if (mauHD != "1/001" && mauHD != "1/002" && mauHD != "1/003" && !dsMauHD.Contains(mauHD))
+                            {
+                                this.Cursor = Cursors.Default;
+                                var msg = "Dữ liệu đã được lưu trữ.\nVui lòng truy cập trang quản lý để xem hóa đơn gốc!";
+                                if (mauHD != null)
+                                    msg = $"Mẫu hóa đơn là {mauHD}.\n" + msg;
+                                MessageBox.Show(msg,"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }    
+
                             Portal.PortalService portal = new Portal.PortalService();
                             var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
                             var result = portal.getInvViewFkeyNoPay(IDHD.ToString(), accWS.acc_service, "123456aA@");
-                            var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
                             var hoadonloi = db.HOADONs.Where(x => x.ID_KH == hoadon.ID_KH && x.trangthai_id == -22).FirstOrDefault();
+                            
                             if (hoadonloi != null)
                                 IDHD = hoadonloi.ID_HD;
                             portal78.PortalService p78 = new portal78.PortalService();
                             var hoadonsai = db.HOADONs.Where(x => x.ID_HD == IDHD && x.DOT_ID == 1 && x.kyghi == "202302" && x.keys == null).FirstOrDefault();
                             if (hoadonsai != null)
                                 result = p78.getInvViewFkeyNoPay(hoadonsai.DienGiai, "capnuocthuducservice", "Einv@oi@vn#pt20");
-                            else if (hoadon.MAU_HD == "1/001" || hoadon.MAU_HD == "1/002" || hoadon.MAU_HD == "1/003")
+                            else if (mauHD == "1/001" || mauHD == "1/002" || mauHD == "1/003" || dsMauHD.Contains(mauHD))
                                 result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
                             var frm = new Form();
                             frm.Size = new Size(1200, 800);
@@ -221,14 +249,27 @@ namespace QLCongNo.View.UC.GachNo
                             webBrowser.Dock = DockStyle.Fill;
                             webBrowser.DocumentText = result;
                             frm.Controls.Add(webBrowser);
+                            frm.StartPosition = FormStartPosition.CenterParent;
                             frm.ShowDialog();
                         }
                         if (e.ColumnIndex == 11)
                         {
                             var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                            var mauHD = hoadon.MAU_HD;
+                            if (mauHD != "1/001" && mauHD != "1/002" && mauHD != "1/003" && !dsMauHD.Contains(mauHD))
+                            {
+                                this.Cursor = Cursors.Default;
+                                var msg = "Dữ liệu đã được lưu trữ.\nVui lòng truy cập trang quản lý để xem hóa đơn gốc!";
+                                if (mauHD != null)
+                                    msg = $"Mẫu hóa đơn là {mauHD}.\n" + msg;
+                                MessageBox.Show(msg, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+
                             Portal.PortalService portal = new Portal.PortalService();
                             var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
                             var hoadonloi = db.HOADONs.Where(x => x.ID_KH == hoadon.ID_KH && x.trangthai_id == -22).FirstOrDefault();
+                            
                             if (hoadonloi != null)
                                 IDHD = hoadonloi.ID_HD;
                             var base64pdf = portal.downloadInvPDFFkeyNoPay(hoadon.ID_HD.ToString(), accWS.acc_service, "123456aA@");
@@ -236,7 +277,7 @@ namespace QLCongNo.View.UC.GachNo
                             var hoadonsai = db.HOADONs.Where(x => x.ID_HD == IDHD && x.DOT_ID == 1 && x.kyghi == "202302" && x.keys == null).FirstOrDefault();
                             if (hoadonsai != null)
                                 base64pdf = p78.downloadInvPDFFkeyNoPay(hoadon.DienGiai, "capnuocthuducservice", "Einv@oi@vn#pt20");
-                            else if (hoadon.MAU_HD == "1/001" || hoadon.MAU_HD == "1/002" || hoadon.MAU_HD == "1/003")
+                            else if (mauHD == "1/001" || mauHD == "1/002" || mauHD == "1/003" || dsMauHD.Contains(mauHD))
                                 base64pdf = p78.downloadInvPDFFkeyNoPay(hoadon.ID_HD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
                             SaveFileDialog save = new SaveFileDialog();
                             save.Filter = "PDF file|.PDF";
@@ -307,8 +348,15 @@ namespace QLCongNo.View.UC.GachNo
                     string dotSelectedStr = cboDot.SelectedValue != null ? cboDot.SelectedValue.ToString() : "";
 
                     decimal IDKH = decimal.Parse(dgvKhachHang[ID_KH_dgv1.Name, e.RowIndex].Value.ToString());
-                    var dsHoadon = db.getDSHoaDon_KH_Newest(IDKH).ToList();
+                    var dsShow = db.getDSHoaDon_KH_Newest(IDKH).ToList();
+                    var dsHide = dsShow.Where(x =>
+                            (x.KY_HIEU_HD == "TD/14E" || x.KY_HIEU_HD == "TD/15E" || x.KY_HIEU_HD == "TD/16E" ||
+                             x.KY_HIEU_HD == "TD/17E" || x.KY_HIEU_HD == "TD/18E" || x.KY_HIEU_HD == "TD/19E" ||
+                             x.KY_HIEU_HD == "TD/20E" || x.KY_HIEU_HD == "TD/21E" || x.KY_HIEU_HD == "TD/22E") &&
+                            ((x.tentrangthai == "Đã phát hành" && x.thanhtoan == "Đã thu") ||
+                            (x.tentrangthai == "Hủy" && x.thanhtoan == "Chưa thu"))).ToList();
 
+                    var dsHoadon = dsShow.Except(dsHide).ToList();
                     if (namSelectedStr != "0")
                     {
                         int nam = int.Parse(namSelectedStr) + 2000;
@@ -335,8 +383,8 @@ namespace QLCongNo.View.UC.GachNo
                     }
                     else
                         dgvHoaDon.DataSource = null;
-                    lblsoluong.Text = "Tổng số tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan == "Chưa thu").Select(x => x.tongtien).Sum());
-                    lbltongsokyno.Text = "Tổng số kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan == "Chưa thu").Count().ToString();
+                    lblsoluong.Text = "Tổng số tiền nợ: " + string.Format("{0:n0}", dsHoadon.Where(x => x.thanhtoan == "Chưa thu" && x.tentrangthai != "Hủy").Select(x => x.tongtien).Sum());
+                    lbltongsokyno.Text = "Tổng số kỳ nợ: " + dsHoadon.Where(x => x.thanhtoan == "Chưa thu" && x.tentrangthai != "Hủy").Count().ToString();
                 }
                 else
                     dgvHoaDon.DataSource = null;
