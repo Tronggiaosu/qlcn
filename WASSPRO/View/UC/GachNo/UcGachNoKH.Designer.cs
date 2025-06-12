@@ -98,10 +98,6 @@
             this.QuanColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDKHColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.dgvHoadon = new QLCongNo.View.Core.NovDataGridView();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lblDSKhachHang = new QLCongNo.View.Core.NovLabel();
-            this.lblDSHoaDon = new QLCongNo.View.Core.NovLabel();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.checksColumn = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.trangthaiKHColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -123,6 +119,10 @@
             this.ngaybk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaythuchienColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.ghichuColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblDSKhachHang = new QLCongNo.View.Core.NovLabel();
+            this.lblDSHoaDon = new QLCongNo.View.Core.NovLabel();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -809,73 +809,6 @@
             this.dgvHoadon.Size = new System.Drawing.Size(852, 381);
             this.dgvHoadon.TabIndex = 1;
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 387);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.lblDSKhachHang);
-            this.splitContainer1.Panel1.Controls.Add(this.dgvKhachhang);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.lblDSHoaDon);
-            this.splitContainer1.Panel2.Controls.Add(this.dgvHoadon);
-            this.splitContainer1.Size = new System.Drawing.Size(1374, 437);
-            this.splitContainer1.SplitterDistance = 499;
-            this.splitContainer1.TabIndex = 2;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
-            // 
-            // lblDSKhachHang
-            // 
-            this.lblDSKhachHang.AutoSize = true;
-            this.lblDSKhachHang.BackColor = System.Drawing.Color.Transparent;
-            this.lblDSKhachHang.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSKhachHang.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblDSKhachHang.Location = new System.Drawing.Point(12, 5);
-            this.lblDSKhachHang.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.lblDSKhachHang.Name = "lblDSKhachHang";
-            this.lblDSKhachHang.Size = new System.Drawing.Size(208, 23);
-            this.lblDSKhachHang.TabIndex = 146;
-            this.lblDSKhachHang.Text = "Danh sách khách hàng (0)";
-            // 
-            // lblDSHoaDon
-            // 
-            this.lblDSHoaDon.AutoSize = true;
-            this.lblDSHoaDon.BackColor = System.Drawing.Color.Transparent;
-            this.lblDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSHoaDon.ForeColor = System.Drawing.Color.Red;
-            this.lblDSHoaDon.Location = new System.Drawing.Point(2, 4);
-            this.lblDSHoaDon.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.lblDSHoaDon.Name = "lblDSHoaDon";
-            this.lblDSHoaDon.Size = new System.Drawing.Size(183, 23);
-            this.lblDSHoaDon.TabIndex = 145;
-            this.lblDSHoaDon.Text = "Danh sách hoá đơn (0)";
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer3.Location = new System.Drawing.Point(3, 41);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel1);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer3.Size = new System.Drawing.Size(1368, 339);
-            this.splitContainer3.SplitterDistance = 684;
-            this.splitContainer3.TabIndex = 3;
-            // 
             // checksColumn
             // 
             this.checksColumn.FalseValue = "false";
@@ -1131,6 +1064,73 @@
             this.ghichuColumn.Name = "ghichuColumn";
             this.ghichuColumn.ReadOnly = true;
             this.ghichuColumn.Width = 97;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 387);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.lblDSKhachHang);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvKhachhang);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblDSHoaDon);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvHoadon);
+            this.splitContainer1.Size = new System.Drawing.Size(1374, 437);
+            this.splitContainer1.SplitterDistance = 499;
+            this.splitContainer1.TabIndex = 2;
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // lblDSKhachHang
+            // 
+            this.lblDSKhachHang.AutoSize = true;
+            this.lblDSKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSKhachHang.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSKhachHang.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDSKhachHang.Location = new System.Drawing.Point(12, 5);
+            this.lblDSKhachHang.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSKhachHang.Name = "lblDSKhachHang";
+            this.lblDSKhachHang.Size = new System.Drawing.Size(208, 23);
+            this.lblDSKhachHang.TabIndex = 146;
+            this.lblDSKhachHang.Text = "Danh sách khách hàng (0)";
+            // 
+            // lblDSHoaDon
+            // 
+            this.lblDSHoaDon.AutoSize = true;
+            this.lblDSHoaDon.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSHoaDon.ForeColor = System.Drawing.Color.Red;
+            this.lblDSHoaDon.Location = new System.Drawing.Point(2, 4);
+            this.lblDSHoaDon.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSHoaDon.Name = "lblDSHoaDon";
+            this.lblDSHoaDon.Size = new System.Drawing.Size(183, 23);
+            this.lblDSHoaDon.TabIndex = 145;
+            this.lblDSHoaDon.Text = "Danh sách hoá đơn (0)";
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer3.Location = new System.Drawing.Point(3, 41);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel2);
+            this.splitContainer3.Size = new System.Drawing.Size(1368, 339);
+            this.splitContainer3.SplitterDistance = 684;
+            this.splitContainer3.TabIndex = 3;
             // 
             // UcGachNoKH
             // 

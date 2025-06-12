@@ -23,6 +23,7 @@ namespace QLCongNo.View.UC.GachNo
             this.dataGridView1.DataError += dataGridView1_DataError;
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
+
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "thangColumn")
@@ -49,6 +50,11 @@ namespace QLCongNo.View.UC.GachNo
                     }
                 }
             }
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                e.Value = (e.RowIndex + 1).ToString();
+                e.FormattingApplied = true;
+            }
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -70,7 +76,9 @@ namespace QLCongNo.View.UC.GachNo
                     var pkyghi = db.DM_KYGHI.Where(x => x.gachno == true).FirstOrDefault();
                     int DOTID = int.Parse(cboDot.SelectedValue.ToString());
                     int TOID = int.Parse(cboTo.SelectedValue.ToString());
-                    string kyghi = cboThang.SelectedValue.ToString();
+                    string nam = cboNam.SelectedValue.ToString();
+                    string thang = cboThang.SelectedValue.ToString();
+                    string kyghi = (int.Parse(nam) + 2000).ToString() + thang;
                     int NVID = int.Parse(cboNV.SelectedValue.ToString());
                     int NVLap = int.Parse(Common.NVID.ToString());
                     if (chkKy.Checked == false)
@@ -94,7 +102,9 @@ namespace QLCongNo.View.UC.GachNo
                     var chungtuGN = db.CHUNGTU_HOADON.Where(x => x.ID_CT == chungtu.ID_CT).Select(x => x.HOADON.ID_KH).Distinct().ToList();
                     string hashkey = "zBA5hONxY9W0Xz1oiUqKdH0xUExp0eXtpSaiBoFYwpqaR1frxyIlDZdfFx7xb8UCb//HyKdBx8QSBrDGOmhhHmikJhnYAILslxIsXS/E4C4zfJFOcE0AFU4rAUL4NPlv";
                     if (chungtuGN.Count() == 0)
+                    {
                         db.CHUNGTUs.Remove(chungtu);
+                    }
                     else
                     {
                         ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
@@ -169,8 +179,6 @@ namespace QLCongNo.View.UC.GachNo
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }    
             dataGridView1.DataSource = data.ToList();
-            for (int i = 0; i < dataGridView1.RowCount; i++)
-                dataGridView1.Rows[i].Cells[STTColumn.Name].Value = i + 1;
             lblsoluong.Text = "Số lượng: " + string.Format("{0:n0}", data.Count());
             this.Cursor = Cursors.Default;
         }

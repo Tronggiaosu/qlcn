@@ -51,12 +51,18 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 bophan = "BỘ PHẬN: " + cboDT.Text.ToUpper();
                 loaiHD = int.Parse(cboDT.SelectedValue.ToString());
             }
+            string inHDKD = "0";
+            if(ckbIn.Checked == true)
+            {
+                inHDKD = "1";
+            }    
             string ptungay = dtpTungay.Value.ToString("dd/MM/yyyy");
             string pdengay = dtpDenngay.Value.ToString("dd/MM/yyyy");
             string pNgayThang = "Từ ngày " + ptungay + " đến ngày " + pdengay;
             List<WinFormsReport.ReportParameter> param = new List<WinFormsReport.ReportParameter>();
             param.Add(new WinFormsReport.ReportParameter("pTenDT", bophan));
             param.Add(new WinFormsReport.ReportParameter("pNgayThang", pNgayThang));
+            param.Add(new WinFormsReport.ReportParameter("inHDKD", inHDKD));
             this.reportViewer1.LocalReport.SetParameters(param);
             var dataSource = db.getBaoCaoTongHop(tungay, dengay, "", loaiHD).ToList();
 

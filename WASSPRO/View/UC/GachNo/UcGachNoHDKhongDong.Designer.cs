@@ -56,12 +56,6 @@
             this.txtTim = new QLCongNo.View.Core.NovTextBox();
             this.label1 = new QLCongNo.View.Core.NovLabel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
-            this.panel1 = new QLCongNo.View.Core.NovPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cboNam = new QLCongNo.View.Core.NovComboBox();
-            this.chkNam = new QLCongNo.View.Core.NovCheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblsoluong = new System.Windows.Forms.Label();
             this.STTColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.namColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thangColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -71,6 +65,12 @@
             this.danhboColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.hotenColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.diachiColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.panel1 = new QLCongNo.View.Core.NovPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboNam = new QLCongNo.View.Core.NovComboBox();
+            this.chkNam = new QLCongNo.View.Core.NovCheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblsoluong = new System.Windows.Forms.Label();
             this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -155,10 +155,10 @@
             this.cboTo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTo.ForeColor = System.Drawing.Color.Black;
             this.cboTo.FormattingEnabled = true;
-            this.cboTo.Location = new System.Drawing.Point(715, 55);
+            this.cboTo.Location = new System.Drawing.Point(712, 55);
             this.cboTo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboTo.Name = "cboTo";
-            this.cboTo.Size = new System.Drawing.Size(245, 33);
+            this.cboTo.Size = new System.Drawing.Size(243, 33);
             this.cboTo.TabIndex = 5;
             // 
             // chkTo
@@ -167,7 +167,7 @@
             this.chkTo.BackColor = System.Drawing.Color.Transparent;
             this.chkTo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkTo.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkTo.Location = new System.Drawing.Point(715, 14);
+            this.chkTo.Location = new System.Drawing.Point(712, 14);
             this.chkTo.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkTo.Name = "chkTo";
             this.chkTo.Size = new System.Drawing.Size(51, 27);
@@ -183,10 +183,10 @@
             this.cboThang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThang.ForeColor = System.Drawing.Color.Black;
             this.cboThang.FormattingEnabled = true;
-            this.cboThang.Location = new System.Drawing.Point(235, 55);
+            this.cboThang.Location = new System.Drawing.Point(234, 55);
             this.cboThang.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboThang.Name = "cboThang";
-            this.cboThang.Size = new System.Drawing.Size(212, 33);
+            this.cboThang.Size = new System.Drawing.Size(211, 33);
             this.cboThang.TabIndex = 3;
             // 
             // chkKy
@@ -195,7 +195,7 @@
             this.chkKy.BackColor = System.Drawing.Color.Transparent;
             this.chkKy.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkKy.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkKy.Location = new System.Drawing.Point(235, 14);
+            this.chkKy.Location = new System.Drawing.Point(234, 14);
             this.chkKy.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkKy.Name = "chkKy";
             this.chkKy.Size = new System.Drawing.Size(80, 27);
@@ -211,10 +211,10 @@
             this.cboNV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNV.ForeColor = System.Drawing.Color.Black;
             this.cboNV.FormattingEnabled = true;
-            this.cboNV.Location = new System.Drawing.Point(984, 55);
+            this.cboNV.Location = new System.Drawing.Point(979, 55);
             this.cboNV.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNV.Name = "cboNV";
-            this.cboNV.Size = new System.Drawing.Size(317, 33);
+            this.cboNV.Size = new System.Drawing.Size(322, 33);
             this.cboNV.TabIndex = 7;
             // 
             // chkNV
@@ -223,7 +223,7 @@
             this.chkNV.BackColor = System.Drawing.Color.Transparent;
             this.chkNV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNV.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNV.Location = new System.Drawing.Point(984, 14);
+            this.chkNV.Location = new System.Drawing.Point(979, 14);
             this.chkNV.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkNV.Name = "chkNV";
             this.chkNV.Size = new System.Drawing.Size(110, 27);
@@ -239,10 +239,10 @@
             this.cboDot.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDot.ForeColor = System.Drawing.Color.Black;
             this.cboDot.FormattingEnabled = true;
-            this.cboDot.Location = new System.Drawing.Point(471, 55);
+            this.cboDot.Location = new System.Drawing.Point(469, 55);
             this.cboDot.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboDot.Name = "cboDot";
-            this.cboDot.Size = new System.Drawing.Size(220, 33);
+            this.cboDot.Size = new System.Drawing.Size(219, 33);
             this.cboDot.TabIndex = 1;
             // 
             // label2
@@ -251,7 +251,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(471, 14);
+            this.label2.Location = new System.Drawing.Point(469, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 23);
@@ -265,7 +265,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.txtTim, 4);
             this.txtTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTim.ForeColor = System.Drawing.Color.Black;
-            this.txtTim.Location = new System.Drawing.Point(235, 105);
+            this.txtTim.Location = new System.Drawing.Point(234, 105);
             this.txtTim.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(1065, 32);
@@ -279,7 +279,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(27, 114);
+            this.label1.Location = new System.Drawing.Point(26, 114);
             this.label1.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 32);
@@ -344,98 +344,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1289, 644);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.panel1.Location = new System.Drawing.Point(0, 39);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1324, 157);
-            this.panel1.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.98387F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.29436F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.10081F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.62097F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 339F));
-            this.tableLayoutPanel1.Controls.Add(this.cboNam, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkNam, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtTim, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.chkNV, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboNV, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboTo, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkTo, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboDot, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboThang, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkKy, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1313, 151);
-            this.tableLayoutPanel1.TabIndex = 149;
-            // 
-            // cboNam
-            // 
-            this.cboNam.BackColor = System.Drawing.Color.White;
-            this.cboNam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboNam.ForeColor = System.Drawing.Color.Black;
-            this.cboNam.FormattingEnabled = true;
-            this.cboNam.Location = new System.Drawing.Point(12, 55);
-            this.cboNam.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.cboNam.Name = "cboNam";
-            this.cboNam.Size = new System.Drawing.Size(199, 33);
-            this.cboNam.TabIndex = 11;
-            // 
-            // chkNam
-            // 
-            this.chkNam.AutoSize = true;
-            this.chkNam.BackColor = System.Drawing.Color.Transparent;
-            this.chkNam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkNam.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNam.Location = new System.Drawing.Point(12, 14);
-            this.chkNam.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.chkNam.Name = "chkNam";
-            this.chkNam.Size = new System.Drawing.Size(69, 27);
-            this.chkNam.TabIndex = 10;
-            this.chkNam.Text = "Năm";
-            this.chkNam.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblsoluong);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 857);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1324, 48);
-            this.panel2.TabIndex = 149;
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.AutoSize = true;
-            this.lblsoluong.Location = new System.Drawing.Point(12, 3);
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(75, 23);
-            this.lblsoluong.TabIndex = 0;
-            this.lblsoluong.Text = "Tổng số:";
             // 
             // STTColumn
             // 
@@ -533,6 +441,98 @@
             this.diachiColumn.MinimumWidth = 6;
             this.diachiColumn.Name = "diachiColumn";
             this.diachiColumn.Width = 90;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.panel1.Location = new System.Drawing.Point(0, 39);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1324, 157);
+            this.panel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.98387F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.29436F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.10081F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.62097F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 343F));
+            this.tableLayoutPanel1.Controls.Add(this.cboNam, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkNam, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtTim, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.chkNV, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboNV, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboTo, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkTo, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboDot, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboThang, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkKy, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1313, 151);
+            this.tableLayoutPanel1.TabIndex = 149;
+            // 
+            // cboNam
+            // 
+            this.cboNam.BackColor = System.Drawing.Color.White;
+            this.cboNam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNam.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNam.ForeColor = System.Drawing.Color.Black;
+            this.cboNam.FormattingEnabled = true;
+            this.cboNam.Location = new System.Drawing.Point(12, 55);
+            this.cboNam.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.cboNam.Name = "cboNam";
+            this.cboNam.Size = new System.Drawing.Size(198, 33);
+            this.cboNam.TabIndex = 11;
+            // 
+            // chkNam
+            // 
+            this.chkNam.AutoSize = true;
+            this.chkNam.BackColor = System.Drawing.Color.Transparent;
+            this.chkNam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNam.ForeColor = System.Drawing.Color.MediumBlue;
+            this.chkNam.Location = new System.Drawing.Point(12, 14);
+            this.chkNam.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.chkNam.Name = "chkNam";
+            this.chkNam.Size = new System.Drawing.Size(69, 27);
+            this.chkNam.TabIndex = 10;
+            this.chkNam.Text = "Năm";
+            this.chkNam.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblsoluong);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 857);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1324, 48);
+            this.panel2.TabIndex = 149;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Location = new System.Drawing.Point(12, 3);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(75, 23);
+            this.lblsoluong.TabIndex = 0;
+            this.lblsoluong.Text = "Tổng số:";
             // 
             // UcGachNoHDKhongDong
             // 

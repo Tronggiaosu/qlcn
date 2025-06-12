@@ -48,6 +48,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.getBaoCaoChuanThuKyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.ckbIn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.getBaoCaoTongHopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cAPNUOC_TDCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDanhSachChuyenNoKDBindingSource)).BeginInit();
@@ -94,36 +95,35 @@
             this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip1.Size = new System.Drawing.Size(1119, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(1228, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnTim
             // 
             this.btnTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.btnTim.Image = global::QLCongNo.Properties.Resources.tim_kiem;
             this.btnTim.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTim.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnTim.Name = "btnTim";
             this.btnTim.Padding = new System.Windows.Forms.Padding(5);
-            this.btnTim.Size = new System.Drawing.Size(107, 39);
+            this.btnTim.Size = new System.Drawing.Size(87, 39);
             this.btnTim.Text = "Tra cứu";
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.btnThoat.Image = global::QLCongNo.Properties.Resources.thoat;
             this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoat.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(5);
-            this.btnThoat.Size = new System.Drawing.Size(87, 39);
+            this.btnThoat.Size = new System.Drawing.Size(67, 39);
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Visible = false;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ckbIn);
             this.groupBox1.Controls.Add(this.chkDT);
             this.groupBox1.Controls.Add(this.cboDT);
             this.groupBox1.Controls.Add(this.label6);
@@ -137,7 +137,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(1119, 95);
+            this.groupBox1.Size = new System.Drawing.Size(1228, 95);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -237,8 +237,18 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 134);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1119, 805);
+            this.reportViewer1.Size = new System.Drawing.Size(1228, 805);
             this.reportViewer1.TabIndex = 2;
+            // 
+            // ckbIn
+            // 
+            this.ckbIn.AutoSize = true;
+            this.ckbIn.Location = new System.Drawing.Point(967, 38);
+            this.ckbIn.Name = "ckbIn";
+            this.ckbIn.Size = new System.Drawing.Size(164, 27);
+            this.ckbIn.TabIndex = 6;
+            this.ckbIn.Text = "Hiển thị DSHĐKĐ";
+            this.ckbIn.UseVisualStyleBackColor = true;
             // 
             // UcBaoCaoTongHop
             // 
@@ -250,7 +260,7 @@
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UcBaoCaoTongHop";
-            this.Size = new System.Drawing.Size(1119, 939);
+            this.Size = new System.Drawing.Size(1228, 939);
             this.Load += new System.EventHandler(this.frmBaoCaoTongHop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.getBaoCaoTongHopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cAPNUOC_TDCDataSet)).EndInit();
@@ -288,5 +298,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.BindingSource getBaoCaoChuanThuKyBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.CheckBox ckbIn;
     }
 }
