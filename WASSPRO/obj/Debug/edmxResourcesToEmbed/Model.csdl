@@ -5530,6 +5530,15 @@
       <Parameter Name="NVID" Mode="In" Type="Int32" />
       <Parameter Name="SCT" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="KHOA_DANGNGAN" EntityType="Model.KHOA_DANGNGAN" />
+    <FunctionImport Name="lockDangNgan">
+      <Parameter Name="ngaydangngan" Mode="In" Type="String" />
+      <Parameter Name="nguoithuchien" Mode="In" Type="String" />
+      <Parameter Name="trangthai" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="lockGetDangNgan" ReturnType="Collection(Boolean)">
+      <Parameter Name="ngaydangngan" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -7559,4 +7568,14 @@
     <Property Type="Decimal" Name="UserID" Nullable="true" Precision="18" Scale="0" />
     <Property Type="String" Name="Ngay" Nullable="true" MaxLength="50" />
   </ComplexType>
+  <EntityType Name="KHOA_DANGNGAN">
+    <Key>
+      <PropertyRef Name="NGAY_DANG_NGAN" />
+    </Key>
+    <Property Name="STT" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
+    <Property Name="NGAY_DANG_NGAN" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NGAY_THUC_HIEN" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NGUOI_THUC_HIEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

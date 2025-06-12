@@ -685,6 +685,9 @@
     <Compile Include="KHACHHANG_TDC.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="KHOA_DANGNGAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="KyGuiSM.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -2164,6 +2167,7 @@
     <Content Include="Resources\Images\app.ico" />
     <Content Include="Resources\Images\close24px.png" />
     <Content Include="Resources\Images\cntd.png" />
+    <Content Include="Resources\Images\lock_48px.png" />
     <Content Include="Resources\Images\logomoi.png" />
     <Content Include="Resources\Images\pass.png" />
     <Content Include="Resources\Images\pass42px.png" />
@@ -2171,6 +2175,7 @@
     <Content Include="Resources\Images\sms24px.png" />
     <Content Include="Resources\Images\sms32px.png" />
     <Content Include="Resources\Images\sms48px.png" />
+    <Content Include="Resources\Images\unlock_48px.png" />
     <Content Include="Resources\Images\user.png" />
     <Content Include="Resources\Images\user42px.png" />
     <Content Include="Resources\Images\user48px.png" />

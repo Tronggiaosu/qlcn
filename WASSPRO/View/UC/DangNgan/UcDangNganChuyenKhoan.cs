@@ -40,6 +40,49 @@ namespace QLCongNo.View.UC.DangNgan
             this.dataGridView1.KeyDown += dataGridView1_KeyDown;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.MultiSelect = true;
+
+            this.dtPickerLockDN.ValueChanged += LoadStatusLockDangNgan;
+            this.ptbLockDN.Click += PtbLockDN_Click;
+            this.ptbUnlockDN.Click += PtbUnlockDN_Click;
+        }
+
+        private void PtbUnlockDN_Click(object sender, EventArgs e)
+        {
+            ProcessDangNgan(true);
+        }
+
+        private void PtbLockDN_Click(object sender, EventArgs e)
+        {
+            ProcessDangNgan(false);
+        }
+
+        private void ProcessDangNgan(bool mode)
+        {
+            try
+            {
+                var currentStatus = String.Empty;
+                if (mode == false)
+                    currentStatus = "Mở khóa";
+                else currentStatus = "Khóa";
+
+                var NVID = Common.NVID.ToString();
+                var dateLock = this.dtPickerLockDN.Value.ToString("dd/MM/yyyy");
+                var dialog = MessageBox.Show($"Chắc chắn muốn {currentStatus} đăng ngân ngày {dateLock}", "Thông báo",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    var date = this.dtPickerLockDN.Value.ToString("yyyy-MM-dd");
+                    db.lockDangNgan(date, NVID, mode);
+                    MessageBox.Show($"{currentStatus} đăng ngân thành công!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LoadStatusLockDangNgan(this.dtPickerLockDN, null);
+                }
+            }
+            catch
+            {
+                MessageBox.Show($"Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
@@ -251,6 +294,21 @@ namespace QLCongNo.View.UC.DangNgan
                 if (_staticMaloai == "CK")
                 {
                     _nhanVien = decimal.Parse(cboNhanVien.SelectedValue.ToString());
+                    var tungay = this.dtpTungay.Value;
+                    var denngay = this.dtpDenngay.Value;
+                    var today = DateTime.Now;
+
+                    if (tungay.Date != denngay.Date)
+                    {
+                        MessageBox.Show("Không được đăng ngân trong nhiều ngày!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else if (today.Date != tungay.Date)
+                    {
+                        MessageBox.Show("Chỉ được phép đăng ngân ngày hôm nay!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.dtPickerLockDN.Value = DateTime.Now;
+                        return;
+                    }    
                 }
                 if (dataGridView1.Rows.Count == 0)
                 {
@@ -627,15 +685,16 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void frDangNganChuyenKhoan_Load(object sender, EventArgs e)
         {
-            if (Common.username != "tkct-thuy"
-                && Common.username != "tkct-hoa"
-                && Common.username != "tkct-le"
-                && Common.username != "tkct-yen"
-                && Common.username != "tkct"
-                && Common.username != "tracham")
+            var user = Common.username;
+            if (user != "tkct-thuy"
+                && user != "tkct-hoa"
+                && user != "tkct-le"
+                && user != "tkct-yen"
+                && user != "tkct"
+                && user != "tracham")
             {
-                btnDN.Enabled = false;
-            }
+                this.btnDN.Enabled = false;
+            } 
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoGenerateColumns = false;
@@ -680,11 +739,82 @@ namespace QLCongNo.View.UC.DangNgan
                 dataGridView1.Columns[nganhangColumn.Name].HeaderText = "Nhân viên thu";
                 chkIn.Visible = true;
                 dataGridView1.Columns[ngayBKColumn.Name].Visible = false;
+
+                this.lblStatusDN.Visible = false;
+                this.dtPickerLockDN.Visible = false;
+                this.ptbLockDN.Visible = false;
+                this.ptbUnlockDN.Visible = false;
             }
             else if (_staticMaloai == "CK")
             {
                 LoadNhanVien();
+                this.dtPickerLockDN.Value = DateTime.Now;
+            } 
+        }
+
+        private void LoadStatusLockDangNgan(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sender is DateTimePicker dtp)
+                {
+                    this.dtpTungay.Value = dtp.Value;
+                    this.dtpDenngay.Value = dtp.Value;
+                    var ngaydangngan = dtp.Value.ToString("yyyy-MM-dd");
+                    var result = db.lockGetDangNgan(ngaydangngan);
+                    var status = result.FirstOrDefault();
+                    if (status.HasValue)
+                    {
+                        var trangthai = status.Value;
+                        if (trangthai)
+                        {
+                            UpdateUI(false, "Đang khóa đăng ngân");
+                        }
+                        else
+                        {
+                            UpdateUI(true, "Đang mở đăng ngân");
+                        }
+                    }
+                    else
+                    {
+                        UpdateUI(true, "Đang mở đăng ngân");
+                    }
+                }
             }
+            catch
+            {
+                MessageBox.Show($"Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void UpdateUI(bool status, string text)
+        {
+            this.btnDN.Enabled = status;
+            this.btnUpdate.Enabled = status;
+            this.btnXuLy.Enabled = status;
+            this.lblStatusDN.Text = text;
+
+            if (_staticMaloai == "CK")
+            {
+                var user = Common.username;
+                if (user == "tkct-thuy" || user == "tkct-hoa" || user == "tkct-le" || user == "tkct-yen")
+                {
+                    this.lblStatusDN.Visible = true;
+                    this.dtPickerLockDN.Visible = true;
+                    this.ptbLockDN.Visible = !status;
+                    this.ptbUnlockDN.Visible = status;
+
+                    this.ptbLockDN.Enabled = true;
+                    this.ptbUnlockDN.Enabled = true;
+                }
+                else
+                {
+                    this.lblStatusDN.Visible = true;
+                    this.dtPickerLockDN.Visible = true;
+                    this.ptbLockDN.Visible = false;
+                    this.ptbUnlockDN.Visible = false;
+                }
+            }    
         }
 
         public void LoadNhanVien()

@@ -5453,5 +5453,18 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="KHOA_DANGNGAN">
+      <EntityTypeMapping TypeName="Model.KHOA_DANGNGAN">
+        <MappingFragment StoreEntitySet="KHOA_DANGNGAN">
+          <ScalarProperty Name="NGUOI_THUC_HIEN" ColumnName="NGUOI_THUC_HIEN" />
+          <ScalarProperty Name="NGAY_THUC_HIEN" ColumnName="NGAY_THUC_HIEN" />
+          <ScalarProperty Name="NGAY_DANG_NGAN" ColumnName="NGAY_DANG_NGAN" />
+          <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="lockDangNgan" FunctionName="Model.Store.lockDangNgan" />
+    <FunctionImportMapping FunctionImportName="lockGetDangNgan" FunctionName="Model.Store.lockGetDangNgan" />
   </EntityContainerMapping>
 </Mapping>

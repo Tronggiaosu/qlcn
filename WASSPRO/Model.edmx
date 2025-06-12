@@ -1498,6 +1498,16 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.HOADON_DATHU' does not have a pri
           <Property Name="SONHAMOI" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="NGAYGANCU" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="KHOA_DANGNGAN">
+          <Key>
+            <PropertyRef Name="NGAY_DANG_NGAN" />
+          </Key>
+          <Property Name="STT" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TRANG_THAI" Type="bit" Nullable="false" />
+          <Property Name="NGAY_DANG_NGAN" Type="date" Nullable="false" />
+          <Property Name="NGAY_THUC_HIEN" Type="datetime" Nullable="false" />
+          <Property Name="NGUOI_THUC_HIEN" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="LOG_THUTIENNUOC">
           <Key>
             <PropertyRef Name="LOGTHU_ID" />
@@ -4750,6 +4760,14 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
         <Function Name="listInvByCus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="madanhbo" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="lockDangNgan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydangngan" Type="varchar" Mode="In" />
+          <Parameter Name="nguoithuchien" Type="varchar" Mode="In" />
+          <Parameter Name="trangthai" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="lockGetDangNgan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydangngan" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="LOGTHUTIENNUOC_TheoNgay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tungay" Type="datetime" Mode="In" />
           <Parameter Name="denngay" Type="datetime" Mode="In" />
@@ -5260,6 +5278,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <EntitySet Name="HoaDonTon" EntityType="Self.HoaDonTon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG_TDC" EntityType="Self.KHACHHANG_TDC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA_DANGNGAN" EntityType="Self.KHOA_DANGNGAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOG_THUTIENNUOC" EntityType="Self.LOG_THUTIENNUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOG_USER" EntityType="Self.LOG_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOTRINH" EntityType="Self.LOTRINH" Schema="dbo" store:Type="Tables" />
@@ -12090,6 +12109,15 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="NVID" Mode="In" Type="Int32" />
             <Parameter Name="SCT" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="KHOA_DANGNGAN" EntityType="Model.KHOA_DANGNGAN" />
+          <FunctionImport Name="lockDangNgan">
+            <Parameter Name="ngaydangngan" Mode="In" Type="String" />
+            <Parameter Name="nguoithuchien" Mode="In" Type="String" />
+            <Parameter Name="trangthai" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="lockGetDangNgan" ReturnType="Collection(Boolean)">
+            <Parameter Name="ngaydangngan" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -14119,6 +14147,16 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Type="Decimal" Name="UserID" Nullable="true" Precision="18" Scale="0" />
           <Property Type="String" Name="Ngay" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="KHOA_DANGNGAN">
+          <Key>
+            <PropertyRef Name="NGAY_DANG_NGAN" />
+          </Key>
+          <Property Name="STT" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TRANG_THAI" Type="Boolean" Nullable="false" />
+          <Property Name="NGAY_DANG_NGAN" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAY_THUC_HIEN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NGUOI_THUC_HIEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -19577,6 +19615,19 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="KHOA_DANGNGAN">
+            <EntityTypeMapping TypeName="Model.KHOA_DANGNGAN">
+              <MappingFragment StoreEntitySet="KHOA_DANGNGAN">
+                <ScalarProperty Name="NGUOI_THUC_HIEN" ColumnName="NGUOI_THUC_HIEN" />
+                <ScalarProperty Name="NGAY_THUC_HIEN" ColumnName="NGAY_THUC_HIEN" />
+                <ScalarProperty Name="NGAY_DANG_NGAN" ColumnName="NGAY_DANG_NGAN" />
+                <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="lockDangNgan" FunctionName="Model.Store.lockDangNgan" />
+          <FunctionImportMapping FunctionImportName="lockGetDangNgan" FunctionName="Model.Store.lockGetDangNgan" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
