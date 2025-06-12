@@ -210,7 +210,8 @@ namespace QLCongNo.View.UC.GachNo
                         bool isChecked = Convert.ToBoolean(dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value ?? false);
                         if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
                         {
-                            if (this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi")
+                            var status = this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiHDColumn.Name].Value.ToString();
+                            if (status != "Khó đòi" && status != "Hủy")
                             {
                                 if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1") // Phong Ghi Thu - TKCT
                                 {
@@ -284,7 +285,8 @@ namespace QLCongNo.View.UC.GachNo
             {
                 if (r.Cells[trangthaiColumn.Name].Value.ToString() != "Đã thu")
                 {
-                    if (r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi")
+                    var status = r.Cells[trangthaiHDColumn.Name].Value.ToString();
+                    if (status != "Khó đòi" && status != "Hủy")
                     {
                         if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1") // Phong Ghi Thu - TKCT
                         {

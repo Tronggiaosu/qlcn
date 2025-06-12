@@ -56,8 +56,11 @@
             this.quitButton = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ptbUnlockDN = new System.Windows.Forms.PictureBox();
             this.label4 = new QLCongNo.View.Core.NovLabel();
+            this.ptbLockDN = new System.Windows.Forms.PictureBox();
             this.dtpTungay = new QLCongNo.View.Core.NovDateTimePicker();
+            this.chkIn = new QLCongNo.View.Core.NovCheckBox();
             this.dtpDenngay = new QLCongNo.View.Core.NovDateTimePicker();
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.txtTimDanhBo = new QLCongNo.View.Core.NovTextBox();
@@ -69,11 +72,12 @@
             this.chkisdangngan = new QLCongNo.View.Core.NovCheckBox();
             this.txtlydo = new QLCongNo.View.Core.NovTextBox();
             this.chkHuyTT = new QLCongNo.View.Core.NovCheckBox();
-            this.cboTO = new QLCongNo.View.Core.NovComboBox();
-            this.lblTo = new QLCongNo.View.Core.NovCheckBox();
             this.lblNhanVien = new System.Windows.Forms.Label();
             this.cboNhanVien = new System.Windows.Forms.ComboBox();
-            this.chkIn = new QLCongNo.View.Core.NovCheckBox();
+            this.lblTo = new QLCongNo.View.Core.NovCheckBox();
+            this.cboTO = new QLCongNo.View.Core.NovComboBox();
+            this.dtPickerLockDN = new QLCongNo.View.Core.NovDateTimePicker();
+            this.lblStatusDN = new System.Windows.Forms.Label();
             this.chkAllList = new QLCongNo.View.Core.NovCheckBox();
             this.chkAll = new QLCongNo.View.Core.NovCheckBox();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
@@ -94,21 +98,23 @@
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.sp_ChangePasswordTableAdapter1 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
             this.sp_ChangePasswordTableAdapter2 = new QLCongNo.CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.lbltongtien = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.lbltong = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbUnlockDN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLockDN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip2
@@ -240,7 +246,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1390, 202);
+            this.groupBox1.Size = new System.Drawing.Size(1390, 197);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             // 
@@ -250,14 +256,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.17621F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.17621F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.4736F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.07558F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.19186F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.793605F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.08977F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.61598F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.76997F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.88696F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.57748F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.05985F));
+            this.tableLayoutPanel1.Controls.Add(this.ptbUnlockDN, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ptbLockDN, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.dtpTungay, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.chkIn, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.dtpDenngay, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtTimDanhBo, 2, 1);
@@ -269,21 +278,33 @@
             this.tableLayoutPanel1.Controls.Add(this.chkisdangngan, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtlydo, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkHuyTT, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cboTO, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblTo, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNhanVien, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboNhanVien, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkIn, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblTo, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboTO, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dtPickerLockDN, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblStatusDN, 4, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.54335F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.27746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.27746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.90173F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1376, 173);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86554F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86304F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.86304F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.40837F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1376, 168);
             this.tableLayoutPanel1.TabIndex = 82;
+            // 
+            // ptbUnlockDN
+            // 
+            this.ptbUnlockDN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbUnlockDN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbUnlockDN.Image = ((System.Drawing.Image)(resources.GetObject("ptbUnlockDN.Image")));
+            this.ptbUnlockDN.Location = new System.Drawing.Point(1238, 43);
+            this.ptbUnlockDN.Name = "ptbUnlockDN";
+            this.ptbUnlockDN.Size = new System.Drawing.Size(135, 34);
+            this.ptbUnlockDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbUnlockDN.TabIndex = 125;
+            this.ptbUnlockDN.TabStop = false;
             // 
             // label4
             // 
@@ -298,17 +319,44 @@
             this.label4.TabIndex = 97;
             this.label4.Text = "Từ ngày";
             // 
+            // ptbLockDN
+            // 
+            this.ptbLockDN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbLockDN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbLockDN.Image = ((System.Drawing.Image)(resources.GetObject("ptbLockDN.Image")));
+            this.ptbLockDN.Location = new System.Drawing.Point(1238, 3);
+            this.ptbLockDN.Name = "ptbLockDN";
+            this.ptbLockDN.Size = new System.Drawing.Size(135, 34);
+            this.ptbLockDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLockDN.TabIndex = 124;
+            this.ptbLockDN.TabStop = false;
+            // 
             // dtpTungay
             // 
             this.dtpTungay.CustomFormat = "dd/MM/yyyy";
             this.dtpTungay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpTungay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTungay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTungay.Location = new System.Drawing.Point(12, 43);
+            this.dtpTungay.Location = new System.Drawing.Point(12, 45);
             this.dtpTungay.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dtpTungay.Name = "dtpTungay";
-            this.dtpTungay.Size = new System.Drawing.Size(226, 30);
+            this.dtpTungay.Size = new System.Drawing.Size(183, 30);
             this.dtpTungay.TabIndex = 96;
+            // 
+            // chkIn
+            // 
+            this.chkIn.AutoSize = true;
+            this.chkIn.BackColor = System.Drawing.Color.Transparent;
+            this.chkIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkIn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIn.ForeColor = System.Drawing.Color.MediumBlue;
+            this.chkIn.Location = new System.Drawing.Point(12, 128);
+            this.chkIn.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
+            this.chkIn.Name = "chkIn";
+            this.chkIn.Size = new System.Drawing.Size(183, 35);
+            this.chkIn.TabIndex = 113;
+            this.chkIn.Text = "In biên nhận";
+            this.chkIn.UseVisualStyleBackColor = true;
             // 
             // dtpDenngay
             // 
@@ -316,10 +364,10 @@
             this.dtpDenngay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDenngay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDenngay.Location = new System.Drawing.Point(262, 43);
+            this.dtpDenngay.Location = new System.Drawing.Point(219, 45);
             this.dtpDenngay.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dtpDenngay.Name = "dtpDenngay";
-            this.dtpDenngay.Size = new System.Drawing.Size(226, 30);
+            this.dtpDenngay.Size = new System.Drawing.Size(204, 30);
             this.dtpDenngay.TabIndex = 98;
             // 
             // label6
@@ -328,7 +376,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label6.Location = new System.Drawing.Point(258, 8);
+            this.label6.Location = new System.Drawing.Point(215, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 8, 12, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 23);
@@ -342,10 +390,10 @@
             this.txtTimDanhBo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTimDanhBo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimDanhBo.ForeColor = System.Drawing.Color.Black;
-            this.txtTimDanhBo.Location = new System.Drawing.Point(512, 43);
+            this.txtTimDanhBo.Location = new System.Drawing.Point(447, 45);
             this.txtTimDanhBo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtTimDanhBo.Name = "txtTimDanhBo";
-            this.txtTimDanhBo.Size = new System.Drawing.Size(285, 32);
+            this.txtTimDanhBo.Size = new System.Drawing.Size(261, 32);
             this.txtTimDanhBo.TabIndex = 101;
             this.txtTimDanhBo.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
             // 
@@ -355,7 +403,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(508, 8);
+            this.label3.Location = new System.Drawing.Point(443, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 8, 12, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 23);
@@ -369,7 +417,7 @@
             this.chkNgayDN.BackColor = System.Drawing.Color.Transparent;
             this.chkNgayDN.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNgayDN.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNgayDN.Location = new System.Drawing.Point(258, 88);
+            this.chkNgayDN.Location = new System.Drawing.Point(215, 88);
             this.chkNgayDN.Margin = new System.Windows.Forms.Padding(8, 8, 12, 5);
             this.chkNgayDN.Name = "chkNgayDN";
             this.chkNgayDN.Size = new System.Drawing.Size(160, 27);
@@ -383,10 +431,10 @@
             this.dtpBK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpBK.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBK.Location = new System.Drawing.Point(262, 127);
+            this.dtpBK.Location = new System.Drawing.Point(219, 125);
             this.dtpBK.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.dtpBK.Name = "dtpBK";
-            this.dtpBK.Size = new System.Drawing.Size(226, 30);
+            this.dtpBK.Size = new System.Drawing.Size(204, 30);
             this.dtpBK.TabIndex = 103;
             // 
             // label1
@@ -395,7 +443,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(508, 88);
+            this.label1.Location = new System.Drawing.Point(443, 88);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 8, 12, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 23);
@@ -410,10 +458,10 @@
             this.cboNganhang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNganhang.ForeColor = System.Drawing.Color.Black;
             this.cboNganhang.FormattingEnabled = true;
-            this.cboNganhang.Location = new System.Drawing.Point(512, 127);
+            this.cboNganhang.Location = new System.Drawing.Point(447, 125);
             this.cboNganhang.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNganhang.Name = "cboNganhang";
-            this.cboNganhang.Size = new System.Drawing.Size(285, 33);
+            this.cboNganhang.Size = new System.Drawing.Size(261, 33);
             this.cboNganhang.TabIndex = 1;
             // 
             // chkisdangngan
@@ -437,10 +485,10 @@
             this.txtlydo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtlydo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlydo.ForeColor = System.Drawing.Color.Black;
-            this.txtlydo.Location = new System.Drawing.Point(821, 127);
+            this.txtlydo.Location = new System.Drawing.Point(732, 125);
             this.txtlydo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtlydo.Name = "txtlydo";
-            this.txtlydo.Size = new System.Drawing.Size(543, 32);
+            this.txtlydo.Size = new System.Drawing.Size(632, 32);
             this.txtlydo.TabIndex = 111;
             this.txtlydo.Visible = false;
             // 
@@ -450,7 +498,7 @@
             this.chkHuyTT.BackColor = System.Drawing.Color.Transparent;
             this.chkHuyTT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkHuyTT.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkHuyTT.Location = new System.Drawing.Point(821, 88);
+            this.chkHuyTT.Location = new System.Drawing.Point(732, 88);
             this.chkHuyTT.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
             this.chkHuyTT.Name = "chkHuyTT";
             this.chkHuyTT.Size = new System.Drawing.Size(152, 27);
@@ -459,37 +507,10 @@
             this.chkHuyTT.UseVisualStyleBackColor = true;
             this.chkHuyTT.CheckedChanged += new System.EventHandler(this.chkHuyTT_CheckedChanged);
             // 
-            // cboTO
-            // 
-            this.cboTO.BackColor = System.Drawing.Color.White;
-            this.cboTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTO.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTO.ForeColor = System.Drawing.Color.Black;
-            this.cboTO.FormattingEnabled = true;
-            this.cboTO.Location = new System.Drawing.Point(1265, 43);
-            this.cboTO.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
-            this.cboTO.Name = "cboTO";
-            this.cboTO.Size = new System.Drawing.Size(76, 33);
-            this.cboTO.TabIndex = 117;
-            // 
-            // lblTo
-            // 
-            this.lblTo.AutoSize = true;
-            this.lblTo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblTo.Location = new System.Drawing.Point(1265, 8);
-            this.lblTo.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(51, 25);
-            this.lblTo.TabIndex = 116;
-            this.lblTo.Text = "Tổ";
-            this.lblTo.UseVisualStyleBackColor = true;
-            // 
             // lblNhanVien
             // 
             this.lblNhanVien.AutoSize = true;
-            this.lblNhanVien.Location = new System.Drawing.Point(817, 8);
+            this.lblNhanVien.Location = new System.Drawing.Point(728, 8);
             this.lblNhanVien.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
             this.lblNhanVien.Name = "lblNhanVien";
             this.lblNhanVien.Size = new System.Drawing.Size(88, 23);
@@ -498,26 +519,65 @@
             // 
             // cboNhanVien
             // 
+            this.cboNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboNhanVien.FormattingEnabled = true;
-            this.cboNhanVien.Location = new System.Drawing.Point(821, 43);
+            this.cboNhanVien.Location = new System.Drawing.Point(732, 45);
             this.cboNhanVien.Margin = new System.Windows.Forms.Padding(12, 5, 3, 3);
             this.cboNhanVien.Name = "cboNhanVien";
-            this.cboNhanVien.Size = new System.Drawing.Size(275, 31);
+            this.cboNhanVien.Size = new System.Drawing.Size(286, 31);
             this.cboNhanVien.TabIndex = 118;
             // 
-            // chkIn
+            // lblTo
             // 
-            this.chkIn.AutoSize = true;
-            this.chkIn.BackColor = System.Drawing.Color.Transparent;
-            this.chkIn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIn.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkIn.Location = new System.Drawing.Point(1111, 46);
-            this.chkIn.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
-            this.chkIn.Name = "chkIn";
-            this.chkIn.Size = new System.Drawing.Size(129, 27);
-            this.chkIn.TabIndex = 113;
-            this.chkIn.Text = "In biên nhận";
-            this.chkIn.UseVisualStyleBackColor = true;
+            this.lblTo.AutoSize = true;
+            this.lblTo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTo.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblTo.Location = new System.Drawing.Point(1033, 88);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(12, 8, 12, 5);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(51, 27);
+            this.lblTo.TabIndex = 116;
+            this.lblTo.Text = "Tổ";
+            this.lblTo.UseVisualStyleBackColor = true;
+            // 
+            // cboTO
+            // 
+            this.cboTO.BackColor = System.Drawing.Color.White;
+            this.cboTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTO.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTO.ForeColor = System.Drawing.Color.Black;
+            this.cboTO.FormattingEnabled = true;
+            this.cboTO.Location = new System.Drawing.Point(1247, 85);
+            this.cboTO.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.cboTO.Name = "cboTO";
+            this.cboTO.Size = new System.Drawing.Size(117, 33);
+            this.cboTO.TabIndex = 117;
+            // 
+            // dtPickerLockDN
+            // 
+            this.dtPickerLockDN.CalendarMonthBackground = System.Drawing.Color.White;
+            this.dtPickerLockDN.CustomFormat = "dd/MM/yyyy";
+            this.dtPickerLockDN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtPickerLockDN.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPickerLockDN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerLockDN.Location = new System.Drawing.Point(1033, 45);
+            this.dtPickerLockDN.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
+            this.dtPickerLockDN.Name = "dtPickerLockDN";
+            this.dtPickerLockDN.Size = new System.Drawing.Size(190, 30);
+            this.dtPickerLockDN.TabIndex = 122;
+            // 
+            // lblStatusDN
+            // 
+            this.lblStatusDN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblStatusDN.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusDN.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblStatusDN.Location = new System.Drawing.Point(1024, 0);
+            this.lblStatusDN.Name = "lblStatusDN";
+            this.lblStatusDN.Size = new System.Drawing.Size(208, 40);
+            this.lblStatusDN.TabIndex = 126;
+            this.lblStatusDN.Text = "---";
+            this.lblStatusDN.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkAllList
             // 
@@ -608,7 +668,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1390, 349);
+            this.dataGridView1.Size = new System.Drawing.Size(1390, 354);
             this.dataGridView1.TabIndex = 81;
             // 
             // chkColumn
@@ -788,6 +848,35 @@
             // 
             this.sp_ChangePasswordTableAdapter2.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 258);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1390, 394);
+            this.panel1.TabIndex = 82;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1390, 354);
+            this.panel3.TabIndex = 83;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.chkAllList);
+            this.panel2.Controls.Add(this.chkAll);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1390, 40);
+            this.panel2.TabIndex = 82;
+            // 
             // lblsoluong
             // 
             this.lblsoluong.BackColor = System.Drawing.Color.White;
@@ -823,41 +912,12 @@
             this.lblsoluong,
             this.lbltongtien,
             this.lbltong});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 241);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 236);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 15, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1390, 22);
             this.statusStrip1.TabIndex = 79;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 263);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1390, 389);
-            this.panel1.TabIndex = 82;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1390, 349);
-            this.panel3.TabIndex = 83;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.chkAllList);
-            this.panel2.Controls.Add(this.chkAll);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1390, 40);
-            this.panel2.TabIndex = 82;
             // 
             // UcDangNganChuyenKhoan
             // 
@@ -876,13 +936,15 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbUnlockDN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLockDN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -920,10 +982,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter sp_ChangePasswordTableAdapter1;
         private CAPNUOC_TDCDataSetTableAdapters.sp_ChangePasswordTableAdapter sp_ChangePasswordTableAdapter2;
-        private Core.NovToolStripStatusLabel lblsoluong;
-        private Core.NovToolStripStatusLabel lbltongtien;
-        private Core.NovToolStripStatusLabel lbltong;
-        private Core.NovStatusStrip statusStrip1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
@@ -946,5 +1004,13 @@
         private Core.NovDataGridViewTextBoxColumn maLTColumn;
         private Core.NovDataGridViewTextBoxColumn ghichuColumn;
         private Core.NovDataGridViewTextBoxColumn IDHDColumn;
+        private Core.NovToolStripStatusLabel lblsoluong;
+        private Core.NovToolStripStatusLabel lbltongtien;
+        private Core.NovToolStripStatusLabel lbltong;
+        private Core.NovStatusStrip statusStrip1;
+        private Core.NovDateTimePicker dtPickerLockDN;
+        private System.Windows.Forms.PictureBox ptbUnlockDN;
+        private System.Windows.Forms.PictureBox ptbLockDN;
+        private System.Windows.Forms.Label lblStatusDN;
     }
 }

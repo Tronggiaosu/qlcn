@@ -154,6 +154,7 @@ namespace QLCongNo
         public virtual DbSet<DM_GIABIEU> DM_GIABIEU { get; set; }
         public virtual DbSet<GACHNO_TEST> GACHNO_TEST { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<KHOA_DANGNGAN> KHOA_DANGNGAN { get; set; }
     
         [DbFunction("CAPNUOC_TNCEntities", "fngetDatakycuoc")]
         public virtual IQueryable<fngetDatakycuoc_Result> fngetDatakycuoc()
@@ -4093,6 +4094,32 @@ namespace QLCongNo
                 new ObjectParameter("SCT", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getDSImportExcel_ByNhanVien_Result>("getDSImportExcel_ByNhanVien", loaiParameter, nVIDParameter, sCTParameter);
+        }
+    
+        public virtual int lockDangNgan(string ngaydangngan, string nguoithuchien, Nullable<bool> trangthai)
+        {
+            var ngaydangnganParameter = ngaydangngan != null ?
+                new ObjectParameter("ngaydangngan", ngaydangngan) :
+                new ObjectParameter("ngaydangngan", typeof(string));
+    
+            var nguoithuchienParameter = nguoithuchien != null ?
+                new ObjectParameter("nguoithuchien", nguoithuchien) :
+                new ObjectParameter("nguoithuchien", typeof(string));
+    
+            var trangthaiParameter = trangthai.HasValue ?
+                new ObjectParameter("trangthai", trangthai) :
+                new ObjectParameter("trangthai", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("lockDangNgan", ngaydangnganParameter, nguoithuchienParameter, trangthaiParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> lockGetDangNgan(string ngaydangngan)
+        {
+            var ngaydangnganParameter = ngaydangngan != null ?
+                new ObjectParameter("ngaydangngan", ngaydangngan) :
+                new ObjectParameter("ngaydangngan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("lockGetDangNgan", ngaydangnganParameter);
         }
     }
 }
