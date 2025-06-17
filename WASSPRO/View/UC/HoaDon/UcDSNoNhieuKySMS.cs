@@ -53,7 +53,19 @@ namespace QLCongNo.View.UC.HoaDon
 
                 using (SqlConnection conn = new SqlConnection(conn206))
                 {
-                    string query = "SELECT SODB, SDT FROM KHACHHANG";
+                    string query = @"
+                        WITH Ranked AS (
+                            SELECT 
+                                SODB,
+                                SDT,
+                                ROW_NUMBER() OVER (PARTITION BY SODB ORDER BY NAM DESC, THANG DESC) AS rn
+                            FROM DOCSO
+                            WHERE SODB IS NOT NULL AND SDT IS NOT NULL
+                        )
+                        SELECT SODB, SDT
+                        FROM Ranked
+                        WHERE rn = 1
+                    ";
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     da.Fill(dtSoDienThoai);
                 }
