@@ -291,8 +291,16 @@ namespace QLCongNo.View.UC.GachNo
                 }
                 dgvGachNo.DataSource = dsGachNo.ToList();
                 dgvDSHD.DataSource = dsDaDongTien.ToList();
-                txtsoHD.Text = dsGachNo.Count().ToString();
-                txttongthanhtoan.Text = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
+
+                var tongtien = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
+                var count = dsGachNo.Count().ToString();
+                lblDSGachNo.Text = $"Số lượng hóa đơn: {count} | Tổng tiền: {tongtien}";
+                txtsoHD.Text = count;
+                txttongthanhtoan.Text = tongtien;
+
+                var tongtienDaDong = string.Format("{0:n0}", dsDaDongTien.Sum(z => z.tongtien));
+                var countDaDong = dsDaDongTien.Count().ToString();
+                lblDSDongTien.Text = $"Số lượng hóa đơn: {countDaDong} | Tổng tiền: {tongtienDaDong}";
 
                 if (this.dgvGachNo.Rows.Count == 0) this.btnConfirm.Enabled = false;
             }
@@ -332,8 +340,16 @@ namespace QLCongNo.View.UC.GachNo
                 }
                 dgvGachNo.DataSource = dsGachNo.ToList();
                 dgvDSHD.DataSource = dsDaDongTien.ToList();
-                txtsoHD.Text = dsGachNo.Count().ToString();
-                txttongthanhtoan.Text = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
+
+                var tongtienGachNo = string.Format("{0:n0}", dsGachNo.Sum(z => z.tongtien));
+                var countGachNo = dsGachNo.Count().ToString();
+                lblDSGachNo.Text = $"Số lượng hóa đơn: {countGachNo} | Tổng tiền: {tongtienGachNo}";
+                txtsoHD.Text = countGachNo;
+                txttongthanhtoan.Text = tongtienGachNo;
+
+                var tongtienDaDong = string.Format("{0:n0}", dsDaDongTien.Sum(z => z.tongtien));
+                var countDaDong = dsDaDongTien.Count().ToString();
+                lblDSDongTien.Text = $"Số lượng hóa đơn: {countDaDong} | Tổng tiền: {tongtienDaDong}";
 
                 if (this.dgvGachNo.Rows.Count > 0) this.btnConfirm.Enabled = true;
             }
@@ -469,8 +485,13 @@ namespace QLCongNo.View.UC.GachNo
             var dataSource = db.getDataThuHo(NVID, tungay, denngay, kyghi, text.Replace(" ", String.Empty)).OrderBy(x => x.NGAYTHANHTOAN).ToList();
             dsDaDongTien.AddRange(dataSource);
             dgvDSHD.DataSource = dataSource;
+
+            var tongtien = string.Format("{0:n0}", dataSource.Sum(z => z.tongtien));
+            var count = this.dsDaDongTien.ToList().Count();
+            lblDSDongTien.Text = $"Số lượng hóa đơn: {count} | Tổng tiền: {tongtien}";
+            lblDSGachNo.Text = $"Số lượng hóa đơn: 0 | Tổng tiền: 0";
             txtsoHD.Text = dataSource.Count().ToString();
-            txttongthanhtoan.Text = string.Format("{0:n0}", dataSource.Sum(z => z.tongtien));
+            txttongthanhtoan.Text = tongtien;
 
             this.Cursor = Cursors.Default;
         }

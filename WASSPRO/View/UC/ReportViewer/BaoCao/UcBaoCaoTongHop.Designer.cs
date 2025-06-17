@@ -37,6 +37,7 @@
             this.btnTim = new QLCongNo.View.Core.NovToolStripButton();
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox1 = new QLCongNo.View.Core.NovGroupBox();
+            this.ckbIn = new System.Windows.Forms.CheckBox();
             this.chkDT = new QLCongNo.View.Core.NovCheckBox();
             this.cboDT = new QLCongNo.View.Core.NovComboBox();
             this.label6 = new QLCongNo.View.Core.NovLabel();
@@ -48,7 +49,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.getBaoCaoChuanThuKyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.ckbIn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.getBaoCaoTongHopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cAPNUOC_TDCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDanhSachChuyenNoKDBindingSource)).BeginInit();
@@ -141,6 +141,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // ckbIn
+            // 
+            this.ckbIn.AutoSize = true;
+            this.ckbIn.Location = new System.Drawing.Point(941, 38);
+            this.ckbIn.Name = "ckbIn";
+            this.ckbIn.Size = new System.Drawing.Size(249, 27);
+            this.ckbIn.TabIndex = 6;
+            this.ckbIn.Text = "Hiển thị DS hóa đơn khó đòi";
+            this.ckbIn.UseVisualStyleBackColor = true;
             // 
             // chkDT
             // 
@@ -239,16 +249,6 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1228, 805);
             this.reportViewer1.TabIndex = 2;
-            // 
-            // ckbIn
-            // 
-            this.ckbIn.AutoSize = true;
-            this.ckbIn.Location = new System.Drawing.Point(967, 38);
-            this.ckbIn.Name = "ckbIn";
-            this.ckbIn.Size = new System.Drawing.Size(164, 27);
-            this.ckbIn.TabIndex = 6;
-            this.ckbIn.Text = "Hiển thị DSHĐKĐ";
-            this.ckbIn.UseVisualStyleBackColor = true;
             // 
             // UcBaoCaoTongHop
             // 

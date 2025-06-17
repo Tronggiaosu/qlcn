@@ -194,10 +194,10 @@
             this.btnFile.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnFile.IconSize = 1;
             this.btnFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFile.Location = new System.Drawing.Point(20, 23);
+            this.btnFile.Location = new System.Drawing.Point(21, 23);
             this.btnFile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Padding = new System.Windows.Forms.Padding(15, 2, 0, 0);
+            this.btnFile.Padding = new System.Windows.Forms.Padding(15, 1, 0, 0);
             this.btnFile.Size = new System.Drawing.Size(150, 38);
             this.btnFile.TabIndex = 0;
             this.btnFile.Text = "Chọn file";
@@ -254,7 +254,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txttongthanhtoan, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboNH, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 22);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.5311F));
@@ -489,7 +489,7 @@
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 39);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 39);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -501,7 +501,7 @@
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView2.RowTemplate.Height = 32;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(640, 410);
+            this.dataGridView2.Size = new System.Drawing.Size(642, 410);
             this.dataGridView2.TabIndex = 1;
             // 
             // danhboColumn
@@ -621,7 +621,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip2);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "UcGachNo_Excel";
             this.Size = new System.Drawing.Size(1342, 828);
             this.Load += new System.EventHandler(this.frGachNo_Excel_Load);

@@ -131,6 +131,8 @@
             this.txttongthanhtoan = new QLCongNo.View.Core.NovTextBox();
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnConfirm = new QLCongNo.View.Core.NovToolStripButton();
+            this.lblDSDongTien = new QLCongNo.View.Core.NovLabel();
+            this.lblDSGachNo = new QLCongNo.View.Core.NovLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -198,6 +200,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblDSDongTien);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.dgvDSHD);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -519,7 +522,7 @@
             this.dgvDSHD.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvDSHD.EnableHeadersVisualStyles = false;
             this.dgvDSHD.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvDSHD.Location = new System.Drawing.Point(16, 288);
+            this.dgvDSHD.Location = new System.Drawing.Point(16, 319);
             this.dgvDSHD.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDSHD.Name = "dgvDSHD";
             this.dgvDSHD.RowHeadersVisible = false;
@@ -530,7 +533,7 @@
             this.dgvDSHD.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDSHD.RowTemplate.Height = 32;
             this.dgvDSHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDSHD.Size = new System.Drawing.Size(727, 448);
+            this.dgvDSHD.Size = new System.Drawing.Size(727, 417);
             this.dgvDSHD.TabIndex = 0;
             // 
             // checkColumn
@@ -782,6 +785,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.lblDSGachNo);
             this.panel3.Controls.Add(this.dgvGachNo);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -844,7 +848,7 @@
             this.dgvGachNo.DefaultCellStyle = dataGridViewCellStyle31;
             this.dgvGachNo.EnableHeadersVisualStyles = false;
             this.dgvGachNo.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvGachNo.Location = new System.Drawing.Point(19, 292);
+            this.dgvGachNo.Location = new System.Drawing.Point(19, 323);
             this.dgvGachNo.Margin = new System.Windows.Forms.Padding(4);
             this.dgvGachNo.Name = "dgvGachNo";
             this.dgvGachNo.RowHeadersVisible = false;
@@ -855,7 +859,7 @@
             this.dgvGachNo.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.dgvGachNo.RowTemplate.Height = 32;
             this.dgvGachNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGachNo.Size = new System.Drawing.Size(771, 448);
+            this.dgvGachNo.Size = new System.Drawing.Size(771, 417);
             this.dgvGachNo.TabIndex = 0;
             // 
             // checkColumn_dgv2
@@ -1211,6 +1215,32 @@
             this.btnConfirm.Size = new System.Drawing.Size(124, 35);
             this.btnConfirm.Text = "Đăng ngân";
             // 
+            // lblDSDongTien
+            // 
+            this.lblDSDongTien.AutoSize = true;
+            this.lblDSDongTien.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSDongTien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSDongTien.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDSDongTien.Location = new System.Drawing.Point(16, 289);
+            this.lblDSDongTien.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSDongTien.Name = "lblDSDongTien";
+            this.lblDSDongTien.Size = new System.Drawing.Size(143, 29);
+            this.lblDSDongTien.TabIndex = 147;
+            this.lblDSDongTien.Text = "Danh sách (0)";
+            // 
+            // lblDSGachNo
+            // 
+            this.lblDSGachNo.AutoSize = true;
+            this.lblDSGachNo.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSGachNo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSGachNo.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDSGachNo.Location = new System.Drawing.Point(15, 293);
+            this.lblDSGachNo.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSGachNo.Name = "lblDSGachNo";
+            this.lblDSGachNo.Size = new System.Drawing.Size(143, 29);
+            this.lblDSGachNo.TabIndex = 148;
+            this.lblDSGachNo.Text = "Danh sách (0)";
+            // 
             // UcGachNo_ThuHo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -1228,6 +1258,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHD)).EndInit();
@@ -1236,6 +1267,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGachNo)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -1318,5 +1350,7 @@
         private Core.NovDataGridViewTextBoxColumn phuongColumn_dgv2;
         private Core.NovDataGridViewTextBoxColumn quanColumn_dgv2;
         private Core.NovDataGridViewTextBoxColumn IDHDColumn_dgv2;
+        private Core.NovLabel lblDSDongTien;
+        private Core.NovLabel lblDSGachNo;
     }
 }
