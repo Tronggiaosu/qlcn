@@ -72,10 +72,7 @@ namespace QLCongNo.View.UC.HoaDon
 
                         if (!string.IsNullOrEmpty(rawPhone))
                         {
-                            if (rawPhone.StartsWith("84") && rawPhone.Length > 9)
-                                item.sdt = "0" + rawPhone.Substring(2);
-                            else
-                                item.sdt = rawPhone;
+                            item.sdt = rawPhone;
                         }
                         else
                         {

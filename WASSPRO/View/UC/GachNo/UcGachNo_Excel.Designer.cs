@@ -621,7 +621,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip2);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UcGachNo_Excel";
             this.Size = new System.Drawing.Size(1342, 828);
             this.Load += new System.EventHandler(this.frGachNo_Excel_Load);
