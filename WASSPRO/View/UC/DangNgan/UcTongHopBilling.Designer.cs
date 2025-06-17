@@ -78,13 +78,15 @@
             this.tongcongColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.danhboColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDHDColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new QLCongNo.View.Core.NovStatusStrip();
             this.lblsoluong = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.lbltongtien = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.lbltong = new QLCongNo.View.Core.NovToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new QLCongNo.View.Core.NovGroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.statusStrip2 = new QLCongNo.View.Core.NovStatusStrip();
+            this.lblCN = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.dataGridView2 = new QLCongNo.View.Core.NovDataGridView();
             this.dataGridViewTextBoxColumn1 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -100,8 +102,6 @@
             this.dataGridViewTextBoxColumn11 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.IDHD2Column = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.statusStrip2 = new QLCongNo.View.Core.NovStatusStrip();
-            this.lblCN = new QLCongNo.View.Core.NovToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -111,8 +111,8 @@
             this.statusStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.statusStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -164,8 +164,8 @@
             this.btnExportDSHDTT.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnExportDSHDTT.Name = "btnExportDSHDTT";
             this.btnExportDSHDTT.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExportDSHDTT.Size = new System.Drawing.Size(282, 39);
-            this.btnExportDSHDTT.Text = "Xuất file data DS thanh toán";
+            this.btnExportDSHDTT.Size = new System.Drawing.Size(240, 39);
+            this.btnExportDSHDTT.Text = "Xuất file DS thanh toán";
             // 
             // btnExportDSHDCN
             // 
@@ -175,8 +175,8 @@
             this.btnExportDSHDCN.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnExportDSHDCN.Name = "btnExportDSHDCN";
             this.btnExportDSHDCN.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExportDSHDCN.Size = new System.Drawing.Size(278, 39);
-            this.btnExportDSHDCN.Text = "Xuất file data DS chuyển nợ";
+            this.btnExportDSHDCN.Size = new System.Drawing.Size(236, 39);
+            this.btnExportDSHDCN.Text = "Xuất file DS chuyển nợ";
             // 
             // btnTT
             // 
@@ -281,9 +281,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.groupBox2.Size = new System.Drawing.Size(631, 477);
             this.groupBox2.TabIndex = 82;
             this.groupBox2.TabStop = false;
@@ -296,10 +296,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.statusStrip1);
-            this.panel3.Location = new System.Drawing.Point(3, 32);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.panel3.Location = new System.Drawing.Point(3, 39);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(625, 441);
+            this.panel3.Size = new System.Drawing.Size(625, 434);
             this.panel3.TabIndex = 85;
             // 
             // dataGridView1
@@ -347,8 +347,8 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 10);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 22, 4, 22);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 12);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 27, 4, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -359,7 +359,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(625, 395);
+            this.dataGridView1.Size = new System.Drawing.Size(625, 378);
             this.dataGridView1.TabIndex = 83;
             // 
             // ngaythuColumn
@@ -460,14 +460,6 @@
             this.IDHDColumn.Visible = false;
             this.IDHDColumn.Width = 79;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 533);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(625, 27);
-            this.panel1.TabIndex = 84;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -482,10 +474,10 @@
             this.lblsoluong,
             this.lbltongtien,
             this.lbltong});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 408);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 394);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(625, 28);
+            this.statusStrip1.Size = new System.Drawing.Size(625, 34);
             this.statusStrip1.TabIndex = 80;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -495,7 +487,7 @@
             this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsoluong.ForeColor = System.Drawing.Color.MediumBlue;
             this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(0, 22);
+            this.lblsoluong.Size = new System.Drawing.Size(0, 28);
             // 
             // lbltongtien
             // 
@@ -503,7 +495,7 @@
             this.lbltongtien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltongtien.ForeColor = System.Drawing.Color.MediumBlue;
             this.lbltongtien.Name = "lbltongtien";
-            this.lbltongtien.Size = new System.Drawing.Size(0, 22);
+            this.lbltongtien.Size = new System.Drawing.Size(0, 28);
             // 
             // lbltong
             // 
@@ -511,7 +503,15 @@
             this.lbltong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltong.ForeColor = System.Drawing.Color.MediumBlue;
             this.lbltong.Name = "lbltong";
-            this.lbltong.Size = new System.Drawing.Size(0, 22);
+            this.lbltong.Size = new System.Drawing.Size(0, 28);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 645);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 22, 3, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(625, 33);
+            this.panel1.TabIndex = 84;
             // 
             // groupBox3
             // 
@@ -522,9 +522,9 @@
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.groupBox3.Size = new System.Drawing.Size(628, 477);
             this.groupBox3.TabIndex = 83;
             this.groupBox3.TabStop = false;
@@ -537,11 +537,38 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.statusStrip2);
             this.panel4.Controls.Add(this.dataGridView2);
-            this.panel4.Location = new System.Drawing.Point(3, 32);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.panel4.Location = new System.Drawing.Point(3, 39);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(622, 441);
+            this.panel4.Size = new System.Drawing.Size(622, 434);
             this.panel4.TabIndex = 88;
+            // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusStrip2.AutoSize = false;
+            this.statusStrip2.BackColor = System.Drawing.Color.White;
+            this.statusStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStrip2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblCN});
+            this.statusStrip2.Location = new System.Drawing.Point(0, 391);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.statusStrip2.Size = new System.Drawing.Size(622, 40);
+            this.statusStrip2.TabIndex = 0;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // lblCN
+            // 
+            this.lblCN.BackColor = System.Drawing.Color.White;
+            this.lblCN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCN.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblCN.Name = "lblCN";
+            this.lblCN.Size = new System.Drawing.Size(0, 34);
             // 
             // dataGridView2
             // 
@@ -593,8 +620,8 @@
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 10);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 22, 4, 22);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 12);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 27, 4, 27);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
@@ -605,7 +632,7 @@
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridView2.RowTemplate.Height = 32;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(622, 395);
+            this.dataGridView2.Size = new System.Drawing.Size(622, 378);
             this.dataGridView2.TabIndex = 86;
             // 
             // dataGridViewTextBoxColumn1
@@ -771,38 +798,11 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(3, 533);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 18, 3, 18);
+            this.panel2.Location = new System.Drawing.Point(3, 645);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 22, 3, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(622, 27);
+            this.panel2.Size = new System.Drawing.Size(622, 33);
             this.panel2.TabIndex = 87;
-            // 
-            // statusStrip2
-            // 
-            this.statusStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusStrip2.AutoSize = false;
-            this.statusStrip2.BackColor = System.Drawing.Color.White;
-            this.statusStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusStrip2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblCN});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 406);
-            this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip2.Size = new System.Drawing.Size(622, 33);
-            this.statusStrip2.TabIndex = 0;
-            this.statusStrip2.Text = "statusStrip2";
-            // 
-            // lblCN
-            // 
-            this.lblCN.BackColor = System.Drawing.Color.White;
-            this.lblCN.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCN.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblCN.Name = "lblCN";
-            this.lblCN.Size = new System.Drawing.Size(0, 27);
             // 
             // splitContainer1
             // 
@@ -846,9 +846,9 @@
             this.statusStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.statusStrip2.ResumeLayout(false);
             this.statusStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

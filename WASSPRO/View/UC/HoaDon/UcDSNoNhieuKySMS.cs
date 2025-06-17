@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace QLCongNo.View.UC.HoaDon
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 this.Cursor = Cursors.WaitCursor;
                 int trangthai = int.Parse(cboTT.SelectedValue.ToString());
                 int tudot = int.Parse(cbotudot.SelectedValue.ToString());
@@ -45,13 +46,54 @@ namespace QLCongNo.View.UC.HoaDon
                 var data = db.getDSGuiSMS_Newest(trangthai, tungay, denngay, tudot, dendot).ToList();
                 if (chksoky.Checked == true)
                     data = data.Where(x => x.soky == int.Parse(soky)).ToList();
+
+                //
+                string conn206 = "Server=192.168.24.206;Database=EOSTD;User Id=sa;Password=P@ssw0rdCntd;";
+                DataTable dtSoDienThoai = new DataTable();
+
+                using (SqlConnection conn = new SqlConnection(conn206))
+                {
+                    string query = "SELECT SODB, SDT FROM KHACHHANG";
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    da.Fill(dtSoDienThoai);
+                }
+
+                var sodtDict = dtSoDienThoai.AsEnumerable()
+                    .Where(r => !string.IsNullOrWhiteSpace(r.Field<string>("SODB")))
+                    .ToDictionary(r => r.Field<string>("SODB").Trim(), r => r.Field<string>("SDT")?.Trim());
+
+                foreach (var item in data)
+                {
+                    string danhbo = item.DANHBO?.Trim();
+
+                    if (!string.IsNullOrEmpty(danhbo) && sodtDict.ContainsKey(danhbo))
+                    {
+                        string rawPhone = sodtDict[danhbo]?.Trim();
+
+                        if (!string.IsNullOrEmpty(rawPhone))
+                        {
+                            if (rawPhone.StartsWith("84") && rawPhone.Length > 9)
+                                item.sdt = "0" + rawPhone.Substring(2);
+                            else
+                                item.sdt = rawPhone;
+                        }
+                        else
+                        {
+                            item.sdt = ""; 
+                        }
+                    }
+                }
+
+
+                //
+
                 dgvDSKhachHangNo.DataSource = data.ToList();
                 this.Cursor = Cursors.Default;
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void frDSNoNhieuKySMS_Load(object sender, EventArgs e)

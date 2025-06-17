@@ -65,8 +65,6 @@
             this.cboTNV = new QLCongNo.View.Core.NovComboBox();
             this.label6 = new QLCongNo.View.Core.NovLabel();
             this.label3 = new QLCongNo.View.Core.NovLabel();
-            this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
-            this.lblsoluong = new QLCongNo.View.Core.NovToolStripLabel();
             this.panel1 = new QLCongNo.View.Core.NovPanel();
             this.dataGridView1 = new QLCongNo.View.Core.NovDataGridView();
             this.nhanvienColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -79,12 +77,14 @@
             this.tongtienColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.hotenColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
             this.diachiColumn = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblsoluong = new System.Windows.Forms.Label();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip2
@@ -417,47 +417,17 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "TNV";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.BorderColor = System.Drawing.Color.Empty;
-            this.toolStrip1.BorderThickness = 0;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.IsMainMenu = true;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblsoluong});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 614);
-            this.toolStrip1.MenuItemHeight = 26;
-            this.toolStrip1.MenuItemTextColor = System.Drawing.Color.White;
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.toolStrip1.Size = new System.Drawing.Size(1283, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // lblsoluong
-            // 
-            this.lblsoluong.BackColor = System.Drawing.Color.White;
-            this.lblsoluong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsoluong.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblsoluong.Name = "lblsoluong";
-            this.lblsoluong.Size = new System.Drawing.Size(0, 22);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Controls.Add(this.lblsoluong);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.panel1.Location = new System.Drawing.Point(0, 251);
+            this.panel1.Location = new System.Drawing.Point(0, 598);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1283, 363);
+            this.panel1.Size = new System.Drawing.Size(1283, 41);
             this.panel1.TabIndex = 2;
             // 
             // dataGridView1
@@ -470,9 +440,6 @@
             dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -505,9 +472,10 @@
             dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle27;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 9);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -519,7 +487,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1245, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(1283, 347);
             this.dataGridView1.TabIndex = 0;
             // 
             // nhanvienColumn
@@ -645,12 +613,30 @@
             this.diachiColumn.Name = "diachiColumn";
             this.diachiColumn.Width = 90;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 251);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1283, 347);
+            this.panel2.TabIndex = 4;
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Location = new System.Drawing.Point(4, 3);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(82, 23);
+            this.lblsoluong.TabIndex = 0;
+            this.lblsoluong.Text = "Số lượng:";
+            // 
             // UcQLPhieuThu_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip2);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -662,10 +648,10 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -684,7 +670,6 @@
         private View.Core.NovLabel label3;
         private View.Core.NovTextBox txtTim;
         private View.Core.NovLabel label4;
-        private View.Core.NovToolStrip toolStrip1;
         private View.Core.NovPanel panel1;
         private View.Core.NovDataGridView dataGridView1;
         private View.Core.NovLabel label6;
@@ -693,7 +678,6 @@
         private View.Core.NovComboBox cboTo;
         private View.Core.NovLabel label7;
         private View.Core.NovLabel label9;
-        private View.Core.NovToolStripLabel lblsoluong;
         private View.Core.NovComboBox cbodenky;
         private View.Core.NovLabel label1;
         private View.Core.NovComboBox cbotuky;
@@ -710,5 +694,7 @@
         private Core.NovDataGridViewTextBoxColumn tongtienColumn;
         private Core.NovDataGridViewTextBoxColumn hotenColumn;
         private Core.NovDataGridViewTextBoxColumn diachiColumn;
+        private System.Windows.Forms.Label lblsoluong;
+        private System.Windows.Forms.Panel panel2;
     }
 }

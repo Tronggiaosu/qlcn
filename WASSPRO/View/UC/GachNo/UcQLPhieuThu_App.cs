@@ -99,8 +99,8 @@ namespace QLCongNo.View.UC.GachNo
         {
             this.Cursor = Cursors.WaitCursor;
             int NVIDThu = int.Parse(cboTNV.SelectedValue.ToString());
-            string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string tungay = dateTimePicker1.Value.ToString("yyyy-MM-dd 00:00:00");
+            string denngay = dateTimePicker2.Value.ToString("yyyy-MM-dd 23:59:59");
             int tuky = int.Parse(cbotuky.SelectedValue.ToString());
             int denky = int.Parse(cbotuky.SelectedValue.ToString());
             int TOID = int.Parse(cboTo.SelectedValue.ToString());
@@ -122,7 +122,7 @@ namespace QLCongNo.View.UC.GachNo
             if (datasource.Count > 0)
             {
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }    
+            }
             dataGridView1.DataSource = datasource;
             lblsoluong.Text = "  | Số lượng giấy báo: " + datasource.Where(x => x.GIAYBAO == 1).ToList().Count().ToString() + "    | Số lượng biên nhận: " + datasource.Where(x => x.GIAYBAO == 0).ToList().Count().ToString();
             table = ExcelExportHelper.ListToDataTable(datasource.ToList());
@@ -156,9 +156,9 @@ namespace QLCongNo.View.UC.GachNo
             cboTo.ValueMember = "TO_ID";
             cboTo.DisplayMember = "TENTO";
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             var dataKyHD = db.DM_KYGHI.ToList();
             cbotuky.DataSource = dataKyHD.ToList();
             cbotuky.ValueMember = "Id_kyghi";

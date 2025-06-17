@@ -151,7 +151,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
                 string maLoai = cboHTTT.SelectedValue.ToString();
                 int thuNgan = int.Parse(cboThuNgan.SelectedValue.ToString());
                 var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-                string denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                string denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
                 if (chkNH.Checked == false)
                     nganHangID = 0;
                 if (chkTN.Checked == false)

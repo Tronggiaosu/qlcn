@@ -155,10 +155,10 @@
             this.cboTo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTo.ForeColor = System.Drawing.Color.Black;
             this.cboTo.FormattingEnabled = true;
-            this.cboTo.Location = new System.Drawing.Point(712, 55);
+            this.cboTo.Location = new System.Drawing.Point(705, 55);
             this.cboTo.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboTo.Name = "cboTo";
-            this.cboTo.Size = new System.Drawing.Size(243, 33);
+            this.cboTo.Size = new System.Drawing.Size(241, 33);
             this.cboTo.TabIndex = 5;
             // 
             // chkTo
@@ -167,7 +167,7 @@
             this.chkTo.BackColor = System.Drawing.Color.Transparent;
             this.chkTo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkTo.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkTo.Location = new System.Drawing.Point(712, 14);
+            this.chkTo.Location = new System.Drawing.Point(705, 14);
             this.chkTo.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkTo.Name = "chkTo";
             this.chkTo.Size = new System.Drawing.Size(51, 27);
@@ -183,10 +183,10 @@
             this.cboThang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboThang.ForeColor = System.Drawing.Color.Black;
             this.cboThang.FormattingEnabled = true;
-            this.cboThang.Location = new System.Drawing.Point(234, 55);
+            this.cboThang.Location = new System.Drawing.Point(232, 55);
             this.cboThang.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboThang.Name = "cboThang";
-            this.cboThang.Size = new System.Drawing.Size(211, 33);
+            this.cboThang.Size = new System.Drawing.Size(209, 33);
             this.cboThang.TabIndex = 3;
             // 
             // chkKy
@@ -195,7 +195,7 @@
             this.chkKy.BackColor = System.Drawing.Color.Transparent;
             this.chkKy.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkKy.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkKy.Location = new System.Drawing.Point(234, 14);
+            this.chkKy.Location = new System.Drawing.Point(232, 14);
             this.chkKy.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkKy.Name = "chkKy";
             this.chkKy.Size = new System.Drawing.Size(80, 27);
@@ -211,10 +211,10 @@
             this.cboNV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNV.ForeColor = System.Drawing.Color.Black;
             this.cboNV.FormattingEnabled = true;
-            this.cboNV.Location = new System.Drawing.Point(979, 55);
+            this.cboNV.Location = new System.Drawing.Point(970, 55);
             this.cboNV.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNV.Name = "cboNV";
-            this.cboNV.Size = new System.Drawing.Size(322, 33);
+            this.cboNV.Size = new System.Drawing.Size(331, 33);
             this.cboNV.TabIndex = 7;
             // 
             // chkNV
@@ -223,7 +223,7 @@
             this.chkNV.BackColor = System.Drawing.Color.Transparent;
             this.chkNV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNV.ForeColor = System.Drawing.Color.MediumBlue;
-            this.chkNV.Location = new System.Drawing.Point(979, 14);
+            this.chkNV.Location = new System.Drawing.Point(970, 14);
             this.chkNV.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.chkNV.Name = "chkNV";
             this.chkNV.Size = new System.Drawing.Size(110, 27);
@@ -239,10 +239,10 @@
             this.cboDot.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDot.ForeColor = System.Drawing.Color.Black;
             this.cboDot.FormattingEnabled = true;
-            this.cboDot.Location = new System.Drawing.Point(469, 55);
+            this.cboDot.Location = new System.Drawing.Point(465, 55);
             this.cboDot.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboDot.Name = "cboDot";
-            this.cboDot.Size = new System.Drawing.Size(219, 33);
+            this.cboDot.Size = new System.Drawing.Size(216, 33);
             this.cboDot.TabIndex = 1;
             // 
             // label2
@@ -251,7 +251,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(469, 14);
+            this.label2.Location = new System.Drawing.Point(465, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 23);
@@ -265,7 +265,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.txtTim, 4);
             this.txtTim.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTim.ForeColor = System.Drawing.Color.Black;
-            this.txtTim.Location = new System.Drawing.Point(234, 105);
+            this.txtTim.Location = new System.Drawing.Point(232, 105);
             this.txtTim.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(1065, 32);
@@ -279,7 +279,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(26, 114);
+            this.label1.Location = new System.Drawing.Point(24, 114);
             this.label1.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 32);
@@ -465,7 +465,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.29436F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.10081F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.62097F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 343F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 353F));
             this.tableLayoutPanel1.Controls.Add(this.cboNam, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.chkNam, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtTim, 1, 2);
@@ -499,7 +499,7 @@
             this.cboNam.Location = new System.Drawing.Point(12, 55);
             this.cboNam.Margin = new System.Windows.Forms.Padding(12, 5, 12, 14);
             this.cboNam.Name = "cboNam";
-            this.cboNam.Size = new System.Drawing.Size(198, 33);
+            this.cboNam.Size = new System.Drawing.Size(196, 33);
             this.cboNam.TabIndex = 11;
             // 
             // chkNam
