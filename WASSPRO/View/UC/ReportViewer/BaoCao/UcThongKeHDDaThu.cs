@@ -117,7 +117,7 @@ namespace QLCongNo.View.UC.ReportViewer.BaoCao
             dtpTungay.Format = DateTimePickerFormat.Custom;
             dtpTungay.CustomFormat = "dd/MM/yyyy";
             dtpDenngay.Format = DateTimePickerFormat.Custom;
-            dtpDenngay.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dtpDenngay.CustomFormat = "dd/MM/yyyy 23:59:59";
             // dm ngan hang
             cboNganhang.DropDownStyle = ComboBoxStyle.DropDownList;
             List<DM_NGANHANG> nganhang = new List<DM_NGANHANG>();

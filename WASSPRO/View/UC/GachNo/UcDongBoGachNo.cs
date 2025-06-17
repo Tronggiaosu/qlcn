@@ -428,6 +428,7 @@ namespace QLCongNo.View.UC.GachNo
                                 var mabank = row.Field<string>("USER_TT");
                                 var tongthanhtoan = row.Field<decimal>("TONGTIEN");
                                 var ngaythanhtoan = row.Field<DateTime>("NGAY_TT");
+                                var transaction = row.Field<string>("TRANSACTION_NO");
                                 var nganhangid = db.DM_NGANHANG.Where(x => x.MA_NGANHANG == mabank).Select(x => x.NGANHANG_ID).FirstOrDefault();
                                 var hoadon = db.HOADONs.Where(x => x.ID_HD == idhd).FirstOrDefault();
 
@@ -452,7 +453,8 @@ namespace QLCongNo.View.UC.GachNo
                                     NAM_ID = hoadon.nam,
                                     USER_CREATE = null,
                                     DATE_CREATE = ngaythanhtoan,
-                                    STATUS = true
+                                    STATUS = false,
+                                    PRODUCTS = transaction
                                 });
                                 db.GACHNOes.AddRange(dsGachno);
                                 db.SaveChanges();
