@@ -224,6 +224,7 @@
     <Compile Include="Data\DataDangNganNH.cs" />
     <Compile Include="Data\DataDangNganNV.cs" />
     <Compile Include="Data\DataDanhMuc.cs" />
+    <Compile Include="Data\DongBoThuHo.cs" />
     <Compile Include="DieuChinhTT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -1108,6 +1109,12 @@
     <Compile Include="View\UC\DanhMuc\UcGroupForm.Designer.cs">
       <DependentUpon>UcGroupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoGachNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\GachNo\UcDongBoGachNo.Designer.cs">
+      <DependentUpon>UcDongBoGachNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UC\GachNo\XacNhanNo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1119,6 +1126,12 @@
     </Compile>
     <Compile Include="View\UC\HoaDon\UcCapNhatThongTinKH.Designer.cs">
       <DependentUpon>UcCapNhatThongTinKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.Designer.cs">
+      <DependentUpon>UcDongBoDuLieuHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu.cs">
       <SubType>UserControl</SubType>
@@ -1407,12 +1420,6 @@
     </Compile>
     <Compile Include="View\UC\HoaDon\UcDieuChinhHoaDon.Designer.cs">
       <DependentUpon>UcDieuChinhHoaDon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.Designer.cs">
-      <DependentUpon>UcDongBoDuLieuHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UC\HoaDon\UcDongBoHDThuHo.cs">
       <SubType>UserControl</SubType>
@@ -1826,11 +1833,17 @@
     <EmbeddedResource Include="View\UC\DanhMuc\UcGroupForm.resx">
       <DependentUpon>UcGroupForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\GachNo\UcDongBoGachNo.resx">
+      <DependentUpon>UcDongBoGachNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UC\GachNo\XacNhanNo.resx">
       <DependentUpon>XacNhanNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\HoaDon\UcCapNhatThongTinKH.resx">
       <DependentUpon>UcCapNhatThongTinKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.resx">
+      <DependentUpon>UcDongBoDuLieuHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\ReportViewer\BaoCao\UcBaoCaoChuanThu.resx">
       <DependentUpon>UcBaoCaoChuanThu.cs</DependentUpon>
@@ -1980,9 +1993,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\HoaDon\UcDieuChinhHoaDon.resx">
       <DependentUpon>UcDieuChinhHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UC\HoaDon\UcDongBoDuLieuHoaDon.resx">
-      <DependentUpon>UcDongBoDuLieuHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UC\HoaDon\UcDongBoHDThuHo.resx">
       <DependentUpon>UcDongBoHDThuHo.cs</DependentUpon>
