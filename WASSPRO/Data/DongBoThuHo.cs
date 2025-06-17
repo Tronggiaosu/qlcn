@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 namespace QLCongNo.Data
 {
