@@ -333,7 +333,7 @@ namespace QLCongNo.View.UC.DangNgan
                 {
                     this.Cursor = Cursors.WaitCursor;
                     var tungay = dtpTungay.Value.ToString("yyyy-MM-dd");
-                    var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                    var denngay = dtpDenngay.Value.ToString("yyyy-MM-dd 23:59:59");
                     decimal NHID = decimal.Parse(cboNganhang.SelectedValue.ToString());
                     decimal NVLap = decimal.Parse(nguoidung.nv_id.ToString());
                     var danhbo = txtTimDanhBo.Text;

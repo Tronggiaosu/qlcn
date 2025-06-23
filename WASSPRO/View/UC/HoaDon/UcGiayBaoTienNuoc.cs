@@ -52,7 +52,7 @@ namespace QLCongNo.View.UC.HoaDon
                 }
                 else
                 {
-                    Common.ExportExcel(dataGridView1);
+                    Common.ExportExcel_New(dataGridView1);
                 }
             }
             catch (Exception ex)

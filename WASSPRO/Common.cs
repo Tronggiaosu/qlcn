@@ -56,6 +56,47 @@ namespace QLCongNo
             }
         }
 
+        public static void ExportExcel_New(DataGridView dataGridView1)
+        {
+            using (SaveFileDialog save = new SaveFileDialog { Filter = "Excel file|.xlsx" })
+            {
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application { Visible = false, DisplayAlerts = false };
+                    Workbook workBook = app.Workbooks.Add(Missing.Value);
+                    Worksheet workSheet = workBook.ActiveSheet;
+
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        workSheet.Cells[1, j + 1] = dataGridView1.Columns[j].HeaderText;
+                    }
+
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                        {
+                            var value = dataGridView1.Rows[i].Cells[j].Value;
+                            workSheet.Cells[i + 2, j + 1] = value;
+                        }
+                    }
+
+                    workBook.SaveAs(save.FileName, XlFileFormat.xlOpenXMLWorkbook, Missing.Value,
+                                    Missing.Value, false, false, XlSaveAsAccessMode.xlNoChange,
+                                    XlSaveConflictResolution.xlUserResolution, true,
+                                    Missing.Value, Missing.Value, Missing.Value);
+
+                    MessageBox.Show("Xuất file Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    workBook.Close(false, Missing.Value, Missing.Value);
+                    app.Quit();
+
+                    releaseObject(workSheet);
+                    releaseObject(workBook);
+                    releaseObject(app);
+                }
+            }
+        }
+
         private static void releaseObject(object obj)
         {
             try
