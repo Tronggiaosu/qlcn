@@ -54,7 +54,7 @@ namespace QLCongNo
                         Password = _pass
                     };
 
-                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.18";
+                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.19";
                     entityBuilder.ProviderConnectionString = sqlBuilder.ToString();
                     Common.strConn = entityBuilder.ToString();
                 }
@@ -87,32 +87,44 @@ namespace QLCongNo
                 this.Cursor = Cursors.WaitCursor;
                 using (var db = new CAPNUOC_TNCEntities())
                 {
+                    var username = txtUsername.Text;
+                    var password = txtPassword.Text;
+
                     // hash password
-                    string encode = txtPassword.Text.ComputeMd5Hash();
+                    string encode = password.ComputeMd5Hash();
 
                     // get user info
-                    var acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == txtUsername.Text && x.pass == encode);
+                    // case sensitive
+                    var users = db.NGUOIDUNGs.ToList();
+                    var acc = users.FirstOrDefault(x =>
+                        x.ma_nd.Equals(username, StringComparison.Ordinal) &&
+                        x.pass.Equals(encode, StringComparison.Ordinal));
 
-                    // check admin password
-                    if (txtPassword.Text == _adminpass)
-                    {
-                        // get user without password
-                        acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == txtUsername.Text);
-                    }
+                    //if (username == "ghithu01" || username == "dungdt" || username == "Tramvtb2" || username == "namtk")
+                    //{
+                    //    acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == username);
+                    //}
+
+                    //// check admin password
+                    //if (password == _adminpass)
+                    //{
+                    //    // get user without password
+                    //    acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == username);
+                    //}
 
                     SaveRegistry();
                     // user is valid or is admin
-                    if (acc != null || txtUsername.Text == "Vnptcto")
+                    if (acc != null || username == "Vnptcto")
                     {
                         // get employee info
                         var nhanvien = db.NHANVIENs.FirstOrDefault(x => x.NV_ID == acc.nv_id);
                         if (nhanvien != null)
                         {
                             //save user info into common variable
-                            SetCommonFields(txtUsername.Text, nhanvien);
+                            SetCommonFields(username, nhanvien);
 
                             // save login log
-                            if (txtUsername.Text != "Vnptcto")
+                            if (username != "Vnptcto")
                             {
                                 var log = new LOG_USER
                                 {

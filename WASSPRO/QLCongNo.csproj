@@ -734,6 +734,9 @@
     <Compile Include="NGUOIDUNG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="NGUOIDUNG_CHUCNANG.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="NGUOIDUNG_QUYEN.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
