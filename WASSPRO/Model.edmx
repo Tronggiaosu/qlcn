@@ -1602,6 +1602,16 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.Menu' does not have a primary key
           <Property Name="modelname" Type="varchar" MaxLength="50" />
           <Property Name="isLock" Type="bit" />
         </EntityType>
+        <EntityType Name="NGUOIDUNG_CHUCNANG">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAGE_NAME" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PAGE_URL" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FUNCTION" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NV_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="NGUOIDUNG_QUYEN">
           <Key>
             <PropertyRef Name="id" />
@@ -5286,6 +5296,7 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <EntitySet Name="LOTRINH_THU" EntityType="Self.LOTRINH_THU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAU_HD" EntityType="Self.MAU_HD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUOIDUNG_CHUCNANG" EntityType="Self.NGUOIDUNG_CHUCNANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOIDUNG_QUYEN" EntityType="Self.NGUOIDUNG_QUYEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN_HOADON" EntityType="Self.NHANVIEN_HOADON" Schema="dbo" store:Type="Tables" />
@@ -12116,8 +12127,9 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
             <Parameter Name="trangthai" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="lockGetDangNgan" ReturnType="Collection(Boolean)">
-            <Parameter Name="ngaydangngan" Mode="In" Type="String" />
+          <Parameter Name="ngaydangngan" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="NGUOIDUNG_CHUCNANG" EntityType="Model.NGUOIDUNG_CHUCNANG" />
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -14156,6 +14168,16 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Property Name="NGAY_DANG_NGAN" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NGAY_THUC_HIEN" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NGUOI_THUC_HIEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NGUOIDUNG_CHUCNANG">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAGE_NAME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PAGE_URL" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FUNCTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NV_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -19628,6 +19650,17 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="lockDangNgan" FunctionName="Model.Store.lockDangNgan" />
           <FunctionImportMapping FunctionImportName="lockGetDangNgan" FunctionName="Model.Store.lockGetDangNgan" />
+          <EntitySetMapping Name="NGUOIDUNG_CHUCNANG">
+            <EntityTypeMapping TypeName="Model.NGUOIDUNG_CHUCNANG">
+              <MappingFragment StoreEntitySet="NGUOIDUNG_CHUCNANG">
+                <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+                <ScalarProperty Name="FUNCTION" ColumnName="FUNCTION" />
+                <ScalarProperty Name="PAGE_URL" ColumnName="PAGE_URL" />
+                <ScalarProperty Name="PAGE_NAME" ColumnName="PAGE_NAME" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

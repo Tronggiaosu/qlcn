@@ -208,6 +208,7 @@
         <EntityTypeShape EntityType="Model.GACHNO_TEST" Width="1.5" PointX="37.375" PointY="22.75" />
         <EntityTypeShape EntityType="Model.Menu" Width="1.5" PointX="27.375" PointY="37.75" />
         <EntityTypeShape EntityType="Model.KHOA_DANGNGAN" Width="1.5" PointX="37.375" PointY="11.75" />
+        <EntityTypeShape EntityType="Model.NGUOIDUNG_CHUCNANG" Width="1.5" PointX="37.375" PointY="29.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

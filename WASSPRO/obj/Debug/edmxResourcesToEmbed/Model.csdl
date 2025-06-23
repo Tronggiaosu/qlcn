@@ -5539,6 +5539,7 @@
     <FunctionImport Name="lockGetDangNgan" ReturnType="Collection(Boolean)">
       <Parameter Name="ngaydangngan" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="NGUOIDUNG_CHUCNANG" EntityType="Model.NGUOIDUNG_CHUCNANG" />
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -7577,5 +7578,15 @@
     <Property Name="NGAY_DANG_NGAN" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="NGAY_THUC_HIEN" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="NGUOI_THUC_HIEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NGUOIDUNG_CHUCNANG">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PAGE_NAME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PAGE_URL" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FUNCTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NV_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
   </EntityType>
 </Schema>

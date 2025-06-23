@@ -5466,5 +5466,16 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="lockDangNgan" FunctionName="Model.Store.lockDangNgan" />
     <FunctionImportMapping FunctionImportName="lockGetDangNgan" FunctionName="Model.Store.lockGetDangNgan" />
+    <EntitySetMapping Name="NGUOIDUNG_CHUCNANG">
+      <EntityTypeMapping TypeName="Model.NGUOIDUNG_CHUCNANG">
+        <MappingFragment StoreEntitySet="NGUOIDUNG_CHUCNANG">
+          <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+          <ScalarProperty Name="FUNCTION" ColumnName="FUNCTION" />
+          <ScalarProperty Name="PAGE_URL" ColumnName="PAGE_URL" />
+          <ScalarProperty Name="PAGE_NAME" ColumnName="PAGE_NAME" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

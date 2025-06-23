@@ -16,6 +16,7 @@ namespace QLCongNo.View.UC.DangNgan
         public string maloai;
         private DataTable table;
         private static string _staticMaloai;
+        private bool isPhanQuyen = false;
 
         public UcDangNganChuyenKhoan()
         {
@@ -308,7 +309,7 @@ namespace QLCongNo.View.UC.DangNgan
                         MessageBox.Show("Chỉ được phép đăng ngân ngày hôm nay!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         this.dtPickerLockDN.Value = DateTime.Now;
                         return;
-                    }    
+                    }
                 }
                 if (dataGridView1.Rows.Count == 0)
                 {
@@ -686,16 +687,8 @@ namespace QLCongNo.View.UC.DangNgan
         private void frDangNganChuyenKhoan_Load(object sender, EventArgs e)
         {
             var user = Common.username;
-            if (user != "tkct-thuy"
-                && user != "tkct-hoa"
-                && user != "tkct-le"
-                && user != "tkct-yen"
-                && user != "tkct"
-                && user != "tracham")
-            {
-                this.btnDN.Enabled = false;
-            } 
-
+            var nv_id = Common.NVID;
+            var func = $"QUYEN_DANGNGAN_{_staticMaloai}";
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoGenerateColumns = false;
             dtpDenngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -719,6 +712,12 @@ namespace QLCongNo.View.UC.DangNgan
             chkHuyTT.Visible = Common.isxoa;
             txtlydo.Visible = Common.isxoa;
             dataGridView1.Columns[ngayBKColumn.Name].Visible = true;
+
+            var dsPhanQuyen = db.NGUOIDUNG_CHUCNANG.Where(x => x.FUNCTION == func).Select(x => x.NV_ID).ToList();
+            this.isPhanQuyen = dsPhanQuyen != null && dsPhanQuyen.Contains(nv_id);
+
+            if (this.isPhanQuyen == false)
+                this.btnDN.Enabled = false;
 
             if (_staticMaloai == "KH" || _staticMaloai == "TC" || _staticMaloai == "GT")
             {
@@ -749,7 +748,7 @@ namespace QLCongNo.View.UC.DangNgan
             {
                 LoadNhanVien();
                 this.dtPickerLockDN.Value = DateTime.Now;
-            } 
+            }
         }
 
         private void LoadStatusLockDangNgan(object sender, EventArgs e)
@@ -789,16 +788,16 @@ namespace QLCongNo.View.UC.DangNgan
 
         private void UpdateUI(bool status, string text)
         {
-            this.btnDN.Enabled = status;
-            this.btnUpdate.Enabled = status;
-            this.btnXuLy.Enabled = status;
             this.lblStatusDN.Text = text;
 
             if (_staticMaloai == "CK")
             {
-                var user = Common.username;
-                if (user == "tkct-thuy" || user == "tkct-hoa" || user == "tkct-le" || user == "tkct-yen")
+                if (this.isPhanQuyen == true)
                 {
+                    this.btnDN.Enabled = status;
+                    this.btnUpdate.Enabled = status;
+                    this.btnXuLy.Enabled = status;
+
                     this.lblStatusDN.Visible = true;
                     this.dtPickerLockDN.Visible = true;
                     this.ptbLockDN.Visible = !status;
@@ -809,12 +808,16 @@ namespace QLCongNo.View.UC.DangNgan
                 }
                 else
                 {
+                    this.btnDN.Enabled = false;
+                    this.btnUpdate.Enabled = false;
+                    this.btnXuLy.Enabled = false;
+
                     this.lblStatusDN.Visible = true;
                     this.dtPickerLockDN.Visible = true;
                     this.ptbLockDN.Visible = false;
                     this.ptbUnlockDN.Visible = false;
-                }
-            }    
+                }    
+            }
         }
 
         public void LoadNhanVien()

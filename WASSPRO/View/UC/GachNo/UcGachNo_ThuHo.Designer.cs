@@ -64,6 +64,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new QLCongNo.View.Core.NovGroupBox();
             this.panel1 = new QLCongNo.View.Core.NovPanel();
+            this.lblDSDongTien = new QLCongNo.View.Core.NovLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtlydohuy = new QLCongNo.View.Core.NovTextBox();
             this.chkKy = new QLCongNo.View.Core.NovCheckBox();
@@ -103,6 +104,7 @@
             this.btnThoat = new QLCongNo.View.Core.NovToolStripButton();
             this.groupBox4 = new QLCongNo.View.Core.NovGroupBox();
             this.panel3 = new QLCongNo.View.Core.NovPanel();
+            this.lblDSGachNo = new QLCongNo.View.Core.NovLabel();
             this.dgvGachNo = new QLCongNo.View.Core.NovDataGridView();
             this.checkColumn_dgv2 = new QLCongNo.View.Core.NovDataGridViewCheckBoxColumn();
             this.ngaythuColumn_dgv2 = new QLCongNo.View.Core.NovDataGridViewTextBoxColumn();
@@ -131,8 +133,6 @@
             this.txttongthanhtoan = new QLCongNo.View.Core.NovTextBox();
             this.toolStrip1 = new QLCongNo.View.Core.NovToolStrip();
             this.btnConfirm = new QLCongNo.View.Core.NovToolStripButton();
-            this.lblDSDongTien = new QLCongNo.View.Core.NovLabel();
-            this.lblDSGachNo = new QLCongNo.View.Core.NovLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -211,6 +211,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 757);
             this.panel1.TabIndex = 130;
+            // 
+            // lblDSDongTien
+            // 
+            this.lblDSDongTien.AutoSize = true;
+            this.lblDSDongTien.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSDongTien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSDongTien.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDSDongTien.Location = new System.Drawing.Point(16, 289);
+            this.lblDSDongTien.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSDongTien.Name = "lblDSDongTien";
+            this.lblDSDongTien.Size = new System.Drawing.Size(114, 23);
+            this.lblDSDongTien.TabIndex = 147;
+            this.lblDSDongTien.Text = "Danh sách (0)";
             // 
             // tableLayoutPanel1
             // 
@@ -797,6 +810,19 @@
             this.panel3.Size = new System.Drawing.Size(805, 761);
             this.panel3.TabIndex = 76;
             // 
+            // lblDSGachNo
+            // 
+            this.lblDSGachNo.AutoSize = true;
+            this.lblDSGachNo.BackColor = System.Drawing.Color.Transparent;
+            this.lblDSGachNo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDSGachNo.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDSGachNo.Location = new System.Drawing.Point(15, 293);
+            this.lblDSGachNo.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
+            this.lblDSGachNo.Name = "lblDSGachNo";
+            this.lblDSGachNo.Size = new System.Drawing.Size(114, 23);
+            this.lblDSGachNo.TabIndex = 148;
+            this.lblDSGachNo.Text = "Danh sách (0)";
+            // 
             // dgvGachNo
             // 
             this.dgvGachNo.AllowUserToAddRows = false;
@@ -1214,32 +1240,6 @@
             this.btnConfirm.Padding = new System.Windows.Forms.Padding(5);
             this.btnConfirm.Size = new System.Drawing.Size(124, 35);
             this.btnConfirm.Text = "Đăng ngân";
-            // 
-            // lblDSDongTien
-            // 
-            this.lblDSDongTien.AutoSize = true;
-            this.lblDSDongTien.BackColor = System.Drawing.Color.Transparent;
-            this.lblDSDongTien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSDongTien.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblDSDongTien.Location = new System.Drawing.Point(16, 289);
-            this.lblDSDongTien.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.lblDSDongTien.Name = "lblDSDongTien";
-            this.lblDSDongTien.Size = new System.Drawing.Size(143, 29);
-            this.lblDSDongTien.TabIndex = 147;
-            this.lblDSDongTien.Text = "Danh sách (0)";
-            // 
-            // lblDSGachNo
-            // 
-            this.lblDSGachNo.AutoSize = true;
-            this.lblDSGachNo.BackColor = System.Drawing.Color.Transparent;
-            this.lblDSGachNo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSGachNo.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblDSGachNo.Location = new System.Drawing.Point(15, 293);
-            this.lblDSGachNo.Margin = new System.Windows.Forms.Padding(12, 14, 12, 5);
-            this.lblDSGachNo.Name = "lblDSGachNo";
-            this.lblDSGachNo.Size = new System.Drawing.Size(143, 29);
-            this.lblDSGachNo.TabIndex = 148;
-            this.lblDSGachNo.Text = "Danh sách (0)";
             // 
             // UcGachNo_ThuHo
             // 

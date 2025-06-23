@@ -155,6 +155,7 @@ namespace QLCongNo
         public virtual DbSet<GACHNO_TEST> GACHNO_TEST { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<KHOA_DANGNGAN> KHOA_DANGNGAN { get; set; }
+        public virtual DbSet<NGUOIDUNG_CHUCNANG> NGUOIDUNG_CHUCNANG { get; set; }
     
         [DbFunction("CAPNUOC_TNCEntities", "fngetDatakycuoc")]
         public virtual IQueryable<fngetDatakycuoc_Result> fngetDatakycuoc()
