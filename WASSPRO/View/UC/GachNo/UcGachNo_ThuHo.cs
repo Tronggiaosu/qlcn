@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+﻿using Microsoft.SqlServer.Server;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -406,82 +407,100 @@ namespace QLCongNo.View.UC.GachNo
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            using (var _tran = db.Database.BeginTransaction())
+            try
             {
-                try
+                if (dgvGachNo.RowCount == 0) return;
+                if(chkBK.Checked == true)
                 {
-                    if (dgvGachNo.RowCount > 0)
+                    MessageBox.Show("Chưa chọn ngày bảng kê!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult rs = MessageBox.Show("Xác nhận đã đủ số tiền?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (rs == DialogResult.OK)
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    btnConfirm.Enabled = false;
+                    using (var _tran = db.Database.BeginTransaction())
                     {
-                        if (chkBK.Checked == true)
+
+                        try
                         {
-                            DialogResult rs = MessageBox.Show("Xác nhận đã đủ số tiền?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                            if (rs == DialogResult.OK)
+
+                            var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                            var kyghi = db.DM_KYGHI.Where(x => x.gachno == true).FirstOrDefault();
+                            string NVTHU = cboNV.SelectedValue.ToString();
+                            string ghichu = txtghichu.Text;
+                            // add chung tu
+                            CHUNGTU chungtu = new CHUNGTU();
+                            chungtu.ID_KYGHI = kyghi.ten_kyghi;
+                            chungtu.MALOAI = "CK";
+                            chungtu.NGAYLAP = DateTime.Now;
+                            chungtu.NV_ID_LAP = NVLap.nv_id;
+                            chungtu.NV_ID_NOP = decimal.Parse(NVTHU);
+                            chungtu.TONGTIEN = decimal.Parse(txttongthanhtoan.Text);
+                            chungtu.GHICHU = ghichu;
+                            chungtu.TRANGTHAI = false;
+                            chungtu.NGAYCT = dtpBK.Value;
+                            chungtu.SOCT = CreateSO_CT();
+                            db.CHUNGTUs.Add(chungtu);
+                            db.SaveChanges();
+                            // add chung tu hoa don
+                            List<CHUNGTU_HOADON> dschungtu_hoadon = new List<CHUNGTU_HOADON>();
+                            List<DANGNGAN> dn = new List<DANGNGAN>();
+                            foreach (var item in dsGachNo)
                             {
-                                var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
-                                var kyghi = db.DM_KYGHI.Where(x => x.gachno == true).FirstOrDefault();
-                                string NVTHU = cboNV.SelectedValue.ToString();
-                                string ghichu = txtghichu.Text;
-                                // add chung tu
-                                CHUNGTU chungtu = new CHUNGTU();
-                                chungtu.ID_KYGHI = kyghi.ten_kyghi;
-                                chungtu.MALOAI = "CK";
-                                chungtu.NGAYLAP = DateTime.Now;
-                                chungtu.NV_ID_LAP = NVLap.nv_id;
-                                chungtu.NV_ID_NOP = decimal.Parse(NVTHU);
-                                chungtu.TONGTIEN = decimal.Parse(txttongthanhtoan.Text);
-                                chungtu.GHICHU = ghichu;
-                                chungtu.TRANGTHAI = false;
-                                chungtu.NGAYCT = dtpBK.Value;
-                                chungtu.SOCT = CreateSO_CT();
-                                db.CHUNGTUs.Add(chungtu);
-                                db.SaveChanges();
-                                // add chung tu hoa don
-                                List<CHUNGTU_HOADON> dschungtu_hoadon = new List<CHUNGTU_HOADON>();
-                                List<DANGNGAN> dn = new List<DANGNGAN>();
-                                foreach (var item in dsGachNo)
+                                var gachno = db.GACHNOes.Where(x => x.ID_HD == item.ID_HD).FirstOrDefault();
+                                gachno.STATUS = true;
+                                gachno.TAG = Common.username + " " + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                                dschungtu_hoadon.Add(new CHUNGTU_HOADON()
                                 {
-                                    var gachno = db.GACHNOes.Where(x => x.ID_HD == item.ID_HD).FirstOrDefault();
-                                    gachno.STATUS = true;
-                                    dschungtu_hoadon.Add(new CHUNGTU_HOADON()
-                                    {
-                                        ID_CT = chungtu.ID_CT,
-                                        ID_HD = item.ID_HD,
-                                        TONGTIEN = gachno.TONGTHANHTOAN,
-                                        DOT_ID = gachno.DOT_ID,
-                                        NVID_THU = gachno.NV_ID_NOP,
-                                        NVID_CREATE = NVLap.nv_id,
-                                        NGAYTHU = gachno.NGAYTHANHTOAN,
-                                        NGAYTAO = DateTime.Now,
-                                        DADONGBO = false,
-                                        ID_Kyghi = gachno.ID_KYGHI,
-                                        ID_KH = gachno.ID_KH,
-                                        GHICHU = gachno.PRODUCTS
-                                    });
-                                }
-
-                                db.CHUNGTU_HOADON.AddRange(dschungtu_hoadon);
-                                db.SaveChanges();
-                                db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
-                                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                _tran.Commit();
+                                    ID_CT = chungtu.ID_CT,
+                                    ID_HD = item.ID_HD,
+                                    TONGTIEN = gachno.TONGTHANHTOAN,
+                                    DOT_ID = gachno.DOT_ID,
+                                    NVID_THU = gachno.NV_ID_NOP,
+                                    NVID_CREATE = NVLap.nv_id,
+                                    NGAYTHU = gachno.NGAYTHANHTOAN,
+                                    NGAYTAO = DateTime.Now,
+                                    DADONGBO = false,
+                                    ID_Kyghi = gachno.ID_KYGHI,
+                                    ID_KH = gachno.ID_KH,
+                                    GHICHU = gachno.PRODUCTS
+                                });
                             }
+
+                            db.CHUNGTU_HOADON.AddRange(dschungtu_hoadon);
+                            db.SaveChanges();
+                            db.Database.ExecuteSqlCommand("exec DANGNGAN_NV " + Common.NVID.ToString() + ", " + chungtu.ID_CT.ToString());
+                            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            _tran.Commit();
+
                         }
-                        else
-                            MessageBox.Show("Chưa chọn ngày bảng kê!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        catch (Exception ex1)
+                        {
+                            _tran.Rollback();
+                            MessageBox.Show("Có lỗi xảy ra: " + ex1.Message);
+
+                        }
+
                     }
+
                 }
-                catch (Exception ex)
-                {
-                    _tran.Rollback();
-                    MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
-                }
-                finally
-                {
-                    this.Cursor = Cursors.Default; 
-                }
-            }    
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+
+            btnConfirm.Enabled = true;
+
         }
 
         private void btnTim_Click(object sender, EventArgs e)
