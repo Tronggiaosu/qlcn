@@ -825,7 +825,8 @@ namespace QLCongNo.View.UC.DangNgan
             cboNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             var nguoidung = Common.NVID;
             var data = DataDanhMuc.getDanhSachNhanVien()
-                .Select(x => new { hoten = x.maNV + " - " + x.hoten, x.NV_ID })
+                .Select(x => new { hoten = x.NV_ID + " - " + x.hoten, x.NV_ID })
+                .OrderBy(nv => nv.NV_ID)
                 .ToList();
 
             var tatCa = new { hoten = "Tất cả", NV_ID = (decimal)0 };
