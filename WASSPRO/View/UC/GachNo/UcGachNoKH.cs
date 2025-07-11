@@ -21,9 +21,9 @@ namespace QLCongNo.View.UC.GachNo
         public string _maloai;
         public int _trangthai;
         private decimal IDKH;
-        private string manv;
+        private decimal NV_ID;
         private string maPB;
-
+        private bool isPhanQuyen = false;
         private static string _staticMaloai;
 
         public UcGachNoKH(string maloai, long trangthai)
@@ -213,17 +213,15 @@ namespace QLCongNo.View.UC.GachNo
                             var status = this.dgvHoadon.Rows[e.RowIndex].Cells[trangthaiHDColumn.Name].Value.ToString();
                             if (status != "Khó đòi" && status != "Hủy")
                             {
-                                if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1") // Phong Ghi Thu - TKCT
-                                {
+                                if (this.isPhanQuyen == true)
                                     dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
-                                }
                             }
                             else
                             {
-                                if (this.maPB == "14") // Phong Kinh Doanh
-                                {
-                                    dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
-                                }
+                                //if (this.maPB == "14") // Phong Kinh Doanh
+                                //{
+                                //    dgvHoadon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
+                                //}
                             }
                         }
                     }
@@ -288,17 +286,15 @@ namespace QLCongNo.View.UC.GachNo
                     var status = r.Cells[trangthaiHDColumn.Name].Value.ToString();
                     if (status != "Khó đòi" && status != "Hủy")
                     {
-                        if (this.manv == "926" || this.manv == "927" || this.manv == "928" || this.manv == "931" || this.manv == "TR1") // Phong Ghi Thu - TKCT
-                        {
+                        if (this.isPhanQuyen == true)
                             r.Cells[checksColumn.Name].Value = isChecked;
-                        }
                     }
                     else
                     {
-                        if (this.maPB == "14") // Phong Kinh Doanh
-                        {
-                            r.Cells[checksColumn.Name].Value = isChecked;
-                        }
+                        //if (this.maPB == "14") // Phong Kinh Doanh
+                        //{
+                        //    r.Cells[checksColumn.Name].Value = isChecked;
+                        //}
                     }
                 }
             }
@@ -536,14 +532,19 @@ namespace QLCongNo.View.UC.GachNo
                             txtTongthu.Text = "0";
                             txttong_HD.Text = "0";
                             MessageBox.Show("Xác nhận thanh toán thành công!");
-                            if (_staticMaloai != "CK")
+                            if (_staticMaloai == "KH")
                             {
-                                UcPhieuThuKH uc = new UcPhieuThuKH();
-                                uc.pIDCT = chungtu.ID_CT;
-                                uc.IDHD = 0;
-                                uc.Show();
+                                var frm = new UcPhieuThuKH
+                                {
+                                    pIDCT = chungtu.ID_CT,
+                                    IDHD = 0
+                                };
+                                new FrmDialog().ShowDialog(frm);
                             }
                             this.Cursor = Cursors.Default;
+
+
+                            
                         }
                     }
                     catch
@@ -627,10 +628,13 @@ namespace QLCongNo.View.UC.GachNo
         {
             try
             {
+                var func = $"QUYEN_GACHNO";
                 var nguoidung = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
+                var dsPhanQuyen = db.NGUOIDUNG_CHUCNANG.Where(x => x.FUNCTION == func).Select(x => x.NV_ID).ToList();
                 var phong = db.NHANVIENs.Where(x => x.maNV == nguoidung.manv).FirstOrDefault();
-                this.manv = nguoidung.manv;
+                this.NV_ID = nguoidung.nv_id ?? 0;
                 this.maPB = phong.maPB;
+                this.isPhanQuyen = dsPhanQuyen != null && dsPhanQuyen.Contains(this.NV_ID);
 
                 txttong_HD.Text = "0";
                 txtTongthu.Text = "0";

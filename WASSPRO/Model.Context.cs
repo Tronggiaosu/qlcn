@@ -4122,5 +4122,40 @@ namespace QLCongNo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("lockGetDangNgan", ngaydangnganParameter);
         }
+    
+        public virtual ObjectResult<string> sp_xmlPublishInv_Individual(Nullable<int> ky, Nullable<int> nam, Nullable<decimal> dot, string iD_HD)
+        {
+            var kyParameter = ky.HasValue ?
+                new ObjectParameter("ky", ky) :
+                new ObjectParameter("ky", typeof(int));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(int));
+    
+            var dotParameter = dot.HasValue ?
+                new ObjectParameter("dot", dot) :
+                new ObjectParameter("dot", typeof(decimal));
+    
+            var iD_HDParameter = iD_HD != null ?
+                new ObjectParameter("ID_HD", iD_HD) :
+                new ObjectParameter("ID_HD", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_xmlPublishInv_Individual", kyParameter, namParameter, dotParameter, iD_HDParameter);
+        }
+    
+        [DbFunction("CAPNUOC_TNCEntities", "SplitStringToTable")]
+        public virtual IQueryable<string> SplitStringToTable(string inputString, string delimiter)
+        {
+            var inputStringParameter = inputString != null ?
+                new ObjectParameter("InputString", inputString) :
+                new ObjectParameter("InputString", typeof(string));
+    
+            var delimiterParameter = delimiter != null ?
+                new ObjectParameter("Delimiter", delimiter) :
+                new ObjectParameter("Delimiter", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[CAPNUOC_TNCEntities].[SplitStringToTable](@InputString, @Delimiter)", inputStringParameter, delimiterParameter);
+        }
     }
 }

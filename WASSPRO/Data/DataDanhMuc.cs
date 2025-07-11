@@ -27,9 +27,14 @@ namespace QLCongNo.Data
         {
             using (CAPNUOC_TNCEntities db = new CAPNUOC_TNCEntities())
             {
-                var usernames = new List<string> { "tkct-le", "tkct-hoa", "tkct-thuy", "tkct-yen" };
+                var func_CK = $"QUYEN_DANGNGAN_CK"; 
+                var dsPhanQuyen = db.NGUOIDUNG_CHUCNANG
+                                .Where(x => x.FUNCTION == func_CK)
+                                .Select(x => x.NV_ID)
+                                .ToList();
                 var data = db.NHANVIENs
-                             .Where(nv => usernames.Contains(nv.somay))
+                             .Where(nv => dsPhanQuyen.Contains(nv.NV_ID))
+                             .OrderByDescending(nv => nv.NV_ID)
                              .ToList();
                 return data;
             }

@@ -1043,6 +1043,8 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.GACHNOLOI' does not have a primar
           <Property Name="DienGiai" Type="varchar" MaxLength="150" />
           <Property Name="DaPhatHanh" Type="bit" />
           <Property Name="tylephi" Type="int" />
+          <Property Name="CCCD" Type="nvarchar" MaxLength="50" />
+          <Property Name="QHNS" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CAPNUOC_TDC3.dbo.HOADON_CHUATHU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5073,6 +5075,12 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="nam" Type="int" Mode="In" />
           <Parameter Name="dot" Type="numeric" Mode="In" />
         </Function>
+        <Function Name="sp_xmlPublishInv_Individual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ky" Type="int" Mode="In" />
+          <Parameter Name="nam" Type="int" Mode="In" />
+          <Parameter Name="dot" Type="numeric" Mode="In" />
+          <Parameter Name="ID_HD" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_xmlPublishInv78" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ky" Type="int" Mode="In" />
           <Parameter Name="nam" Type="int" Mode="In" />
@@ -5087,6 +5095,17 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
         </Function>
         <Function Name="sp_xmlUpdateCusByIDKH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDKH" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="SplitStringToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InputString" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Delimiter" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Value" Type="nvarchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
         </Function>
         <Function Name="spThongtinhoadon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDKH" Type="numeric" Mode="In" />
@@ -7581,6 +7600,8 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_HOADON_NHANVIEN1" FromRole="HOADON" ToRole="NHANVIEN" />
           <NavigationProperty Name="NHANVIEN1" Relationship="Self.FK_HOADON_NHANVIEN2" FromRole="HOADON" ToRole="NHANVIEN" />
           <NavigationProperty Name="TDC_HOADON" Relationship="Self.FK_HOADON_TDC_HOADON" FromRole="HOADON" ToRole="TDC_HOADON" />
+          <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QHNS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="HOADON_HUY">
           <Key>
@@ -12130,6 +12151,16 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <Parameter Name="ngaydangngan" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="NGUOIDUNG_CHUCNANG" EntityType="Model.NGUOIDUNG_CHUCNANG" />
+          <FunctionImport Name="sp_xmlPublishInv_Individual" ReturnType="Collection(String)">
+            <Parameter Name="ky" Mode="In" Type="Int32" />
+            <Parameter Name="nam" Mode="In" Type="Int32" />
+            <Parameter Name="dot" Mode="In" Type="Decimal" />
+            <Parameter Name="ID_HD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SplitStringToTable" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="InputString" Mode="In" Type="String" />
+            <Parameter Name="Delimiter" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetBangKeHoaDon_Result">
           <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />
@@ -15051,6 +15082,8 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
           <EntitySetMapping Name="HOADONs">
             <EntityTypeMapping TypeName="Model.HOADON">
               <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="QHNS" ColumnName="QHNS" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
                 <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
                 <ScalarProperty Name="keys" ColumnName="keys" />
                 <ScalarProperty Name="kyghi" ColumnName="kyghi" />
@@ -19661,6 +19694,8 @@ warning 6002: The table/view 'CAPNUOC_TDC3.dbo.VIEWTHONGTINHOADON' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_xmlPublishInv_Individual" FunctionName="Model.Store.sp_xmlPublishInv_Individual" />
+          <FunctionImportMapping FunctionImportName="SplitStringToTable" FunctionName="Model.Store.SplitStringToTable" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

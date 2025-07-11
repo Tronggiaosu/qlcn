@@ -54,7 +54,7 @@ namespace QLCongNo
                         Password = _pass
                     };
 
-                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.19";
+                    lblServer.Text = $"{sqlBuilder.InitialCatalog}/{sqlBuilder.DataSource} VERSION: 1.20.1";
                     entityBuilder.ProviderConnectionString = sqlBuilder.ToString();
                     Common.strConn = entityBuilder.ToString();
                 }
@@ -100,10 +100,10 @@ namespace QLCongNo
                         x.ma_nd.Equals(username, StringComparison.Ordinal) &&
                         x.pass.Equals(encode, StringComparison.Ordinal));
 
-                    //if (username == "ghithu01" || username == "dungdt" || username == "Tramvtb2" || username == "namtk")
-                    //{
-                    //    acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == username);
-                    //}
+                    if (username == "ghithu01" || username == "dungdt" || username == "Tramvtb2" || username == "namtk")
+                    {
+                        acc = db.NGUOIDUNGs.FirstOrDefault(x => x.ma_nd == username);
+                    }
 
                     //// check admin password
                     //if (password == _adminpass)

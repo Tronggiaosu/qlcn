@@ -1,7 +1,9 @@
 ﻿using Ionic.Zip;
 using Microsoft.VisualBasic;
+using OfficeOpenXml.FormulaParsing.Excel.Functions;
 using QLCongNo.View.Core;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +12,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -149,9 +153,30 @@ namespace QLCongNo.View.UC.HoaDon
             {
                 if (dataGridView1.RowCount > 0)
                 {
-                    DialogResult rs = MessageBox.Show("Bạn có muốn phát hành hóa đơn?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    dataGridView1.EndEdit();
+                    var countChecked = dataGridView1.Rows.Cast<DataGridViewRow>()
+                                       .Count(r => !r.IsNewRow && r.Cells[chkColumn.Name].Value != null && (bool)r.Cells[chkColumn.Name].Value);
+                    var content = countChecked == 0 ? "tất cả" : $"{countChecked}";
+                    decimal A = decimal.Parse(cboDot.SelectedValue.ToString());
+                    decimal B = decimal.Parse(cboNam.SelectedValue.ToString());
+                    int C = int.Parse(cboKy.SelectedValue.ToString());
+
+                    DialogResult rs = MessageBox.Show($"Bạn có muốn phát hành {content} hóa đơn này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (rs == DialogResult.OK)
                     {
+                        var listHD = new List<decimal>();
+                        foreach (DataGridViewRow r in dataGridView1.Rows)
+                        {
+                            var checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
+                            var isTicked = checks.Value;
+                            if (Convert.ToBoolean(isTicked) == true)
+                            {
+                                var IDHD = decimal.Parse(dataGridView1[IDHDColumn.Name, r.Index].Value.ToString());
+                                listHD.Add(IDHD);
+                            }
+                        }
+
+                        var dsIDHD = string.Join(",", listHD);
                         decimal dotid = decimal.Parse(cboDot.SelectedValue.ToString());
                         decimal namid = decimal.Parse(cboNam.SelectedValue.ToString());
                         int kyghi = int.Parse(cboKy.SelectedValue.ToString());
@@ -160,7 +185,9 @@ namespace QLCongNo.View.UC.HoaDon
                         var soluongPH = db.HOADONs.Where(x => x.DOT_ID == dotid
                                           && x.kyghi == pkyghi
                                           && x.trangthai_id == 1
-                                          && x.DaPhatHanh == false).ToList().Count();
+                                          && x.DaPhatHanh == false
+                                          && (listHD.Count() == 0 ? 1 == 1 : listHD.Contains(x.ID_HD))).ToList().Count();
+                        
                         bdButton.Enabled = false;
                         excelButton.Enabled = false;
                         quitButton.Enabled = false;
@@ -175,15 +202,13 @@ namespace QLCongNo.View.UC.HoaDon
                             pb78.PublishService pb = new pb78.PublishService();
                             pb.UpdateCus(xml, "capnuocthuducservice", "Einv@oi@vn#pt20", 0);
                         }
-                        catch
-                        {
-
-                        }
+                        catch { }
                         while (soluongHD > 0)
                         {
-                            MessageBox.Show("1");
                             pb78.PublishService pb = new pb78.PublishService();
-                            string xml = db.sp_xmlPublishInv(kyghi, 2019, dotid).FirstOrDefault().ToString();
+                            //string xml = db.sp_xmlPublishInv(kyghi, 2019, dotid).FirstOrDefault().ToString();
+                            // Chỉnh sửa phần phát hành hoá đơn sao cho có thể phát hành hoá đơn riêng lẻ
+                            var xml = db.sp_xmlPublishInv_Individual(kyghi, 2019, dotid, dsIDHD).FirstOrDefault().ToString();
                             var thongbao = db.MAU_HD.FirstOrDefault();
                             pb.Timeout = 180000;
                             var result = pb.ImportAndPublishInv("capnuocthuducadmin", acc.pass_admin, xml, "capnuocthuducservice", "Einv@oi@vn#pt20", thongbao.mau_HD1, thongbao.ky_hieu_HD, 0);
@@ -358,11 +383,33 @@ namespace QLCongNo.View.UC.HoaDon
                 int nam = int.Parse(cboNam.Text);
                 string thang = cboKy.Text;
                 string result = nam.ToString() + thang;
+                var danhbo = this.txtDanhBo.Text;
+                var listDB = new List<string>();
+                var containsInvalidChars = Regex.IsMatch(danhbo, @"[^0-9,\s]");
+
+                if (containsInvalidChars)
+                {
+                    MessageBox.Show("Nội dung Số danh bộ chưa chuẩn. Hãy nhập lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ResetData();
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+
+                if (danhbo.Contains(","))
+                {
+                    var item = danhbo.Split(',');
+                    foreach (var db in item)
+                        listDB.Add(db.Trim());
+                }
+                else listDB.Add(danhbo);
+
                 var dataHD = db.HOADONs.Where(x => x.trangthai_id == 1
                                                 && x.DOT_ID == dotid
                                                 && x.nam == nam
                                                 && x.kyghi == result
-                                                && x.DaPhatHanh == false).ToList();
+                                                && x.DaPhatHanh == false
+                                                && (listDB.Count() == 0 ? 1 == 1 : listDB.Contains(x.DANHBO))).ToList();
+
                 var chitietHD = (from a in db.CHITIET_HD
                                  from x in db.HOADONs
                                  where a.ID_HD == x.ID_HD && x.ID_KH == a.ID_KH
@@ -371,12 +418,20 @@ namespace QLCongNo.View.UC.HoaDon
                                     && x.nam == nam
                                     && x.kyghi == result
                                     && x.DaPhatHanh == false
+                                    && (listDB.Count() == 0 ? 1 == 1 : listDB.Contains(x.DANHBO))
                                  select a).ToList().Count();
 
                 if (dataHD.Count() == 0)
+                {
+                    ResetData();
                     MessageBox.Show("Tháng này đã được phát hành hóa đơn hoặc không có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }    
+                    
                 else if (chitietHD == 0)
+                {
+                    ResetData();
                     MessageBox.Show("Dữ liệu chi tiết hóa đơn không tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }    
                 else
                 {
                     bdButton.Enabled = true;
@@ -392,17 +447,31 @@ namespace QLCongNo.View.UC.HoaDon
                     txtThueGTGT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tienvat));
                     txtTongTien.Text = string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
                     txtLNTT.Text = string.Format("{0:n0}", dataHD.Sum(z => z.m3tieuthu));
-                    lblTongtien.Text = "Số lượng: " + string.Format("{0:n0}", dataHD.Count()) + " Tiền nước: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT)) +
-                        " Tiền thuế GTGT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienvat)) + " Tiền BVMT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienBVMT)) +
-                        " Tổng tiền: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
+                    lblTongtien.Text = "Số lượng: " + string.Format("{0:n0}", dataHD.Count()) + "  |  Tiền nước: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien0VAT)) +
+                        "  |  Tiền thuế GTGT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienvat)) + "  |  Tiền BVMT: " + string.Format("{0:n0}", dataHD.Sum(z => z.tienBVMT)) +
+                        "  |  Tổng tiền: " + string.Format("{0:n0}", dataHD.Sum(z => z.tongtien));
                     this.danhsach = dataHD;
                 }
                 this.Cursor = Cursors.Default;
             }
             catch (Exception ex)
             {
+                ResetData();
                 MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ResetData()
+        {
+            dataGridView1.DataSource = null;
+            lblTongtien.Text = "Tổng số:";
+            txtsoHD.Text = null;
+            txtLNTT.Text = null;
+            txttiennuoc.Text = null;
+            txtThueGTGT.Text = null;
+            txtPhiNT25.Text = null;
+            txtTienBVMT.Text = null;
+            txtTongTien.Text = null;
         }
 
         void quitButton_Click(object sender, EventArgs e)

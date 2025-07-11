@@ -59,6 +59,7 @@
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.ForeColor = System.Drawing.Color.MediumBlue;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.IsMainMenu = true;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnThoat});
@@ -79,7 +80,7 @@
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 0, 2, 0);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(4);
-            this.btnThoat.Size = new System.Drawing.Size(72, 31);
+            this.btnThoat.Size = new System.Drawing.Size(86, 35);
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Visible = false;
             // 
@@ -93,6 +94,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 25);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1059, 488);
             this.reportViewer1.TabIndex = 3;
             // 
@@ -102,7 +104,7 @@
             // 
             // UcPhieuThuKH
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.toolStrip1);
