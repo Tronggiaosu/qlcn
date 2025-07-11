@@ -224,6 +224,7 @@
     <Compile Include="Data\DataDangNganNH.cs" />
     <Compile Include="Data\DataDangNganNV.cs" />
     <Compile Include="Data\DataDanhMuc.cs" />
+    <Compile Include="Data\DataHoaDonKhoDoi.cs" />
     <Compile Include="Data\DongBoThuHo.cs" />
     <Compile Include="DieuChinhTT.cs">
       <DependentUpon>Model.tt</DependentUpon>

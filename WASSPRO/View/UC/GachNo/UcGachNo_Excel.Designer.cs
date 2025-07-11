@@ -313,9 +313,9 @@
             this.label3.Location = new System.Drawing.Point(8, 14);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 14, 12, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 22);
+            this.label3.Size = new System.Drawing.Size(116, 22);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Ngày thu";
+            this.label3.Text = "Ngày bảng kê";
             // 
             // txtsoHD
             // 

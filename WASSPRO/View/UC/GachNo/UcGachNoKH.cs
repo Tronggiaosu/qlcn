@@ -508,7 +508,6 @@ namespace QLCongNo.View.UC.GachNo
                                 khachhang.trangthai = 0;
                             }
                             db.GACHNOes.AddRange(dsGachno);
-                            db.SaveChanges();
                             db.CHUNGTU_HOADON.AddRange(DSchungtuHD);
                             db.SaveChanges();
                             var chungtuGachNo = db.CHUNGTUs.Where(x => x.ID_CT == chungtu.ID_CT).FirstOrDefault();

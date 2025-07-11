@@ -423,10 +423,8 @@ namespace QLCongNo.View.UC.GachNo
                     btnConfirm.Enabled = false;
                     using (var _tran = db.Database.BeginTransaction())
                     {
-
                         try
                         {
-
                             var NVLap = db.NGUOIDUNGs.Where(x => x.ma_nd == Common.username).FirstOrDefault();
                             var kyghi = db.DM_KYGHI.Where(x => x.gachno == true).FirstOrDefault();
                             string NVTHU = cboNV.SelectedValue.ToString();

@@ -104,7 +104,10 @@ namespace QLCongNo.View.UC.HoaDon
                 ServiceTDC.ThuHo tdc = new ServiceTDC.ThuHo();
                 foreach (DataGridViewRow r in dataGridView1.Rows)
                 {
-                    if (r.Cells[trangthaithanhtoanColumn.Name].Value.ToString() != "Đã thu" || r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Hủy")
+                    if (r.Cells[trangthaithanhtoanColumn.Name].Value.ToString() != "Đã thu" 
+                        || r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Hủy"
+                        || r.Cells[trangthaiHDColumn.Name].Value.ToString() != "Khó đòi"
+                    )
                     {
                         DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[checksColumn.Name];
                         var thu = checks.Value;
@@ -268,8 +271,10 @@ namespace QLCongNo.View.UC.HoaDon
                         dataGridView1.DataSource = table;
                         for (int i = 0; i < dataGridView1.RowCount; i++)
                         {
-                            if (dataGridView1.Rows[i].Cells[trangthaithanhtoanColumn.Name].Value.ToString() == "Đã thu" || dataGridView1.Rows[i].Cells[trangthaithanhtoanColumn.Name].Value.ToString() == "Hủy" ||
-                                dataGridView1.Rows[i].Cells[trangthaithanhtoanColumn.Name].Value.ToString() == "Khó đòi")
+                            if (dataGridView1.Rows[i].Cells[trangthaithanhtoanColumn.Name].Value.ToString() == "Đã thu" || 
+                                dataGridView1.Rows[i].Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy" ||
+                                dataGridView1.Rows[i].Cells[trangthaiHDColumn.Name].Value.ToString() == "Khó đòi"
+                            )
                             {
                                 dataGridView1.Rows[i].ReadOnly = true;
                                 dataGridView1.Rows[i].Cells[checksColumn.Name].Value = false;
@@ -310,7 +315,10 @@ namespace QLCongNo.View.UC.HoaDon
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
                 r.Cells[checksColumn.Name].Value = true;
-                if (r.Cells[trangthaithanhtoanColumn.Name].Value.ToString() == "Đã thu" || r.Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy")
+                if (r.Cells[trangthaithanhtoanColumn.Name].Value.ToString() == "Đã thu" || 
+                    r.Cells[trangthaiHDColumn.Name].Value.ToString() == "Hủy" ||
+                    r.Cells[trangthaiHDColumn.Name].Value.ToString() == "Khó đòi"
+                )
                     r.Cells[checksColumn.Name].Value = false;
             }
         }

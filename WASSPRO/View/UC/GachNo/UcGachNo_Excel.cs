@@ -253,6 +253,25 @@ namespace QLCongNo.View.UC.GachNo
 
                 txtsoHD.Text = dataGridView1.RowCount.ToString();
                 txttongthanhtoan.Text = string.Format("{0:n0}", dataDung.Sum(x => x.TongTien));
+
+
+                if (allExcelRows.Count > 0)
+                {
+                    var distinctNgay = allExcelRows
+                        .Select(r => r.Ngay)
+                        .Where(n => !string.IsNullOrEmpty(n))
+                        .Distinct()
+                        .ToList();
+
+                    if (distinctNgay.Count == 1)
+                    {
+                        if (DateTime.TryParse(distinctNgay[0], out DateTime parsedDate))
+                        {
+                            dtpNgaythu.Value = parsedDate;
+                        }
+                    }
+                }
+
                 sRet = "OK";
             }
             catch (Exception ex)
@@ -697,6 +716,7 @@ namespace QLCongNo.View.UC.GachNo
             cboNH.DisplayMember = "TENNGANHANG";
             cboNH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             txtPath.Enabled = false;
+            dtpNgaythu.Enabled = false;
         }
 
         public static DataTable Fdt_Excel(string pathExcel, string sheetName)

@@ -91,7 +91,6 @@ namespace QLCongNo.View.UC.HoaDon
                         {
                             hoadonkhodoi.NGUOITHANHTOAN = txtNVThu.Text;
                             hoadonkhodoi.NGAYTHANHTOAN = dtpNgayTT.Value;
-                            db.SaveChanges();
                             publish.GACH_NO = "1";
                             db.SaveChanges();
                             Business.BusinessService bs = new Business.BusinessService();
@@ -138,7 +137,6 @@ namespace QLCongNo.View.UC.HoaDon
                             hoadonkhodoi.NGAYTAO = DateTime.Now;
                             hoadonkhodoi.NGUOICHUYEN = pNVID;
                             phoadon.trangthai_id = 1;
-                            db.SaveChanges();
                             publish.STATUS = "0";
                             db.SaveChanges();
                         }
@@ -166,23 +164,23 @@ namespace QLCongNo.View.UC.HoaDon
                 DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật ngày chuyển nợ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (DialogResult.OK == rs)
                 {
-                int pNVID = int.Parse(Common.NVID.ToString());
-                foreach (DataGridViewRow r in dataGridView1.Rows)
-                {
-                    DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
-                    var thu = checks.Value;
-                    if (Convert.ToBoolean(thu) == true)
+                    int pNVID = int.Parse(Common.NVID.ToString());
+                    foreach (DataGridViewRow r in dataGridView1.Rows)
                     {
-                        decimal IDHD = decimal.Parse(dataGridView1[IDHDColumn.Name, r.Index].Value.ToString());
-                        var hoadonkhodoi = db.HOADON_KHODOI.Where(x => x.ID_HD == IDHD && x.TRANGTHAI == false).FirstOrDefault();
-                        hoadonkhodoi.NGAYCHUYEN = dtpNgaychuyenNo.Value;
-                        hoadonkhodoi.NGUOICHUYEN = pNVID;
-                        db.SaveChanges();
+                        DataGridViewCheckBoxCell checks = (DataGridViewCheckBoxCell)r.Cells[chkColumn.Name];
+                        var thu = checks.Value;
+                        if (Convert.ToBoolean(thu) == true)
+                        {
+                            decimal IDHD = decimal.Parse(dataGridView1[IDHDColumn.Name, r.Index].Value.ToString());
+                            var hoadonkhodoi = db.HOADON_KHODOI.Where(x => x.ID_HD == IDHD && x.TRANGTHAI == false).FirstOrDefault();
+                            hoadonkhodoi.NGAYCHUYEN = dtpNgaychuyenNo.Value;
+                            hoadonkhodoi.NGUOICHUYEN = pNVID;
+                            db.SaveChanges();
+                        }
                     }
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnTim.PerformClick();
                 }
-                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnTim.PerformClick();
-            }
             }
         }
 
