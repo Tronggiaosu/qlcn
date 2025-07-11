@@ -991,6 +991,8 @@
     <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_HOADON_NHANVIEN1" FromRole="HOADON" ToRole="NHANVIEN" />
     <NavigationProperty Name="NHANVIEN1" Relationship="Self.FK_HOADON_NHANVIEN2" FromRole="HOADON" ToRole="NHANVIEN" />
     <NavigationProperty Name="TDC_HOADON" Relationship="Self.FK_HOADON_TDC_HOADON" FromRole="HOADON" ToRole="TDC_HOADON" />
+    <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QHNS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="HOADON_HUY">
     <Key>
@@ -5540,6 +5542,16 @@
       <Parameter Name="ngaydangngan" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="NGUOIDUNG_CHUCNANG" EntityType="Model.NGUOIDUNG_CHUCNANG" />
+    <FunctionImport Name="sp_xmlPublishInv_Individual" ReturnType="Collection(String)">
+      <Parameter Name="ky" Mode="In" Type="Int32" />
+      <Parameter Name="nam" Mode="In" Type="Int32" />
+      <Parameter Name="dot" Mode="In" Type="Decimal" />
+      <Parameter Name="ID_HD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SplitStringToTable" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="InputString" Mode="In" Type="String" />
+      <Parameter Name="Delimiter" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetBangKeHoaDon_Result">
     <Property Type="String" Name="DANHBO" Nullable="true" MaxLength="250" />

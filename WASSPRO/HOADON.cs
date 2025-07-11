@@ -97,6 +97,8 @@ namespace QLCongNo
         public string DienGiai { get; set; }
         public Nullable<bool> DaPhatHanh { get; set; }
         public Nullable<int> tylephi { get; set; }
+        public string CCCD { get; set; }
+        public string QHNS { get; set; }
     
         public virtual ICollection<CHITIET_HD> CHITIET_HD { get; set; }
         public virtual ICollection<CHUNGTU_HOADON> CHUNGTU_HOADON { get; set; }

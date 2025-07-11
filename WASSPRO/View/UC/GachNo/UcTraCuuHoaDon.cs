@@ -379,7 +379,7 @@ namespace QLCongNo.View.UC.GachNo
                     if (dsHoadon.Count > 0)
                     {
                         dgvHoaDon.DataSource = dsHoadon.OrderByDescending(x => DateTime.Parse(x.kyghi)).ToList();
-                        //dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     }
                     else
                         dgvHoaDon.DataSource = null;

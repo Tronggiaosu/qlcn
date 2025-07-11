@@ -202,15 +202,13 @@ namespace QLCongNo.View.UC.HoaDon
                             pb78.PublishService pb = new pb78.PublishService();
                             pb.UpdateCus(xml, "capnuocthuducservice", "Einv@oi@vn#pt20", 0);
                         }
-                        catch
-                        {
-
-                        }
+                        catch { }
                         while (soluongHD > 0)
                         {
-                            MessageBox.Show("1");
                             pb78.PublishService pb = new pb78.PublishService();
-                            string xml = db.sp_xmlPublishInv(kyghi, 2019, dotid).FirstOrDefault().ToString();
+                            //string xml = db.sp_xmlPublishInv(kyghi, 2019, dotid).FirstOrDefault().ToString();
+                            // Chỉnh sửa phần phát hành hoá đơn sao cho có thể phát hành hoá đơn riêng lẻ
+                            var xml = db.sp_xmlPublishInv_Individual(kyghi, 2019, dotid, dsIDHD).FirstOrDefault().ToString();
                             var thongbao = db.MAU_HD.FirstOrDefault();
                             pb.Timeout = 180000;
                             var result = pb.ImportAndPublishInv("capnuocthuducadmin", acc.pass_admin, xml, "capnuocthuducservice", "Einv@oi@vn#pt20", thongbao.mau_HD1, thongbao.ky_hieu_HD, 0);
@@ -409,7 +407,7 @@ namespace QLCongNo.View.UC.HoaDon
                                                 && x.DOT_ID == dotid
                                                 && x.nam == nam
                                                 && x.kyghi == result
-                                                && x.DaPhatHanh == true
+                                                && x.DaPhatHanh == false
                                                 && (listDB.Count() == 0 ? 1 == 1 : listDB.Contains(x.DANHBO))).ToList();
 
                 var chitietHD = (from a in db.CHITIET_HD
@@ -419,7 +417,7 @@ namespace QLCongNo.View.UC.HoaDon
                                     && x.DOT_ID == dotid
                                     && x.nam == nam
                                     && x.kyghi == result
-                                    && x.DaPhatHanh == true
+                                    && x.DaPhatHanh == false
                                     && (listDB.Count() == 0 ? 1 == 1 : listDB.Contains(x.DANHBO))
                                  select a).ToList().Count();
 

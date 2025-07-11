@@ -434,7 +434,7 @@
             this.dgvKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -493,7 +493,6 @@
             this.maLTColumn.Name = "maLTColumn";
             this.maLTColumn.ReadOnly = true;
             this.maLTColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.maLTColumn.Width = 122;
             // 
             // madanhboColumn
             // 
@@ -505,7 +504,6 @@
             this.madanhboColumn.MinimumWidth = 6;
             this.madanhboColumn.Name = "madanhboColumn";
             this.madanhboColumn.ReadOnly = true;
-            this.madanhboColumn.Width = 104;
             // 
             // hoten_KH_Column
             // 
@@ -517,7 +515,6 @@
             this.hoten_KH_Column.MinimumWidth = 6;
             this.hoten_KH_Column.Name = "hoten_KH_Column";
             this.hoten_KH_Column.ReadOnly = true;
-            this.hoten_KH_Column.Width = 90;
             // 
             // sonhaColumn
             // 
@@ -529,7 +526,6 @@
             this.sonhaColumn.MinimumWidth = 6;
             this.sonhaColumn.Name = "sonhaColumn";
             this.sonhaColumn.ReadOnly = true;
-            this.sonhaColumn.Width = 91;
             // 
             // diachiColumn
             // 
@@ -541,7 +537,6 @@
             this.diachiColumn.MinimumWidth = 6;
             this.diachiColumn.Name = "diachiColumn";
             this.diachiColumn.ReadOnly = true;
-            this.diachiColumn.Width = 90;
             // 
             // phuongColumn
             // 
@@ -553,7 +548,6 @@
             this.phuongColumn.MinimumWidth = 6;
             this.phuongColumn.Name = "phuongColumn";
             this.phuongColumn.ReadOnly = true;
-            this.phuongColumn.Width = 98;
             // 
             // quanColumn
             // 
@@ -565,7 +559,6 @@
             this.quanColumn.MinimumWidth = 6;
             this.quanColumn.Name = "quanColumn";
             this.quanColumn.ReadOnly = true;
-            this.quanColumn.Width = 80;
             // 
             // ID_KH_dgv1
             // 
@@ -575,7 +568,6 @@
             this.ID_KH_dgv1.Name = "ID_KH_dgv1";
             this.ID_KH_dgv1.ReadOnly = true;
             this.ID_KH_dgv1.Visible = false;
-            this.ID_KH_dgv1.Width = 84;
             // 
             // dgvHoaDon
             // 
@@ -645,7 +637,7 @@
             this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvHoaDon.RowTemplate.Height = 35;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1342, 408);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1342, 406);
             this.dgvHoaDon.TabIndex = 1;
             // 
             // namColumn

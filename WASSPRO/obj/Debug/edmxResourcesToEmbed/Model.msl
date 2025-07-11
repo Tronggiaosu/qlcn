@@ -867,6 +867,8 @@
     <EntitySetMapping Name="HOADONs">
       <EntityTypeMapping TypeName="Model.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="QHNS" ColumnName="QHNS" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
           <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
           <ScalarProperty Name="keys" ColumnName="keys" />
           <ScalarProperty Name="kyghi" ColumnName="kyghi" />
@@ -5477,5 +5479,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_xmlPublishInv_Individual" FunctionName="Model.Store.sp_xmlPublishInv_Individual" />
+    <FunctionImportMapping FunctionImportName="SplitStringToTable" FunctionName="Model.Store.SplitStringToTable" />
   </EntityContainerMapping>
 </Mapping>
