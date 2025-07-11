@@ -533,14 +533,19 @@ namespace QLCongNo.View.UC.GachNo
                             txtTongthu.Text = "0";
                             txttong_HD.Text = "0";
                             MessageBox.Show("Xác nhận thanh toán thành công!");
-                            if (_staticMaloai != "CK")
+                            if (_staticMaloai == "KH")
                             {
-                                UcPhieuThuKH uc = new UcPhieuThuKH();
-                                uc.pIDCT = chungtu.ID_CT;
-                                uc.IDHD = 0;
-                                uc.Show();
+                                var frm = new UcPhieuThuKH
+                                {
+                                    pIDCT = chungtu.ID_CT,
+                                    IDHD = 0
+                                };
+                                new FrmDialog().ShowDialog(frm);
                             }
                             this.Cursor = Cursors.Default;
+
+
+                            
                         }
                     }
                     catch
