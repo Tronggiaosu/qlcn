@@ -182,8 +182,10 @@ namespace QLCongNo.View.UC.GachNo
                         if (e.ColumnIndex == 12)
                         {
                             Portal.PortalService portal = new Portal.PortalService();
+                            var dsMauHD = db.MAU_HD.Select(x => x.mau_HD1).ToList();
                             var accWS = db.TAIKHOAN_SERVICE.FirstOrDefault();
                             var hoadon = db.HOADONs.Where(x => x.ID_HD == IDHD).FirstOrDefault();
+                            var mauHD = hoadon.MAU_HD;
                             var hoadonloi = db.HOADONs.Where(x => x.ID_KH == hoadon.ID_KH && x.trangthai_id == -22).FirstOrDefault();
                             var hoadonsai = db.HOADONs.Where(x => x.ID_HD == IDHD && x.DOT_ID == 1 && x.kyghi == "202302" && x.keys == null).FirstOrDefault();
                             if (hoadonloi != null)
@@ -192,7 +194,7 @@ namespace QLCongNo.View.UC.GachNo
                             portal78.PortalService p78 = new portal78.PortalService();
                             if (hoadonsai != null)
                                 result = p78.getInvViewFkeyNoPay(hoadonsai.DienGiai, "capnuocthuducservice", "Einv@oi@vn#pt20");
-                            else if (hoadon.MAU_HD == "1/001" || hoadon.MAU_HD == "1/002" || hoadon.MAU_HD == "1/003")
+                            else if (mauHD == "1/001" || mauHD == "1/002" || mauHD == "1/003" || dsMauHD.Contains(mauHD))
                                 result = p78.getInvViewFkeyNoPay(IDHD.ToString(), "capnuocthuducservice", "Einv@oi@vn#pt20");
                             var frm = new Form();
                             frm.Size = new Size(1200, 800);
