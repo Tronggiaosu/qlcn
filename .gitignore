@@ -363,9 +363,14 @@ MigrationBackup/
 FodyWeavers.xsd
 /src/BookShop/BookShop.Web/wwwroot/images/product
 
-bin/**
-!bin/Debug/ReportViewer/
-!bin/Debug/ReportViewer/**
+#bin/**
+#!bin/Debug/ReportViewer/
+#!bin/Debug/ReportViewer/**
+
+/WASSPRO/bin/Debug/*
+!/WASSPRO/bin/Debug/ReportViewer/
+!/WASSPRO/bin/Debug/ReportViewer/**
+
 obj/
 *.user
 *.suo
