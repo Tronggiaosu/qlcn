@@ -363,7 +363,10 @@ MigrationBackup/
 FodyWeavers.xsd
 /src/BookShop/BookShop.Web/wwwroot/images/product
 
-bin/
+bin/**
+!bin/Debug/
+!bin/Debug/ReportViewer/
+!bin/Debug/ReportViewer/**
 obj/
 *.user
 *.suo

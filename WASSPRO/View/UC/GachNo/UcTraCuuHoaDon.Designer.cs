@@ -637,7 +637,7 @@
             this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvHoaDon.RowTemplate.Height = 35;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1342, 406);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1342, 405);
             this.dgvHoaDon.TabIndex = 1;
             // 
             // namColumn
